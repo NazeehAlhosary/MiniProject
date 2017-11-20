@@ -1,4 +1,9 @@
-package Connection;
+/**
+ * 
+ * This class made by M Nazeeh Alhosary.
+ *          7/5/2017
+ */
+package Connection; // Please change package name...
 
 
 //import com.sun.xml.internal.ws.util.ReadAllStream;

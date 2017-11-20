@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * This class made by M Nazeeh Alhosary.
+ *          13/11/2017
  */
-package Connection;
+
+package Connection; // Please change package name...
 
 import static com.sun.management.jmx.Trace.isSelected;
 import java.awt.Color;
