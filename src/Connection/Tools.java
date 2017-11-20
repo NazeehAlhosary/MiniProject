@@ -351,16 +351,4 @@ public static String RemoveNumbers (Object text) {
     }
 }
  
-    /* // لوضع صورة في إطار معين نتبع ما يلي حيث أن
- يجب أن تكون الصورة محفوظة داخل ملف المشورع
- try {
-         File f = new File("user.png");  // يجب أن تكون الصورة في نفس المسار
-         Image img = ImageIO.read(f);
-         Image newimg = img.getScaledInstance(60, 60, Image.SCALE_AREA_AVERAGING); // حددنا مقاسات الصورة الجدية كي تتناسب مع الليبل
-         ImageIcon icon = new ImageIcon(newimg);//وضعنا الصورة الجديدة كأيقونة
-         lblloging.setIcon(icon);// وضعناها في الليبل
-        } catch (IOException ex) {
-            Logger.getLogger(test1.class.getName()).log(Level.SEVERE, null, ex);
-        } */
-         
 }
