@@ -4,11 +4,21 @@
  *          7/5/2017
  */
 package Connection ; // Please change package name...
-import java.sql.*;
-import java.util.*;
-import javax.swing.*;
+import company.Tools;
+import company.Tools.Table;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Nazeeh
@@ -20,7 +30,8 @@ public class Connections {
    
      private static void SetURL() {
     URL = "jdbc:mysql://localhost:3306/" + DBNama;
-    }
+
+     }
     
      public static void SetConnection () {
      
@@ -28,6 +39,7 @@ public class Connections {
             SetURL();
             Con = DriverManager.getConnection(URL,"root","");
         } catch (SQLException ex) { 
+            System.out.println("ww");
             Tools.MsgBox(ex.getMessage());
         }
              
@@ -44,6 +56,7 @@ public class Connections {
             return true;         
         } 
         catch (SQLException ex) {
+           
             Tools.MsgBox(ex.getMessage());
             return false;
         }
