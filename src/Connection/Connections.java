@@ -32,47 +32,7 @@ public class Connections {
         }
              
     }
-     
-     public static boolean CheckLogIn (String UserName , String PassWord){
-        try {
-            SetConnection();
-            Statement Stmt = Con.createStatement();
-            String Check = "Select * From login Where " 
-                    + UserName+"='" + UserName +"' and "
-                    + PassWord+"='" +PassWord + "'";
-            Stmt.executeQuery(Check);
-            while (Stmt.getResultSet().next()){
-                Con.close();
-                return true;
-            }
-            Con.close();
-        }
-        catch (SQLException ex) {
-            Tools.MsgBox(ex.getMessage());
-        }
-        return false;
-    }
-     
-     {/* public static boolean CheckLogInCustomer (String UserName , String PassWord){
-        try {
-            SetConnection();
-            Statement Stmt = Con.createStatement();
-            String Check = "Select * From CustomerLogin Where "
-                    + "UserN='" + UserName +"' and "
-                    + "Pass='" +PassWord + "'";
-            
-            Stmt.executeQuery(Check);
-            while (Stmt.getResultSet().next()){
-                Con.close();
-                return true;
-            }
-            Con.close();
-        }
-        catch (SQLException ex) {
-            Tools.MsgBox(ex.getMessage());
-        }
-        return false;
-    }*/}
+   
     
      public static boolean RunNonQuery(String SqlStatement) { 
         //For Insert, Update and Delete NOT Select 
@@ -210,5 +170,46 @@ public class Connections {
             Tools.MsgBox(ex.getMessage());
         }
     }
+       
+     public static boolean CheckLogIn (String UserName , String PassWord){
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Check = "Select * From login Where " 
+                    + UserName+"='" + UserName +"' and "
+                    + PassWord+"='" +PassWord + "'";
+            Stmt.executeQuery(Check);
+            while (Stmt.getResultSet().next()){
+                Con.close();
+                return true;
+            }
+            Con.close();
+        }
+        catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+        }
+        return false;
+    }
+     
+     {/* public static boolean CheckLogInCustomer (String UserName , String PassWord){
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Check = "Select * From CustomerLogin Where "
+                    + "UserN='" + UserName +"' and "
+                    + "Pass='" +PassWord + "'";
+            
+            Stmt.executeQuery(Check);
+            while (Stmt.getResultSet().next()){
+                Con.close();
+                return true;
+            }
+            Con.close();
+        }
+        catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+        }
+        return false;
+    }*/}
 
 }
