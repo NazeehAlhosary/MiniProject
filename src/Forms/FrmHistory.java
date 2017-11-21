@@ -5,6 +5,8 @@
  */
 package Forms;
 
+import Controls.JMyButton;
+
 /**
  *
  * @author Nazeeh

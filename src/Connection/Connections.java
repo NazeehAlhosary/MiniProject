@@ -4,8 +4,6 @@
  *          7/5/2017
  */
 package Connection ; // Please change package name...
-import company.Tools;
-import company.Tools.Table;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
