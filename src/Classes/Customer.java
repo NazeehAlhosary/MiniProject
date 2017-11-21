@@ -18,7 +18,13 @@ public class Customer {
     private String Name;
     private String Address;
     private String Phone;
+    int CardNumberId;
 
+private void getUniqueId()
+{
+    setCardNumber(CardNumberId);
+    CardNumberId++;
+}
     public int getCardNumber() {
         return CardNumber;
     }
