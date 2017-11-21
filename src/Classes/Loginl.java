@@ -55,7 +55,8 @@ public class Loginl {
           Tools.MsgBoxInfo("User "+Username + " has been deleted", "Delete");
       }
      }
-     
+    
+      
     
     
 }
