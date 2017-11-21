@@ -85,9 +85,10 @@ public class Customer {
         if (check) {
             Tools.MsgBoxInfo("Customer has been deleted", "Customer Deleted");
         }
-        
-     
      }
+      public int AutoNumber(){
+      return Connections.GetAutoNumbers(" Customer ", "CardNumber");
+      }
            
     
 }

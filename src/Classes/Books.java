@@ -152,4 +152,7 @@ public class Books {
     public void GetSomeRows(String Statement, JTable table){
     Connections.FillCustomRows(Statement, table);
     }
+    public int AutoNumber(){
+     return Connections.GetAutoNumbers(" Books ", "ISBN");
+      }
 }

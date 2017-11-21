@@ -203,6 +203,27 @@ public class Connections {
         }
         return false;
     }
+     public static int GetAutoNumbers(String TableName , String ColumnName) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Auto= "select max(" + ColumnName + ")+1 as AutoNumber from "+ TableName;
+            Stmt.executeQuery(Auto);
+            String Number = "";
+            while (Stmt.getResultSet().next()) {
+                Number = Stmt.getResultSet().getString("AutoNumber");
+            }
+            Con.close();                
+             if (Number == null || Number.equals("")) {
+                return 1;
+            } else {
+                return Integer.parseInt(Number);
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return 0;
+        }
+    }
      
      {/* public static boolean CheckLogInCustomer (String UserName , String PassWord){
         try {
