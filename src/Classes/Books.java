@@ -126,8 +126,30 @@ public class Books {
      }
     }
     
+    public void UpdateBorrowing(){
+         String update = "Update Books set "
+            +"Status='"+"Out"+"',"
+            +"NumberOfBorrowing=" + NumberOfBorrowing
+            + " where ISBN=" +ISBN +";";
+     boolean check = Connections.RunNonQuery(update);
+     if (check){
+         Tools.MsgBoxInfo("Book "+ISBN + " has been borrowed", "Update");
+     }
+}
+     public void UpdateReturned(){
+         String update = "Update Books set "
+            +"Status='"+"In"+"',"
+            + " where ISBN=" +ISBN +";";
+     boolean check = Connections.RunNonQuery(update);
+     if (check){
+         Tools.MsgBoxInfo("Book "+ISBN + " has been returned", "Update");
+     }
+}
     public void GetTableInfo(String TableNameInDB, JTable table){
         Connections.FillTable(TableNameInDB, table);
     }
     
+    public void GetSomeRows(String Statement, JTable table){
+    Connections.FillCustomRows(Statement, table);
+    }
 }

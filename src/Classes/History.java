@@ -7,6 +7,7 @@ package Classes;
 
 import Connection.Connections;
 import Connection.Tools;
+import javax.swing.JTable;
 
 /**
  *
@@ -77,7 +78,7 @@ public class History {
         this.returnedDate = returnedDate;
     }
     
-    public void addHistory() {
+    public void Add() {
         String insert = "INSERT INTO History VALUES ("
                 + cardNumber + ","
                 + ISBN + "," 
@@ -92,7 +93,18 @@ public class History {
         }
                 
     }
+    public void UpdateReturned(){
+         String update = "Update History set "
+            +"Status='"+"Returned"+"',"
+            + "returnedDate='" +returnedDate + "'"
+            + " where ISBN=" +ISBN +";";
+     boolean check = Connections.RunNonQuery(update);
+     if (check){
+         Tools.MsgBoxInfo("Book "+ISBN + " has been returned", "Update");
+     }
     
-
-    
+    }
+       public void GetSomeRows(String Statement, JTable table){
+        Connections.FillCustomRows(Statement, table);
+    }
 }

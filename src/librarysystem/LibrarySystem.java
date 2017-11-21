@@ -16,20 +16,7 @@ public class LibrarySystem {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        System.out.println("Mini Project");
-       Tools.OpenForm(new FrmBooks());
-        Books b = new Books();
-        b.setISBN(1);
-        b.setAuthor("Martin");
-        b.setTitle("Anythings");
-        b.setGenre("test");
-        b.setNumberOfBorrowing(3);
-        b.setPublisher("test");
-        b.setStatus("test");
-        b.setShelf("test");
-      //  b.Add();
-}
-    
-
+    public static void main(String[] args) {   
+        
+    }
 }

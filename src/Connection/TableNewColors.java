@@ -19,6 +19,7 @@ import sun.swing.table.DefaultTableCellHeaderRenderer;
  */
 public class TableNewColors extends DefaultTableCellRenderer{
 private Component componente;
+
     @Override
     public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
         componente = super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1); //To change body of generated methods, choose Tools | Templates.
@@ -35,6 +36,7 @@ private Component componente;
         }
         return componente;
     }
+    
     /*
     Then in the form constructor we put
     TableNme.setDefaultRenderer(Object.class, new TableNewColors());

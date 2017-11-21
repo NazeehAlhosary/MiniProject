@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.text.*;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -18,6 +19,7 @@ import javax.swing.*;
 import static javax.swing.JSplitPane.RIGHT;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.JTableHeader;
+
 
 public class Tools {
  
@@ -92,6 +94,7 @@ public class Tools {
       Image img =  ImageIO.read(Tools.class.getResource("001.png"));
       form.setIconImage(img);
       form.setDefaultCloseOperation(2);
+//      form.setDefaultCloseOperation(form.DO_NOTHING_ON_CLOSE); //To disable close button (x) at the top
       form.getContentPane().setBackground(Color.WHITE);
       form.setVisible(true);
      } catch (IOException e) {
@@ -105,6 +108,7 @@ public class Tools {
       Image img =  ImageIO.read(Tools.class.getResource(Icon));
       form.setIconImage(img);
       form.setDefaultCloseOperation(2);
+//      form.setDefaultCloseOperation(form.DO_NOTHING_ON_CLOSE); //To disable close button (x) at the top
       form.getContentPane().setBackground(Color.WHITE) ;
       form.setVisible(true);
      } catch (IOException e) {
@@ -197,6 +201,39 @@ public class Tools {
         String T = String.valueOf(SMF.format(Today));
         lable.setText(T);
  }
+ // To calculate the days number between two dates.
+  
+  // Way 1 if we have a String date... NOTE THAT THE DATE FORMULA IS yyyy/MM/dd 
+  public int CalculateDays(String FirstDatem ,String SecondDate){
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+      /*
+      If we do not want to cast we can put long istead of int 
+      in the return just return Integer.parseInt(Long.toString(days));
+      */
+      try {
+         int diff = (int) (sdf.parse(SecondDate).getTime() - sdf.parse(FirstDatem).getTime());
+         int hours = diff / (60*60*1000);
+         int days = hours/24;
+        return days;
+      } catch (ParseException ex) {
+         Tools.MsgBox(ex.getMessage());
+         return 0;
+      }     
+  }
+    // Way 2 if we have any date chooser... NOTE THAT THE DATE FORMULA IS yyyy/MM/dd 
+   /* public void CalculateDays(JLabel label , JDateChooser FirstDate ,JDateChooser SecondDate){
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd"); 
+      // d1 = format.parse(format.format(Date1.getDate()));
+        Date date1 = null;
+        Date date2 = null;
+        date1= sdf.parse( sdf.format( SecondDate.getDate()) );
+        date2 = sdf.parse( sdf.format( FirstDate.getDate()) ) ;
+        long diff = date2.getTime() - date1.getTime();
+        long hours = diff / (60*60*1000);
+        long days = hours/24;
+        label.setText(Long.toString(days));
+          
+  }*/
  public class Table {
 
     public int columns;
