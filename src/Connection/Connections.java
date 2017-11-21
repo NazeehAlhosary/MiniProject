@@ -189,8 +189,8 @@ public class Connections {
             SetConnection();
             Statement Stmt = Con.createStatement();
             String Check = "Select * From login Where " 
-                    + UserName+"='" + UserName +"' and "
-                    + PassWord+"='" +PassWord + "'";
+                    +"UserName='" + UserName +"' and "
+                    + "PassWord='" +PassWord + "'";
             Stmt.executeQuery(Check);
             while (Stmt.getResultSet().next()){
                 Con.close();
