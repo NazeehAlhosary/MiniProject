@@ -17,6 +17,7 @@ public class Loginl {
     private String Password;
     
     
+    
     public String getPassword() {
         return Password;
     }
