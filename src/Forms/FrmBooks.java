@@ -47,6 +47,22 @@ public class FrmBooks extends javax.swing.JFrame {
     txtTitle.requestFocus();
     book.GetTableInfo("Books", BooksTable);
     }
+    
+    private void SelectInfo(){
+        int Row = BooksTable.getSelectedRow();
+                try {
+    txtISBN.setText(BooksTable.getValueAt(Row,0).toString() );
+    txtTitle.setText(BooksTable.getValueAt(Row, 1).toString() );
+    txtAuthor.setText(BooksTable.getValueAt(Row, 2).toString());
+    txtPublisher.setText(BooksTable.getValueAt(Row, 3).toString());
+    txtShelf.setText(BooksTable.getValueAt(Row, 4).toString());
+    txtGenre.setText(BooksTable.getValueAt(Row, 5).toString());
+    ComStatus.setSelectedItem(BooksTable.getValueAt(Row, 6).toString());
+    txtNumberOfBorrowing.setText(BooksTable.getValueAt(Row, 7).toString());
+                 }catch(Exception ex){
+                Tools.MsgBox(ex.getMessage());
+                }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,6 +120,16 @@ public class FrmBooks extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        BooksTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BooksTableMouseClicked(evt);
+            }
+        });
+        BooksTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BooksTableKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(BooksTable);
         if (BooksTable.getColumnModel().getColumnCount() > 0) {
             BooksTable.getColumnModel().getColumn(0).setMaxWidth(100);
@@ -115,6 +141,7 @@ public class FrmBooks extends javax.swing.JFrame {
         }
 
         btnAdd.setText("Add");
+        btnAdd.setToolTipText("Add new Book");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -130,6 +157,8 @@ public class FrmBooks extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Garamond", 3, 48)); // NOI18N
         jLabel5.setText("BOOKS");
+
+        txtISBN.setEditable(false);
 
         jLabel1.setText("ISBN");
 
@@ -204,22 +233,22 @@ public class FrmBooks extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(18, 18, 18)
                                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGap(18, 18, 18)
                                     .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtNumberOfBorrowing, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(ComStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtGenre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtShelf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(57, 57, 57))))
+                                    .addGap(84, 84, 84))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 931, Short.MAX_VALUE))))
+                        .addGap(904, 904, 904))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +296,7 @@ public class FrmBooks extends javax.swing.JFrame {
                             .addComponent(ComStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 116, Short.MAX_VALUE)
+                                .addGap(0, 122, Short.MAX_VALUE)
                                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -277,7 +306,8 @@ public class FrmBooks extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -318,6 +348,14 @@ public class FrmBooks extends javax.swing.JFrame {
              book.Update();
              ClearInfo();
     }//GEN-LAST:event_btnuUpdateActionPerformed
+
+    private void BooksTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BooksTableMouseClicked
+        SelectInfo();
+    }//GEN-LAST:event_BooksTableMouseClicked
+
+    private void BooksTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BooksTableKeyReleased
+        SelectInfo();
+    }//GEN-LAST:event_BooksTableKeyReleased
 
     /**
      * @param args the command line arguments
