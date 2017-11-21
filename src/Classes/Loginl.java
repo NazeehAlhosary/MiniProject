@@ -15,6 +15,8 @@ public class Loginl {
     
     private String Username;
     private String Password;
+    
+    
     public String getPassword() {
         return Password;
     }
@@ -24,6 +26,7 @@ public class Loginl {
     public void setPassword(String Password) {
         this.Password = Password;
     }
+    
     
     public void Add(){
          String insert = "Insert into Loginl VALUES ("
