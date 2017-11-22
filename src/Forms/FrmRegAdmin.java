@@ -18,6 +18,7 @@ public class FrmRegAdmin extends javax.swing.JFrame {
      */
     public FrmRegAdmin() {
         initComponents();
+         Tools.PutImageInLable("blue-sky.jpg", img, 351, 399);
     }
 
     private void registerAdmin(){
@@ -84,9 +85,14 @@ public class FrmRegAdmin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setLayout(null);
 
@@ -136,10 +142,8 @@ public class FrmRegAdmin extends javax.swing.JFrame {
         jLabel2.setText("Register Form");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(80, 20, 210, 50);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mohammadzreik/Downloads/blue-sky.jpg")); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 350, 400);
+        jPanel1.add(img);
+        img.setBounds(0, 0, 350, 400);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,6 +170,10 @@ public class FrmRegAdmin extends javax.swing.JFrame {
         this.dispose();
         Connection.Tools.OpenForm(new FrmLogin());
     }//GEN-LAST:event_backbtnActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+     
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -204,7 +212,7 @@ public class FrmRegAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backbtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel img;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
