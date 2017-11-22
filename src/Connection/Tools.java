@@ -203,6 +203,22 @@ public class Tools {
         String T = String.valueOf(SMF.format(Today));
         lable.setText(T);
  }
+ // This method return a date for today as a String 
+ public static String ToDay(){
+     // Date
+        java.util.Date Today = new java.util.Date();
+        SimpleDateFormat SMF = new SimpleDateFormat("yyyy/MM/dd");
+        return String.valueOf(SMF.format(Today));
+ }
+ 
+   public static String DateAfterFourteenDays(){
+     // Date
+        SimpleDateFormat SMF = new SimpleDateFormat("yyyy/MM/dd");
+        Calendar cal = new GregorianCalendar();
+        SMF.format(cal.getTime());
+        cal.add(Calendar.DAY_OF_MONTH,14);
+        return SMF.format(cal.getTime());
+ }
  // To calculate the days number between two dates.
   
   // Way 1 if we have a String date... NOTE THAT THE DATE FORMULA IS yyyy/MM/dd 
@@ -237,14 +253,6 @@ public class Tools {
         label.setText(Long.toString(days));
           
   }*/
-   public static String DateAfterFourteenDays(){
-     // Date
-        SimpleDateFormat SMF = new SimpleDateFormat("yyyy/MM/dd");
-        Calendar cal = new GregorianCalendar();
-        SMF.format(cal.getTime());
-        cal.add(Calendar.DAY_OF_MONTH,14);
-        return SMF.format(cal.getTime());
- }
    
  public class Table {
 
