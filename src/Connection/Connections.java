@@ -55,7 +55,7 @@ public class Connections {
         } 
         catch (SQLException ex) {
            
-            Tools.MsgBox(ex.getMessage());
+            Tools.MsgBoxError1("Username , Library Card Number or ISBN Already Exist", "Exists Error");
             return false;
         }
     }
@@ -186,7 +186,7 @@ public class Connections {
         try {
             SetConnection();
             Statement Stmt = Con.createStatement();
-            String Check = "Select * From login Where " 
+            String Check = "Select * From loginl Where " 
                     +"UserName='" + UserName +"' and "
                     + "PassWord='" +PassWord + "'";
             Stmt.executeQuery(Check);

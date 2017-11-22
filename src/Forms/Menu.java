@@ -32,6 +32,7 @@ public class Menu extends javax.swing.JFrame {
         customersbtn = new javax.swing.JButton();
         booksbtn = new javax.swing.JButton();
         historybtn = new javax.swing.JButton();
+        rgstbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        rgstbtn.setText("Register New Admin");
+        rgstbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rgstbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,7 +85,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rgstbtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(booksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,7 +113,9 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(customersbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(booksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rgstbtn))
                 .addContainerGap())
         );
 
@@ -112,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void logobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logobtnActionPerformed
         this.dispose();
-        Connection.Tools.OpenForm(this); // open Log in Form When done ! ! 
+        Connection.Tools.OpenForm(new FrmLogin());  
     }//GEN-LAST:event_logobtnActionPerformed
 
     private void booksbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booksbtnActionPerformed
@@ -129,6 +141,12 @@ public class Menu extends javax.swing.JFrame {
       this.dispose();
       Connection.Tools.OpenForm(new FrmHistory());
     }//GEN-LAST:event_historybtnActionPerformed
+
+    private void rgstbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgstbtnActionPerformed
+        this.dispose();
+        Connection.Tools.OpenForm(new FrmRegAdmin());
+        
+    }//GEN-LAST:event_rgstbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,5 +189,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton historybtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logobtn;
+    private javax.swing.JButton rgstbtn;
     // End of variables declaration//GEN-END:variables
 }

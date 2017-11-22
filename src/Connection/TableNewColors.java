@@ -6,12 +6,12 @@
 
 package Connection; // Please change package name...
 
-import static com.sun.management.jmx.Trace.isSelected;
+
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
+
 
 /**
  *

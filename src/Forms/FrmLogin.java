@@ -105,7 +105,7 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(exitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -122,15 +122,13 @@ public class FrmLogin extends javax.swing.JFrame {
             this.dispose();
             Connection.Tools.OpenForm(new Menu());
 
-        }
-   else {
-            Connection.Tools.MsgBox("Invaild Username or Password");
+        } else {
+            Connection.Tools.MsgBoxInfo("Invaild Username or Password", "Log In");
             txtuser.setText("");
             txtpass.setText("");
             txtuser.requestFocus();
-            
-            
-                    }
+
+        }
 
     }//GEN-LAST:event_logbtnActionPerformed
 

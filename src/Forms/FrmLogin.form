@@ -76,7 +76,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="logbtn" min="-2" pref="36" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Component id="exitbtn" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
