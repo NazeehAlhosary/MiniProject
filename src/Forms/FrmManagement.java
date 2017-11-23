@@ -27,6 +27,9 @@ public class FrmManagement extends javax.swing.JFrame {
     
     public FrmManagement() {
         initComponents();
+        Tools.PutImageInLable("back.png", lblRefresh, 50, 50);
+         Tools.PutImageInLable("back.png", lblRefreshb,60 , 60);
+         lblRefreshb.hide();
     }
 
     /**
@@ -128,6 +131,7 @@ public class FrmManagement extends javax.swing.JFrame {
             }
         });
 
+        lblRefreshb.setToolTipText("Back to Menu");
         lblRefreshb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRefreshbMouseClicked(evt);
@@ -160,6 +164,9 @@ public class FrmManagement extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblName)
@@ -169,7 +176,7 @@ public class FrmManagement extends javax.swing.JFrame {
                                 .addComponent(lblCardNum)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCardNum)))
-                        .addGap(39, 39, 39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblAddress)
@@ -178,9 +185,8 @@ public class FrmManagement extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblPhone)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPhone))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtPhone)))
+                        .addGap(135, 135, 135))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,13 +237,11 @@ public class FrmManagement extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         tableCI.getTableHeader().setBackground(new Color (00,102,102));
-     tableCI.getTableHeader().setForeground(Color.white);
-     tableCI.getTableHeader().setReorderingAllowed(false); // Change column order
-     tableCI.getTableHeader().setResizingAllowed(false);  // Change column size
+     tableCI.getTableHeader().setForeground(Color.WHITE);
+     tableCI.getTableHeader().setReorderingAllowed(false); 
+     tableCI.getTableHeader().setResizingAllowed(false);  
         Connections.FillTable("Customer", tableCI);
-        Tools.PutImageInLable("back.png", lblRefresh, 50, 50);
-         Tools.PutImageInLable("back.png", lblRefreshb,60 , 60);
-         lblRefreshb.hide();
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -256,7 +260,8 @@ public class FrmManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
+         this.dispose();
+        Connection.Tools.OpenForm(new FrmReturn());
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void lblRefreshMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseMoved
