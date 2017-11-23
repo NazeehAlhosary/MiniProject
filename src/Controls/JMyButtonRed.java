@@ -11,9 +11,9 @@ import java.awt.Cursor;
 import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-public class JMyButton extends JButton {
+public class JMyButtonRed extends JButton {
     
-    public  JMyButton (){
+    public  JMyButtonRed (){
 
         setOpaque(false);
         setContentAreaFilled(false);
@@ -25,14 +25,14 @@ public class JMyButton extends JButton {
 //    }
     @Override
     protected void paintComponent(Graphics g){
-    g.setColor(new Color(15, 80 ,90));
+    g.setColor(new Color(255, 00 ,00));
     g.fillRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 25, 25);
     super.paintComponent(g);
     }
     
     @Override
     protected void paintBorder(Graphics g){
-         g.setColor(new Color(15, 80 ,90));
+         g.setColor(new Color(255, 00 ,00));
         g.drawRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 25, 25);
         
     }
