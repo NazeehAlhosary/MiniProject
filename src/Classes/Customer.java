@@ -92,6 +92,14 @@ private void getUniqueId()
             Tools.MsgBoxInfo("Customer has been deleted", "Customer Deleted");
         }
      }
+      
+      
+      
+      public void GetTableInfo(String TableNameInDB, JTable table){
+        Connections.FillTable(TableNameInDB, table);
+    }
+      
+      
       public int AutoNumber(){
       return Connections.GetAutoNumbers(" Customer ", "CardNumber");
       }
