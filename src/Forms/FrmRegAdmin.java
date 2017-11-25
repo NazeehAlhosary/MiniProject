@@ -28,15 +28,12 @@ public class FrmRegAdmin extends javax.swing.JFrame {
    
             String regist = "INSERT INTO loginl VALUES (" + "'" + txtuser.getText()+ "'" + "," + "'" + txtpass.getText() + "'" + ") ;" ; 
         if(txtpass.getText().equalsIgnoreCase(txtrepass.getText())){
-        boolean check = Connection.Connections.RunNonQuery(regist);
-        
+        boolean check = Connection.Connections.RunNonQueryAdmin(regist);
         if(check) {
             Connection.Tools.MsgBoxInfo("Admin Has Been Aded", "Register");
             this.dispose();
             Tools.OpenForm(new FrmLogin());
-            
         }
-    
     }
         else{
         Connection.Tools.MsgBoxInfo("Please Enter The Same Password", "Register");
@@ -103,7 +100,7 @@ public class FrmRegAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backbtn);
-        backbtn.setBounds(10, 360, 80, 27);
+        backbtn.setBounds(10, 360, 80, 32);
 
         regbtn.setText("Register");
         regbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -112,15 +109,15 @@ public class FrmRegAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(regbtn);
-        regbtn.setBounds(90, 360, 75, 27);
+        regbtn.setBounds(100, 360, 140, 32);
         jPanel1.add(txtuser);
-        txtuser.setBounds(150, 110, 180, 27);
+        txtuser.setBounds(150, 110, 180, 24);
         jPanel1.add(txtrepass);
-        txtrepass.setBounds(150, 190, 180, 27);
+        txtrepass.setBounds(150, 190, 180, 22);
         jPanel1.add(txtpass);
-        txtpass.setBounds(150, 150, 180, 27);
+        txtpass.setBounds(150, 150, 180, 22);
         jPanel1.add(txtphone);
-        txtphone.setBounds(150, 230, 180, 27);
+        txtphone.setBounds(150, 230, 180, 24);
 
         jLabel6.setText("Phone Number :");
         jPanel1.add(jLabel6);

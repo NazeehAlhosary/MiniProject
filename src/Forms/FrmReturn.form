@@ -62,6 +62,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblRefresh" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="lblRefreshb" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="btnReturn" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -76,10 +77,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnExit" max="32767" attributes="0"/>
-                          <Component id="btnReturn" pref="120" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnExit" min="-2" pref="120" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="609" max="-2" attributes="0"/>
@@ -120,9 +118,9 @@
                           <Component id="txtFee" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="SEK" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="btnReturn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnReturn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="lblRefreshb" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblRefresh" min="-2" pref="50" max="-2" attributes="0"/>
@@ -300,6 +298,7 @@
     <Component class="javax.swing.JLabel" name="lblRefresh">
       <Events>
         <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="lblRefreshMouseMoved"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRefreshMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblRefreshb">
@@ -308,6 +307,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRefreshbMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRefreshbMouseEntered"/>
         <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRefreshbMouseExited"/>
       </Events>
     </Component>

@@ -38,7 +38,7 @@ public class FrmBooks extends javax.swing.JFrame {
         book.setNumberOfBorrowing(Integer.parseInt(txtNumberOfBorrowing.getText()));
     }
     private void ClearInfo(){
-    txtISBN.setText("");
+    txtISBN.setText(String.valueOf( book.AutoNumber()) );
     txtAuthor.setText("");
     txtTitle.setText("");
     txtShelf.setText("");
@@ -46,6 +46,7 @@ public class FrmBooks extends javax.swing.JFrame {
     ComStatus.setSelectedItem("***Select Status***");
     txtNumberOfBorrowing.setText("0");
     txtPublisher.setText("");
+    txtSearch.setText("");
     txtISBN.requestFocus();
     book.GetTableInfo("Books", BooksTable);
     }
@@ -83,6 +84,7 @@ public class FrmBooks extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroup = new javax.swing.ButtonGroup();
         btnAdd = new Controls.JMyButton();
         jLabel5 = new javax.swing.JLabel();
         txtISBN = new Controls.JTextBox();
@@ -111,6 +113,19 @@ public class FrmBooks extends javax.swing.JFrame {
         btnBack = new Controls.JMyButton();
         btnExit = new Controls.JMyButtonRed();
         ComGenre = new Controls.JCombo();
+        RadISBN = new javax.swing.JRadioButton();
+        RadTitle = new javax.swing.JRadioButton();
+        RadAuthor = new javax.swing.JRadioButton();
+        txtSearch = new Controls.JTextBox();
+        btnSearch = new Controls.JMyButton();
+        btnOrder = new Controls.JMyButton();
+        ComOrderBy = new Controls.JCombo();
+        RadPublisher = new javax.swing.JRadioButton();
+        RadShelf = new javax.swing.JRadioButton();
+        RadGenre = new javax.swing.JRadioButton();
+        RadNumberOF = new javax.swing.JRadioButton();
+        RadStatus = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -171,7 +186,7 @@ public class FrmBooks extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ISBN", "Title", "Author", "Publisher", "Shelf", "Genre", "Status", "Number of Borrowing"
+                "ISBN", "Title", "Author", "Publisher", "Shelf", "Genre", "Status", "N. Borrowing"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -194,7 +209,22 @@ public class FrmBooks extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(BooksTable);
         if (BooksTable.getColumnModel().getColumnCount() > 0) {
-            BooksTable.getColumnModel().getColumn(7).setMinWidth(120);
+            BooksTable.getColumnModel().getColumn(0).setMinWidth(20);
+            BooksTable.getColumnModel().getColumn(0).setMaxWidth(55);
+            BooksTable.getColumnModel().getColumn(1).setMinWidth(130);
+            BooksTable.getColumnModel().getColumn(1).setMaxWidth(180);
+            BooksTable.getColumnModel().getColumn(2).setMinWidth(120);
+            BooksTable.getColumnModel().getColumn(2).setMaxWidth(170);
+            BooksTable.getColumnModel().getColumn(3).setMinWidth(70);
+            BooksTable.getColumnModel().getColumn(3).setMaxWidth(120);
+            BooksTable.getColumnModel().getColumn(4).setMinWidth(30);
+            BooksTable.getColumnModel().getColumn(4).setMaxWidth(50);
+            BooksTable.getColumnModel().getColumn(5).setMinWidth(100);
+            BooksTable.getColumnModel().getColumn(5).setMaxWidth(150);
+            BooksTable.getColumnModel().getColumn(6).setMinWidth(60);
+            BooksTable.getColumnModel().getColumn(6).setMaxWidth(80);
+            BooksTable.getColumnModel().getColumn(7).setMinWidth(45);
+            BooksTable.getColumnModel().getColumn(7).setMaxWidth(90);
         }
 
         lbl1.setText("REFRESH");
@@ -234,7 +264,59 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
-        ComGenre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "***Select Genre***", "Action and Adventure", "Anthology", "Art", "Autobiographies", "Biographies", "Children's", "Comics", "Cookbooks", "Diaries", "Dictionaries", "Drama", "Encyclopedias", "Fantasy", "Guide", "Health", "History", "Horror", "Journals", "Math", "Mystery", "Poetry", "Prayer books", "Religion, Spirituality & New Age", "Romance", "Satire", "Science", "Science fiction", "Self help", "Series", "Travel", "Trilogy" }));
+        ComGenre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "***Select Genre***", "Action and Adventure", "Anthology", "Art", "Autobiographies", "Biographies", "Children's", "Comics", "Cookbooks", "Diaries", "Dictionaries", "Drama", "Encyclopedias", "Fantasy", "Guide", "Health", "History", "Horror", "Journals", "Math", "Mystery", "Poetry", "Prayer books", "Religion", "Romance", "Satire", "Science", "Science fiction", "Self help", "Series", "Spirituality & New Age", "Travel", "Trilogy" }));
+
+        RadISBN.setBackground(new java.awt.Color(255, 255, 255));
+        RadISBN.setForeground(new java.awt.Color(0, 0, 0));
+        RadISBN.setSelected(true);
+        RadISBN.setText("ISBN");
+
+        RadTitle.setBackground(new java.awt.Color(255, 255, 255));
+        RadTitle.setForeground(new java.awt.Color(0, 0, 0));
+        RadTitle.setText("Title");
+
+        RadAuthor.setBackground(new java.awt.Color(255, 255, 255));
+        RadAuthor.setForeground(new java.awt.Color(0, 0, 0));
+        RadAuthor.setText("Author");
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnOrder.setText("Order By");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+
+        ComOrderBy.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ascending", "Descending" }));
+
+        RadPublisher.setBackground(new java.awt.Color(255, 255, 255));
+        RadPublisher.setForeground(new java.awt.Color(0, 0, 0));
+        RadPublisher.setText("Publisher");
+
+        RadShelf.setBackground(new java.awt.Color(255, 255, 255));
+        RadShelf.setForeground(new java.awt.Color(0, 0, 0));
+        RadShelf.setText("Shelf");
+
+        RadGenre.setBackground(new java.awt.Color(255, 255, 255));
+        RadGenre.setForeground(new java.awt.Color(0, 0, 0));
+        RadGenre.setText("Genre");
+
+        RadNumberOF.setBackground(new java.awt.Color(255, 255, 255));
+        RadNumberOF.setForeground(new java.awt.Color(0, 0, 0));
+        RadNumberOF.setText("Number of Borrowing");
+
+        RadStatus.setBackground(new java.awt.Color(255, 255, 255));
+        RadStatus.setForeground(new java.awt.Color(0, 0, 0));
+        RadStatus.setText("Status");
+
+        jLabel11.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
+        jLabel11.setText("Search");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -245,18 +327,6 @@ public class FrmBooks extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(104, 104, 104)
-                                        .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -276,16 +346,60 @@ public class FrmBooks extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComGenre, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                                    .addComponent(ComGenre, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                                     .addComponent(txtShelf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtPublisher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(ComStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtNumberOfBorrowing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(14, 14, 14)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 789, Short.MAX_VALUE)
-                        .addGap(22, 22, 22))
+                                .addGap(14, 14, 14))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(104, 104, 104)
+                                        .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(RadISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(RadTitle)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(RadAuthor)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(RadPublisher)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(RadShelf)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RadGenre)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RadStatus)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(RadNumberOF))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ComOrderBy, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(67, 67, 67))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -298,7 +412,7 @@ public class FrmBooks extends javax.swing.JFrame {
                                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 492, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(563, 563, 563)
@@ -312,6 +426,23 @@ public class FrmBooks extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RadISBN)
+                            .addComponent(RadTitle)
+                            .addComponent(RadAuthor)
+                            .addComponent(RadPublisher)
+                            .addComponent(RadShelf)
+                            .addComponent(RadGenre)
+                            .addComponent(RadNumberOF)
+                            .addComponent(RadStatus))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComOrderBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51))
@@ -375,6 +506,16 @@ public class FrmBooks extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        this.setTitle("Library System By Mini Project Team 6");
+       
+       btnGroup.add(RadISBN);
+       btnGroup.add(RadTitle);
+       btnGroup.add(RadAuthor);
+       btnGroup.add(RadPublisher);
+       btnGroup.add(RadShelf);
+       btnGroup.add(RadGenre);
+       btnGroup.add(RadStatus);
+       btnGroup.add(RadNumberOF);
+                             
         Tools.SetTableHeader(BooksTable);
          ClearInfo();
          Tools.PutImageInLable("refresh.png", lblRefresh, 30, 30);
@@ -393,7 +534,7 @@ public class FrmBooks extends javax.swing.JFrame {
              
         }     
         else {
-            Tools.MsgBoxError1("Please fill all field and make sure that you chose status and Genre...", "Empty Field");
+            Tools.MsgBoxError1("Please fill all field and make sure that you have chosen status and Genre...", "Empty Field or Boxes");
         }
              
 
@@ -408,7 +549,6 @@ public class FrmBooks extends javax.swing.JFrame {
        else {
        Tools.MsgBoxError1("Please put book's ISBN to Delete it..", "Empty Field");
        }
-       
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnuUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuUpdateActionPerformed
@@ -418,7 +558,7 @@ public class FrmBooks extends javax.swing.JFrame {
          ClearInfo();
        }
        else {
-            Tools.MsgBoxError1("Please fill all field and make sure that you choose status and Genre...", "Empty Field");
+            Tools.MsgBoxError1("Please fill all field and make sure that you have chosen status and Genre...", "Empty Field or Boxes");
         }
     }//GEN-LAST:event_btnuUpdateActionPerformed
 
@@ -453,6 +593,79 @@ public class FrmBooks extends javax.swing.JFrame {
         System.exit(0);
        }
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String Statement = "Select * from Books where ";
+        String Statement2 = " like '%"+ txtSearch.getText()+ "%' ";
+        if (RadISBN.isSelected()){
+            Statement += " ISBN " + Statement2;
+        }
+        else if (RadTitle.isSelected()){
+            Statement += " Title " + Statement2;
+        }
+        else if (RadShelf.isSelected()){
+             Statement += " Shelf " + Statement2;
+        }
+        else if (RadGenre.isSelected()){
+             Statement += " Genre " + Statement2;
+        }
+        else if (RadPublisher.isSelected()){
+             Statement += " Publisher " + Statement2;
+        }
+        else if (RadStatus.isSelected()){
+             Statement += " Status " + Statement2;
+        }
+        else {
+             Statement += " NumberOfBorrowing " + Statement2;
+        }
+        
+        book.GetSomeRows(Statement, BooksTable);
+        int Row = BooksTable.getRowCount();
+        if (Row == 0){
+            Tools.MsgBoxErrorX("No result!","Searsh not found");
+            ClearInfo();
+            txtSearch.requestFocus();
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+       String Statement = "Select * from Books order by ";
+       String Like = ComOrderBy.getSelectedItem().toString();
+       String Order = "";
+       if (ComOrderBy.getSelectedItem().equals("Descending")){
+           Order = "desc";
+       }
+       else {
+           Order = "asc";
+       }
+       //asc or desc
+        if (RadISBN.isSelected()){
+            Statement += " ISBN " + Order;
+        }
+        else if (RadTitle.isSelected()){
+            Statement += " Title " + Order;
+            
+        }
+        else if (RadAuthor.isSelected()){
+             Statement += " Author " + Order;
+        }
+         else if (RadGenre.isSelected()){
+             Statement += " Genre " + Order;
+        }
+        else if (RadPublisher.isSelected()){
+             Statement += " Publisher " + Order;
+        }
+         else if (RadShelf.isSelected()){
+             Statement += " Shelf " + Order;
+        }
+        else if (RadStatus.isSelected()){
+             Statement += " Status " + Order;
+        }
+        else {
+             Statement += " NumberOfBorrowing " + Order;
+        }
+        book.GetSomeRows(Statement, BooksTable);
+    }//GEN-LAST:event_btnOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -492,14 +705,27 @@ public class FrmBooks extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable BooksTable;
     private Controls.JCombo ComGenre;
+    private Controls.JCombo ComOrderBy;
     private Controls.JCombo ComStatus;
+    private javax.swing.JRadioButton RadAuthor;
+    private javax.swing.JRadioButton RadGenre;
+    private javax.swing.JRadioButton RadISBN;
+    private javax.swing.JRadioButton RadNumberOF;
+    private javax.swing.JRadioButton RadPublisher;
+    private javax.swing.JRadioButton RadShelf;
+    private javax.swing.JRadioButton RadStatus;
+    private javax.swing.JRadioButton RadTitle;
     private Controls.JMyButton btnAdd;
     private Controls.JMyButton btnBack;
     private Controls.JMyButton btnDelete;
     private Controls.JMyButtonRed btnExit;
+    private javax.swing.ButtonGroup btnGroup;
+    private Controls.JMyButton btnOrder;
+    private Controls.JMyButton btnSearch;
     private Controls.JMyButton btnuUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -516,6 +742,7 @@ public class FrmBooks extends javax.swing.JFrame {
     private Controls.JTextBox txtISBN;
     private Controls.JTextBox txtNumberOfBorrowing;
     private Controls.JTextBox txtPublisher;
+    private Controls.JTextBox txtSearch;
     private Controls.JTextBox txtShelf;
     private Controls.JTextBox txtTitle;
     // End of variables declaration//GEN-END:variables

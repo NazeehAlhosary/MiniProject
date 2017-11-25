@@ -118,6 +118,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_exitbtnActionPerformed
 
     private void logbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logbtnActionPerformed
+        if (! txtuser.getText().endsWith("'--") && txtuser.getText().matches(" ")) {
         if (Connection.Connections.CheckLogIn(txtuser.getText(), txtpass.getText())) {
             this.dispose();
             Connection.Tools.OpenForm(new Menu());
@@ -129,6 +130,11 @@ public class FrmLogin extends javax.swing.JFrame {
             txtuser.requestFocus();
 
         }
+        }
+        else{ Connection.Tools.MsgBoxInfo("Invaild Username or Password", "Log In");
+            txtuser.setText("");
+            txtpass.setText("");
+            txtuser.requestFocus();}
 
     }//GEN-LAST:event_logbtnActionPerformed
 

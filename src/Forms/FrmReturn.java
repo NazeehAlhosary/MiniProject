@@ -25,6 +25,16 @@ public class FrmReturn extends javax.swing.JFrame {
          lblRefreshb.hide();
 //        Tools.PutImageInLable("green.png", background, 500, 1000);
     }
+    public FrmReturn(String card){
+        initComponents();
+         Tools.PutImageInLable("back.png", lblRefresh, 50, 50);
+         Tools.PutImageInLable("back.png", lblRefreshb,60 , 60);
+         lblRefreshb.hide();
+         txtName.setText(card);
+        String Statement = " Select * from History where CardNumber ="+card +";";
+        Connection.Connections.FillCustomRows(Statement, tableHistory);
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,11 +119,19 @@ public class FrmReturn extends javax.swing.JFrame {
                 lblRefreshMouseMoved(evt);
             }
         });
+        lblRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRefreshMouseClicked(evt);
+            }
+        });
 
         lblRefreshb.setToolTipText("Back to Management");
         lblRefreshb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRefreshbMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRefreshbMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblRefreshbMouseExited(evt);
@@ -152,7 +170,8 @@ public class FrmReturn extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRefreshb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblRefreshb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,9 +181,7 @@ public class FrmReturn extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnReturn, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)))
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(609, 609, 609)
                         .addComponent(lblReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -196,9 +213,9 @@ public class FrmReturn extends javax.swing.JFrame {
                             .addComponent(lblFee)
                             .addComponent(txtFee)
                             .addComponent(SEK))
-                        .addGap(64, 64, 64)
-                        .addComponent(btnReturn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReturn)
+                        .addGap(75, 75, 75)
                         .addComponent(lblRefreshb, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,9 +246,18 @@ public class FrmReturn extends javax.swing.JFrame {
     }//GEN-LAST:event_lblRefreshbMouseClicked
 
     private void lblRefreshbMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshbMouseExited
-        lblRefresh.show(true);
-        lblRefreshb.hide();
+       Tools.PutImageInLable("back.png", lblRefreshb, 40, 40);
+//        lblRefresh.show(true);
+//        lblRefreshb.hide();
     }//GEN-LAST:event_lblRefreshbMouseExited
+
+    private void lblRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblRefreshMouseClicked
+
+    private void lblRefreshbMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshbMouseEntered
+      Tools.PutImageInLable("back.png", lblRefreshb, 60, 60);
+    }//GEN-LAST:event_lblRefreshbMouseEntered
 
     /**
      * @param args the command line arguments

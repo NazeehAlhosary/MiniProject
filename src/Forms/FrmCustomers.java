@@ -6,6 +6,7 @@
 package Forms;
 
 
+import Classes.Books;
 import Classes.Customer;
 import Connection.TableNewColors;
 import Connection.Tools;
@@ -27,6 +28,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         jTable1.setDefaultRenderer(Object.class, new TableNewColors());
     }
     Customer customer = new Customer();
+    Books book = new Books();
     
     private void PutInfo(){
         customer.setCardNumber(Integer.parseInt( txtCN.getText() ));
@@ -39,7 +41,7 @@ public class FrmCustomers extends javax.swing.JFrame {
     txtName.setText("");
     txtAddress.setText("");
     txtPhone.setText("");
-    customer.GetTableInfo("customer", jTable1);
+    book.GetTableInfo("Customer", jTable1);
     }
         
 
@@ -71,6 +73,11 @@ public class FrmCustomers extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -214,12 +221,6 @@ public class FrmCustomers extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
-       this.setTitle("Library System By Mini Project Team 6");
-        Tools.SetTableHeader(jTable1);
-         ClearInfo();
-        
-    }
     
     
     private void txtCNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNActionPerformed
@@ -249,6 +250,10 @@ public class FrmCustomers extends javax.swing.JFrame {
         customer.Update();
         ClearInfo();
     }//GEN-LAST:event_btnuUpdateActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+      ClearInfo();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

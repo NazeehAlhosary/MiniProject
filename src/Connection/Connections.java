@@ -59,6 +59,20 @@ public class Connections {
             return false;
         }
     }
+       public static boolean RunNonQueryAdmin(String SqlStatement) { 
+        //For Insert, Update and Delete NOT Select 
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            Stmt.execute(SqlStatement);
+            Con.close();
+            return true;         
+        } 
+        catch (SQLException ex) {
+            Tools.MsgBoxError1("Admin name already EXISTS!", "Exists Error");
+            return false;
+        }
+    }
      
      public static Tools.Table GetTableData (String Statement){
         Tools t = new Tools();

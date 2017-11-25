@@ -95,6 +95,5 @@ private void getUniqueId()
       public int AutoNumber(){
       return Connections.GetAutoNumbers(" Customer ", "CardNumber");
       }
-           
-    
+
 }
