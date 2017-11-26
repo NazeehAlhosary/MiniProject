@@ -1169,7 +1169,7 @@ public class FrmBooks extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuFileBackUpActionPerformed
 
     private void MenuMoveHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMoveHistoryActionPerformed
-        this.dispose();
+        this.dispose();  
         Tools.OpenForm(new FrmHistory());
     }//GEN-LAST:event_MenuMoveHistoryActionPerformed
 
