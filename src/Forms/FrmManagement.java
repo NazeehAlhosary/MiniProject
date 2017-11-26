@@ -29,12 +29,8 @@ public class FrmManagement extends javax.swing.JFrame {
         initComponents();
        Tools.PutImageInLable("backW.png", lblback, 50, 50);
           Tools.PutImageInLable("exitW.png", lblexit, 50, 50);
-        //   Tools.PutImageInLable("backW.png", lblback1, 40, 40);
-           //Tools.PutImageInLable("exitW.png", lblRefreshb, 50, 50);
            Tools.PutImageInLable("borrowWh.png", lblpic, 230, 230);
-         //  lblback.hide();
-        //   lblRefreshb.hide();
-         //lblback1.hide();
+        
     }
 
     /**
