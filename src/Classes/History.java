@@ -7,6 +7,11 @@ package Classes;
 
 import Connection.Connections;
 import Connection.Tools;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JTable;
 
 /**
@@ -79,7 +84,7 @@ public class History {
     }
     
     public void Add() {
-        String insert = "INSERT INTO History VALUES ("
+        String insert = "insert into History VALUES ("
                 + cardNumber + ","
                 + ISBN + "," 
                 + "'" +title + "',"
@@ -106,5 +111,27 @@ public class History {
     }
        public void GetSomeRows(String Statement, JTable table){
         Connections.FillCustomRows(Statement, table);
+    }
+
+    public void GetTableInfo(String TableNameInDB, JTable table){
+        Connections.FillTable(TableNameInDB, table);
+    }
+    
+    public void setAttributes() throws SQLException {
+        String query = "SELECT Title,Author FROM Books "
+                + "WHERE ISBN = "
+                + ISBN + ";";
+        
+        Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/librarysystem","root","");
+        Connections.SetConnection();
+        Statement Stmt = Con.createStatement();
+        ResultSet rs = Stmt.executeQuery(query);
+        
+        rs.next();
+        this.title = rs.getString("Title");
+        
+        //rs = Connections.ExecuteQuery(authorQuery);
+        this.author = rs.getString("Author");
+        
     }
 }
