@@ -6,6 +6,8 @@
 package Forms;
 
 import Connection.Tools;
+import java.awt.Cursor;
+import javax.swing.JLabel;
 
 /**
  *
@@ -18,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        Tools.ToDay(date);
     }
 
     /**
@@ -29,142 +32,397 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        logobtn = new javax.swing.JButton();
-        booksbtn = new javax.swing.JButton();
-        historybtn = new javax.swing.JButton();
-        rgstbtn = new javax.swing.JButton();
-        mangbtn = new javax.swing.JButton();
-        custbtn = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        exitbtn = new javax.swing.JLabel();
+        registerbtn = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        testCustom = new javax.swing.JLabel();
+        testhistory1 = new javax.swing.JLabel();
+        testbooks = new javax.swing.JLabel();
+        testmanag = new javax.swing.JLabel();
+        testlout = new javax.swing.JLabel();
+        testregister = new javax.swing.JLabel();
+        historybtn = new javax.swing.JLabel();
+        booksbtn = new javax.swing.JLabel();
+        customerbtn = new javax.swing.JLabel();
+        mangbtn = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Apple Braille", 2, 36)); // NOI18N
-        jLabel1.setText("Library Menu");
-
-        logobtn.setText("Log Out");
-        logobtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logobtnActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
-        booksbtn.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        booksbtn.setText("Books");
-        booksbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                booksbtnActionPerformed(evt);
+        jPanel1.setBackground(new java.awt.Color(64, 1, 61));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(102, 0, 102));
+
+        jLabel10.setFont(new java.awt.Font("Arial Unicode MS", 3, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("LIBRARY MENU");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/menu.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 110));
+
+        jPanel3.setBackground(new java.awt.Color(102, 0, 102));
+
+        exitbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/logout.png"))); // NOI18N
+        exitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitbtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitbtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitbtnMouseEntered(evt);
             }
         });
 
-        historybtn.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        historybtn.setText("History");
-        historybtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historybtnActionPerformed(evt);
+        registerbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/register.png"))); // NOI18N
+        registerbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerbtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registerbtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registerbtnMouseEntered(evt);
             }
         });
 
-        rgstbtn.setText("Register New Admin");
-        rgstbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rgstbtnActionPerformed(evt);
-            }
-        });
+        date.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
+        date.setText("Date");
 
-        mangbtn.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        mangbtn.setText("Management");
-        mangbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mangbtnActionPerformed(evt);
-            }
-        });
+        testCustom.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        testCustom.setForeground(new java.awt.Color(255, 255, 255));
+        testCustom.setText("Customers Information");
 
-        custbtn.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        custbtn.setText("Customer");
-        custbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custbtnActionPerformed(evt);
+        testhistory1.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        testhistory1.setForeground(new java.awt.Color(255, 255, 255));
+        testhistory1.setText("Borrowing History");
+
+        testbooks.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        testbooks.setForeground(new java.awt.Color(255, 255, 255));
+        testbooks.setText("Library Books");
+
+        testmanag.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        testmanag.setForeground(new java.awt.Color(255, 255, 255));
+        testmanag.setText("Library Management");
+
+        testlout.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        testlout.setForeground(new java.awt.Color(255, 255, 255));
+        testlout.setText("Log Out");
+
+        testregister.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        testregister.setForeground(new java.awt.Color(255, 255, 255));
+        testregister.setText("Register New Admin");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(exitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(registerbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(testCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(date)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(148, Short.MAX_VALUE)
+                    .addComponent(testhistory1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(113, 113, 113)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(165, Short.MAX_VALUE)
+                    .addComponent(testbooks, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(101, 101, 101)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(153, Short.MAX_VALUE)
+                    .addComponent(testmanag, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(109, 109, 109)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(205, Short.MAX_VALUE)
+                    .addComponent(testlout, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(99, 99, 99)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(151, Short.MAX_VALUE)
+                    .addComponent(testregister, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(89, 89, 89)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(registerbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(testCustom, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(35, Short.MAX_VALUE)
+                    .addComponent(testhistory1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(22, Short.MAX_VALUE)
+                    .addComponent(testbooks, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(19, Short.MAX_VALUE)
+                    .addComponent(testmanag, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(24, Short.MAX_VALUE)
+                    .addComponent(testlout, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(testregister, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(16, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 540, 110));
+
+        historybtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/histor.png"))); // NOI18N
+        historybtn.setToolTipText("");
+        historybtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                historybtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                historybtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                historybtnMouseEntered(evt);
             }
         });
+        jPanel1.add(historybtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 70, 80));
+
+        booksbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/book.png"))); // NOI18N
+        booksbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                booksbtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                booksbtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                booksbtnMouseEntered(evt);
+            }
+        });
+        jPanel1.add(booksbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 70, 80));
+
+        customerbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/customers.png"))); // NOI18N
+        customerbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerbtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                customerbtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                customerbtnMouseEntered(evt);
+            }
+        });
+        jPanel1.add(customerbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 70, 80));
+
+        mangbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/manger.png"))); // NOI18N
+        mangbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mangbtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mangbtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mangbtnMouseEntered(evt);
+            }
+        });
+        jPanel1.add(mangbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 80, 90));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("HISTORY");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 60, -1));
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("CUSTOMERS");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 90, 30));
+
+        jLabel7.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("BOOKS");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 60, -1));
+
+        jLabel8.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("MANAGEMENT");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 90, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rgstbtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(booksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mangbtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(custbtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(historybtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(booksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(historybtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mangbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rgstbtn))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logobtnActionPerformed
+    private void historybtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseClicked
+
         this.dispose();
-        Connection.Tools.OpenForm(new FrmLogin());  
-    }//GEN-LAST:event_logobtnActionPerformed
+        Tools.OpenForm(new FrmHistory());
+    }//GEN-LAST:event_historybtnMouseClicked
 
-    private void booksbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booksbtnActionPerformed
-       this.dispose();
-       Connection.Tools.OpenForm(new FrmBooks());
-    }//GEN-LAST:event_booksbtnActionPerformed
+    private void historybtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseEntered
+        historybtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testhistory1.setVisible(true);
+    }//GEN-LAST:event_historybtnMouseEntered
 
-    private void historybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historybtnActionPerformed
-      this.dispose();
-      Connection.Tools.OpenForm(new FrmHistory());
-    }//GEN-LAST:event_historybtnActionPerformed
-
-    private void rgstbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgstbtnActionPerformed
+    private void exitbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseClicked
         this.dispose();
-        Connection.Tools.OpenForm(new FrmRegAdmin());
-        
-    }//GEN-LAST:event_rgstbtnActionPerformed
+        Tools.OpenForm(new FrmLogin());
+    }//GEN-LAST:event_exitbtnMouseClicked
 
-    private void mangbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mangbtnActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        testCustom.setVisible(false);
+        testhistory1.setVisible(false);
+        testbooks.setVisible(false);
+        testmanag.setVisible(false);
+        testlout.setVisible(false);
+        testregister.setVisible(false);
+
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void historybtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseExited
+        testhistory1.setVisible(false);
+    }//GEN-LAST:event_historybtnMouseExited
+
+    private void customerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseClicked
+        this.dispose();
+        Tools.OpenForm(new FrmCustomerInfo());
+    }//GEN-LAST:event_customerbtnMouseClicked
+
+    private void customerbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseEntered
+        customerbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testCustom.setVisible(true);
+    }//GEN-LAST:event_customerbtnMouseEntered
+
+    private void customerbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseExited
+        testCustom.setVisible(false);
+    }//GEN-LAST:event_customerbtnMouseExited
+
+    private void booksbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseClicked
+        this.dispose();
+        Tools.OpenForm(new FrmBooks());
+    }//GEN-LAST:event_booksbtnMouseClicked
+
+    private void booksbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseEntered
+        booksbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testbooks.setVisible(true);
+    }//GEN-LAST:event_booksbtnMouseEntered
+
+    private void booksbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseExited
+        testbooks.setVisible(false);
+    }//GEN-LAST:event_booksbtnMouseExited
+
+    private void mangbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseClicked
         this.dispose();
         Tools.OpenForm(new FrmManagement());
-    }//GEN-LAST:event_mangbtnActionPerformed
+    }//GEN-LAST:event_mangbtnMouseClicked
 
-    private void custbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custbtnActionPerformed
-       this.dispose();
-       Tools.OpenForm(this); // Change it to Customer Form 
-    }//GEN-LAST:event_custbtnActionPerformed
+    private void mangbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseEntered
+        mangbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testmanag.setVisible(true);
+    }//GEN-LAST:event_mangbtnMouseEntered
+
+    private void mangbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseExited
+        testmanag.setVisible(false);
+    }//GEN-LAST:event_mangbtnMouseExited
+
+    private void exitbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseEntered
+        exitbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testlout.setVisible(true);
+    }//GEN-LAST:event_exitbtnMouseEntered
+
+    private void exitbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseExited
+        testlout.setVisible(false);
+    }//GEN-LAST:event_exitbtnMouseExited
+
+    private void registerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseClicked
+        this.dispose();
+        Tools.OpenForm(new FrmRegAdmin());
+    }//GEN-LAST:event_registerbtnMouseClicked
+
+    private void registerbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseEntered
+        registerbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testregister.setVisible(true);
+
+    }//GEN-LAST:event_registerbtnMouseEntered
+
+    private void registerbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseExited
+        testregister.setVisible(false);
+    }//GEN-LAST:event_registerbtnMouseExited
 
     /**
      * @param args the command line arguments
@@ -202,12 +460,27 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton booksbtn;
-    private javax.swing.JButton custbtn;
-    private javax.swing.JButton historybtn;
+    private javax.swing.JLabel booksbtn;
+    private javax.swing.JLabel customerbtn;
+    private javax.swing.JLabel date;
+    private javax.swing.JLabel exitbtn;
+    private javax.swing.JLabel historybtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton logobtn;
-    private javax.swing.JButton mangbtn;
-    private javax.swing.JButton rgstbtn;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel mangbtn;
+    private javax.swing.JLabel registerbtn;
+    private javax.swing.JLabel testCustom;
+    private javax.swing.JLabel testbooks;
+    private javax.swing.JLabel testhistory1;
+    private javax.swing.JLabel testlout;
+    private javax.swing.JLabel testmanag;
+    private javax.swing.JLabel testregister;
     // End of variables declaration//GEN-END:variables
 }
