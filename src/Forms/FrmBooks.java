@@ -30,7 +30,7 @@ public class FrmBooks extends javax.swing.JFrame {
     Books book = new Books();
     private void PutInfo(){
         book.setISBN(Integer.parseInt( txtISBN.getText() ));
-        book.setTitle(txtTitle.getText());
+        book.setTitle(txtTitle.getText());  // Test for pushing 
         book.setAuthor(txtAuthor.getText());
         book.setPublisher(txtPublisher.getText());
         book.setShelf(txtShelf.getText());
