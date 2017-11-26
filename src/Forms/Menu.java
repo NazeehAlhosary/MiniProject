@@ -6,8 +6,8 @@
 package Forms;
 
 import Connection.Tools;
-import java.awt.Cursor;
-import javax.swing.JLabel;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -62,7 +62,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(64, 1, 61));
+        jPanel1.setForeground(new java.awt.Color(44, 0, 44));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(102, 0, 102));
@@ -321,27 +321,14 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void historybtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseClicked
-
-        this.dispose();
-        Tools.OpenForm(new FrmHistory());
-    }//GEN-LAST:event_historybtnMouseClicked
-
-    private void historybtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseEntered
-        historybtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        testhistory1.setVisible(true);
-    }//GEN-LAST:event_historybtnMouseEntered
-
-    private void exitbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseClicked
-        this.dispose();
-        Tools.OpenForm(new FrmLogin());
-    }//GEN-LAST:event_exitbtnMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         testCustom.setVisible(false);
@@ -354,14 +341,19 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void historybtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseExited
-        testhistory1.setVisible(false);
-    }//GEN-LAST:event_historybtnMouseExited
+    private void mangbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseEntered
+        mangbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testmanag.setVisible(true);
+    }//GEN-LAST:event_mangbtnMouseEntered
 
-    private void customerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseClicked
+    private void mangbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseExited
+        testmanag.setVisible(false);
+    }//GEN-LAST:event_mangbtnMouseExited
+
+    private void mangbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmCustomerInfo());
-    }//GEN-LAST:event_customerbtnMouseClicked
+        Tools.OpenForm(new FrmManagement());
+    }//GEN-LAST:event_mangbtnMouseClicked
 
     private void customerbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseEntered
         customerbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -372,10 +364,10 @@ public class Menu extends javax.swing.JFrame {
         testCustom.setVisible(false);
     }//GEN-LAST:event_customerbtnMouseExited
 
-    private void booksbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseClicked
+    private void customerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmBooks());
-    }//GEN-LAST:event_booksbtnMouseClicked
+        Tools.OpenForm(new FrmCustomerInfo());
+    }//GEN-LAST:event_customerbtnMouseClicked
 
     private void booksbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseEntered
         booksbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -386,19 +378,39 @@ public class Menu extends javax.swing.JFrame {
         testbooks.setVisible(false);
     }//GEN-LAST:event_booksbtnMouseExited
 
-    private void mangbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseClicked
+    private void booksbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmManagement());
-    }//GEN-LAST:event_mangbtnMouseClicked
+        Tools.OpenForm(new FrmBooks());
+    }//GEN-LAST:event_booksbtnMouseClicked
 
-    private void mangbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseEntered
-        mangbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        testmanag.setVisible(true);
-    }//GEN-LAST:event_mangbtnMouseEntered
+    private void historybtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseEntered
+        historybtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testhistory1.setVisible(true);
+    }//GEN-LAST:event_historybtnMouseEntered
 
-    private void mangbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mangbtnMouseExited
-        testmanag.setVisible(false);
-    }//GEN-LAST:event_mangbtnMouseExited
+    private void historybtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseExited
+        testhistory1.setVisible(false);
+    }//GEN-LAST:event_historybtnMouseExited
+
+    private void historybtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtnMouseClicked
+
+        this.dispose();
+        Tools.OpenForm(new FrmHistory());
+    }//GEN-LAST:event_historybtnMouseClicked
+
+    private void registerbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseEntered
+        registerbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        testregister.setVisible(true);
+    }//GEN-LAST:event_registerbtnMouseEntered
+
+    private void registerbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseExited
+        testregister.setVisible(false);
+    }//GEN-LAST:event_registerbtnMouseExited
+
+    private void registerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseClicked
+        this.dispose();
+        Tools.OpenForm(new FrmRegAdmin());
+    }//GEN-LAST:event_registerbtnMouseClicked
 
     private void exitbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseEntered
         exitbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -409,20 +421,10 @@ public class Menu extends javax.swing.JFrame {
         testlout.setVisible(false);
     }//GEN-LAST:event_exitbtnMouseExited
 
-    private void registerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseClicked
+    private void exitbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmRegAdmin());
-    }//GEN-LAST:event_registerbtnMouseClicked
-
-    private void registerbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseEntered
-        registerbtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        testregister.setVisible(true);
-
-    }//GEN-LAST:event_registerbtnMouseEntered
-
-    private void registerbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseExited
-        testregister.setVisible(false);
-    }//GEN-LAST:event_registerbtnMouseExited
+        Tools.OpenForm(new FrmLogin());
+    }//GEN-LAST:event_exitbtnMouseClicked
 
     /**
      * @param args the command line arguments
