@@ -25,7 +25,8 @@ private Component componente;
         componente = super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1); //To change body of generated methods, choose Tools | Templates.
         componente.setForeground(Color.black);
         if (i %2 ==0){
-           componente.setBackground(new Color (204,204,255));
+           componente.setBackground(new Color (66,00,66));
+           componente.setForeground(new Color (255,255,255));
         }
         else {
         componente.setBackground( new Color (255,255,255));
