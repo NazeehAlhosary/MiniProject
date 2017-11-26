@@ -62,6 +62,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(44, 0, 44));
         jPanel1.setForeground(new java.awt.Color(44, 0, 44));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
