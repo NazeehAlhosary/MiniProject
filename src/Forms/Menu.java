@@ -424,7 +424,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void exitbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmLogin());
+        //Tools.OpenForm(new FrmLogin());
     }//GEN-LAST:event_exitbtnMouseClicked
 
     /**
