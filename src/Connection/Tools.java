@@ -10,8 +10,6 @@ package Connection; // Please change package name...
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.text.*;
 import java.util.Calendar;
 import java.util.Date;
@@ -174,7 +172,7 @@ public class Tools {
 
  public static void SetTableHeader(JTable Table){
      
-     Table.getTableHeader().setBackground(new Color (66,00,66));
+     Table.getTableHeader().setBackground(new Color (0,0,100));
      Table.getTableHeader().setForeground(Color.white);
      Table.getTableHeader().setReorderingAllowed(false); // Change column order
      Table.getTableHeader().setResizingAllowed(false);  // Change column size
@@ -185,19 +183,6 @@ public class Tools {
                t.setForeground(Color.white);
                t.setFont(new Font ("Tahome", Font.ITALIC,20));
      */
-     
- }
- 
- public static void OpenWebPage(String WebPage){
-     Desktop desktop = Desktop.getDesktop();
-         try {
-             desktop.browse(new URL(WebPage).toURI());
-         } catch (URISyntaxException ex) {
-             Logger.getLogger(Tools.class.getName()).log(Level.SEVERE, null, ex);
-         }
-           catch (IOException ex) {
-               Tools.MsgBox(ex.getMessage());
-         }
      
  }
  
