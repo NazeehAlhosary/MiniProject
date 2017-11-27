@@ -32,7 +32,7 @@ public class FrmRegAdmin extends javax.swing.JFrame {
         if(check) {
             Connection.Tools.MsgBoxInfo("Admin Has Been Aded", "Register");
             this.dispose();
-            Tools.OpenForm(new FrmLogin());
+           // Tools.OpenForm(new FrmLogin());
         }
     }
         else{
@@ -165,7 +165,7 @@ public class FrmRegAdmin extends javax.swing.JFrame {
 
     private void backbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbtnActionPerformed
         this.dispose();
-        Connection.Tools.OpenForm(new FrmLogin());
+       // Connection.Tools.OpenForm(new FrmLogin());
     }//GEN-LAST:event_backbtnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

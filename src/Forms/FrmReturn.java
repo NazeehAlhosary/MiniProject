@@ -8,6 +8,7 @@ package Forms;
 import Connection.Tools;
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,16 +21,15 @@ public class FrmReturn extends javax.swing.JFrame {
      */
     public FrmReturn() {
         initComponents();
-        Tools.PutImageInLable("back.png", lblRefresh, 50, 50);
-         Tools.PutImageInLable("back.png", lblRefreshb,60 , 60);
-         lblRefreshb.hide();
-//        Tools.PutImageInLable("green.png", background, 500, 1000);
+        Tools.PutImageInLable("ReturnWh.png", lblpic, 200, 200);
+          Tools.PutImageInLable("backW.png", lblback, 50, 50);
+           Tools.PutImageInLable("exitW.png", lblexit, 50, 50);
     }
     public FrmReturn(String card){
         initComponents();
-         Tools.PutImageInLable("back.png", lblRefresh, 50, 50);
-         Tools.PutImageInLable("back.png", lblRefreshb,60 , 60);
-         lblRefreshb.hide();
+        Tools.PutImageInLable("ReturnWh.png", lblpic, 200, 200);
+          Tools.PutImageInLable("backW.png", lblback, 50, 50);
+           Tools.PutImageInLable("exitW.png", lblexit, 50, 50);
          txtName.setText(card);
         String Statement = " Select * from History where CardNumber ="+card +";";
         Connection.Connections.FillCustomRows(Statement, tableHistory);
@@ -45,21 +45,25 @@ public class FrmReturn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblReturn = new javax.swing.JLabel();
+        panel1 = new java.awt.Panel();
+        lblpic = new javax.swing.JLabel();
+        lblback = new javax.swing.JLabel();
+        lblexit = new javax.swing.JLabel();
+        btnReset = new Controls.JMyButtonPurp();
+        btnReturn = new Controls.JMyButtonPurp();
+        panel2 = new java.awt.Panel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableHistory = new javax.swing.JTable();
-        lblHistory = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        lblPhone = new javax.swing.JLabel();
-        lblFee = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        txtFee = new javax.swing.JLabel();
         txtName = new javax.swing.JLabel();
         txtPhone = new javax.swing.JLabel();
-        txtFee = new javax.swing.JLabel();
-        SEK = new javax.swing.JLabel();
-        btnReturn = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
-        lblRefresh = new javax.swing.JLabel();
-        lblRefreshb = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,196 +72,279 @@ public class FrmReturn extends javax.swing.JFrame {
             }
         });
 
-        lblReturn.setFont(new java.awt.Font("Traditional Arabic", 3, 45)); // NOI18N
-        lblReturn.setForeground(new java.awt.Color(0, 0, 102));
-        lblReturn.setText("Return Form");
+        panel1.setBackground(new java.awt.Color(102, 0, 102));
+
+        lblpic.setBackground(new java.awt.Color(102, 0, 102));
+
+        lblback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblbackMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblbackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblbackMouseExited(evt);
+            }
+        });
+
+        lblexit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblexitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblexitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblexitMouseExited(evt);
+            }
+        });
+
+        btnReset.setText("Reset History");
+        btnReset.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+
+        btnReturn.setText("Return Book");
+        btnReturn.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblexit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addGap(0, 17, Short.MAX_VALUE)
+                        .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
+                .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblexit, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        panel2.setBackground(new java.awt.Color(64, 1, 64));
+        panel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 50)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Return");
 
         tableHistory.setForeground(new java.awt.Color(255, 255, 255));
         tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Card Number", "ISBN", "Title", "Author", "Status", "Rental Date", "Return Date"
+                "CardNumber", "ISBN", "Title", "Author", "Status", "Rental Date", "Return Date"
             }
         ));
-        tableHistory.setSelectionBackground(new java.awt.Color(0, 51, 204));
+        tableHistory.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(tableHistory);
 
-        lblHistory.setFont(new java.awt.Font("Traditional Arabic", 1, 30)); // NOI18N
-        lblHistory.setForeground(new java.awt.Color(0, 0, 102));
-        lblHistory.setText("History Table");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 26)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Phone:");
 
-        lblName.setForeground(new java.awt.Color(0, 0, 102));
-        lblName.setText("Name:");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 26)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fee:");
 
-        lblPhone.setForeground(new java.awt.Color(0, 0, 102));
-        lblPhone.setText("Phone:");
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 26)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Name:");
 
-        lblFee.setForeground(new java.awt.Color(0, 0, 102));
-        lblFee.setText("Fee:");
+        txtFee.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtFee.setForeground(new java.awt.Color(255, 255, 255));
+        txtFee.setText("___________________");
 
-        txtName.setText("txt name");
+        txtName.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.setText("___________________");
 
-        txtPhone.setText("txt phone");
+        txtPhone.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        txtPhone.setForeground(new java.awt.Color(255, 255, 255));
+        txtPhone.setText("___________________");
 
-        txtFee.setText("amount");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("SEK.");
 
-        SEK.setText("SEK");
-
-        btnReturn.setBackground(new java.awt.Color(0, 0, 102));
-        btnReturn.setForeground(new java.awt.Color(255, 255, 255));
-        btnReturn.setText("Return");
-        btnReturn.setToolTipText("Return book");
-
-        btnExit.setBackground(new java.awt.Color(255, 0, 51));
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("Exit");
-
-        lblRefresh.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                lblRefreshMouseMoved(evt);
-            }
-        });
-        lblRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRefreshMouseClicked(evt);
-            }
-        });
-
-        lblRefreshb.setToolTipText("Back to Management");
-        lblRefreshb.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRefreshbMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblRefreshbMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblRefreshbMouseExited(evt);
-            }
-        });
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 922, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(jLabel1))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtName))
+                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPhone))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(62, 62, 62)
+                                    .addComponent(txtFee))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(334, 334, 334)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(425, Short.MAX_VALUE))
+        );
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtPhone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFee)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblPhone)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtPhone))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblFee)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtFee)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(SEK)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(84, 84, 84))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtName)
-                                .addGap(87, 87, 87))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRefreshb, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 953, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(489, 489, 489))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(609, 609, 609)
-                        .addComponent(lblReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(lblReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblHistory)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblName)
-                            .addComponent(txtName))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPhone)
-                            .addComponent(lblPhone))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFee)
-                            .addComponent(txtFee)
-                            .addComponent(SEK))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReturn)
-                        .addGap(75, 75, 75)
-                        .addComponent(lblRefreshb, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addComponent(btnExit)
-                .addContainerGap(82, Short.MAX_VALUE))
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        tableHistory.getTableHeader().setBackground(new Color (00,00,80));
+      tableHistory.getTableHeader().setBackground(new Color (102,00,102));
         tableHistory.getTableHeader().setForeground(Color.white);
-     tableHistory.getTableHeader().setReorderingAllowed(false); // Change column order
+     tableHistory.getTableHeader().setReorderingAllowed(false); 
      tableHistory.getTableHeader().setResizingAllowed(false); 
+     
+      lblexit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+          lblback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_formWindowOpened
 
-    private void lblRefreshMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseMoved
-        lblRefresh.hide();
-        lblRefreshb.show(true);
-        lblRefreshb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_lblRefreshMouseMoved
-
-    private void lblRefreshbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshbMouseClicked
+    private void lblbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseClicked
         this.dispose();
-        Connection.Tools.OpenFormWithNewICON(new Menu(), "001.png");
-    }//GEN-LAST:event_lblRefreshbMouseClicked
+        Connection.Tools.OpenForm(new Menu());
 
-    private void lblRefreshbMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshbMouseExited
-       Tools.PutImageInLable("back.png", lblRefreshb, 40, 40);
-//        lblRefresh.show(true);
-//        lblRefreshb.hide();
-    }//GEN-LAST:event_lblRefreshbMouseExited
+    }//GEN-LAST:event_lblbackMouseClicked
 
-    private void lblRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblRefreshMouseClicked
+    private void lblbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseEntered
+        Tools.PutImageInLable("backW.png", lblback, 60, 60);
+    }//GEN-LAST:event_lblbackMouseEntered
 
-    private void lblRefreshbMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshbMouseEntered
-      Tools.PutImageInLable("back.png", lblRefreshb, 60, 60);
-    }//GEN-LAST:event_lblRefreshbMouseEntered
+    private void lblbackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseExited
+        Tools.PutImageInLable("backW.png", lblback, 50, 50);
+    }//GEN-LAST:event_lblbackMouseExited
+
+    private void lblexitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblexitMouseClicked
+
+        int choice = JOptionPane.showOptionDialog(null,
+            "Are you sure you want to quit?",
+            "Quit",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null, null, null);
+
+        if (choice == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_lblexitMouseClicked
+
+    private void lblexitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblexitMouseEntered
+        Tools.PutImageInLable("exitW.png", lblexit, 60, 60);
+    }//GEN-LAST:event_lblexitMouseEntered
+
+    private void lblexitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblexitMouseExited
+        Tools.PutImageInLable("exitW.png", lblexit, 50, 50);
+    }//GEN-LAST:event_lblexitMouseExited
 
     /**
      * @param args the command line arguments
@@ -295,17 +382,21 @@ public class FrmReturn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel SEK;
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnReturn;
+    private Controls.JMyButtonPurp btnReset;
+    private Controls.JMyButtonPurp btnReturn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblFee;
-    private javax.swing.JLabel lblHistory;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPhone;
-    private javax.swing.JLabel lblRefresh;
-    private javax.swing.JLabel lblRefreshb;
-    private javax.swing.JLabel lblReturn;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblback;
+    private javax.swing.JLabel lblexit;
+    private javax.swing.JLabel lblpic;
+    private java.awt.Panel panel1;
+    private java.awt.Panel panel2;
     private javax.swing.JTable tableHistory;
     private javax.swing.JLabel txtFee;
     private javax.swing.JLabel txtName;
