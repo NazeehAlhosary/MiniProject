@@ -20,20 +20,39 @@ public class Return {
      public void UpdateStatusAvailable(){
     String update = "Update History set "
             +"Status='Available',"
-            + " where ISBN=" +ISBN +"AND CardNumber= "+CardNumber +";";
+            + " where ISBN=" +getISBN() +"AND CardNumber= "+getCardNumber() +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
-         Tools.MsgBoxInfo("Book "+ISBN+" is now available", "Update Status");
+         Tools.MsgBoxInfo("Book "+getISBN()+" is now available", "Update Status");
      }
     }
      public void UpdateStatusUnavailable(){
     String update = "Update History set "
             +"Status='Unavailable',"
-            + " where ISBN=" +ISBN +"AND CardNumber= "+CardNumber +";";
+            + " where ISBN=" +getISBN() +"AND CardNumber= "+getCardNumber() +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
-         Tools.MsgBoxInfo("Book "+ISBN+" is now unavailable", "Update Status");
+         Tools.MsgBoxInfo("Book "+getISBN()+" is now unavailable", "Update Status");
      }
+    }
+
+    
+    public int getISBN() {
+        return ISBN;
+    }
+
+    
+    public String getStatus() {
+        return Status;
+    }
+
+   
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    public int getCardNumber() {
+        return CardNumber;
     }
     
 }
