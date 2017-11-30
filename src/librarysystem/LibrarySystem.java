@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package librarysystem;
-import Classes.*;
-import Connection.Tools;
 
-import Forms.*;
+import Connection.Tools;
+import Forms.FrmManagement;
 
 /**
  *
- * @author Nazeeh
+ * @author mohammadzreik
  */
 public class LibrarySystem {
 
@@ -19,7 +18,6 @@ public class LibrarySystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {   
-       //Tools.OpenForm(new FrmLogin());
-        Tools.OpenForm(new FrmLogin());
+         Tools.OpenForm(new FrmManagement());
     }
 }
