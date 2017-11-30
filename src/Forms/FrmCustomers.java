@@ -10,6 +10,7 @@ import Classes.Books;
 import Classes.Customer;
 import Connection.TableNewColors;
 import Connection.Tools;
+import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.*;
@@ -26,9 +27,12 @@ public class FrmCustomers extends javax.swing.JFrame {
     public FrmCustomers() {
         initComponents();
         jTable1.setDefaultRenderer(Object.class, new TableNewColors());
+        SetLabels();
+        Tools.ToDay(lblDate);
     }
     Customer customer = new Customer();
-    Books book = new Books();
+ 
+    
     
     private void PutInfo(){
         customer.setCardNumber(Integer.parseInt( txtCN.getText() ));
@@ -41,11 +45,52 @@ public class FrmCustomers extends javax.swing.JFrame {
     txtName.setText("");
     txtAddress.setText("");
     txtPhone.setText("");
-    book.GetTableInfo("Customer", jTable1);
+    customer.GetTableInfo(" Customer ", jTable1);
     }
         
-
+ private void SetLabels(){
     
+    Tools.PutImageInLable("add-512-white.png", addicon, 30, 30);
+    Tools.PutImageInLable("pen.png", updateicon, 30, 30);
+    Tools.PutImageInLable("Delete_Icon_White.png", deleteicon, 30, 30);
+    Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
+    Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
+    Tools.PutImageInLable("Search-icon-White.png", searchbutton, 30, 30); //fix to search
+    Tools.PutImageInLable("Ascending_White.png", ascbutton, 30, 30);
+    Tools.PutImageInLable("Descending_White.png", descbutton, 30, 30);
+    
+   
+    addicon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    updateicon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    deleteicon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    lblBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    lblExit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+  
+    
+    }
+    
+ 
+  private void OrderItems(String OrderBy){
+     String Statement = "Select * from Customer ";
+     
+        if (CNbutton.isSelected()){
+            Statement += "ORDER BY CardNumber " + OrderBy + ";";
+        }
+        else if (Namebutton.isSelected()){
+           Statement += "ORDER BY Name " + OrderBy + ";";
+        }
+        else if (Addressbutton.isSelected()){
+            Statement += "ORDER BY Address " + OrderBy + ";";
+        }
+        
+        else if (Phonebutton.isSelected()){
+            Statement += "ORDER BY Phone " + OrderBy + ";";
+        }
+       
+        customer.GetSomeRows(Statement, jTable1);
+     }
+ 
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,8 +100,7 @@ public class FrmCustomers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         txtCN = new Controls.JTextBox();
         txtName = new Controls.JTextBox();
         txtAddress = new Controls.JTextBox();
@@ -65,17 +109,384 @@ public class FrmCustomers extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jMyButton1 = new Controls.JMyButton();
-        btnExit = new Controls.JMyButton();
-        btnDelete = new Controls.JMyButton();
-        btnuUpdate = new Controls.JMyButton();
+        jPanel2 = new javax.swing.JPanel();
+        CNbutton = new javax.swing.JRadioButton();
+        Namebutton = new javax.swing.JRadioButton();
+        Addressbutton = new javax.swing.JRadioButton();
+        Phonebutton = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        SearchField = new Controls.JTextBox();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        addicon = new javax.swing.JLabel();
+        deleteicon = new javax.swing.JLabel();
+        updateicon = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
+        lblBack = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        searchbutton = new javax.swing.JLabel();
+        ascbutton = new javax.swing.JLabel();
+        descbutton = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        MenuFileAdd1 = new javax.swing.JMenuItem();
+        MenuFileDelete1 = new javax.swing.JMenuItem();
+        MenuFileUpdate1 = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        MenuFilePrint1 = new javax.swing.JMenuItem();
+        MenuFileBackUp1 = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        MenuFileRefresh1 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        MenuFileHome1 = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        MenuFileQuit1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        MenuMoveToHome = new javax.swing.JMenuItem();
+        MenuMoveCustomers = new javax.swing.JMenuItem();
+        MenuMoveHistory = new javax.swing.JMenuItem();
+        MenuMoveManagement = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1020, 550));
+        setPreferredSize(new java.awt.Dimension(1020, 550));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+        });
+        getContentPane().setLayout(null);
+
+        txtCN.setPreferredSize(new java.awt.Dimension(60, 20));
+        txtCN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCNActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCN);
+        txtCN.setBounds(110, 103, 136, 27);
+
+        txtName.setPreferredSize(new java.awt.Dimension(60, 20));
+        getContentPane().add(txtName);
+        txtName.setBounds(110, 148, 136, 27);
+
+        txtAddress.setPreferredSize(new java.awt.Dimension(60, 20));
+        getContentPane().add(txtAddress);
+        txtAddress.setBounds(110, 193, 136, 27);
+
+        txtPhone.setPreferredSize(new java.awt.Dimension(60, 20));
+        getContentPane().add(txtPhone);
+        txtPhone.setBounds(110, 233, 136, 27);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Name");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(29, 153, 33, 16);
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Card Number");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(29, 108, 76, 16);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Address");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(29, 198, 46, 16);
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Phone");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(29, 238, 35, 16);
+
+        jPanel2.setBackground(new java.awt.Color(44, 0, 44));
+
+        CNbutton.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(CNbutton);
+        CNbutton.setForeground(new java.awt.Color(255, 255, 255));
+        CNbutton.setSelected(true);
+        CNbutton.setText("Card Number");
+        CNbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNbuttonActionPerformed(evt);
+            }
+        });
+
+        Namebutton.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(Namebutton);
+        Namebutton.setForeground(new java.awt.Color(255, 255, 255));
+        Namebutton.setText("Name");
+        Namebutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NamebuttonActionPerformed(evt);
+            }
+        });
+
+        Addressbutton.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(Addressbutton);
+        Addressbutton.setForeground(new java.awt.Color(255, 255, 255));
+        Addressbutton.setText("Address");
+        Addressbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddressbuttonActionPerformed(evt);
+            }
+        });
+
+        Phonebutton.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(Phonebutton);
+        Phonebutton.setForeground(new java.awt.Color(255, 255, 255));
+        Phonebutton.setText("Phone");
+        Phonebutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PhonebuttonActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Search");
+
+        SearchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(CNbutton)
+                .addGap(21, 21, 21)
+                .addComponent(Namebutton)
+                .addGap(21, 21, 21)
+                .addComponent(Addressbutton)
+                .addGap(9, 9, 9)
+                .addComponent(Phonebutton)
+                .addGap(103, 103, 103))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CNbutton)
+                    .addComponent(Namebutton)
+                    .addComponent(Addressbutton)
+                    .addComponent(Phonebutton))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(320, 100, 500, 80);
+
+        jPanel3.setBackground(new java.awt.Color(66, 0, 66));
+
+        jLabel10.setFont(new java.awt.Font("Garamond", 3, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Date:");
+
+        lblDate.setFont(new java.awt.Font("Garamond", 3, 14)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
+
+        addicon.setToolTipText("Add new Book");
+        addicon.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        addicon.setMaximumSize(new java.awt.Dimension(50, 50));
+        addicon.setMinimumSize(new java.awt.Dimension(50, 50));
+        addicon.setPreferredSize(new java.awt.Dimension(50, 50));
+        addicon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addiconMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addiconMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addiconMouseExited(evt);
+            }
+        });
+
+        deleteicon.setToolTipText("Delete a Book");
+        deleteicon.setMaximumSize(new java.awt.Dimension(50, 50));
+        deleteicon.setMinimumSize(new java.awt.Dimension(50, 50));
+        deleteicon.setPreferredSize(new java.awt.Dimension(50, 50));
+        deleteicon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteiconMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteiconMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteiconMouseExited(evt);
+            }
+        });
+
+        updateicon.setToolTipText("Edit a Book");
+        updateicon.setMaximumSize(new java.awt.Dimension(50, 50));
+        updateicon.setMinimumSize(new java.awt.Dimension(50, 50));
+        updateicon.setPreferredSize(new java.awt.Dimension(50, 50));
+        updateicon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateiconMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updateiconMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updateiconMouseExited(evt);
+            }
+        });
+
+        lblExit.setToolTipText("Exit the program");
+        lblExit.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblExit.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblExit.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExitMouseExited(evt);
+            }
+        });
+
+        lblBack.setToolTipText("Back To Menu");
+        lblBack.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblBack.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblBack.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBackMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblBackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblBackMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(updateicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(updateicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
+        );
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 320, 510);
+
+        jPanel4.setBackground(new java.awt.Color(44, 0, 44));
+        jPanel4.setMinimumSize(new java.awt.Dimension(700, 700));
+        jPanel4.setPreferredSize(new java.awt.Dimension(700, 700));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Footlight MT Light", 3, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/customers.png"))); // NOI18N
+        jLabel5.setText("CUSTOMERS");
+
+        searchbutton.setToolTipText("Search");
+        searchbutton.setMaximumSize(new java.awt.Dimension(50, 50));
+        searchbutton.setMinimumSize(new java.awt.Dimension(50, 50));
+        searchbutton.setPreferredSize(new java.awt.Dimension(50, 50));
+        searchbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchbuttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchbuttonMouseExited(evt);
+            }
+        });
+
+        ascbutton.setToolTipText("Order items Ascending ");
+        ascbutton.setMaximumSize(new java.awt.Dimension(50, 50));
+        ascbutton.setMinimumSize(new java.awt.Dimension(50, 50));
+        ascbutton.setPreferredSize(new java.awt.Dimension(50, 50));
+        ascbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ascbuttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ascbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ascbuttonMouseExited(evt);
+            }
+        });
+
+        descbutton.setToolTipText("Order items Descending");
+        descbutton.setMaximumSize(new java.awt.Dimension(50, 50));
+        descbutton.setMinimumSize(new java.awt.Dimension(50, 50));
+        descbutton.setPreferredSize(new java.awt.Dimension(50, 50));
+        descbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                descbuttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                descbuttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                descbuttonMouseExited(evt);
             }
         });
 
@@ -100,160 +511,449 @@ public class FrmCustomers extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        txtCN.setPreferredSize(new java.awt.Dimension(60, 20));
-        txtCN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCNActionPerformed(evt);
-            }
-        });
-
-        txtName.setPreferredSize(new java.awt.Dimension(60, 20));
-
-        txtAddress.setPreferredSize(new java.awt.Dimension(60, 20));
-
-        txtPhone.setPreferredSize(new java.awt.Dimension(60, 20));
-
-        jLabel1.setText("Name");
-
-        jLabel2.setText("Card Number");
-
-        jLabel3.setText("Address");
-
-        jLabel4.setText("Phone");
-
-        jMyButton1.setText("Add");
-        jMyButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMyButton1ActionPerformed(evt);
-            }
-        });
-
-        btnExit.setText("Exit");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
-        btnuUpdate.setText("Update");
-        btnuUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnuUpdateActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCN, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1))
-                        .addGap(84, 84, 84))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jMyButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCN, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(searchbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jMyButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                        .addComponent(ascbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(descbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))))
         );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(searchbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ascbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(descbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 227, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(320, 0, 720, 510);
+
+        jMenu1.setText("Options");
+
+        MenuFileAdd1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/plus-black-symbol (2).png"))); // NOI18N
+        MenuFileAdd1.setText("Add");
+        MenuFileAdd1.setToolTipText("Add new Book");
+        MenuFileAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileAdd1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileAdd1);
+
+        MenuFileDelete1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileDelete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Delete_Black.png"))); // NOI18N
+        MenuFileDelete1.setText("Delete");
+        MenuFileDelete1.setToolTipText("Delete selected Book");
+        MenuFileDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileDelete1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileDelete1);
+
+        MenuFileUpdate1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Update_Black.png"))); // NOI18N
+        MenuFileUpdate1.setText("Update");
+        MenuFileUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileUpdate1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileUpdate1);
+        jMenu1.add(jSeparator5);
+
+        MenuFilePrint1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFilePrint1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Print_Black.png"))); // NOI18N
+        MenuFilePrint1.setText("Print");
+        jMenu1.add(MenuFilePrint1);
+
+        MenuFileBackUp1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileBackUp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/BackUp.png"))); // NOI18N
+        MenuFileBackUp1.setText("Back Up");
+        MenuFileBackUp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileBackUp1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileBackUp1);
+        jMenu1.add(jSeparator6);
+
+        MenuFileRefresh1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        MenuFileRefresh1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Refresh_Black.png"))); // NOI18N
+        MenuFileRefresh1.setText("Refresh");
+        MenuFileRefresh1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileRefresh1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileRefresh1);
+        jMenu1.add(jSeparator7);
+
+        MenuFileHome1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Home_Black.png"))); // NOI18N
+        MenuFileHome1.setText("Menu");
+        MenuFileHome1.setToolTipText("Go back to Menu");
+        MenuFileHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileHome1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileHome1);
+        jMenu1.add(jSeparator8);
+
+        MenuFileQuit1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileQuit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Quit_Red.png"))); // NOI18N
+        MenuFileQuit1.setText("Quit");
+        MenuFileQuit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileQuit1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuFileQuit1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Shortcuts");
+
+        MenuMoveToHome.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuMoveToHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Home_Black.png"))); // NOI18N
+        MenuMoveToHome.setText("Menu");
+        MenuMoveToHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMoveToHomeActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuMoveToHome);
+
+        MenuMoveCustomers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuMoveCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Customers_Black.png"))); // NOI18N
+        MenuMoveCustomers.setText("Customers");
+        MenuMoveCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMoveCustomersActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuMoveCustomers);
+
+        MenuMoveHistory.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuMoveHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_History_Black.png"))); // NOI18N
+        MenuMoveHistory.setText("History");
+        MenuMoveHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMoveHistoryActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuMoveHistory);
+
+        MenuMoveManagement.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        MenuMoveManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Management_Black.png"))); // NOI18N
+        MenuMoveManagement.setText("Management");
+        MenuMoveManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMoveManagementActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuMoveManagement);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+     private boolean NoEmptyTextField(){
+    if (txtCN.getText().equals("") || txtName.getText().equals("") || txtAddress.getText().equals("") 
+            || txtPhone.getText().equals("") ){
+        return true;
+    }
+    return false;
+    }
     
     private void txtCNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCNActionPerformed
 
-    private void jMyButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMyButton1ActionPerformed
-        // TODO add your handling code here:
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+      ClearInfo();
+      
+    }//GEN-LAST:event_formWindowOpened
+
+    private void addiconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addiconMouseClicked
+        if(!NoEmptyTextField()){ 
         PutInfo();
         customer.Add();
         ClearInfo();
-        
-    }//GEN-LAST:event_jMyButton1ActionPerformed
+        }
+        else {
+            Tools.MsgBoxError1("Please fill all fields", "Empty Field error");
+        }    
+    }//GEN-LAST:event_addiconMouseClicked
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
+    private void addiconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addiconMouseEntered
+        Tools.PutImageInLable("add-512-white.png", addicon, 45, 45);
+    }//GEN-LAST:event_addiconMouseEntered
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void addiconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addiconMouseExited
+        Tools.PutImageInLable("add-512-white.png", addicon, 30, 30);
+    }//GEN-LAST:event_addiconMouseExited
+
+    private void deleteiconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteiconMouseClicked
+       if (!txtCN.getText().equals("")) {
         customer.setCardNumber(Integer.parseInt( txtCN.getText() ));
         customer.Delete();
         ClearInfo();
-    }//GEN-LAST:event_btnDeleteActionPerformed
+       }
+        else {
+       Tools.MsgBoxError1("Please provide Card Number of the customer you wish to delete", "Missing Card Number");
+       }
+    }//GEN-LAST:event_deleteiconMouseClicked
 
-    private void btnuUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnuUpdateActionPerformed
+    private void deleteiconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteiconMouseEntered
+        Tools.PutImageInLable("Delete_Icon_White.png", deleteicon, 45, 45);
+    }//GEN-LAST:event_deleteiconMouseEntered
+
+    private void deleteiconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteiconMouseExited
+        Tools.PutImageInLable("Delete_Icon_White.png", deleteicon, 30, 30);
+    }//GEN-LAST:event_deleteiconMouseExited
+
+    private void updateiconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateiconMouseClicked
+       if (!NoEmptyTextField() ) {
+       customer.Update();
+       ClearInfo();
+       }
+       else {
+            Tools.MsgBoxError1("Please fill all fields", "Empty Field error");
+        }    
+    }//GEN-LAST:event_updateiconMouseClicked
+
+    private void updateiconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateiconMouseEntered
+        Tools.PutImageInLable("pen.png", updateicon, 45, 45);
+    }//GEN-LAST:event_updateiconMouseEntered
+
+    private void updateiconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateiconMouseExited
+        Tools.PutImageInLable("pen.png", updateicon, 30, 30);
+    }//GEN-LAST:event_updateiconMouseExited
+
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+        boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
+        if(check){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_lblExitMouseClicked
+
+    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 50, 50);
+    }//GEN-LAST:event_lblExitMouseEntered
+
+    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
+    }//GEN-LAST:event_lblExitMouseExited
+
+    private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
+        this.dispose();
+        Tools.OpenForm(new Menu());
+    }//GEN-LAST:event_lblBackMouseClicked
+
+    private void lblBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseEntered
+        Tools.PutImageInLable("Back_White.png", lblBack, 45, 45);
+    }//GEN-LAST:event_lblBackMouseEntered
+
+    private void lblBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseExited
+        Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
+    }//GEN-LAST:event_lblBackMouseExited
+
+    private void NamebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamebuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NamebuttonActionPerformed
+
+    private void AddressbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressbuttonActionPerformed
+
+    private void CNbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CNbuttonActionPerformed
+
+    private void SearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchFieldActionPerformed
+        // TODO add your handling code here:     
+    }//GEN-LAST:event_SearchFieldActionPerformed
+
+    
+    
+    
+    private void searchbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbuttonMouseClicked
+        
+        String Statement = "Select * from customer where ";
+        String Statement2 = " like '%"+ SearchField.getText()+ "%' ";
+ 
+        if (CNbutton.isSelected()){
+            Statement += "CardNumber " + Statement2;       
+        }
+        
+        else if (Addressbutton.isSelected()){
+           Statement += "Address " + Statement2;
+        }
+        
+        else if (Namebutton.isSelected()){
+             Statement += "Name " + Statement2;
+        }
+        
+        else if (Phonebutton.isSelected()){
+             Statement += "Phone " + Statement2;
+        }
+     
+        customer.GetSomeRows(Statement, jTable1);
+        int Row = jTable1.getRowCount();
+        if (Row == 0){
+            Tools.MsgBoxErrorX("No result!","Search not found");
+            ClearInfo();
+          
+        }
+        
+    
+    }//GEN-LAST:event_searchbuttonMouseClicked
+
+    private void searchbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbuttonMouseEntered
+        Tools.PutImageInLable("Search-icon-White.png", searchbutton, 45, 45);
+    }//GEN-LAST:event_searchbuttonMouseEntered
+
+    private void searchbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbuttonMouseExited
+        Tools.PutImageInLable("Search-icon-White.png", searchbutton, 30, 30);
+    }//GEN-LAST:event_searchbuttonMouseExited
+
+    private void ascbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ascbuttonMouseClicked
+        OrderItems("ASC");
+    }//GEN-LAST:event_ascbuttonMouseClicked
+
+    private void ascbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ascbuttonMouseEntered
+        Tools.PutImageInLable("Ascending_White.png", ascbutton, 45, 45);
+    }//GEN-LAST:event_ascbuttonMouseEntered
+
+    private void ascbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ascbuttonMouseExited
+        Tools.PutImageInLable("Ascending_White.png", ascbutton, 30, 30);
+    }//GEN-LAST:event_ascbuttonMouseExited
+
+    private void descbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descbuttonMouseClicked
+        OrderItems("DESC");
+    }//GEN-LAST:event_descbuttonMouseClicked
+
+    private void descbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descbuttonMouseEntered
+        Tools.PutImageInLable("Descending_White.png", descbutton, 45, 45);
+    }//GEN-LAST:event_descbuttonMouseEntered
+
+    private void descbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descbuttonMouseExited
+        Tools.PutImageInLable("Descending_White.png", descbutton, 30, 30);
+    }//GEN-LAST:event_descbuttonMouseExited
+
+    private void PhonebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhonebuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhonebuttonActionPerformed
+
+    private void MenuFileAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileAdd1ActionPerformed
+     if(!NoEmptyTextField()){ 
         PutInfo();
-        customer.Update();
+        customer.Add();
         ClearInfo();
-    }//GEN-LAST:event_btnuUpdateActionPerformed
+        }
+        else {
+            Tools.MsgBoxError1("Please fill all fields", "Empty Field error");
+        }    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuFileAdd1ActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      ClearInfo();
-    }//GEN-LAST:event_formWindowOpened
+    private void MenuFileDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileDelete1ActionPerformed
+        // TODO add your handling code here:
+         if (!txtCN.getText().equals("")) {
+        customer.setCardNumber(Integer.parseInt( txtCN.getText() ));
+        customer.Delete();
+        ClearInfo();
+       }
+        else {
+       Tools.MsgBoxError1("Please provide Card Number of the customer you wish to delete", "Missing Card Number");
+       }
+    }//GEN-LAST:event_MenuFileDelete1ActionPerformed
+
+    private void MenuFileUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileUpdate1ActionPerformed
+        // TODO add your handling code here:
+          if (!NoEmptyTextField() ) {
+       customer.Update();
+       ClearInfo();
+       }
+       else {
+            Tools.MsgBoxError1("Please fill all fields", "Empty Field error");
+        }    
+    }//GEN-LAST:event_MenuFileUpdate1ActionPerformed
+
+    private void MenuFileBackUp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileBackUp1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuFileBackUp1ActionPerformed
+
+    private void MenuFileRefresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileRefresh1ActionPerformed
+        // TODO add your handling code here:
+        ClearInfo();
+    }//GEN-LAST:event_MenuFileRefresh1ActionPerformed
+
+    private void MenuFileHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileHome1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Tools.OpenForm(new Menu());
+    }//GEN-LAST:event_MenuFileHome1ActionPerformed
+
+    private void MenuFileQuit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileQuit1ActionPerformed
+    boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!"); //change to yes/no rather than yes-no-cancel
+       if(check){
+        System.exit(0);
+       }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuFileQuit1ActionPerformed
+
+    private void MenuMoveToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMoveToHomeActionPerformed
+        // TODO add your handling code here:
+          this.dispose();
+        Tools.OpenForm(new Menu());
+    }//GEN-LAST:event_MenuMoveToHomeActionPerformed
+
+    private void MenuMoveManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMoveManagementActionPerformed
+        // TODO add your handling code here:
+            this.dispose();
+        Tools.OpenForm(new FrmManagement());
+    }//GEN-LAST:event_MenuMoveManagementActionPerformed
+
+    private void MenuMoveHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMoveHistoryActionPerformed
+        // TODO add your handling code here:
+           this.dispose();  
+        Tools.OpenForm(new FrmHistory());
+    }//GEN-LAST:event_MenuMoveHistoryActionPerformed
+
+    private void MenuMoveCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMoveCustomersActionPerformed
+    this.dispose();  
+        Tools.OpenForm(new FrmCustomers());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuMoveCustomersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,19 +991,55 @@ public class FrmCustomers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Controls.JMyButton btnDelete;
-    private Controls.JMyButton btnExit;
-    private Controls.JMyButton btnuUpdate;
+    private javax.swing.JRadioButton Addressbutton;
+    private javax.swing.JRadioButton CNbutton;
+    private javax.swing.JMenuItem MenuFileAdd1;
+    private javax.swing.JMenuItem MenuFileBackUp1;
+    private javax.swing.JMenuItem MenuFileDelete1;
+    private javax.swing.JMenuItem MenuFileHome1;
+    private javax.swing.JMenuItem MenuFilePrint1;
+    private javax.swing.JMenuItem MenuFileQuit1;
+    private javax.swing.JMenuItem MenuFileRefresh1;
+    private javax.swing.JMenuItem MenuFileUpdate1;
+    private javax.swing.JMenuItem MenuMoveCustomers;
+    private javax.swing.JMenuItem MenuMoveHistory;
+    private javax.swing.JMenuItem MenuMoveManagement;
+    private javax.swing.JMenuItem MenuMoveToHome;
+    private javax.swing.JRadioButton Namebutton;
+    private javax.swing.JRadioButton Phonebutton;
+    private Controls.JTextBox SearchField;
+    private javax.swing.JLabel addicon;
+    private javax.swing.JLabel ascbutton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel deleteicon;
+    private javax.swing.JLabel descbutton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private Controls.JMyButton jMyButton1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel searchbutton;
     private Controls.JTextBox txtAddress;
     private Controls.JTextBox txtCN;
     private Controls.JTextBox txtName;
     private Controls.JTextBox txtPhone;
+    private javax.swing.JLabel updateicon;
     // End of variables declaration//GEN-END:variables
 }
