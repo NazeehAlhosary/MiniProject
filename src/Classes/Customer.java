@@ -72,16 +72,16 @@ private void getUniqueId()
     }
      
     public void Update() {
-        String update = "Update Customer set"
-                +"Title='"+ Name + "',"
+             String update = "Update Customer set "
+                +"Name='"+ Name + "',"
                 +"Address='"+ Address + "',"
-                +"phoneNumber='"+ Phone + "',"
-                + " where cardNumber=" + CardNumber+";";
+                +"Phone='"+ Phone + "'"
+                +"where CardNumber=" + CardNumber+";";
         boolean check = Connections.RunNonQuery(update);
         if(check) {
             Tools.MsgBoxInfo("Customer information has been updated", "Update succesful");
         }
-    
+  
   
     }
   
@@ -98,7 +98,9 @@ private void getUniqueId()
       public void GetTableInfo(String TableNameInDB, JTable table){
         Connections.FillTable(TableNameInDB, table);
     }
-      
+      public void GetSomeRows(String Statement, JTable table){
+    Connections.FillCustomRows(Statement, table);
+    }
       
       public int AutoNumber(){
       return Connections.GetAutoNumbers(" Customer ", "CardNumber");
