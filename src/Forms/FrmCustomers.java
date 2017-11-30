@@ -305,7 +305,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         lblDate.setFont(new java.awt.Font("Garamond", 3, 14)); // NOI18N
         lblDate.setForeground(new java.awt.Color(255, 255, 255));
 
-        addicon.setToolTipText("Add new Book");
+        addicon.setToolTipText("Add Customer");
         addicon.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
         addicon.setMaximumSize(new java.awt.Dimension(50, 50));
         addicon.setMinimumSize(new java.awt.Dimension(50, 50));
@@ -322,7 +322,7 @@ public class FrmCustomers extends javax.swing.JFrame {
             }
         });
 
-        deleteicon.setToolTipText("Delete a Book");
+        deleteicon.setToolTipText("Delete a Customer");
         deleteicon.setMaximumSize(new java.awt.Dimension(50, 50));
         deleteicon.setMinimumSize(new java.awt.Dimension(50, 50));
         deleteicon.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -338,7 +338,7 @@ public class FrmCustomers extends javax.swing.JFrame {
             }
         });
 
-        updateicon.setToolTipText("Edit a Book");
+        updateicon.setToolTipText("Edit a Customer");
         updateicon.setMaximumSize(new java.awt.Dimension(50, 50));
         updateicon.setMinimumSize(new java.awt.Dimension(50, 50));
         updateicon.setPreferredSize(new java.awt.Dimension(50, 50));
