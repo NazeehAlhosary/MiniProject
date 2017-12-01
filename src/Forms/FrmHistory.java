@@ -202,14 +202,14 @@ public class FrmHistory extends javax.swing.JFrame {
         });
 
         lblAdd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAddMousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAddMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblAddMouseExited(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAddMouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAddMousePressed(evt);
             }
         });
 
@@ -505,6 +505,7 @@ public class FrmHistory extends javax.swing.JFrame {
     private void lblAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMousePressed
         try {
             Add();
+            
         } catch (SQLException ex) {
             Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -657,6 +658,7 @@ public class FrmHistory extends javax.swing.JFrame {
         txtISBN.setText("");
         txtRentalDate.setText("");
         txtReturnDate.setText("");
+        history.GetTableInfo("History", tableHistory);
     }
     
     private void ClearInfo(String CardNumber) {

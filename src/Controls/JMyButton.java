@@ -25,14 +25,14 @@ public class JMyButton extends JButton {
 //    }
     @Override
     protected void paintComponent(Graphics g){
-    g.setColor(new Color(15, 80 ,90));
+    g.setColor(new Color(66,00,66));
     g.fillRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 25, 25);
     super.paintComponent(g);
     }
     
     @Override
     protected void paintBorder(Graphics g){
-         g.setColor(new Color(15, 80 ,90));
+         g.setColor(new Color(66,00,66));
         g.drawRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 25, 25);
         
     }

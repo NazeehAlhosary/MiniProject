@@ -16,13 +16,14 @@ public class JCombo extends JComboBox {
     public  JCombo (){
         setOpaque(false);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
+        setBackground(new Color(66 , 00 , 66));
     }
 //        public  JCombo (int size){
 //        setOpaque(false);
 //    }
     @Override
     protected void paintComponent(Graphics g){
-    g.setColor(getBackground());
+    g.setColor(new Color(66 , 00 , 66));
     setBackground(new Color(66 , 00 , 66));
     setForeground(new Color(255 , 255 , 255));
     g.fillRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 20, 20);

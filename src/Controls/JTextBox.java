@@ -30,7 +30,7 @@ public class JTextBox extends JTextField {
     
     @Override
     protected void paintBorder(Graphics g){
-         g.setColor(new Color(255 , 255 , 255));
+         g.setColor(new Color(66 , 00 , 66));
         g.drawRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 20, 20);
         
     }

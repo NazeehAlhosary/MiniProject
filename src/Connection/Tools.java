@@ -57,7 +57,8 @@ public class Tools {
  }
  
  public static boolean YesNoChooserBox(String message,String title){ //ConfirmBox
-     int result = JOptionPane.showConfirmDialog(null, message,title,JOptionPane.INFORMATION_MESSAGE);
+     int result = JOptionPane.showConfirmDialog(null, message,title,JOptionPane.YES_NO_OPTION, 
+      JOptionPane.QUESTION_MESSAGE);
      if(result == JOptionPane.YES_OPTION ) {
         return true;
      } else {
