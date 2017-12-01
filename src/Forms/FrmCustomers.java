@@ -581,6 +581,9 @@ public class FrmCustomers extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTable1KeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable1KeyReleased(evt);
+            }
         });
         jScrollPane1.setViewportView(jTable1);
 
@@ -1042,9 +1045,13 @@ public class FrmCustomers extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
-    SelectInfo();
-        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_jTable1KeyPressed
+
+    private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
+        SelectInfo();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1KeyReleased
 
     /**
      * @param args the command line arguments
