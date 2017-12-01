@@ -550,6 +550,11 @@ public class FrmCustomers extends javax.swing.JFrame {
         getContentPane().add(jPanel4);
         jPanel4.setBounds(320, 0, 720, 510);
 
+        jMenuBar1.setBackground(new java.awt.Color(44, 0, 44));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jMenuBar1.setForeground(new java.awt.Color(66, 0, 66));
+
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("Options");
 
         MenuFileAdd1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK));
@@ -636,6 +641,7 @@ public class FrmCustomers extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Shortcuts");
 
         MenuMoveToHome.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
@@ -742,6 +748,7 @@ public class FrmCustomers extends javax.swing.JFrame {
 
     private void updateiconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateiconMouseClicked
        if (!NoEmptyTextField() ) {
+       PutInfo();
        customer.Update();
        ClearInfo();
        }
