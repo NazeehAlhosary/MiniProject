@@ -7,8 +7,11 @@ package Forms;
 
 import Classes.Books;
 import Classes.History;
+import Connection.Connections;
+import Connection.TableNewColors;
 import Connection.Tools;
 import Controls.JMyButton;
+import java.awt.Cursor;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +27,17 @@ public class FrmHistory extends javax.swing.JFrame {
      */
     public FrmHistory() {
         initComponents();
+        tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
+        setLabels();
+        history.GetTableInfo("History", tableHistory);
+    }
+    
+    public FrmHistory(String CardNumber) {
+        super();
+        initComponents();
+        tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
+        setLabels();
+        ClearInfo(CardNumber);
     }
 
     /**
@@ -37,19 +51,42 @@ public class FrmHistory extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableHistory = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         txtCardNumber = new Controls.JTextBox();
         jLabel1 = new javax.swing.JLabel();
-        txtISBN = new Controls.JTextBox();
         jLabel2 = new javax.swing.JLabel();
+        txtISBN = new Controls.JTextBox();
         jLabel3 = new javax.swing.JLabel();
-        btnAdd = new Controls.JMyButton();
+        jLabel4 = new javax.swing.JLabel();
         txtRentalDate = new Controls.JTextBox();
         txtReturnDate = new Controls.JTextBox();
-        jLabel4 = new javax.swing.JLabel();
-        btnExit = new Controls.JMyButton();
-        btnBack = new Controls.JMyButton();
+        lblAdd = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
+        lblRefresh = new javax.swing.JLabel();
+        lblBack = new javax.swing.JLabel();
+        lblUpdate = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuFile = new javax.swing.JMenu();
+        menuFileAdd = new javax.swing.JMenuItem();
+        menuFileUpdate = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        menuFilePrint = new javax.swing.JMenuItem();
+        menuFileBackup = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        menuFileRefresh = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        menuFileMenu = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        menuFileQuit = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        moveMenuMenu = new javax.swing.JMenuItem();
+        moveMenuCustomers = new javax.swing.JMenuItem();
+        moveMenuBooks = new javax.swing.JMenuItem();
+        moveMenuManagement = new javax.swing.JMenuItem();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,26 +102,86 @@ public class FrmHistory extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(66, 0, 66));
+        setFocusable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(44, 0, 44));
+
         tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Card Number", "ISBN", "Title", "Author", "Status", "Rental Date", "Return Date"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableHistoryMouseClicked(evt);
+            }
+        });
+        tableHistory.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tableHistoryKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(tableHistory);
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Footlight MT Light", 3, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/books-stack-from-top-view (1).png"))); // NOI18N
+        jLabel5.setText("History");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(283, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(66, 0, 66));
+
+        txtCardNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCardNumberActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Card Number");
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ISBN");
 
         txtISBN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,16 +189,11 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("ISBN");
-
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Rental Date");
 
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Return Date");
 
         txtReturnDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,102 +201,268 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Return Date");
-
-        btnExit.setText("Exit");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-        btnExit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnExitKeyPressed(evt);
-            }
-        });
-
-        btnBack.setText("Back");
-        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnBackMousePressed(evt);
+                lblAddMousePressed(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAddMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAddMouseEntered(evt);
             }
         });
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblExitMousePressed(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExitMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
+            }
+        });
+
+        lblRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblRefreshMousePressed(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRefreshMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRefreshMouseEntered(evt);
+            }
+        });
+
+        lblBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblBackMousePressed(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblBackMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblBackMouseEntered(evt);
+            }
+        });
+
+        lblUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblUpdateMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblUpdateMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblUpdateMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(49, 197, Short.MAX_VALUE)
+                .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(lblUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtReturnDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtRentalDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtRentalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 150, Short.MAX_VALUE))))
+        );
+
+        jMenuBar1.setBackground(new java.awt.Color(44, 0, 44));
+        jMenuBar1.setForeground(new java.awt.Color(66, 0, 66));
+
+        menuFile.setForeground(new java.awt.Color(255, 255, 255));
+        menuFile.setText("File");
+
+        menuFileAdd.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK));
+        menuFileAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/plus-black-symbol (2).png"))); // NOI18N
+        menuFileAdd.setText("Add");
+        menuFileAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                menuFileAddActionPerformed(evt);
             }
         });
+        menuFile.add(menuFileAdd);
+
+        menuFileUpdate.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK));
+        menuFileUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Update_Black.png"))); // NOI18N
+        menuFileUpdate.setText("Update");
+        menuFileUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileUpdateActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuFileUpdate);
+        menuFile.add(jSeparator1);
+
+        menuFilePrint.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        menuFilePrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Print_Black.png"))); // NOI18N
+        menuFilePrint.setText("Print");
+        menuFile.add(menuFilePrint);
+
+        menuFileBackup.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK));
+        menuFileBackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/BackUp.png"))); // NOI18N
+        menuFileBackup.setText("Backup");
+        menuFile.add(menuFileBackup);
+        menuFile.add(jSeparator2);
+
+        menuFileRefresh.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        menuFileRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Refresh_Black.png"))); // NOI18N
+        menuFileRefresh.setText("Refresh");
+        menuFileRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileRefreshActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuFileRefresh);
+        menuFile.add(jSeparator3);
+
+        menuFileMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
+        menuFileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Home_Black.png"))); // NOI18N
+        menuFileMenu.setText("Menu");
+        menuFileMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileMenuActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuFileMenu);
+        menuFile.add(jSeparator4);
+
+        menuFileQuit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_MASK));
+        menuFileQuit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Quit_Red.png"))); // NOI18N
+        menuFileQuit.setText("Quit");
+        menuFileQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileQuitActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuFileQuit);
+
+        jMenuBar1.add(menuFile);
+
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu2.setText("Move");
+
+        moveMenuMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
+        moveMenuMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Home_Black.png"))); // NOI18N
+        moveMenuMenu.setText("Menu");
+        moveMenuMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveMenuMenuActionPerformed(evt);
+            }
+        });
+        jMenu2.add(moveMenuMenu);
+
+        moveMenuCustomers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
+        moveMenuCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Customers_Black.png"))); // NOI18N
+        moveMenuCustomers.setText("Customers");
+        moveMenuCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveMenuCustomersActionPerformed(evt);
+            }
+        });
+        jMenu2.add(moveMenuCustomers);
+
+        moveMenuBooks.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK));
+        moveMenuBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Shelf.png"))); // NOI18N
+        moveMenuBooks.setText("Books");
+        moveMenuBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveMenuBooksActionPerformed(evt);
+            }
+        });
+        jMenu2.add(moveMenuBooks);
+
+        moveMenuManagement.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        moveMenuManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Management_Black.png"))); // NOI18N
+        moveMenuManagement.setText("Management");
+        moveMenuManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveMenuManagementActionPerformed(evt);
+            }
+        });
+        jMenu2.add(moveMenuManagement);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtReturnDate, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                                .addComponent(txtISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtRentalDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txtRentalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -215,25 +473,21 @@ public class FrmHistory extends javax.swing.JFrame {
     }//GEN-LAST:event_txtISBNActionPerformed
     
     History history = new History();
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-
-        history.setCardNumber(Integer.parseInt( txtCardNumber.getText() ));
-        history.setISBN(Integer.parseInt(txtISBN.getText()));           
-        history.setReturnedDate(txtReturnDate.getText());
-        history.setRentalDate(txtRentalDate.getText());
-        history.setStatus("Unavailable");
-        try {
-            history.setAttributes();
-        } catch (SQLException ex) {
-            Tools.MsgBox("attributes error");
-            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    
+    private void setLabels() {
+        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 30, 30);
+        Tools.PutImageInLable("add-512-white.png", lblAdd, 30, 30);
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
+        Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
+        Tools.PutImageInLable("pen.png", lblUpdate, 30, 30);
         
-        history.Add();
-        ClearInfo();
-        
-    }//GEN-LAST:event_btnAddActionPerformed
-
+        lblRefresh.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblAdd.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblExit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblUpdate.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }
+    
     private void txtReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReturnDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtReturnDateActionPerformed
@@ -244,33 +498,203 @@ public class FrmHistory extends javax.swing.JFrame {
         ClearInfo();
     }//GEN-LAST:event_formWindowOpened
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    private void txtCardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCardNumberActionPerformed
+
+    private void lblAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMousePressed
+        try {
+            Add();
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblAddMousePressed
+
+    private void lblExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMousePressed
+       boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
+       if(check){
+        System.exit(0);
+       }
+    }//GEN-LAST:event_lblExitMousePressed
+
+    private void lblRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMousePressed
+        ClearInfo();
+    }//GEN-LAST:event_lblRefreshMousePressed
+
+    private void lblRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseEntered
+        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 45, 45);
+    }//GEN-LAST:event_lblRefreshMouseEntered
+
+    private void lblRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseExited
+        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 30, 30);
+    }//GEN-LAST:event_lblRefreshMouseExited
+
+    private void lblAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseEntered
+        Tools.PutImageInLable("add-512-white.png", lblAdd, 45, 45);
+    }//GEN-LAST:event_lblAddMouseEntered
+
+    private void lblAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseExited
+        Tools.PutImageInLable("add-512-white.png", lblAdd, 30, 30);
+    }//GEN-LAST:event_lblAddMouseExited
+
+    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 50, 50);
+    }//GEN-LAST:event_lblExitMouseEntered
+
+    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 30, 30);
+    }//GEN-LAST:event_lblExitMouseExited
+
+    private void lblBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMousePressed
+        this.dispose();
+        Tools.OpenForm(new Menu());
+    }//GEN-LAST:event_lblBackMousePressed
+
+    private void lblBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseEntered
+        Tools.PutImageInLable("Back_White.png", lblBack, 45, 45);
+    }//GEN-LAST:event_lblBackMouseEntered
+
+    private void lblBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseExited
+        Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
+    }//GEN-LAST:event_lblBackMouseExited
+
+    private void menuFileAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileAddActionPerformed
+        try {
+            Add();
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_menuFileAddActionPerformed
+
+    private void tableHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHistoryMouseClicked
+        SelectInfo();
+    }//GEN-LAST:event_tableHistoryMouseClicked
+
+    private void tableHistoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableHistoryKeyReleased
+        SelectInfo();
+    }//GEN-LAST:event_tableHistoryKeyReleased
+
+    private void lblUpdateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMousePressed
+        Update();
+    }//GEN-LAST:event_lblUpdateMousePressed
+
+    private void menuFileUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileUpdateActionPerformed
+        Update();
+    }//GEN-LAST:event_menuFileUpdateActionPerformed
+
+    private void menuFileRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileRefreshActionPerformed
+        ClearInfo();
+    }//GEN-LAST:event_menuFileRefreshActionPerformed
+
+    private void menuFileMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileMenuActionPerformed
+        this.dispose();
+        Tools.OpenForm(new Menu());
+    }//GEN-LAST:event_menuFileMenuActionPerformed
+
+    private void menuFileQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileQuitActionPerformed
         boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
        if(check){
         System.exit(0);
        }
-    }//GEN-LAST:event_btnExitActionPerformed
+    }//GEN-LAST:event_menuFileQuitActionPerformed
 
-    private void btnExitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnExitKeyPressed
- 
-    }//GEN-LAST:event_btnExitKeyPressed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMousePressed
+    private void moveMenuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveMenuMenuActionPerformed
         this.dispose();
         Tools.OpenForm(new Menu());
-    }//GEN-LAST:event_btnBackMousePressed
+    }//GEN-LAST:event_moveMenuMenuActionPerformed
 
+    private void moveMenuCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveMenuCustomersActionPerformed
+        this.dispose();
+        Tools.OpenForm(new FrmCustomers());
+    }//GEN-LAST:event_moveMenuCustomersActionPerformed
+
+    private void moveMenuBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveMenuBooksActionPerformed
+    this.dispose();
+        Tools.OpenForm(new FrmBooks());
+    }//GEN-LAST:event_moveMenuBooksActionPerformed
+
+    private void moveMenuManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveMenuManagementActionPerformed
+        this.dispose();
+        Tools.OpenForm(new FrmManagement());
+    }//GEN-LAST:event_moveMenuManagementActionPerformed
+
+    private void lblUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMouseEntered
+        Tools.PutImageInLable("pen.png", lblUpdate, 45, 45);
+    }//GEN-LAST:event_lblUpdateMouseEntered
+
+    private void lblUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMouseExited
+        Tools.PutImageInLable("pen.png", lblUpdate, 30, 30);
+    }//GEN-LAST:event_lblUpdateMouseExited
+
+    private void Add() throws SQLException{
+    if (!NoEmptyTextField()){
+             PutInfo();
+             history.Add();
+             ClearInfo();    
+        }     
+        else {
+            Tools.MsgBoxError1("Please fill all field...", "Empty Field or Boxes");
+        }    
+    }
+    private boolean NoEmptyTextField(){
+    if (txtCardNumber.getText().equals("") || txtISBN.getText().equals("") || txtRentalDate.getText().equals("") 
+            || txtReturnDate.getText().equals("")){
+        return true;
+    }
+    return false;
+    }
+    
+    private void PutInfo() throws SQLException {
+        history.setCardNumber(Integer.parseInt(txtCardNumber.getText()));
+        history.setISBN(Integer.parseInt(txtISBN.getText()));
+        history.setRentalDate(txtRentalDate.getText());
+        history.setReturnedDate(txtReturnDate.getText());
+        history.setAttributes();
+    }
+    
     private void ClearInfo() {
         txtCardNumber.setText("");
         txtISBN.setText("");
         txtRentalDate.setText("");
         txtReturnDate.setText("");
-        history.GetTableInfo("History", tableHistory);
     }
+    
+    private void ClearInfo(String CardNumber) {
+        txtCardNumber.setText("");
+        txtISBN.setText("");
+        txtRentalDate.setText("");
+        txtReturnDate.setText("");
+        
+        String statement = "Select * From History "
+                + "Where CardNumber = " + CardNumber;
+        Connections.FillCustomRows(statement, tableHistory);
+    }
+    
+    private void Update() {
+        SelectInfo();
+        try {
+            PutInfo();
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        history.UpdateReturned();
+        ClearInfo();
+    }
+    
+    private void SelectInfo(){
+        int Row = tableHistory.getSelectedRow();
+                try {
+    txtCardNumber.setText(tableHistory.getValueAt(Row, 0).toString() );
+    txtISBN.setText(tableHistory.getValueAt(Row,1).toString() );
+    txtRentalDate.setText(tableHistory.getValueAt(Row, 5).toString());
+    txtReturnDate.setText(tableHistory.getValueAt(Row, 6).toString());
+    
+                 }catch(Exception ex){
+                Tools.MsgBox(ex.getMessage());
+                }
+    }
+    
+
     /**
      * @param args the command line arguments
      */
@@ -308,16 +732,39 @@ public class FrmHistory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Controls.JMyButton btnAdd;
-    private Controls.JMyButton btnBack;
-    private Controls.JMyButton btnExit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblAdd;
+    private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblRefresh;
+    private javax.swing.JLabel lblUpdate;
+    private javax.swing.JMenu menuFile;
+    private javax.swing.JMenuItem menuFileAdd;
+    private javax.swing.JMenuItem menuFileBackup;
+    private javax.swing.JMenuItem menuFileMenu;
+    private javax.swing.JMenuItem menuFilePrint;
+    private javax.swing.JMenuItem menuFileQuit;
+    private javax.swing.JMenuItem menuFileRefresh;
+    private javax.swing.JMenuItem menuFileUpdate;
+    private javax.swing.JMenuItem moveMenuBooks;
+    private javax.swing.JMenuItem moveMenuCustomers;
+    private javax.swing.JMenuItem moveMenuManagement;
+    private javax.swing.JMenuItem moveMenuMenu;
     private javax.swing.JTable tableHistory;
     private Controls.JTextBox txtCardNumber;
     private Controls.JTextBox txtISBN;

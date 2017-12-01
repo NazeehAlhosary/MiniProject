@@ -83,6 +83,11 @@ public class FrmManagement extends javax.swing.JFrame {
 
         btnHistory.setText("History");
         btnHistory.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        btnHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistoryActionPerformed(evt);
+            }
+        });
 
         lblexit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,6 +343,13 @@ public class FrmManagement extends javax.swing.JFrame {
           Connection.Tools.OpenForm(new Menu());
                 
     }//GEN-LAST:event_lblbackMouseClicked
+
+    private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
+        int row = tableCM.getSelectedRow();
+        FrmHistory historyForm = new FrmHistory(String.valueOf(tableCM.getValueAt(row, 0)));
+        this.dispose();
+        Tools.OpenForm(historyForm);
+    }//GEN-LAST:event_btnHistoryActionPerformed
 
     /**
      * @param args the command line arguments
