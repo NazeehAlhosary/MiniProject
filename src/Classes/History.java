@@ -89,7 +89,7 @@ public class History {
                 + ISBN + "," 
                 + "'" +title + "',"
                 + "'" +author + "',"
-                + "'" +status + "',"
+                + "'" +"borrowed" + "',"
                 + "'" +rentalDate + "',"
                 + "'" +returnedDate + "'"
                 + ");";
@@ -99,10 +99,10 @@ public class History {
                 
     }
     public void UpdateReturned(){
-         String update = "Update History set "
-            +"Status='"+"Returned"+"',"
-            + "returnedDate='" +returnedDate + "'"
-            + " where ISBN=" +ISBN +";";
+         String update = "Update History Set "
+            +"Status = '"+"returned"+"',"
+            + "returnedDate = '" +returnedDate + "'"
+            + " where ISBN = " +ISBN +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
          Tools.MsgBoxInfo("Book "+ISBN + " has been returned", "Update");
@@ -118,7 +118,7 @@ public class History {
     }
     
     public void setAttributes() throws SQLException {
-        String query = "SELECT Title,Author FROM Books "
+        String query = "SELECT Title,Author,Status FROM Books "
                 + "WHERE ISBN = "
                 + ISBN + ";";
         
@@ -129,8 +129,7 @@ public class History {
         
         rs.next();
         this.title = rs.getString("Title");
-        
-        //rs = Connections.ExecuteQuery(authorQuery);
+        this.status = rs.getString("Status");
         this.author = rs.getString("Author");
         
     }

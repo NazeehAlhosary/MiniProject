@@ -29,7 +29,7 @@ public class FrmHistory extends javax.swing.JFrame {
         initComponents();
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         setLabels();
-        history.GetTableInfo("History", tableHistory);
+        ClearInfo();
     }
     
     public FrmHistory(String CardNumber) {
@@ -69,6 +69,10 @@ public class FrmHistory extends javax.swing.JFrame {
         lblRefresh = new javax.swing.JLabel();
         lblBack = new javax.swing.JLabel();
         lblUpdate = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuFileAdd = new javax.swing.JMenuItem();
@@ -104,6 +108,7 @@ public class FrmHistory extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(66, 0, 66));
         setFocusable(false);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -153,10 +158,10 @@ public class FrmHistory extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,24 +200,28 @@ public class FrmHistory extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Return Date");
 
+        txtRentalDate.setText("asd");
+
         txtReturnDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtReturnDateActionPerformed(evt);
             }
         });
 
+        lblAdd.setToolTipText("Add history");
         lblAdd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAddMouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAddMousePressed(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblAddMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAddMousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAddMouseEntered(evt);
             }
         });
 
+        lblExit.setToolTipText("Exit");
         lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblExitMousePressed(evt);
@@ -225,6 +234,7 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
+        lblRefresh.setToolTipText("Refresh table");
         lblRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblRefreshMousePressed(evt);
@@ -237,6 +247,7 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
+        lblBack.setToolTipText("Return back to menu");
         lblBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblBackMousePressed(evt);
@@ -250,14 +261,14 @@ public class FrmHistory extends javax.swing.JFrame {
         });
 
         lblUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblUpdateMousePressed(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblUpdateMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblUpdateMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblUpdateMousePressed(evt);
             }
         });
 
@@ -266,7 +277,9 @@ public class FrmHistory extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 197, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
                 .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,8 +292,7 @@ public class FrmHistory extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(lblUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel4)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -291,43 +303,63 @@ public class FrmHistory extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtReturnDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtRentalDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jSeparator6)
+                                .addComponent(txtISBN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                                .addComponent(jSeparator5)
+                                .addComponent(txtCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 48, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel1)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtRentalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(31, 150, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(44, 0, 44));
@@ -365,6 +397,11 @@ public class FrmHistory extends javax.swing.JFrame {
         menuFileBackup.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK));
         menuFileBackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/BackUp.png"))); // NOI18N
         menuFileBackup.setText("Backup");
+        menuFileBackup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileBackupActionPerformed(evt);
+            }
+        });
         menuFile.add(menuFileBackup);
         menuFile.add(jSeparator2);
 
@@ -454,23 +491,20 @@ public class FrmHistory extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNActionPerformed
-      
-    }//GEN-LAST:event_txtISBNActionPerformed
     
     History history = new History();
     
@@ -488,76 +522,10 @@ public class FrmHistory extends javax.swing.JFrame {
         lblUpdate.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
     
-    private void txtReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReturnDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtReturnDateActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.setTitle("Library System By Mini Project Team 6");
         Tools.SetTableHeader(tableHistory);
-        ClearInfo();
     }//GEN-LAST:event_formWindowOpened
-
-    private void txtCardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCardNumberActionPerformed
-
-    private void lblAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMousePressed
-        try {
-            Add();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_lblAddMousePressed
-
-    private void lblExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMousePressed
-       boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
-       if(check){
-        System.exit(0);
-       }
-    }//GEN-LAST:event_lblExitMousePressed
-
-    private void lblRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMousePressed
-        ClearInfo();
-    }//GEN-LAST:event_lblRefreshMousePressed
-
-    private void lblRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseEntered
-        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 45, 45);
-    }//GEN-LAST:event_lblRefreshMouseEntered
-
-    private void lblRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseExited
-        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 30, 30);
-    }//GEN-LAST:event_lblRefreshMouseExited
-
-    private void lblAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseEntered
-        Tools.PutImageInLable("add-512-white.png", lblAdd, 45, 45);
-    }//GEN-LAST:event_lblAddMouseEntered
-
-    private void lblAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseExited
-        Tools.PutImageInLable("add-512-white.png", lblAdd, 30, 30);
-    }//GEN-LAST:event_lblAddMouseExited
-
-    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
-        Tools.PutImageInLable("Exit_Red.png", lblExit, 50, 50);
-    }//GEN-LAST:event_lblExitMouseEntered
-
-    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
-        Tools.PutImageInLable("Exit_Red.png", lblExit, 30, 30);
-    }//GEN-LAST:event_lblExitMouseExited
-
-    private void lblBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMousePressed
-        this.dispose();
-        Tools.OpenForm(new Menu());
-    }//GEN-LAST:event_lblBackMousePressed
-
-    private void lblBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseEntered
-        Tools.PutImageInLable("Back_White.png", lblBack, 45, 45);
-    }//GEN-LAST:event_lblBackMouseEntered
-
-    private void lblBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseExited
-        Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
-    }//GEN-LAST:event_lblBackMouseExited
 
     private void menuFileAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileAddActionPerformed
         try {
@@ -574,10 +542,6 @@ public class FrmHistory extends javax.swing.JFrame {
     private void tableHistoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableHistoryKeyReleased
         SelectInfo();
     }//GEN-LAST:event_tableHistoryKeyReleased
-
-    private void lblUpdateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMousePressed
-        Update();
-    }//GEN-LAST:event_lblUpdateMousePressed
 
     private void menuFileUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileUpdateActionPerformed
         Update();
@@ -619,6 +583,10 @@ public class FrmHistory extends javax.swing.JFrame {
         Tools.OpenForm(new FrmManagement());
     }//GEN-LAST:event_moveMenuManagementActionPerformed
 
+    private void lblUpdateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMousePressed
+        Update();
+    }//GEN-LAST:event_lblUpdateMousePressed
+
     private void lblUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMouseEntered
         Tools.PutImageInLable("pen.png", lblUpdate, 45, 45);
     }//GEN-LAST:event_lblUpdateMouseEntered
@@ -626,6 +594,79 @@ public class FrmHistory extends javax.swing.JFrame {
     private void lblUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblUpdateMouseExited
         Tools.PutImageInLable("pen.png", lblUpdate, 30, 30);
     }//GEN-LAST:event_lblUpdateMouseExited
+
+    private void lblBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseEntered
+        Tools.PutImageInLable("Back_White.png", lblBack, 45, 45);
+    }//GEN-LAST:event_lblBackMouseEntered
+
+    private void lblBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseExited
+        Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
+    }//GEN-LAST:event_lblBackMouseExited
+
+    private void lblBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMousePressed
+        this.dispose();
+        Tools.OpenForm(new Menu());
+    }//GEN-LAST:event_lblBackMousePressed
+
+    private void lblRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseEntered
+        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 45, 45);
+    }//GEN-LAST:event_lblRefreshMouseEntered
+
+    private void lblRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseExited
+        Tools.PutImageInLable("Refresh-white.png", lblRefresh, 30, 30);
+    }//GEN-LAST:event_lblRefreshMouseExited
+
+    private void lblRefreshMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMousePressed
+        ClearInfo();
+    }//GEN-LAST:event_lblRefreshMousePressed
+
+    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 50, 50);
+    }//GEN-LAST:event_lblExitMouseEntered
+
+    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        Tools.PutImageInLable("Exit_Red.png", lblExit, 30, 30);
+    }//GEN-LAST:event_lblExitMouseExited
+
+    private void lblExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMousePressed
+        boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
+        if(check){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_lblExitMousePressed
+
+    private void lblAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMousePressed
+        try {
+            Add();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblAddMousePressed
+
+    private void lblAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseExited
+        Tools.PutImageInLable("add-512-white.png", lblAdd, 30, 30);
+    }//GEN-LAST:event_lblAddMouseExited
+
+    private void lblAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMouseEntered
+        Tools.PutImageInLable("add-512-white.png", lblAdd, 45, 45);
+    }//GEN-LAST:event_lblAddMouseEntered
+
+    private void txtReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReturnDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtReturnDateActionPerformed
+
+    private void txtISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNActionPerformed
+
+    }//GEN-LAST:event_txtISBNActionPerformed
+
+    private void txtCardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCardNumberActionPerformed
+
+    private void menuFileBackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileBackupActionPerformed
+         Tools.OpenForm(new Loading());
+    }//GEN-LAST:event_menuFileBackupActionPerformed
 
     private void Add() throws SQLException{
     if (!NoEmptyTextField()){
@@ -749,6 +790,10 @@ public class FrmHistory extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAdd;
     private javax.swing.JLabel lblBack;
