@@ -46,6 +46,7 @@ public class FrmCustomers extends javax.swing.JFrame {
     txtAddress.setText("");
     txtPhone.setText("");
     customer.GetTableInfo(" Customer ", jTable1);
+    txtName.requestFocus();
     }
         
  private void SetLabels(){
@@ -89,7 +90,18 @@ public class FrmCustomers extends javax.swing.JFrame {
        
         customer.GetSomeRows(Statement, jTable1);
      }
- 
+ private void SelectInfo(){
+        int Row = jTable1.getSelectedRow();
+                try {
+    txtCN.setText(jTable1.getValueAt(Row,0).toString() );
+    txtName.setText(jTable1.getValueAt(Row, 1).toString() );
+    txtAddress.setText(jTable1.getValueAt(Row, 2).toString());
+    txtPhone.setText(jTable1.getValueAt(Row, 3).toString());
+                }
+                catch(Exception ex){
+                Tools.MsgBox(ex.getMessage());
+                }
+ }
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,14 +113,6 @@ public class FrmCustomers extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        txtCN = new Controls.JTextBox();
-        txtName = new Controls.JTextBox();
-        txtAddress = new Controls.JTextBox();
-        txtPhone = new Controls.JTextBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         CNbutton = new javax.swing.JRadioButton();
         Namebutton = new javax.swing.JRadioButton();
@@ -124,6 +128,18 @@ public class FrmCustomers extends javax.swing.JFrame {
         updateicon = new javax.swing.JLabel();
         lblExit = new javax.swing.JLabel();
         lblBack = new javax.swing.JLabel();
+        txtCN = new Controls.JTextBox();
+        txtName = new Controls.JTextBox();
+        txtAddress = new Controls.JTextBox();
+        txtPhone = new Controls.JTextBox();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         searchbutton = new javax.swing.JLabel();
@@ -153,7 +169,6 @@ public class FrmCustomers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1020, 550));
-        setPreferredSize(new java.awt.Dimension(1020, 550));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -161,47 +176,6 @@ public class FrmCustomers extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(null);
-
-        txtCN.setPreferredSize(new java.awt.Dimension(60, 20));
-        txtCN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCNActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtCN);
-        txtCN.setBounds(110, 103, 136, 27);
-
-        txtName.setPreferredSize(new java.awt.Dimension(60, 20));
-        getContentPane().add(txtName);
-        txtName.setBounds(110, 148, 136, 27);
-
-        txtAddress.setPreferredSize(new java.awt.Dimension(60, 20));
-        getContentPane().add(txtAddress);
-        txtAddress.setBounds(110, 193, 136, 27);
-
-        txtPhone.setPreferredSize(new java.awt.Dimension(60, 20));
-        getContentPane().add(txtPhone);
-        txtPhone.setBounds(110, 233, 136, 27);
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Name");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(29, 153, 33, 16);
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Card Number");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(29, 108, 76, 16);
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Address");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(29, 198, 46, 16);
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Phone");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(29, 238, 35, 16);
 
         jPanel2.setBackground(new java.awt.Color(44, 0, 44));
 
@@ -386,43 +360,132 @@ public class FrmCustomers extends javax.swing.JFrame {
             }
         });
 
+        txtCN.setEditable(false);
+        txtCN.setPreferredSize(new java.awt.Dimension(60, 20));
+        txtCN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCNActionPerformed(evt);
+            }
+        });
+
+        txtName.setPreferredSize(new java.awt.Dimension(60, 20));
+
+        txtAddress.setPreferredSize(new java.awt.Dimension(60, 20));
+
+        txtPhone.setPreferredSize(new java.awt.Dimension(60, 20));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Card Number");
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Name");
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Address");
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Phone");
+
+        jSeparator1.setMinimumSize(new java.awt.Dimension(100, 10));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(100, 10));
+
+        jSeparator2.setMinimumSize(new java.awt.Dimension(100, 10));
+        jSeparator2.setPreferredSize(new java.awt.Dimension(100, 10));
+
+        jSeparator3.setMinimumSize(new java.awt.Dimension(100, 10));
+        jSeparator3.setPreferredSize(new java.awt.Dimension(100, 10));
+
+        jSeparator4.setMinimumSize(new java.awt.Dimension(100, 10));
+        jSeparator4.setPreferredSize(new java.awt.Dimension(100, 10));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(addicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updateicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 21, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(addicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel1)
+                                                .addComponent(jLabel4)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel2)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deleteicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(updateicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCN, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(45, 45, 45))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(updateicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCN, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(updateicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(addicon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -509,6 +572,16 @@ public class FrmCustomers extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -557,7 +630,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("Options");
 
-        MenuFileAdd1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileAdd1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFileAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/plus-black-symbol (2).png"))); // NOI18N
         MenuFileAdd1.setText("Add");
         MenuFileAdd1.setToolTipText("Add new Book");
@@ -568,7 +641,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         });
         jMenu1.add(MenuFileAdd1);
 
-        MenuFileDelete1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileDelete1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFileDelete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Delete_Black.png"))); // NOI18N
         MenuFileDelete1.setText("Delete");
         MenuFileDelete1.setToolTipText("Delete selected Book");
@@ -579,7 +652,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         });
         jMenu1.add(MenuFileDelete1);
 
-        MenuFileUpdate1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileUpdate1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFileUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Update_Black.png"))); // NOI18N
         MenuFileUpdate1.setText("Update");
         MenuFileUpdate1.addActionListener(new java.awt.event.ActionListener() {
@@ -590,12 +663,12 @@ public class FrmCustomers extends javax.swing.JFrame {
         jMenu1.add(MenuFileUpdate1);
         jMenu1.add(jSeparator5);
 
-        MenuFilePrint1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFilePrint1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFilePrint1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Print_Black.png"))); // NOI18N
         MenuFilePrint1.setText("Print");
         jMenu1.add(MenuFilePrint1);
 
-        MenuFileBackUp1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileBackUp1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFileBackUp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/BackUp.png"))); // NOI18N
         MenuFileBackUp1.setText("Back Up");
         MenuFileBackUp1.addActionListener(new java.awt.event.ActionListener() {
@@ -617,7 +690,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         jMenu1.add(MenuFileRefresh1);
         jMenu1.add(jSeparator7);
 
-        MenuFileHome1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileHome1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFileHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Home_Black.png"))); // NOI18N
         MenuFileHome1.setText("Menu");
         MenuFileHome1.setToolTipText("Go back to Menu");
@@ -629,7 +702,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         jMenu1.add(MenuFileHome1);
         jMenu1.add(jSeparator8);
 
-        MenuFileQuit1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuFileQuit1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuFileQuit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Quit_Red.png"))); // NOI18N
         MenuFileQuit1.setText("Quit");
         MenuFileQuit1.addActionListener(new java.awt.event.ActionListener() {
@@ -644,7 +717,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Shortcuts");
 
-        MenuMoveToHome.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuMoveToHome.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuMoveToHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Home_Black.png"))); // NOI18N
         MenuMoveToHome.setText("Menu");
         MenuMoveToHome.addActionListener(new java.awt.event.ActionListener() {
@@ -654,7 +727,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         });
         jMenu2.add(MenuMoveToHome);
 
-        MenuMoveCustomers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuMoveCustomers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuMoveCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_Customers_Black.png"))); // NOI18N
         MenuMoveCustomers.setText("Customers");
         MenuMoveCustomers.addActionListener(new java.awt.event.ActionListener() {
@@ -664,7 +737,7 @@ public class FrmCustomers extends javax.swing.JFrame {
         });
         jMenu2.add(MenuMoveCustomers);
 
-        MenuMoveHistory.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK));
+        MenuMoveHistory.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         MenuMoveHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Menu_History_Black.png"))); // NOI18N
         MenuMoveHistory.setText("History");
         MenuMoveHistory.addActionListener(new java.awt.event.ActionListener() {
@@ -962,6 +1035,17 @@ public class FrmCustomers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuMoveCustomersActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    SelectInfo();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+    SelectInfo();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1KeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -1034,6 +1118,10 @@ public class FrmCustomers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
