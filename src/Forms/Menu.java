@@ -349,7 +349,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void customerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmCustomerInfo());
+        Tools.OpenForm(new FrmCustomers());
     }//GEN-LAST:event_customerbtnMouseClicked
 
     private void booksbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booksbtnMouseEntered
@@ -415,8 +415,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void exitbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseClicked
         this.dispose();
-        System.exit(0);
-        //Tools.OpenForm(new FrmLogin());
+        Tools.OpenForm(new FrmLogin());
     }//GEN-LAST:event_exitbtnMouseClicked
 
     /**
