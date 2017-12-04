@@ -6,7 +6,9 @@
 
 package Forms;
 
+import Classes.Books;
 import Connection.Connections;
+import Connection.TableNewColors;
 import Connection.Tools;
 import javax.swing.JTable;
 
@@ -19,18 +21,20 @@ public class FrmBorrow extends javax.swing.JFrame {
     /** Creates new form FrmBorrow */
     public FrmBorrow() {
         initComponents();
+      
     }
+    Books book = new Books();
     private void SelectInfo(){
-        int Row = BorrowTable.getSelectedRow();
+        int Row = Borrowtable.getSelectedRow();
                 try {
-    txtISBN.setText(BorrowTable.getValueAt(Row,0).toString() );
-    txtTitle.setText(BorrowTable.getValueAt(Row, 1).toString() );
-    txtAuthor.setText(BorrowTable.getValueAt(Row, 2).toString());
-    txtPublisher.setText(BorrowTable.getValueAt(Row, 3).toString());
-    txtShelf.setText(BorrowTable.getValueAt(Row, 4).toString());
-    txtGenre.setText(BorrowTable.getValueAt(Row, 5).toString());
-    txtStatus.setText(BorrowTable.getValueAt(Row, 6).toString());
-    txtNumberOfBorrowing.setText(BorrowTable.getValueAt(Row, 7).toString());
+    txtISBN.setText(Borrowtable.getValueAt(Row,0).toString() );
+    txtTitle.setText(Borrowtable.getValueAt(Row, 1).toString() );
+    txtAuthor.setText(Borrowtable.getValueAt(Row, 2).toString());
+    txtPublisher.setText(Borrowtable.getValueAt(Row, 3).toString());
+    txtShelf.setText(Borrowtable.getValueAt(Row, 4).toString());
+    txtGenre.setText(Borrowtable.getValueAt(Row, 5).toString());
+    txtStatus.setText(Borrowtable.getValueAt(Row, 6).toString());
+    txtNumberOfBorrowing.setText(Borrowtable.getValueAt(Row, 7).toString());
                  }catch(Exception ex){
                 Tools.MsgBox(ex.getMessage());
                 }
@@ -56,36 +60,57 @@ public class FrmBorrow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        txtSearch = new Controls.JTextBox();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        BorrowTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        txtISBN = new Controls.JTextBox();
-        jLabel2 = new javax.swing.JLabel();
-        txtTitle = new Controls.JTextBox();
-        jLabel3 = new javax.swing.JLabel();
+        Group = new javax.swing.ButtonGroup();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         txtAuthor = new Controls.JTextBox();
-        jLabel4 = new javax.swing.JLabel();
-        txtPublisher = new Controls.JTextBox();
-        jLabel5 = new javax.swing.JLabel();
-        txtShelf = new Controls.JTextBox();
-        jLabel6 = new javax.swing.JLabel();
         txtGenre = new Controls.JTextBox();
-        jLabel7 = new javax.swing.JLabel();
+        txtTitle = new Controls.JTextBox();
+        txtISBN = new Controls.JTextBox();
         txtStatus = new Controls.JTextBox();
-        jLabel8 = new javax.swing.JLabel();
+        txtPublisher = new Controls.JTextBox();
+        txtShelf = new Controls.JTextBox();
         txtNumberOfBorrowing = new Controls.JTextBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Borrowtable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtSearch = new Controls.JTextBox();
+        searchbtn = new javax.swing.JLabel();
+        RadTitle = new javax.swing.JRadioButton();
+        RadNumberOfBorrowing = new javax.swing.JRadioButton();
+        RadAuthor = new javax.swing.JRadioButton();
+        RadISBN = new javax.swing.JRadioButton();
+        RadShelf = new javax.swing.JRadioButton();
+        RadPublisher = new javax.swing.JRadioButton();
+        RadGenre = new javax.swing.JRadioButton();
+        RadStatus = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1170, 580));
+        setMinimumSize(new java.awt.Dimension(1090, 559));
         setUndecorated(true);
         setResizable(false);
-        setSize(new java.awt.Dimension(1170, 580));
+        setSize(new java.awt.Dimension(1090, 559));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -93,31 +118,87 @@ public class FrmBorrow extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 102));
+        jLabel10.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Shelf");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(20, 290, 40, 20);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(597, Short.MAX_VALUE)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-        );
+        jLabel11.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("ISBN");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(20, 150, 40, 20);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1130, 140);
+        jLabel12.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Title");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(20, 220, 40, 20);
 
-        jPanel2.setBackground(new java.awt.Color(64, 1, 64));
+        jLabel13.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Author");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(20, 360, 50, 20);
 
-        BorrowTable.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel15.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Genre");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(200, 360, 50, 20);
+
+        jLabel17.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Publisher");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(200, 220, 70, 20);
+
+        jLabel19.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Status");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(200, 150, 50, 20);
+
+        jLabel21.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("N.Borrowing");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(200, 290, 90, 20);
+
+        txtAuthor.setEditable(false);
+        getContentPane().add(txtAuthor);
+        txtAuthor.setBounds(20, 390, 160, 27);
+
+        txtGenre.setEditable(false);
+        getContentPane().add(txtGenre);
+        txtGenre.setBounds(200, 390, 160, 27);
+
+        txtTitle.setEditable(false);
+        getContentPane().add(txtTitle);
+        txtTitle.setBounds(20, 250, 160, 27);
+
+        txtISBN.setEditable(false);
+        getContentPane().add(txtISBN);
+        txtISBN.setBounds(20, 180, 160, 27);
+
+        txtStatus.setEditable(false);
+        getContentPane().add(txtStatus);
+        txtStatus.setBounds(200, 180, 160, 27);
+
+        txtPublisher.setEditable(false);
+        getContentPane().add(txtPublisher);
+        txtPublisher.setBounds(200, 250, 160, 27);
+
+        txtShelf.setEditable(false);
+        getContentPane().add(txtShelf);
+        txtShelf.setBounds(20, 320, 160, 27);
+
+        txtNumberOfBorrowing.setEditable(false);
+        getContentPane().add(txtNumberOfBorrowing);
+        txtNumberOfBorrowing.setBounds(200, 320, 160, 27);
+
+        Borrowtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -133,205 +214,254 @@ public class FrmBorrow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        BorrowTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        Borrowtable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BorrowTableMouseClicked(evt);
+                BorrowtableMouseClicked(evt);
             }
         });
-        BorrowTable.addKeyListener(new java.awt.event.KeyAdapter() {
+        Borrowtable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                BorrowTableKeyReleased(evt);
+                BorrowtableKeyReleased(evt);
             }
         });
-        jScrollPane1.setViewportView(BorrowTable);
+        jScrollPane1.setViewportView(Borrowtable);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(390, 150, 690, 406);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/testb.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 0, 80, 90);
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ISBN");
+        jLabel1.setText("Library Books");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(90, 10, 270, 70);
+        getContentPane().add(txtSearch);
+        txtSearch.setBounds(410, 110, 600, 27);
 
-        txtISBN.setEditable(false);
+        searchbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/searchbtn.png"))); // NOI18N
+        searchbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchbtnMouseClicked(evt);
+            }
+        });
+        getContentPane().add(searchbtn);
+        searchbtn.setBounds(1020, 100, 40, 40);
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Title");
+        RadTitle.setForeground(new java.awt.Color(255, 255, 255));
+        RadTitle.setText("Title");
+        RadTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadTitle);
+        RadTitle.setBounds(480, 70, 50, 18);
 
-        txtTitle.setEditable(false);
+        RadNumberOfBorrowing.setForeground(new java.awt.Color(255, 255, 255));
+        RadNumberOfBorrowing.setText("N.Borrowing");
+        RadNumberOfBorrowing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadNumberOfBorrowing);
+        RadNumberOfBorrowing.setBounds(970, 70, 100, 18);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Author");
+        RadAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        RadAuthor.setText("Author");
+        RadAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadAuthor);
+        RadAuthor.setBounds(550, 70, 70, 18);
 
-        txtAuthor.setEditable(false);
+        RadISBN.setBackground(new java.awt.Color(255, 255, 255));
+        RadISBN.setForeground(new java.awt.Color(255, 255, 255));
+        RadISBN.setText("ISBN");
+        RadISBN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadISBN);
+        RadISBN.setBounds(410, 70, 50, 18);
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Publisher");
+        RadShelf.setForeground(new java.awt.Color(255, 255, 255));
+        RadShelf.setText("Shelf");
+        RadShelf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadShelf);
+        RadShelf.setBounds(740, 70, 50, 18);
 
-        txtPublisher.setEditable(false);
+        RadPublisher.setForeground(new java.awt.Color(255, 255, 255));
+        RadPublisher.setText("Publisher");
+        RadPublisher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadPublisher);
+        RadPublisher.setBounds(640, 70, 80, 18);
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Shelf");
+        RadGenre.setForeground(new java.awt.Color(255, 255, 255));
+        RadGenre.setText("Genre");
+        RadGenre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadGenre);
+        RadGenre.setBounds(810, 70, 70, 18);
 
-        txtShelf.setEditable(false);
+        RadStatus.setForeground(new java.awt.Color(255, 255, 255));
+        RadStatus.setText("Status");
+        RadStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(RadStatus);
+        RadStatus.setBounds(890, 70, 60, 18);
 
+        jPanel1.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel1.setForeground(new java.awt.Color(255, 204, 204));
+        jPanel1.setLayout(null);
+
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Genre");
+        jLabel6.setText("  Borrow");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(0, 0, 120, 40);
 
-        txtGenre.setEditable(false);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(230, 490, 120, 40);
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Status");
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setAutoscrolls(true);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(20, 420, 160, 10);
 
-        txtStatus.setEditable(false);
-        txtStatus.setText("jTextBox2");
+        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setAutoscrolls(true);
+        getContentPane().add(jSeparator2);
+        jSeparator2.setBounds(200, 420, 160, 10);
 
-        jLabel8.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("N.Borrowing");
+        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator3.setAutoscrolls(true);
+        getContentPane().add(jSeparator3);
+        jSeparator3.setBounds(20, 280, 160, 10);
 
-        txtNumberOfBorrowing.setEditable(false);
-        txtNumberOfBorrowing.setText("jTextBox2");
+        jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator4.setAutoscrolls(true);
+        getContentPane().add(jSeparator4);
+        jSeparator4.setBounds(20, 350, 160, 10);
 
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator5.setAutoscrolls(true);
+        getContentPane().add(jSeparator5);
+        jSeparator5.setBounds(20, 210, 160, 10);
 
-        jPanel3.setBackground(new java.awt.Color(102, 0, 102));
+        jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator6.setAutoscrolls(true);
+        getContentPane().add(jSeparator6);
+        jSeparator6.setBounds(200, 210, 160, 10);
 
-        jLabel9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("     BORROW");
+        jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator7.setAutoscrolls(true);
+        getContentPane().add(jSeparator7);
+        jSeparator7.setBounds(200, 280, 160, 10);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator8.setAutoscrolls(true);
+        getContentPane().add(jSeparator8);
+        jSeparator8.setBounds(200, 350, 160, 10);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumberOfBorrowing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jLabel5))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNumberOfBorrowing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/back32.png"))); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(50, 510, 40, 40);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(10, 510, 32, 40);
+
+        jPanel3.setBackground(new java.awt.Color(64, 1, 64));
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 380, 560);
+
+        jPanel2.setBackground(new java.awt.Color(102, 0, 102));
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 140, 1170, 440);
+        jPanel2.setBounds(380, 0, 710, 560);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-    GetTableInfo( "books", BorrowTable);
+      
+        
+      GetTableInfo( "books", Borrowtable);
+      
+       Group.add(RadISBN);
+       Group.add(RadTitle);
+       Group.add(RadAuthor);
+       Group.add(RadPublisher);
+       Group.add(RadShelf);
+       Group.add(RadGenre);
+       Group.add(RadStatus);
+       Group.add(RadNumberOfBorrowing);
     }//GEN-LAST:event_formWindowOpened
 
-    private void BorrowTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BorrowTableKeyReleased
-        SelectInfo();
-    }//GEN-LAST:event_BorrowTableKeyReleased
+    private void BorrowtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BorrowtableMouseClicked
+       SelectInfo();
+    }//GEN-LAST:event_BorrowtableMouseClicked
 
-    private void BorrowTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BorrowTableMouseClicked
-        SelectInfo();
-    }//GEN-LAST:event_BorrowTableMouseClicked
+    private void BorrowtableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BorrowtableKeyReleased
+         SelectInfo();
+    }//GEN-LAST:event_BorrowtableKeyReleased
+
+    private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
+        String Statement = "Select * from Books where ";
+        String Statement2 = " like '%"+ txtSearch.getText()+ "%' ";
+        if (RadISBN.isSelected()){
+            Statement += " ISBN " + Statement2;
+        }
+        else if (RadTitle.isSelected()){
+            Statement += " Title " + Statement2;
+        }
+        else if (RadShelf.isSelected()){
+             Statement += " Shelf " + Statement2;
+        }
+        else if (RadGenre.isSelected()){
+             Statement += " Genre " + Statement2;
+        }
+        else if (RadPublisher.isSelected()){
+             Statement += " Publisher " + Statement2;
+        }
+         else if (RadAuthor.isSelected()){
+             Statement += " Author " + Statement2;
+        }
+        else if (RadStatus.isSelected()){
+             Statement += " Status " + Statement2;
+        }
+        else {
+             Statement += " NumberOfBorrowing " + Statement2;
+        }
+        
+        book.GetSomeRows(Statement, Borrowtable);
+        int Row = Borrowtable.getRowCount();
+        if (Row == 0){
+            Tools.MsgBoxErrorX("No result!","Searsh not found");
+            txtSearch.setText("");
+             book.GetTableInfo("Books", Borrowtable);
+            txtSearch.requestFocus();
+        }
+    }//GEN-LAST:event_searchbtnMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+      this.dispose();
+      Tools.OpenForm(new FrmManagement());
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -369,21 +499,42 @@ public class FrmBorrow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable BorrowTable;
+    private javax.swing.JTable Borrowtable;
+    private javax.swing.ButtonGroup Group;
+    private javax.swing.JRadioButton RadAuthor;
+    private javax.swing.JRadioButton RadGenre;
+    private javax.swing.JRadioButton RadISBN;
+    private javax.swing.JRadioButton RadNumberOfBorrowing;
+    private javax.swing.JRadioButton RadPublisher;
+    private javax.swing.JRadioButton RadShelf;
+    private javax.swing.JRadioButton RadStatus;
+    private javax.swing.JRadioButton RadTitle;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JLabel searchbtn;
     private Controls.JTextBox txtAuthor;
     private Controls.JTextBox txtGenre;
     private Controls.JTextBox txtISBN;
