@@ -21,7 +21,6 @@ public class LibrarySystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {   
-        // Tools.OpenForm(new FrmLogin());
-         Tools.OpenForm(new FrmManagement());
+         Tools.OpenForm(new FrmLogin());
     }
 }
