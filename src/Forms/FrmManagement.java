@@ -27,6 +27,7 @@ public class FrmManagement extends javax.swing.JFrame {
     
     public FrmManagement() {
         initComponents();
+        Tools.ToDay(date);
        Tools.PutImageInLable("backW.png", lblback, 50, 50);
           Tools.PutImageInLable("exitW.png", lblexit, 50, 50);
            Tools.PutImageInLable("borrowWh.png", lblpic, 230, 230);
@@ -60,6 +61,10 @@ public class FrmManagement extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         date = new javax.swing.JLabel();
+        lblname = new javax.swing.JLabel();
+        lbladdress = new javax.swing.JLabel();
+        lblcardnum = new javax.swing.JLabel();
+        lblphone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -81,6 +86,11 @@ public class FrmManagement extends javax.swing.JFrame {
 
         btnBorrow.setText("Borrow");
         btnBorrow.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        btnBorrow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrowActionPerformed(evt);
+            }
+        });
 
         btnHistory.setText("History");
         btnHistory.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
@@ -165,7 +175,7 @@ public class FrmManagement extends javax.swing.JFrame {
 
         tableCM.setAutoCreateRowSorter(true);
         tableCM.setFont(new java.awt.Font("Traditional Arabic", 3, 24)); // NOI18N
-        tableCM.setForeground(new java.awt.Color(255, 255, 255));
+        tableCM.setForeground(new java.awt.Color(64, 1, 64));
         tableCM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -199,6 +209,16 @@ public class FrmManagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableCM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCMMouseClicked(evt);
+            }
+        });
+        tableCM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tableCMKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableCM);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
@@ -221,6 +241,18 @@ public class FrmManagement extends javax.swing.JFrame {
         date.setForeground(new java.awt.Color(255, 255, 255));
         date.setText("Date");
 
+        lblname.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblname.setForeground(new java.awt.Color(255, 255, 255));
+
+        lbladdress.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lbladdress.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblcardnum.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblcardnum.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblphone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblphone.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -233,13 +265,20 @@ public class FrmManagement extends javax.swing.JFrame {
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblcardnum, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbladdress, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblphone, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(184, Short.MAX_VALUE))
             .addGroup(panel2Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -268,13 +307,19 @@ public class FrmManagement extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbladdress, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblcardnum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel5))
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel5)
+                        .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblphone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(117, 117, 117))
@@ -309,10 +354,23 @@ public class FrmManagement extends javax.swing.JFrame {
           lblback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         
     }//GEN-LAST:event_formWindowOpened
-
+ private void SelectInfo(){
+        int Row = tableCM.getSelectedRow();
+                try {
+    lblcardnum.setText(tableCM.getValueAt(Row,0).toString() );
+    lblname.setText(tableCM.getValueAt(Row, 1).toString() );
+    lbladdress.setText(tableCM.getValueAt(Row, 2).toString());
+    lblphone.setText(tableCM.getValueAt(Row, 3).toString());
+   
+                 }catch(Exception ex){
+                Tools.MsgBox(ex.getMessage());
+                }
+    }
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
          this.dispose();
-        Connection.Tools.OpenForm(new FrmReturn());
+         String card = lblcardnum.getText();
+         String name = lblname.getText();
+        Connection.Tools.OpenForm(new FrmReturn(card, name));
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void lblbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseEntered
@@ -359,6 +417,19 @@ public class FrmManagement extends javax.swing.JFrame {
         this.dispose();
         Tools.OpenForm(historyForm);
     }//GEN-LAST:event_btnHistoryActionPerformed
+
+    private void btnBorrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowActionPerformed
+     this.dispose();
+        Connection.Tools.OpenForm(new FrmBorrow());
+    }//GEN-LAST:event_btnBorrowActionPerformed
+
+    private void tableCMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCMMouseClicked
+      SelectInfo();
+    }//GEN-LAST:event_tableCMMouseClicked
+
+    private void tableCMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableCMKeyReleased
+         SelectInfo();
+    }//GEN-LAST:event_tableCMKeyReleased
 
     /**
      * @param args the command line arguments
@@ -411,8 +482,12 @@ public class FrmManagement extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lbladdress;
     private javax.swing.JLabel lblback;
+    private javax.swing.JLabel lblcardnum;
     private javax.swing.JLabel lblexit;
+    private javax.swing.JLabel lblname;
+    private javax.swing.JLabel lblphone;
     private javax.swing.JLabel lblpic;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;

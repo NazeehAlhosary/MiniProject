@@ -57,6 +57,7 @@ Return retur = new Return();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        groupbtn = new javax.swing.ButtonGroup();
         panel1 = new java.awt.Panel();
         lblpic = new javax.swing.JLabel();
         lblback = new javax.swing.JLabel();
@@ -120,7 +121,7 @@ Return retur = new Return();
 
         btnReturn.setText("Return Book");
         btnReturn.setActionCommand("Return Book");
-        btnReturn.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        btnReturn.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
@@ -140,11 +141,9 @@ Return retur = new Return();
                             .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)))
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -152,7 +151,7 @@ Return retur = new Return();
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(85, 85, 85)
                 .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,14 +293,18 @@ Return retur = new Return();
         });
 
         radISBN.setBackground(new java.awt.Color(64, 1, 64));
+        radISBN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radISBN.setForeground(new java.awt.Color(255, 255, 255));
+        radISBN.setSelected(true);
         radISBN.setText("ISBN");
 
         radTitle.setBackground(new java.awt.Color(64, 1, 64));
+        radTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radTitle.setForeground(new java.awt.Color(255, 255, 255));
         radTitle.setText("Title");
 
         radStatus.setBackground(new java.awt.Color(64, 1, 64));
+        radStatus.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         radStatus.setForeground(new java.awt.Color(255, 255, 255));
         radStatus.setText("Status");
 
@@ -372,7 +375,7 @@ Return retur = new Return();
                             .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(0, 112, Short.MAX_VALUE)
+                        .addGap(0, 108, Short.MAX_VALUE)
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -435,6 +438,11 @@ Return retur = new Return();
         tableHistory.getTableHeader().setForeground(Color.white);
      tableHistory.getTableHeader().setReorderingAllowed(false); 
      tableHistory.getTableHeader().setResizingAllowed(false); 
+     
+     groupbtn.add(radISBN);
+     groupbtn.add(radTitle);
+     groupbtn.add(radStatus);
+     
      
       lblexit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           lblback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -568,7 +576,7 @@ Return retur = new Return();
     private void lblSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseExited
         Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
     }//GEN-LAST:event_lblSearchMouseExited
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -609,6 +617,7 @@ Return retur = new Return();
     private Controls.JMyButtonPurp btnReturn;
     private javax.swing.JLabel date;
     private javax.swing.JLabel desc;
+    private javax.swing.ButtonGroup groupbtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
