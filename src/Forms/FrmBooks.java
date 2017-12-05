@@ -237,6 +237,8 @@ public class FrmBooks extends javax.swing.JFrame {
         txtSearch = new Controls.JTextBox();
         jLabel11 = new javax.swing.JLabel();
         lblPrint = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MenuFileAdd = new javax.swing.JMenuItem();
@@ -762,6 +764,20 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Test Return");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Test Borrow");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -787,7 +803,11 @@ public class FrmBooks extends javax.swing.JFrame {
                         .addGap(70, 70, 70)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(383, 383, 383)
+                        .addGap(119, 119, 119)
+                        .addComponent(jButton1)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton2)
+                        .addGap(67, 67, 67)
                         .addComponent(lblPrint)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -812,7 +832,11 @@ public class FrmBooks extends javax.swing.JFrame {
                         .addGap(28, 28, 28)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPrint)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPrint)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -1218,6 +1242,19 @@ public class FrmBooks extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblPrintMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        PutInfo();
+        book.UpdateReturned();
+        ClearInfo();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        PutInfo();
+        book.UpdateBorrowing();
+        ClearInfo();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1280,6 +1317,8 @@ public class FrmBooks extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadStatus;
     private javax.swing.JRadioButton RadTitle;
     private javax.swing.ButtonGroup btnGroup;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

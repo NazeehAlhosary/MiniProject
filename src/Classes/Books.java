@@ -130,7 +130,7 @@ public class Books {
         int NewNumbr= this.getNumberOfBorrowing()+1;
         this.setNumberOfBorrowing(NewNumbr);
          String update = "Update Books set "
-            +"Status='"+"Unavailable"+"',"
+            +"Status="+"'Unavailable'"+","
             +"NumberOfBorrowing=" + this.getNumberOfBorrowing()
             + " where ISBN=" +ISBN +";";
      boolean check = Connections.RunNonQuery(update);
@@ -141,7 +141,7 @@ public class Books {
 
      public void UpdateReturned(){
          String update = "Update Books set "
-            +"Status='"+"Available"+"',"
+            +"Status="+"'Available'"
             + " where ISBN=" +ISBN +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
