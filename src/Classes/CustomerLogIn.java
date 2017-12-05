@@ -14,7 +14,6 @@ import Connection.Tools;
  */
 public class CustomerLogIn {
    private int CardNumber;
-   private String UserName;
    private String PassWord;
    private String Question;
    private String Answer;
@@ -27,13 +26,6 @@ public class CustomerLogIn {
         this.CardNumber = CardNumber;
     }
 
-    public String getUserName() {
-        return UserName;
-    }
-
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
-    }
 
     public String getPassWord() {
         return PassWord;
@@ -54,7 +46,6 @@ public class CustomerLogIn {
     public boolean Add(){
     String insert = "Insert into customerlogin VALUES ("
                 + CardNumber + ","
-                +"'"+ UserName + "',"
                 +"'"+ PassWord + "',"
                 +"'"+ Question + "',"
                 +"'"+ Answer + "' );";

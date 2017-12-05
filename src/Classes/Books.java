@@ -127,18 +127,20 @@ public class Books {
     }
     
     public void UpdateBorrowing(){
+        int NewNumbr= NumberOfBorrowing+1;
          String update = "Update Books set "
-            +"Status='"+"Out"+"',"
-            +"NumberOfBorrowing=" + NumberOfBorrowing
+            +"Status='"+"Unavailable"+"',"
+            +"NumberOfBorrowing=" + NewNumbr
             + " where ISBN=" +ISBN +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
          Tools.MsgBoxInfo("Book "+ISBN + " has been borrowed", "Update");
      }
 }
+
      public void UpdateReturned(){
          String update = "Update Books set "
-            +"Status='"+"In"+"',"
+            +"Status='"+"Available"+"',"
             + " where ISBN=" +ISBN +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
