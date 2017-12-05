@@ -6,6 +6,7 @@
 package Forms;
 
 import Classes.Books;
+import Classes.History;
 import Connection.Connections;
 import Connection.TableNewColors;
 import Connection.Tools;
@@ -33,13 +34,12 @@ public class FrmBorrow extends javax.swing.JFrame {
     }
 
     Books book = new Books();
+    History history = new History();
 
     private void SelectInfo() {
         int Row = Borrowtable.getSelectedRow();
         try {
             txtISBN.setText(Borrowtable.getValueAt(Row, 0).toString());
-            txtCard.setText(Borrowtable.getValueAt(Row, 1).toString());
-            txtUser.setText(Borrowtable.getValueAt(Row, 3).toString());
             txtStatus.setText(Borrowtable.getValueAt(Row, 6).toString());
         } catch (Exception ex) {
             Tools.MsgBox(ex.getMessage());
@@ -83,7 +83,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         RadGenre = new javax.swing.JRadioButton();
         RadStatus = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        borrowbtn = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
@@ -91,6 +91,8 @@ public class FrmBorrow extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        txttest = new javax.swing.JLabel();
+        txttest2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,61 +205,66 @@ public class FrmBorrow extends javax.swing.JFrame {
         RadTitle.setText("Title");
         RadTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadTitle);
-        RadTitle.setBounds(480, 70, 50, 18);
+        RadTitle.setBounds(480, 70, 60, 30);
 
         RadNumberOfBorrowing.setForeground(new java.awt.Color(255, 255, 255));
         RadNumberOfBorrowing.setText("N.Borrowing");
         RadNumberOfBorrowing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadNumberOfBorrowing);
-        RadNumberOfBorrowing.setBounds(970, 70, 100, 18);
+        RadNumberOfBorrowing.setBounds(970, 70, 110, 30);
 
         RadAuthor.setBackground(new java.awt.Color(102, 0, 102));
         RadAuthor.setForeground(new java.awt.Color(255, 255, 255));
         RadAuthor.setText("Author");
         RadAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadAuthor);
-        RadAuthor.setBounds(550, 70, 70, 18);
+        RadAuthor.setBounds(550, 70, 70, 30);
 
         RadISBN.setBackground(new java.awt.Color(102, 0, 102));
         RadISBN.setForeground(new java.awt.Color(255, 255, 255));
         RadISBN.setText("ISBN");
         RadISBN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadISBN);
-        RadISBN.setBounds(410, 70, 50, 18);
+        RadISBN.setBounds(410, 70, 70, 30);
 
         RadShelf.setForeground(new java.awt.Color(255, 255, 255));
         RadShelf.setText("Shelf");
         RadShelf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadShelf);
-        RadShelf.setBounds(740, 70, 50, 18);
+        RadShelf.setBounds(740, 70, 70, 30);
 
         RadPublisher.setForeground(new java.awt.Color(255, 255, 255));
         RadPublisher.setText("Publisher");
         RadPublisher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadPublisher);
-        RadPublisher.setBounds(640, 70, 80, 18);
+        RadPublisher.setBounds(640, 70, 90, 30);
 
         RadGenre.setForeground(new java.awt.Color(255, 255, 255));
         RadGenre.setText("Genre");
         RadGenre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadGenre);
-        RadGenre.setBounds(810, 70, 70, 18);
+        RadGenre.setBounds(810, 70, 70, 30);
 
         RadStatus.setForeground(new java.awt.Color(255, 255, 255));
         RadStatus.setText("Status");
         RadStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadStatus);
-        RadStatus.setBounds(890, 70, 60, 18);
+        RadStatus.setBounds(890, 70, 60, 30);
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("  Borrow");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(0, 0, 120, 40);
+        borrowbtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        borrowbtn.setForeground(new java.awt.Color(255, 255, 255));
+        borrowbtn.setText("  Borrow");
+        borrowbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                borrowbtnMouseClicked(evt);
+            }
+        });
+        jPanel1.add(borrowbtn);
+        borrowbtn.setBounds(0, 0, 120, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(230, 490, 120, 40);
@@ -307,6 +314,13 @@ public class FrmBorrow extends javax.swing.JFrame {
         jLabel4.setBounds(10, 510, 32, 40);
 
         jPanel2.setBackground(new java.awt.Color(102, 0, 102));
+
+        txttest.setText("jLabel3");
+        jPanel2.add(txttest);
+
+        txttest2.setText("jLabel3");
+        jPanel2.add(txttest2);
+
         getContentPane().add(jPanel2);
         jPanel2.setBounds(380, 0, 710, 560);
 
@@ -319,8 +333,9 @@ public class FrmBorrow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-        GetTableInfo("books", Borrowtable);
+        String statement = "SELECT * FROM `books` WHERE `Status` = 'Available' " ;
+        book.GetSomeRows(statement, Borrowtable);
+       
 
         Group.add(RadISBN);
         Group.add(RadTitle);
@@ -341,6 +356,7 @@ public class FrmBorrow extends javax.swing.JFrame {
     }//GEN-LAST:event_BorrowtableKeyReleased
 
     private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
+        String statementStatus = "SELECT * FROM `books` WHERE `Status` = 'Available' " ;
         String Statement = "Select * from Books where ";
         String Statement2 = " like '%" + txtSearch.getText() + "%' ";
         if (RadISBN.isSelected()) {
@@ -366,7 +382,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         if (Row == 0) {
             Tools.MsgBoxErrorX("No result!", "Searsh not found");
             txtSearch.setText("");
-            book.GetTableInfo("Books", Borrowtable);
+            book.GetSomeRows(statementStatus, Borrowtable);
             txtSearch.requestFocus();
         }
     }//GEN-LAST:event_searchbtnMouseClicked
@@ -379,6 +395,27 @@ public class FrmBorrow extends javax.swing.JFrame {
         this.dispose();
         Tools.OpenForm(new FrmManagement());
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void borrowbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbtnMouseClicked
+      int Row = Borrowtable.getSelectedRow();
+         book.setNumberOfBorrowing(Integer.parseInt(Borrowtable.getValueAt(Row, 7).toString()));
+         book.setISBN(Integer.parseInt(txtISBN.getText()));
+        book.UpdateBorrowing();
+        
+       history.setISBN(Integer.parseInt(txtISBN.getText()));
+       history.setCardNumber(Integer.parseInt(txtCard.getText()));
+       history.setTitle(Borrowtable.getValueAt(Row, 1).toString());
+       history.setAuthor(Borrowtable.getValueAt(Row, 2).toString());
+       history.setRentalDate(Tools.ToDay());
+       history.setReturnedDate(Tools.DateAfterFourteenDays());
+  
+              history.Add();
+        
+       
+       
+
+       
+    }//GEN-LAST:event_borrowbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -426,6 +463,7 @@ public class FrmBorrow extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadShelf;
     private javax.swing.JRadioButton RadStatus;
     private javax.swing.JRadioButton RadTitle;
+    private javax.swing.JLabel borrowbtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -434,7 +472,6 @@ public class FrmBorrow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -449,6 +486,8 @@ public class FrmBorrow extends javax.swing.JFrame {
     private Controls.JTextBox txtSearch;
     private Controls.JTextBox txtStatus;
     private Controls.JTextBox txtUser;
+    private javax.swing.JLabel txttest;
+    private javax.swing.JLabel txttest2;
     // End of variables declaration//GEN-END:variables
 
 }

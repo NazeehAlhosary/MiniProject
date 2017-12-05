@@ -417,7 +417,7 @@ public class FrmManagement extends javax.swing.JFrame {
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         int row = tableCM.getSelectedRow();
-        FrmHistory historyForm = new FrmHistory(String.valueOf(tableCM.getValueAt(row, 0)));
+        FrmHistory historyForm = new FrmHistory((tableCM.getValueAt(row, 0).toString()));
         this.dispose();
         Tools.OpenForm(historyForm);
     }//GEN-LAST:event_btnHistoryActionPerformed

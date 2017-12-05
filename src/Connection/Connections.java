@@ -54,8 +54,8 @@ public class Connections {
             return true;         
         } 
         catch (SQLException ex) {
-           
-            Tools.MsgBoxError1("Username , Library Card Number or ISBN Already Exist", "Exists Error");
+           Tools.MsgBox(ex.getMessage());
+           // Tools.MsgBoxError1("Username , Library Card Number or ISBN Already Exist", "Exists Error");
             return false;
         }
     }
