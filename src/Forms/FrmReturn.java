@@ -120,7 +120,6 @@ Return retur = new Return();
         });
 
         btnReturn.setText("Return Book");
-        btnReturn.setActionCommand("Return Book");
         btnReturn.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +166,7 @@ Return retur = new Return();
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Return");
 
+        tableHistory.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         tableHistory.setForeground(new java.awt.Color(255, 255, 255));
         tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -369,11 +369,9 @@ Return retur = new Return();
             .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addGap(0, 108, Short.MAX_VALUE)
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -630,9 +628,6 @@ Return retur = new Return();
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel lblAscending;
-    private javax.swing.JLabel lblAscending1;
-    private javax.swing.JLabel lblAscending2;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblback;
     private javax.swing.JLabel lblexit;
