@@ -424,7 +424,9 @@ public class FrmManagement extends javax.swing.JFrame {
 
     private void btnBorrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowActionPerformed
      this.dispose();
-        Connection.Tools.OpenForm(new FrmBorrow());
+      String CardNumber = lblcardnum.getText();
+         String username = lblname.getText();
+        Connection.Tools.OpenForm(new FrmBorrow(CardNumber, username));
     }//GEN-LAST:event_btnBorrowActionPerformed
 
     private void tableCMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCMMouseClicked
