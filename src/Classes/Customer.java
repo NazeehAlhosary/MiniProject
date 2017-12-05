@@ -63,7 +63,7 @@ private void getUniqueId()
                 + CardNumber + ","
                 +"'"+ Name + "',"
                 +"'"+ Address + "',"
-                +"'"+ Phone + "',";
+                +"'"+ Phone + "');";
         boolean check = Connections.RunNonQuery(insert);
         if (check) {
            Tools.MsgBoxInfo("Customer has been added", "Registration succesful");
