@@ -238,7 +238,7 @@ public class Tools {
  // To calculate the days number between two dates.
   
   // Way 1 if we have a String date... NOTE THAT THE DATE FORMULA IS yyyy/MM/dd 
-  public int CalculateDays(String FirstDate ,String SecondDate){
+  public static int CalculateDays(String FirstDate ,String SecondDate){
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
       /*
       If we do not want to cast we can put long istead of int 
