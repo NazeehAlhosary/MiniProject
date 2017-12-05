@@ -449,6 +449,11 @@ Return retur = new Return();
           asc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           desc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           lblSearch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+          
+          int Row = tableHistory.getSelectedRow();
+        int fee =  Tools.CalculateDays(tableHistory.getValueAt(Row, 5).toString(), Tools.ToDay());
+        txtFee.setText(String.valueOf(fee));
+         
     }//GEN-LAST:event_formWindowOpened
 
     private void lblbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseClicked
