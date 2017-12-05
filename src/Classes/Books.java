@@ -127,10 +127,11 @@ public class Books {
     }
     
     public void UpdateBorrowing(){
-        int NewNumbr= NumberOfBorrowing+1;
+        int NewNumbr= this.getNumberOfBorrowing()+1;
+        this.setNumberOfBorrowing(NewNumbr);
          String update = "Update Books set "
             +"Status='"+"Unavailable"+"',"
-            +"NumberOfBorrowing=" + NewNumbr
+            +"NumberOfBorrowing=" + this.getNumberOfBorrowing()
             + " where ISBN=" +ISBN +";";
      boolean check = Connections.RunNonQuery(update);
      if (check){
