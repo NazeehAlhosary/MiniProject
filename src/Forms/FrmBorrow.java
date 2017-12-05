@@ -23,6 +23,7 @@ public class FrmBorrow extends javax.swing.JFrame {
      */
     public FrmBorrow() {
         initComponents();
+        Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
 
     }
 
@@ -30,6 +31,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         initComponents();
         txtCard.setText(CardNumber);
         txtUser.setText(username);
+        Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
 
     }
 
@@ -40,7 +42,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         int Row = Borrowtable.getSelectedRow();
         try {
             txtISBN.setText(Borrowtable.getValueAt(Row, 0).toString());
-            txtStatus.setText(Borrowtable.getValueAt(Row, 6).toString());
+            txtTitle.setText(Borrowtable.getValueAt(Row, 6).toString());
         } catch (Exception ex) {
             Tools.MsgBox(ex.getMessage());
         }
@@ -48,6 +50,14 @@ public class FrmBorrow extends javax.swing.JFrame {
 
     public void GetTableInfo(String TableNameInDB, JTable table) {
         Connections.FillTable(TableNameInDB, table);
+    }
+
+    private boolean EmptyText() {
+        if (txtISBN.getText().equals("") || txtTitle.getText().equals("") || txtCard.getText().equals("")
+                || txtUser.getText().equals("")) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -66,7 +76,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         txtCard = new Controls.JTextBox();
         txtISBN = new Controls.JTextBox();
-        txtStatus = new Controls.JTextBox();
+        txtTitle = new Controls.JTextBox();
         txtUser = new Controls.JTextBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         Borrowtable = new javax.swing.JTable();
@@ -90,16 +100,16 @@ public class FrmBorrow extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        txttest = new javax.swing.JLabel();
-        txttest2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1090, 559));
+        setMinimumSize(new java.awt.Dimension(886, 570));
         setUndecorated(true);
         setResizable(false);
-        setSize(new java.awt.Dimension(1090, 559));
+        setSize(new java.awt.Dimension(886, 559));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -111,41 +121,41 @@ public class FrmBorrow extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("ISBN");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(20, 150, 40, 20);
+        jLabel11.setBounds(10, 140, 40, 20);
 
         jLabel12.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Title");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(210, 150, 40, 20);
+        jLabel12.setBounds(10, 210, 40, 20);
 
         jLabel17.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Username");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(200, 220, 70, 20);
+        jLabel17.setBounds(10, 350, 70, 20);
 
         jLabel19.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Card Number");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(30, 220, 110, 20);
+        jLabel19.setBounds(10, 280, 110, 20);
 
         txtCard.setEditable(false);
         getContentPane().add(txtCard);
-        txtCard.setBounds(20, 250, 160, 27);
+        txtCard.setBounds(10, 310, 160, 27);
 
         txtISBN.setEditable(false);
         getContentPane().add(txtISBN);
-        txtISBN.setBounds(20, 180, 160, 27);
+        txtISBN.setBounds(10, 170, 160, 27);
 
-        txtStatus.setEditable(false);
-        getContentPane().add(txtStatus);
-        txtStatus.setBounds(200, 180, 160, 27);
+        txtTitle.setEditable(false);
+        getContentPane().add(txtTitle);
+        txtTitle.setBounds(10, 240, 160, 27);
 
         txtUser.setEditable(false);
         getContentPane().add(txtUser);
-        txtUser.setBounds(200, 250, 160, 27);
+        txtUser.setBounds(10, 380, 160, 27);
 
         Borrowtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,19 +186,19 @@ public class FrmBorrow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Borrowtable);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(390, 150, 690, 406);
+        jScrollPane1.setBounds(190, 150, 690, 406);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/testb.png"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 0, 80, 90);
+        jLabel2.setBounds(60, 0, 90, 100);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Library Books");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(90, 10, 270, 70);
+        jLabel1.setBounds(380, 0, 270, 70);
         getContentPane().add(txtSearch);
-        txtSearch.setBounds(410, 110, 600, 27);
+        txtSearch.setBounds(210, 110, 600, 27);
 
         searchbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/searchbtn.png"))); // NOI18N
         searchbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -198,58 +208,63 @@ public class FrmBorrow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(searchbtn);
-        searchbtn.setBounds(1020, 100, 40, 40);
+        searchbtn.setBounds(820, 100, 40, 40);
 
         RadTitle.setBackground(new java.awt.Color(102, 0, 102));
         RadTitle.setForeground(new java.awt.Color(255, 255, 255));
         RadTitle.setText("Title");
         RadTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadTitle);
-        RadTitle.setBounds(480, 70, 60, 30);
+        RadTitle.setBounds(280, 70, 70, 30);
 
+        RadNumberOfBorrowing.setBackground(new java.awt.Color(102, 0, 102));
         RadNumberOfBorrowing.setForeground(new java.awt.Color(255, 255, 255));
         RadNumberOfBorrowing.setText("N.Borrowing");
         RadNumberOfBorrowing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadNumberOfBorrowing);
-        RadNumberOfBorrowing.setBounds(970, 70, 110, 30);
+        RadNumberOfBorrowing.setBounds(770, 70, 110, 30);
 
         RadAuthor.setBackground(new java.awt.Color(102, 0, 102));
         RadAuthor.setForeground(new java.awt.Color(255, 255, 255));
         RadAuthor.setText("Author");
         RadAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadAuthor);
-        RadAuthor.setBounds(550, 70, 70, 30);
+        RadAuthor.setBounds(350, 70, 70, 30);
 
         RadISBN.setBackground(new java.awt.Color(102, 0, 102));
         RadISBN.setForeground(new java.awt.Color(255, 255, 255));
         RadISBN.setText("ISBN");
         RadISBN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadISBN);
-        RadISBN.setBounds(410, 70, 70, 30);
+        RadISBN.setBounds(210, 70, 70, 30);
 
+        RadShelf.setBackground(new java.awt.Color(102, 0, 102));
         RadShelf.setForeground(new java.awt.Color(255, 255, 255));
         RadShelf.setText("Shelf");
         RadShelf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadShelf);
-        RadShelf.setBounds(740, 70, 70, 30);
+        RadShelf.setBounds(540, 70, 70, 30);
 
+        RadPublisher.setBackground(new java.awt.Color(102, 0, 102));
         RadPublisher.setForeground(new java.awt.Color(255, 255, 255));
         RadPublisher.setText("Publisher");
         RadPublisher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadPublisher);
-        RadPublisher.setBounds(640, 70, 90, 30);
+        RadPublisher.setBounds(440, 70, 90, 30);
 
+        RadGenre.setBackground(new java.awt.Color(102, 0, 102));
         RadGenre.setForeground(new java.awt.Color(255, 255, 255));
         RadGenre.setText("Genre");
         RadGenre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadGenre);
-        RadGenre.setBounds(810, 70, 70, 30);
+        RadGenre.setBounds(610, 70, 70, 30);
 
+        RadStatus.setBackground(new java.awt.Color(102, 0, 102));
         RadStatus.setForeground(new java.awt.Color(255, 255, 255));
         RadStatus.setText("Status");
         RadStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(RadStatus);
-        RadStatus.setBounds(890, 70, 60, 30);
+        RadStatus.setBounds(690, 70, 60, 30);
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
@@ -258,6 +273,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         borrowbtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         borrowbtn.setForeground(new java.awt.Color(255, 255, 255));
         borrowbtn.setText("  Borrow");
+        borrowbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         borrowbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 borrowbtnMouseClicked(evt);
@@ -267,31 +283,31 @@ public class FrmBorrow extends javax.swing.JFrame {
         borrowbtn.setBounds(0, 0, 120, 40);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(230, 490, 120, 40);
+        jPanel1.setBounds(30, 450, 120, 40);
 
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator3.setAutoscrolls(true);
         getContentPane().add(jSeparator3);
-        jSeparator3.setBounds(20, 280, 160, 10);
+        jSeparator3.setBounds(10, 340, 160, 10);
 
         jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator5.setAutoscrolls(true);
         getContentPane().add(jSeparator5);
-        jSeparator5.setBounds(20, 210, 160, 10);
+        jSeparator5.setBounds(30, 100, 110, 10);
 
         jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator6.setAutoscrolls(true);
         getContentPane().add(jSeparator6);
-        jSeparator6.setBounds(200, 210, 160, 10);
+        jSeparator6.setBounds(10, 270, 160, 10);
 
         jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator7.setAutoscrolls(true);
         getContentPane().add(jSeparator7);
-        jSeparator7.setBounds(200, 280, 160, 10);
+        jSeparator7.setBounds(10, 410, 160, 10);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/back32.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -301,7 +317,7 @@ public class FrmBorrow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(50, 510, 40, 40);
+        jLabel5.setBounds(50, 520, 40, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -311,31 +327,35 @@ public class FrmBorrow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 510, 32, 40);
+        jLabel4.setBounds(10, 520, 32, 40);
 
-        jPanel2.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel4.setBackground(new java.awt.Color(102, 0, 102));
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(180, 0, 710, 570);
 
-        txttest.setText("jLabel3");
-        jPanel2.add(txttest);
+        jSeparator8.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator8.setAutoscrolls(true);
+        getContentPane().add(jSeparator8);
+        jSeparator8.setBounds(10, 200, 160, 10);
 
-        txttest2.setText("jLabel3");
-        jPanel2.add(txttest2);
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(380, 0, 710, 560);
+        jSeparator9.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator9.setAutoscrolls(true);
+        getContentPane().add(jSeparator9);
+        jSeparator9.setBounds(10, 90, 160, 10);
 
         jPanel3.setBackground(new java.awt.Color(64, 1, 64));
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 380, 560);
+        jPanel3.setBounds(0, 0, 180, 570);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        String statement = "SELECT * FROM `books` WHERE `Status` = 'Available' " ;
+        String statement = "SELECT * FROM `books` WHERE `Status` = 'Available' ";
         book.GetSomeRows(statement, Borrowtable);
-       
 
         Group.add(RadISBN);
         Group.add(RadTitle);
@@ -356,7 +376,7 @@ public class FrmBorrow extends javax.swing.JFrame {
     }//GEN-LAST:event_BorrowtableKeyReleased
 
     private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
-        String statementStatus = "SELECT * FROM `books` WHERE `Status` = 'Available' " ;
+        String statementStatus = "SELECT * FROM `books` WHERE `Status` = 'Available' ";
         String Statement = "Select * from Books where ";
         String Statement2 = " like '%" + txtSearch.getText() + "%' ";
         if (RadISBN.isSelected()) {
@@ -397,24 +417,35 @@ public class FrmBorrow extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void borrowbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbtnMouseClicked
-      int Row = Borrowtable.getSelectedRow();
-         book.setNumberOfBorrowing(Integer.parseInt(Borrowtable.getValueAt(Row, 7).toString()));
-         book.setISBN(Integer.parseInt(txtISBN.getText()));
-        book.UpdateBorrowing();
-        
-       history.setISBN(Integer.parseInt(txtISBN.getText()));
-       history.setCardNumber(Integer.parseInt(txtCard.getText()));
-       history.setTitle(Borrowtable.getValueAt(Row, 1).toString());
-       history.setAuthor(Borrowtable.getValueAt(Row, 2).toString());
-       history.setRentalDate(Tools.ToDay());
-       history.setReturnedDate(Tools.DateAfterFourteenDays());
-  
-              history.Add();
-        
-       
-       
+        if (EmptyText()) {
+            Tools.MsgBoxError1(" Please Select a Book ", "Select Book");
+        } else {
 
-       
+            int Row = Borrowtable.getSelectedRow();
+            String statement = "SELECT * FROM `books` WHERE `Status` = 'Available' ";
+
+            book.setNumberOfBorrowing(Integer.parseInt(Borrowtable.getValueAt(Row, 7).toString()));
+            book.setISBN(Integer.parseInt(txtISBN.getText()));
+            book.UpdateBorrowing();
+
+            history.setISBN(Integer.parseInt(txtISBN.getText()));
+            history.setCardNumber(Integer.parseInt(txtCard.getText()));
+            history.setTitle(txtTitle.getText());
+            history.setAuthor(Borrowtable.getValueAt(Row, 2).toString());
+            history.setRentalDate(Tools.ToDay());
+            history.setReturnedDate(Tools.DateAfterFourteenDays());
+
+            history.Add();
+
+            book.GetSomeRows(statement, Borrowtable);
+
+            txtCard.setText("");
+            txtISBN.setText("");
+            txtTitle.setText("");
+            txtUser.setText("");
+            txtSearch.requestFocus();
+
+        }
     }//GEN-LAST:event_borrowbtnMouseClicked
 
     /**
@@ -473,21 +504,21 @@ public class FrmBorrow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel searchbtn;
     private Controls.JTextBox txtCard;
     private Controls.JTextBox txtISBN;
     private Controls.JTextBox txtSearch;
-    private Controls.JTextBox txtStatus;
+    private Controls.JTextBox txtTitle;
     private Controls.JTextBox txtUser;
-    private javax.swing.JLabel txttest;
-    private javax.swing.JLabel txttest2;
     // End of variables declaration//GEN-END:variables
 
 }
