@@ -7,6 +7,7 @@ package librarysystem;
 
 import Connection.Tools;
 import Forms.FrmBooks;
+import Forms.FrmLogInCustomer;
 import Forms.FrmLogin;
 import Forms.FrmManagement;
 import Forms.FrmReturn;
@@ -21,6 +22,6 @@ public class LibrarySystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {   
-         Tools.OpenForm(new FrmBooks());
+         Tools.OpenForm(new FrmLogInCustomer());
     }
 }

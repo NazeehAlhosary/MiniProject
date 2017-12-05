@@ -23,13 +23,15 @@ public class JPasswordBox extends JPasswordField {
     @Override
     protected void paintComponent(Graphics g){
     g.setColor(getBackground());
+    setBackground(new Color(64 , 1, 64));
+    setForeground(new Color(255 , 255 , 255));
     g.fillRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 20, 20);
     super.paintComponent(g);
     }
     
     @Override
     protected void paintBorder(Graphics g){
-        g.setColor(Color.blue);
+        g.setColor(new Color(64 , 1, 64));
         g.drawRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 20, 20);
         
     }

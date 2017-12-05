@@ -346,7 +346,7 @@ public class FrmBooks extends javax.swing.JFrame {
         getContentPane().add(RadStatus);
         RadStatus.setBounds(872, 130, 69, 28);
 
-        jPanel1.setBackground(new java.awt.Color(66, 0, 66));
+        jPanel1.setBackground(new java.awt.Color(64, 1, 64));
 
         lblAdd.setToolTipText("Add new Book");
         lblAdd.setMaximumSize(new java.awt.Dimension(50, 50));

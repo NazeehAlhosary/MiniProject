@@ -34,7 +34,6 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -46,11 +45,9 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         lblExit = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        logbtn1 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        logbtn3 = new javax.swing.JLabel();
-        logbtn4 = new javax.swing.JLabel();
+        lblAdmin = new javax.swing.JLabel();
+        lblRegister = new javax.swing.JLabel();
+        logbtn5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(460, 650));
@@ -75,12 +72,6 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(110, 370, 210, 10);
-
-        jLabel7.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Enter Your Username Here");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(110, 266, 220, 40);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/username.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -164,62 +155,49 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Enter Your Username Here");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(110, 370, 220, 30);
+        jLabel10.setBounds(110, 360, 220, 30);
 
         jLabel11.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/refresh-lock.png"))); // NOI18N
-        jLabel11.setText("Did you forget your password?");
+        jLabel11.setText("Forget your password?");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(80, 420, 270, 30);
+        jLabel11.setBounds(110, 380, 220, 40);
 
-        logbtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Admin.png"))); // NOI18N
-        logbtn1.setToolTipText("Login as an admin");
-        logbtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Admin.png"))); // NOI18N
+        lblAdmin.setToolTipText("Login as an admin");
+        lblAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logbtn1MouseClicked(evt);
+                lblAdminMouseClicked(evt);
             }
         });
-        jPanel1.add(logbtn1);
-        logbtn1.setBounds(380, 540, 64, 64);
+        jPanel1.add(lblAdmin);
+        lblAdmin.setBounds(380, 530, 60, 80);
 
-        jLabel12.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Login");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(160, 530, 50, 30);
-
-        jLabel13.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Registration");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(230, 530, 79, 30);
-
-        logbtn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/login.png"))); // NOI18N
-        logbtn3.setToolTipText("Login");
-        logbtn3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logbtn3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/note.png"))); // NOI18N
+        lblRegister.setToolTipText("Register yourself in the library");
+        lblRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logbtn3MouseClicked(evt);
+                lblRegisterMouseClicked(evt);
             }
         });
-        jPanel1.add(logbtn3);
-        logbtn3.setBounds(140, 470, 64, 64);
+        jPanel1.add(lblRegister);
+        lblRegister.setBounds(230, 490, 60, 70);
 
-        logbtn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/note.png"))); // NOI18N
-        logbtn4.setToolTipText("Register yourself in the library");
-        logbtn4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logbtn4.addMouseListener(new java.awt.event.MouseAdapter() {
+        logbtn5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/login.png"))); // NOI18N
+        logbtn5.setToolTipText("Login");
+        logbtn5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logbtn5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logbtn4MouseClicked(evt);
+                logbtn5MouseClicked(evt);
             }
         });
-        jPanel1.add(logbtn4);
-        logbtn4.setBounds(240, 470, 64, 64);
+        jPanel1.add(logbtn5);
+        logbtn5.setBounds(140, 490, 64, 64);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 460, 650);
@@ -255,18 +233,19 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtuserActionPerformed
 
-    private void logbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn1MouseClicked
+    private void lblAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminMouseClicked
         this.dispose();
         Tools.OpenForm(new FrmLogin());
-    }//GEN-LAST:event_logbtn1MouseClicked
+    }//GEN-LAST:event_lblAdminMouseClicked
 
-    private void logbtn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logbtn3MouseClicked
+    private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
+       this.dispose();
+        Tools.OpenForm(new FrmRegistration());
+    }//GEN-LAST:event_lblRegisterMouseClicked
 
-    private void logbtn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn4MouseClicked
+    private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_logbtn4MouseClicked
+    }//GEN-LAST:event_logbtn5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -314,22 +293,19 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblExit;
-    private javax.swing.JLabel logbtn1;
-    private javax.swing.JLabel logbtn3;
-    private javax.swing.JLabel logbtn4;
+    private javax.swing.JLabel lblRegister;
+    private javax.swing.JLabel logbtn5;
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables

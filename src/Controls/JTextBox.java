@@ -22,7 +22,7 @@ public class JTextBox extends JTextField {
     @Override
     protected void paintComponent(Graphics g){
     g.setColor(getBackground());
-    setBackground(new Color(66 , 00 , 66));
+    setBackground(new Color(64 , 1, 64));
     setForeground(new Color(255 , 255 , 255));
     g.fillRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 20, 20);
     super.paintComponent(g);
@@ -30,7 +30,7 @@ public class JTextBox extends JTextField {
     
     @Override
     protected void paintBorder(Graphics g){
-         g.setColor(new Color(66 , 00 , 66));
+         g.setColor(new Color(64 , 1, 64));
         g.drawRoundRect(0, 0, getWidth()-1 , getHeight()-1 , 20, 20);
         
     }
