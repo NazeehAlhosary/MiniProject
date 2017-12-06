@@ -5,11 +5,13 @@
  */
 package Forms;
 
+import Classes.Books;
 import Classes.History;
 import Classes.Return;
 import Connection.Tools;
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +50,7 @@ public class FrmReturn extends javax.swing.JFrame {
     }
 History history =new History();
 Return retur = new Return();
+Books book = new Books();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -204,6 +207,11 @@ Return retur = new Return();
             }
         ));
         tableHistory.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        tableHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableHistoryMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableHistory);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 26)); // NOI18N
@@ -443,15 +451,11 @@ Return retur = new Return();
      
      
       lblexit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-          lblback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-          asc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+      lblback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+      asc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           desc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           lblSearch.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           
-          int Row = tableHistory.getSelectedRow();
-        int fee =  Tools.CalculateDays(tableHistory.getValueAt(Row, 5).toString(), Tools.ToDay());
-        txtFee.setText(String.valueOf(fee));
-         
     }//GEN-LAST:event_formWindowOpened
 
     private void lblbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseClicked
@@ -492,7 +496,13 @@ Return retur = new Return();
     }//GEN-LAST:event_lblexitMouseExited
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        
+      int Row = tableHistory.getSelectedRow();
+        retur.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+        retur.setCardNumber(Integer.parseInt(txtCardNum.getText()));
         retur.UpdateStatusAvailable();
+        book.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+        book.UpdateReturned();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -579,6 +589,20 @@ Return retur = new Return();
     private void lblSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseExited
         Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
     }//GEN-LAST:event_lblSearchMouseExited
+
+    private void tableHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHistoryMouseClicked
+        try {
+             int Row = tableHistory.getSelectedRow();
+          String date1 = tableHistory.getValueAt(Row, 5).toString();
+          String date2 = Tools.ToDay();
+          int fee =  Tools.CalculateDays(date2, date1);
+          Tools.MsgBox(" "+ fee);
+            txtFee.setText(String.valueOf(fee) );
+        } catch (Exception e) {
+           Tools.MsgBox(e.getMessage());
+        }
+         
+    }//GEN-LAST:event_tableHistoryMouseClicked
  
     /**
      * @param args the command line arguments
