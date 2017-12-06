@@ -245,7 +245,10 @@ public class Tools {
       in the return just return Integer.parseInt(Long.toString(days));
       */
       try {
-         long diff = (sdf.parse(SecondDate).getTime() - sdf.parse(FirstDate).getTime());
+          Date d1 = sdf.parse(SecondDate);
+          Date d2 =sdf.parse(FirstDate);
+         //long diff = (sdf.parse(SecondDate).getTime() - sdf.parse(FirstDate).getTime());
+         long diff = d2.getTime() - d1.getTime();
          long hours = diff / (60*60*1000);
          long days = hours/24;
          //String result = Long.toString(days);

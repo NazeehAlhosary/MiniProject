@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/librarysystem/LibrarySystem.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Forms/FrmBooks.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Forms/FrmBorrow.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Forms/FrmManagement.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Classes/Return.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Forms/FrmReturn.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Forms/FrmHistory.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/LibrarySystem/src/Forms/FrmCustomers.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmReturn.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmManagement.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Classes/Return.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmForgetPassword.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Connection/Tools.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmBooks.java</file>
         </group>
     </open-files>
 </project-private>

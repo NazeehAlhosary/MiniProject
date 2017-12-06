@@ -256,7 +256,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_logbtn5MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Tools.OpenForm(new FrmForgetPassword());
+        new FrmForgetPassword().setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
 
     /**

@@ -86,7 +86,6 @@ public class FrmBooks extends javax.swing.JFrame {
     Tools.PutImageInLable("Descending_White.png", lblDescending, 30, 30);
     Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
     Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
-    
     lblRefresh.setCursor(new Cursor(Cursor.HAND_CURSOR));
     lblAdd.setCursor(new Cursor(Cursor.HAND_CURSOR));
     lblUpdate.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -239,6 +238,7 @@ public class FrmBooks extends javax.swing.JFrame {
         lblPrint = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        lblGoogle = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MenuFileAdd = new javax.swing.JMenuItem();
@@ -778,6 +778,24 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
+        lblGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/register.png"))); // NOI18N
+        lblGoogle.setToolTipText("Order items Descending");
+        lblGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblGoogle.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblGoogle.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblGoogle.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblGoogle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGoogleMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblGoogleMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblGoogleMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -793,22 +811,24 @@ public class FrmBooks extends javax.swing.JFrame {
                 .addComponent(lblAscending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblDescending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
+                .addGap(18, 18, 18)
+                .addComponent(lblGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jButton1)
                         .addGap(43, 43, 43)
                         .addComponent(jButton2)
                         .addGap(67, 67, 67)
-                        .addComponent(lblPrint)))
+                        .addComponent(lblPrint))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -822,10 +842,10 @@ public class FrmBooks extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblSearsh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAscending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDescending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDescending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
@@ -1255,6 +1275,18 @@ public class FrmBooks extends javax.swing.JFrame {
         ClearInfo();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void lblGoogleMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoogleMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblGoogleMouseExited
+
+    private void lblGoogleMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoogleMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblGoogleMouseEntered
+
+    private void lblGoogleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoogleMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblGoogleMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1360,6 +1392,7 @@ public class FrmBooks extends javax.swing.JFrame {
     private javax.swing.JLabel lblDelete;
     private javax.swing.JLabel lblDescending;
     private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblGoogle;
     private javax.swing.JLabel lblPrint;
     private javax.swing.JLabel lblRefresh;
     private javax.swing.JLabel lblSearsh;

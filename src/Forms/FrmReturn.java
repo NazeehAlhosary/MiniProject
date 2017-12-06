@@ -596,7 +596,6 @@ Books book = new Books();
           String date1 = tableHistory.getValueAt(Row, 5).toString();
           String date2 = Tools.ToDay();
           int fee =  Tools.CalculateDays(date2, date1);
-          Tools.MsgBox(" "+ fee);
             txtFee.setText(String.valueOf(fee) );
         } catch (Exception e) {
            Tools.MsgBox(e.getMessage());
