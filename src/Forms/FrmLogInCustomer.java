@@ -85,9 +85,9 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Password :");
+        jLabel4.setText("Password:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 310, 98, 24);
+        jLabel4.setBounds(30, 310, 98, 24);
 
         jLabel3.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,9 +128,9 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Username :");
+        jLabel5.setText("Library Card Number:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(60, 210, 102, 24);
+        jLabel5.setBounds(30, 210, 210, 24);
 
         jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
