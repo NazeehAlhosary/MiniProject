@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Classes.*;
 import Connection.Tools;
 
 /**
@@ -16,6 +17,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     /**
      * Creates new form LogInCustomer
      */
+    LoginC logincustomer = new LoginC();
     public FrmLogInCustomer() {
         initComponents();
         //Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
@@ -163,6 +165,11 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/refresh-lock.png"))); // NOI18N
         jLabel11.setText("Forget your password?");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel11);
         jLabel11.setBounds(110, 380, 220, 40);
 
@@ -246,6 +253,12 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_logbtn5MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        logincustomer.setCardNumber(4);
+        String result = logincustomer.ReturnPassWord();
+        Tools.MsgBox(result);
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments

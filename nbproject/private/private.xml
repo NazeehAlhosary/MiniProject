@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mohammadzreik/NetBeansProjects/Library%20System/src/Forms/FrmBorrow.java</file>
-            <file>file:/Users/mohammadzreik/NetBeansProjects/Library%20System/src/Forms/FrmBooks.java</file>
-            <file>file:/Users/mohammadzreik/NetBeansProjects/Library%20System/src/Forms/FrmReturn.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Classes/Books.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmBorrow.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmRegistration.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmCustomers.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmForgetPassword.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmBooks.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Classes/History.java</file>
         </group>
     </open-files>
 </project-private>

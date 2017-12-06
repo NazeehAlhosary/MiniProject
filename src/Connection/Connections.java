@@ -237,6 +237,27 @@ public class Connections {
         }
     }
      
+     public static String ReturnPassWord(int CardNumber) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String ReturnPass = "Select PassWord as 'ReturnPass' From customerlogin where CardNumber= "+CardNumber + ";";
+            Stmt.executeQuery(ReturnPass);
+            String ResultOFPassWord = "";
+            while (Stmt.getResultSet().next()) {
+                ResultOFPassWord = Stmt.getResultSet().getString("ReturnPass");
+            }
+            Con.close();                
+             if (ResultOFPassWord == null || ResultOFPassWord.equals("")) {
+                return "";
+            } else {
+                return (ResultOFPassWord);
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
      {/* public static boolean CheckLogInCustomer (String UserName , String PassWord){
         try {
             SetConnection();
