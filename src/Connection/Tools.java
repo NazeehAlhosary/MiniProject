@@ -245,20 +245,23 @@ public class Tools {
       in the return just return Integer.parseInt(Long.toString(days));
       */
       try {
-         int diff = (int) (sdf.parse(SecondDate).getTime() - sdf.parse(FirstDate).getTime());
-         int hours = diff / (60*60*1000);
-         int days = hours/24;
-        return days;
-      } catch (ParseException ex) {
+         long diff = (sdf.parse(SecondDate).getTime() - sdf.parse(FirstDate).getTime());
+         long hours = diff / (60*60*1000);
+         long days = hours/24;
+         //String result = Long.toString(days);
+        return Integer.parseInt(Long.toString(days));
+        } catch (ParseException ex) {
          Tools.MsgBox(ex.getMessage());
          return 0;
       }     
   }
   
     // Way 2 if we have any date chooser... NOTE THAT THE DATE FORMULA IS yyyy/MM/dd 
-   /* public void CalculateDays(JLabel label , JDateChooser FirstDate ,JDateChooser SecondDate){
+   /*public void CalculateDays(JLabel label , JDateChooser FirstDate ,JDateChooser SecondDate){
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd"); 
-      // d1 = format.parse(format.format(Date1.getDate()));
+      // 
+     public static int CalculateDays2(String date1 ,String date2){
+        d1 = format.parse(format.format(Date1.getDate()));
         Date date1 = null;
         Date date2 = null;
         date1= sdf.parse( sdf.format( SecondDate.getDate()) );

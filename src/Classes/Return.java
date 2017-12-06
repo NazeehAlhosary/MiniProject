@@ -19,8 +19,8 @@ public class Return {
     
      public void UpdateStatusAvailable(){
     String update = "Update History set "
-            +"Status='Available',"
-            + " where ISBN=" +getISBN() +"AND CardNumber= "+getCardNumber() +";";
+            +"Status='Returned' "
+            + " where ISBN=" + ISBN +" AND CardNumber= "+ CardNumber +" ;";
      boolean check = Connections.RunNonQuery(update);
      if (check){
          Tools.MsgBoxInfo("Book "+getISBN()+" is now available", "Update Status");
@@ -36,17 +36,18 @@ public class Return {
      }
     }
 
-    
     public int getISBN() {
         return ISBN;
     }
 
-    
+    public void setISBN(int ISBN) {
+        this.ISBN = ISBN;
+    }
+
     public String getStatus() {
         return Status;
     }
 
-   
     public void setStatus(String Status) {
         this.Status = Status;
     }
@@ -54,6 +55,12 @@ public class Return {
     public int getCardNumber() {
         return CardNumber;
     }
+
+    public void setCardNumber(int CardNumber) {
+        this.CardNumber = CardNumber;
+    }
+
+    
     
 }
      
