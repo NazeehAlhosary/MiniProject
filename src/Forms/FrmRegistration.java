@@ -316,6 +316,7 @@ public class FrmRegistration extends javax.swing.JFrame {
         jPanel1.setBounds(-10, -10, 510, 640);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     Customer customer = new Customer();
     CustomerLogIn customerlogin = new CustomerLogIn();

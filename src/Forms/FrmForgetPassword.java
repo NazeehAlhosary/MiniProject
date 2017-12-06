@@ -5,6 +5,9 @@
  */
 package Forms;
 
+import Classes.*;
+import Connection.Tools;
+
 /**
  *
  * @author mnaze
@@ -14,10 +17,26 @@ public class FrmForgetPassword extends javax.swing.JFrame {
     /**
      * Creates new form FrmForgetPassword
      */
+    LoginC customerlogin = new LoginC();
+    
     public FrmForgetPassword() {
         initComponents();
     }
 
+    private void PutInfo(){
+        customerlogin.setCardNumber(Integer.parseInt(txtCard.getText()));
+        customerlogin.setQuestion(ComQuestion.getSelectedItem().toString());
+        customerlogin.setAnswer(txtAnswer.getText());
+    }
+    
+    private boolean IsEmpty(){
+       if (txtCard.getText().equals("")||
+               txtAnswer.getText().equals("")|| 
+               ComQuestion.getSelectedItem().toString().equals("*** Select one reminder question ***")){
+       return true;
+       }
+    return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,16 +47,144 @@ public class FrmForgetPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCard = new Controls.JTextBox();
+        jSeparator5 = new javax.swing.JSeparator();
+        ComQuestion = new Controls.JCombo();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtAnswer = new Controls.JTextBox();
+        jSeparator13 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        lblReturn = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(455, 496));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(455, 496));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 1, 64));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 1, 410, 500));
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Card Number");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        txtCard.setToolTipText("Enter Library Card Number");
+        txtCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCardActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 250, -1));
+
+        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 240, 10));
+
+        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", "1- What is your mother name?", "2- What is your best friend's name?", "3- Who is your favorite football player?", "4- Who is your idol?", "5- What is your favorite teacher name?", "6- What is your first school name?", "7- What is your favorite PC game?" }));
+        ComQuestion.setToolTipText("Choose one question that you have chosen before");
+        jPanel1.add(ComQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+
+        jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 240, 10));
+
+        jLabel10.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Question");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Answer");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        txtAnswer.setToolTipText("Enter Your Answer");
+        txtAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnswerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 250, -1));
+
+        jSeparator13.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 240, 10));
+
+        jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Return PassWord");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
+        lblReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/refresh-lock (1).png"))); // NOI18N
+        lblReturn.setToolTipText("Return PassWord");
+        lblReturn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblReturnMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
+
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
+        lblExit.setToolTipText("Close");
+        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExitMouseExited(evt);
+            }
+        });
+        jPanel1.add(lblExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 50, 60));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 1, 460, 620));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnswerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnswerActionPerformed
+
+    private void lblReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReturnMouseClicked
+        if(!IsEmpty()){
+            PutInfo();
+            String Return = customerlogin.ReturnPassWord();
+            if (Return.equals("")){
+                Tools.MsgBoxErrorX("The library card number \nOR the question that you have chosen \nOR the answer that you have put \n             is wrong", "Failed to return your PassWord");
+            }
+            else{
+                Tools.MsgBox("Your PassWord is: "+Return);
+            }
+        }
+        else{
+            Tools.MsgBoxErrorX("Please fill all text fields and choose one question!", "Selection failed!!!");
+        }
+    }//GEN-LAST:event_lblReturnMouseClicked
+
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_lblExitMouseClicked
+
+    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        Tools.PutImageInLable("exit3.png", lblExit, 45, 45);
+    }//GEN-LAST:event_lblExitMouseEntered
+
+    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        Tools.PutImageInLable("exit3.png", lblExit, 35, 35);
+    }//GEN-LAST:event_lblExitMouseExited
+
+    private void txtCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -75,6 +222,18 @@ public class FrmForgetPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Controls.JCombo ComQuestion;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblReturn;
+    private Controls.JTextBox txtAnswer;
+    private Controls.JTextBox txtCard;
     // End of variables declaration//GEN-END:variables
 }

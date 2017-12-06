@@ -77,7 +77,7 @@ public class LoginC {
     }
     
     public String ReturnPassWord() {
-       return Connections.ReturnPassWord(CardNumber);
+       return Connections.ReturnPassWord(CardNumber,Question,Answer);
     }
     
 }

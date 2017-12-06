@@ -210,6 +210,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 460, 650);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
@@ -255,9 +256,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_logbtn5MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        logincustomer.setCardNumber(4);
-        String result = logincustomer.ReturnPassWord();
-        Tools.MsgBox(result);
+        Tools.OpenForm(new FrmForgetPassword());
     }//GEN-LAST:event_jLabel11MouseClicked
 
     /**

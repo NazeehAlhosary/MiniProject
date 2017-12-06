@@ -236,12 +236,15 @@ public class Connections {
             return 0;
         }
     }
-     
-     public static String ReturnPassWord(int CardNumber) {
+     //SELECT PassWord as 'TT' FROM customerlogin where CardNumber = 4 and Answer = 'sss' and Question = '3- Who is your favorite football player?';
+     public static String ReturnPassWord(int CardNumber, String Question, String Answer) {
         try {
             SetConnection();
             Statement Stmt = Con.createStatement();
-            String ReturnPass = "Select PassWord as 'ReturnPass' From customerlogin where CardNumber= "+CardNumber + ";";
+            String ReturnPass = "Select PassWord as 'ReturnPass' FROM customerlogin where "
+                    + " CardNumber= "+CardNumber 
+                    + " AND Question= '"+Question+ "' "
+                   + " AND Answer= '"+Answer+"' ;" ;
             Stmt.executeQuery(ReturnPass);
             String ResultOFPassWord = "";
             while (Stmt.getResultSet().next()) {
