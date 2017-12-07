@@ -184,6 +184,9 @@ public class FrmBorrow extends javax.swing.JFrame {
             }
         });
         Borrowtable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BorrowtableKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BorrowtableKeyReleased(evt);
             }
@@ -456,6 +459,10 @@ public class FrmBorrow extends javax.swing.JFrame {
     private void txtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTitleActionPerformed
+
+    private void BorrowtableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BorrowtableKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BorrowtableKeyPressed
 
     /**
      * @param args the command line arguments
