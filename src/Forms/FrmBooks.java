@@ -1304,7 +1304,7 @@ public class FrmBooks extends javax.swing.JFrame {
     }//GEN-LAST:event_lblGoogleMouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        Tools.SendEmail("gusalhmn@student.gu.se", " Testing send an Email 2");
+        Tools.SendEmail("gusalhmn@student.gu.se","Test" ," Testing send an Email 2");
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**

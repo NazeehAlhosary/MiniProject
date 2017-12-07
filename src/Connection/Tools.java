@@ -457,34 +457,27 @@ public class Tools {
         }
     }
 
-    public static void SendEmail(String email,String msg){
+    public static void SendEmail(String ReceiverEmail,String Email_Title,String YourMessage){
         try {
-        
         mailServerProperties = System.getProperties();
         mailServerProperties.put("mail.smtp.port", "587");
         mailServerProperties.put("mail.smtp.auth", "true");
         mailServerProperties.put("mail.smtp.starttls.enable", "true");
-
-
         getMailSession = Session.getDefaultInstance(mailServerProperties, null);
         generateMailMessage = new MimeMessage(getMailSession);
-        generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); 
-        generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(email)); 
-        generateMailMessage.setSubject(" Greetings from Library System ");
-        String emailBody = msg ;
+        generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(ReceiverEmail)); 
+        generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(ReceiverEmail)); 
+        generateMailMessage.setSubject(Email_Title);
+        String emailBody = YourMessage ;
         generateMailMessage.setContent(emailBody, "text/html");
-
-
         Transport transport = getMailSession.getTransport("smtp");
-
- 
         transport.connect("smtp.gmail.com", "library0system@gmail.com", "Librarysystem0");
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+        Tools.MsgBoxInfo("Email has been sent", "Sending an E-mail");
         transport.close();
         } catch (Exception e) {
             Tools.MsgBox(e.getMessage());
-        }
-        
+        }  
     }
 
 }
