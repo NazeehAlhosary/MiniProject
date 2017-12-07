@@ -342,7 +342,7 @@ Books book = new Books();
         tableHistory.setForeground(new java.awt.Color(255, 255, 255));
         tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "CardNumber", "ISBN", "Title", "Author", "Status", "Rental Date", "Return Date"

@@ -397,8 +397,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_registerbtnMouseExited
 
     private void registerbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerbtnMouseClicked
-        this.dispose();
-       Tools.OpenForm(new FrmReg());
+       String result = String.valueOf( Tools.InputBox("Enter System password", "Chech system password") );
+       if(result.equals("AdminN")){
+          this.dispose();
+          Tools.OpenForm(new FrmReg());
+       }
+       else{
+          Tools.MsgBoxErrorX("Password invalid!!!","Invalid password");
+       }
+        
     }//GEN-LAST:event_registerbtnMouseClicked
 
     private void exitbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseEntered

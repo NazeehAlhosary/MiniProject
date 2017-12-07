@@ -175,7 +175,7 @@ public class FrmManagement extends javax.swing.JFrame {
 
         tableCM.setAutoCreateRowSorter(true);
         tableCM.setBackground(new java.awt.Color(255, 255, 255));
-        tableCM.setFont(new java.awt.Font("Traditional Arabic", 3, 24)); // NOI18N
+        tableCM.setFont(new java.awt.Font("Traditional Arabic", 3, 14)); // NOI18N
         tableCM.setForeground(new java.awt.Color(64, 1, 64));
         tableCM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
