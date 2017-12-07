@@ -42,7 +42,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         int Row = Borrowtable.getSelectedRow();
         try {
             txtISBN.setText(Borrowtable.getValueAt(Row, 0).toString());
-            txtTitle.setText(Borrowtable.getValueAt(Row, 6).toString());
+            txtTitle.setText(Borrowtable.getValueAt(Row, 1).toString());
         } catch (Exception ex) {
             Tools.MsgBox(ex.getMessage());
         }
