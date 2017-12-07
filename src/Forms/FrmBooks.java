@@ -241,6 +241,7 @@ public class FrmBooks extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         lblGoogle = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MenuFileAdd = new javax.swing.JMenuItem();
@@ -798,6 +799,13 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton1.setText("Send Mail");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -827,7 +835,9 @@ public class FrmBooks extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addComponent(jButton2)
                         .addGap(67, 67, 67)
-                        .addComponent(lblPrint))
+                        .addComponent(lblPrint)
+                        .addGap(30, 30, 30)
+                        .addComponent(jToggleButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -858,7 +868,8 @@ public class FrmBooks extends javax.swing.JFrame {
                     .addComponent(lblPrint)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addComponent(jToggleButton1))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -1076,6 +1087,9 @@ public class FrmBooks extends javax.swing.JFrame {
         else if (RadShelf.isSelected()){
              Statement += " Shelf " + Statement2;
         }
+        else if (RadAuthor.isSelected()){
+             Statement += " Author " + Statement2;
+        }
         else if (RadGenre.isSelected()){
              Statement += " Genre " + Statement2;
         }
@@ -1092,7 +1106,7 @@ public class FrmBooks extends javax.swing.JFrame {
         book.GetSomeRows(Statement, BooksTable);
         int Row = BooksTable.getRowCount();
         if (Row == 0){
-            Tools.MsgBoxErrorX("No result!","Searsh not found");
+            Tools.MsgBoxErrorX("No result!","Searching not found");
             ClearInfo();
             txtSearch.requestFocus();
         }
@@ -1289,6 +1303,10 @@ public class FrmBooks extends javax.swing.JFrame {
         Tools.OpenWebPage("https://www.google.se/");
     }//GEN-LAST:event_lblGoogleMouseClicked
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Tools.SendEmail("gusalhmn@student.gu.se", " Testing send an Email 2");
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1387,6 +1405,7 @@ public class FrmBooks extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblAdd;
     private javax.swing.JLabel lblAscending;
     private javax.swing.JLabel lblBack;
