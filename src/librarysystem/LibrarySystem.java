@@ -11,6 +11,7 @@ import Forms.FrmLogInCustomer;
 import Forms.FrmLogin;
 import Forms.FrmManagement;
 import Forms.FrmReturn;
+import Forms.SerialNumber;
 
 /**
  *
@@ -21,7 +22,14 @@ public class LibrarySystem {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {   
-         Tools.OpenForm(new FrmLogInCustomer());
+    public static void main(String[] args) {
+        if (Connection.Connections.CheckSerial() == 0) {
+
+            Tools.OpenForm(new SerialNumber());
+
+        } else {
+            Tools.OpenForm(new FrmLogin());
+        }
+
     }
 }
