@@ -11,6 +11,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.*;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,6 +39,25 @@ public class Tools {
     static Session getMailSession;
     static MimeMessage generateMailMessage;
 
+    
+    public static String hashPassword(String password) {
+        try {
+           MessageDigest md = MessageDigest.getInstance("MD5");
+           byte[] passBytes = password.getBytes();
+           md.reset();
+            byte[] digested = md.digest(passBytes);
+            StringBuffer sb = new StringBuffer();
+            for(int i=0;i<digested.length;i++){
+                sb.append(Integer.toHexString(0xff & digested[i]));
+            }
+            return sb.toString();
+           
+        } catch (NoSuchAlgorithmException ex) {
+            System.err.print(ex);
+        }
+        return null;
+    }
+    
     //Normal icon, without any title.
     public static void MsgBox(String message) {
         JOptionPane.showMessageDialog(null, message);
