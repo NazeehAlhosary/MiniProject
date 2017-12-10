@@ -13,6 +13,9 @@ import Connection.Tools;
 import Controls.JMyButton;
 import java.awt.Cursor;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +33,7 @@ public class FrmHistory extends javax.swing.JFrame {
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         setLabels();
         ClearInfo();
+        CheckDelayedOrders();
     }
     
     public FrmHistory(String CardNumber) {
@@ -38,6 +42,7 @@ public class FrmHistory extends javax.swing.JFrame {
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         setLabels();
         ClearInfo(CardNumber);
+        CheckDelayedOrders();
     }
 
     /**
@@ -51,10 +56,23 @@ public class FrmHistory extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableHistory = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
+        txtSearch = new Controls.JTextBox();
+        jLabel6 = new javax.swing.JLabel();
+        radCardNumber = new javax.swing.JRadioButton();
+        RadISBN = new javax.swing.JRadioButton();
+        radTitle = new javax.swing.JRadioButton();
+        radAuthor = new javax.swing.JRadioButton();
+        radStatus = new javax.swing.JRadioButton();
+        radRentalDate = new javax.swing.JRadioButton();
+        radReturnDate = new javax.swing.JRadioButton();
+        lblSearch = new javax.swing.JLabel();
+        lblDescending = new javax.swing.JLabel();
+        lblAscending = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtCardNumber = new Controls.JTextBox();
         jLabel1 = new javax.swing.JLabel();
@@ -151,25 +169,177 @@ public class FrmHistory extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/books-stack-from-top-view (1).png"))); // NOI18N
         jLabel5.setText("History");
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Search");
+
+        radCardNumber.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(radCardNumber);
+        radCardNumber.setForeground(new java.awt.Color(255, 255, 255));
+        radCardNumber.setText("Card Number");
+
+        RadISBN.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(RadISBN);
+        RadISBN.setForeground(new java.awt.Color(255, 255, 255));
+        RadISBN.setText("ISBN");
+
+        radTitle.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(radTitle);
+        radTitle.setForeground(new java.awt.Color(255, 255, 255));
+        radTitle.setText("Title");
+
+        radAuthor.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(radAuthor);
+        radAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        radAuthor.setText("Author");
+        radAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radAuthorActionPerformed(evt);
+            }
+        });
+
+        radStatus.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(radStatus);
+        radStatus.setForeground(new java.awt.Color(255, 255, 255));
+        radStatus.setText("Status");
+
+        radRentalDate.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(radRentalDate);
+        radRentalDate.setForeground(new java.awt.Color(255, 255, 255));
+        radRentalDate.setText("Rental Date");
+        radRentalDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radRentalDateActionPerformed(evt);
+            }
+        });
+
+        radReturnDate.setBackground(new java.awt.Color(44, 0, 44));
+        buttonGroup1.add(radReturnDate);
+        radReturnDate.setForeground(new java.awt.Color(255, 255, 255));
+        radReturnDate.setText("Return Date");
+
+        lblSearch.setToolTipText("Search");
+        lblSearch.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblSearch.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblSearch.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSearchMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSearchMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSearchMouseEntered(evt);
+            }
+        });
+
+        lblDescending.setToolTipText("Order items Descending");
+        lblDescending.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblDescending.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblDescending.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblDescending.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDescendingMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDescendingMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDescendingMouseEntered(evt);
+            }
+        });
+
+        lblAscending.setToolTipText("Order items Ascending ");
+        lblAscending.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblAscending.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblAscending.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblAscending.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAscendingMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAscendingMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAscendingMouseEntered(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(radCardNumber)
+                                .addGap(18, 18, 18)
+                                .addComponent(RadISBN)
+                                .addGap(18, 18, 18)
+                                .addComponent(radTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radAuthor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radStatus)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radRentalDate)
+                                .addGap(4, 4, 4)
+                                .addComponent(radReturnDate))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblDescending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblAscending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radCardNumber)
+                    .addComponent(RadISBN)
+                    .addComponent(radTitle)
+                    .addComponent(radAuthor)
+                    .addComponent(radStatus)
+                    .addComponent(radReturnDate)
+                    .addComponent(radRentalDate))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDescending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAscending, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -247,14 +417,14 @@ public class FrmHistory extends javax.swing.JFrame {
 
         lblBack.setToolTipText("Return back to menu");
         lblBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblBackMousePressed(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblBackMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblBackMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblBackMousePressed(evt);
             }
         });
 
@@ -283,20 +453,12 @@ public class FrmHistory extends javax.swing.JFrame {
                 .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtReturnDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -312,6 +474,12 @@ public class FrmHistory extends javax.swing.JFrame {
                             .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 48, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,16 +516,16 @@ public class FrmHistory extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jMenuBar1.setBackground(new java.awt.Color(44, 0, 44));
@@ -503,6 +671,14 @@ public class FrmHistory extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     History history = new History();
+   
+    public boolean isTableEmpty(String CardNumber) {
+        ClearInfo(CardNumber);
+        if(tableHistory.getRowCount() == 0) {
+            return true;
+        }
+        return false;
+    }
     
     private void setLabels() {
         Tools.PutImageInLable("Refresh-white.png", lblRefresh, 30, 30);
@@ -510,12 +686,19 @@ public class FrmHistory extends javax.swing.JFrame {
         Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
         Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
         Tools.PutImageInLable("pen.png", lblUpdate, 30, 30);
+        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 30, 30);
+        Tools.PutImageInLable("Ascending_White.png", lblAscending, 30, 30);
+        Tools.PutImageInLable("Descending_White.png", lblDescending, 30, 30);
         
+        
+        lblAscending.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblDescending.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lblRefresh.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lblAdd.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lblExit.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lblBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
         lblUpdate.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblSearch.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -530,14 +713,6 @@ public class FrmHistory extends javax.swing.JFrame {
             Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_menuFileAddActionPerformed
-
-    private void tableHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHistoryMouseClicked
-        SelectInfo();
-    }//GEN-LAST:event_tableHistoryMouseClicked
-
-    private void tableHistoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableHistoryKeyReleased
-        SelectInfo();
-    }//GEN-LAST:event_tableHistoryKeyReleased
 
     private void menuFileUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileUpdateActionPerformed
         Update();
@@ -664,6 +839,139 @@ public class FrmHistory extends javax.swing.JFrame {
          Tools.OpenForm(new Loading());
     }//GEN-LAST:event_menuFileBackupActionPerformed
 
+    private void lblSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseEntered
+        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 45, 45);
+    }//GEN-LAST:event_lblSearchMouseEntered
+
+    private void lblSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseExited
+        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 30, 30);
+    }//GEN-LAST:event_lblSearchMouseExited
+
+    private void lblSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseClicked
+        String Statement = "Select * from History where ";
+        String Statement2 = " like '%"+ txtSearch.getText()+ "%' ";
+        if (RadISBN.isSelected()){
+            Statement += " ISBN " + Statement2;
+        }
+        else if (radCardNumber.isSelected()){
+            Statement += " CardNumber " + Statement2;
+        }
+        else if (radTitle.isSelected()){
+            Statement += " Title " + Statement2;
+        }
+        else if (radAuthor.isSelected()){
+            Statement += " Author " + Statement2;
+        }
+        else if (radStatus.isSelected()){
+            Statement += " Status " + Statement2;
+        }
+        else if (radRentalDate.isSelected()){
+            Statement += " Rental_Date " + Statement2;
+        }
+        else if (radReturnDate.isSelected()){
+            Statement += " Return_Date " + Statement2;
+        }
+
+        history.GetSomeRows(Statement, tableHistory);
+        int Row = tableHistory.getRowCount();
+        if (Row == 0){
+            Tools.MsgBoxErrorX("No result!","Searching not found");
+            ClearInfo();
+            txtSearch.requestFocus();
+        }
+    }//GEN-LAST:event_lblSearchMouseClicked
+
+    private void radAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radAuthorActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void tableHistoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableHistoryKeyReleased
+        SelectInfo();
+    }//GEN-LAST:event_tableHistoryKeyReleased
+
+    private void tableHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHistoryMouseClicked
+        SelectInfo();
+    }//GEN-LAST:event_tableHistoryMouseClicked
+
+    private void radRentalDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radRentalDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radRentalDateActionPerformed
+
+    private void lblDescendingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDescendingMouseClicked
+        OrderItems("desc");
+    }//GEN-LAST:event_lblDescendingMouseClicked
+
+    private void lblDescendingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDescendingMouseExited
+        Tools.PutImageInLable("Descending_White.png", lblDescending, 30, 30);
+    }//GEN-LAST:event_lblDescendingMouseExited
+
+    private void lblDescendingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDescendingMouseEntered
+        Tools.PutImageInLable("Descending_White.png", lblDescending, 45, 45);
+    }//GEN-LAST:event_lblDescendingMouseEntered
+
+    private void lblAscendingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAscendingMouseClicked
+        OrderItems("asc");
+    }//GEN-LAST:event_lblAscendingMouseClicked
+
+    private void lblAscendingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAscendingMouseExited
+        Tools.PutImageInLable("Ascending_White.png", lblAscending, 30, 30);
+    }//GEN-LAST:event_lblAscendingMouseExited
+
+    private void lblAscendingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAscendingMouseEntered
+        Tools.PutImageInLable("Ascending_White.png", lblAscending, 45, 45);
+    }//GEN-LAST:event_lblAscendingMouseEntered
+
+    
+    private void OrderItems(String order) {
+        String Statement = "Select * from History order by ";
+        if (RadISBN.isSelected()){
+            Statement += " ISBN " + order;
+        }
+        else if (radCardNumber.isSelected()){
+            Statement += " CardNumber " + order;
+            
+        }
+        else if (radAuthor.isSelected()){
+             Statement += " Author " + order;
+        }
+         else if (radStatus.isSelected()){
+             Statement += " Status " + order;
+        }
+        else if (radTitle.isSelected()){
+             Statement += " Title " + order;
+        }
+         else if (radRentalDate.isSelected()){
+             Statement += " Rental_Date " + order;
+        }
+        else if (radReturnDate.isSelected()){
+             Statement += " Return_Date " + order;
+        }
+        history.GetSomeRows(Statement, tableHistory);
+    }
+    
+      private void CheckDelayedOrders() {
+          int rows = tableHistory.getRowCount();
+          DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+          Date date = new Date();
+          String currentDate = dateFormat.format(date);
+          
+          String rentalDate = null;
+          for (int i = 0; i < rows; i++) {
+            rentalDate = tableHistory.getValueAt(i, 5).toString();
+
+            if(Tools.CalculateDays(currentDate, rentalDate) > 14) {
+                Tools.MsgBox(String.valueOf(Tools.CalculateDays(currentDate, rentalDate)));
+                Tools.MsgBox("delayed");
+                history.UpdateDelayed();
+            }
+          }
+          ClearInfo();
+      }
+      
     private void Add() throws SQLException{
     if (!NoEmptyTextField()){
              PutInfo();
@@ -733,6 +1041,7 @@ public class FrmHistory extends javax.swing.JFrame {
                 }
     }
     
+    
 
     /**
      * @param args the command line arguments
@@ -771,11 +1080,14 @@ public class FrmHistory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RadISBN;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -792,9 +1104,12 @@ public class FrmHistory extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAdd;
+    private javax.swing.JLabel lblAscending;
     private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblDescending;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblRefresh;
+    private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblUpdate;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuFileAdd;
@@ -808,10 +1123,19 @@ public class FrmHistory extends javax.swing.JFrame {
     private javax.swing.JMenuItem moveMenuCustomers;
     private javax.swing.JMenuItem moveMenuManagement;
     private javax.swing.JMenuItem moveMenuMenu;
+    private javax.swing.JRadioButton radAuthor;
+    private javax.swing.JRadioButton radCardNumber;
+    private javax.swing.JRadioButton radRentalDate;
+    private javax.swing.JRadioButton radReturnDate;
+    private javax.swing.JRadioButton radStatus;
+    private javax.swing.JRadioButton radTitle;
     private javax.swing.JTable tableHistory;
     private Controls.JTextBox txtCardNumber;
     private Controls.JTextBox txtISBN;
     private Controls.JTextBox txtRentalDate;
     private Controls.JTextBox txtReturnDate;
+    private Controls.JTextBox txtSearch;
     // End of variables declaration//GEN-END:variables
+
+  
 }

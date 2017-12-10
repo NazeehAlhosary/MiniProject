@@ -32,7 +32,7 @@ public class CustomerLogIn {
     }
 
     public void setPassWord(String PassWord) {
-        this.PassWord = PassWord;
+        this.PassWord = Tools.hashPassword(PassWord);
     }
 
     public String getQuestion() {

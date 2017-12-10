@@ -31,7 +31,7 @@ public class FrmReg extends javax.swing.JFrame {
 
     public void Add() {
         String add = "Insert into loginl VALUES ("
-                + "'" + txtuser.getText() + "' , '" + txtpass.getText() + "','" + Integer.parseInt(txtnum.getText()) + "' );";
+                + "'" + txtuser.getText() + "' , '" + Tools.hashPassword(txtpass.getText()) + "','" + Integer.parseInt(txtnum.getText()) + "' );";
         boolean check = Connections.RunNonQuery(add);
         if (check) {
             Tools.MsgBoxInfo(" Admin has been Registered ", "Register");

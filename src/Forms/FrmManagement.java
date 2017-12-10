@@ -418,8 +418,15 @@ public class FrmManagement extends javax.swing.JFrame {
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         int row = tableCM.getSelectedRow();
         FrmHistory historyForm = new FrmHistory((tableCM.getValueAt(row, 0).toString()));
-        this.dispose();
-        Tools.OpenForm(historyForm);
+        if(historyForm.isTableEmpty(tableCM.getValueAt(row, 0).toString())) {
+            if(Tools.YesNoChooserBox("No history found for selected Customer. Do you want to open History anyway?", "No History found") == true) {
+                this.dispose();
+                Tools.OpenForm(historyForm);
+            }
+        } else {
+            this.dispose();
+            Tools.OpenForm(historyForm);
+        }
     }//GEN-LAST:event_btnHistoryActionPerformed
 
     private void btnBorrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowActionPerformed

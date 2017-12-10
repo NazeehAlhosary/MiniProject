@@ -6,6 +6,10 @@
 package Classes;
 import Connection.Connections;
 import Connection.Tools;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Ranim
@@ -23,8 +27,10 @@ public class Loginl {
     public String getUsername() {
         return Username;
     }
+    
+    
     public void setPassword(String Password) {
-        this.Password = Password;
+        this.Password = Tools.hashPassword(Password);
     }
     
     

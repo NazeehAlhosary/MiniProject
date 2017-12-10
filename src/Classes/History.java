@@ -134,6 +134,15 @@ public class History {
         this.author = rs.getString("Author");
         
     }
+
+    public void UpdateDelayed() {
+        String query = "Update History set "
+                + "Status = 'delayed' "
+                + "Where 'CardNumber' = " + this.cardNumber + " AND 'ISBN' = " + this.ISBN;
+        if(!Connections.RunNonQuery(query)) {
+            Tools.MsgBox("Error Updating History");
+        }
+    }
      
     
 }
