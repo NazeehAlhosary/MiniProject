@@ -238,8 +238,6 @@ public class FrmBooks extends javax.swing.JFrame {
         txtSearch = new Controls.JTextBox();
         jLabel11 = new javax.swing.JLabel();
         lblPrint = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         lblGoogle = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -279,10 +277,8 @@ public class FrmBooks extends javax.swing.JFrame {
         jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1200, 600));
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -767,20 +763,6 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Test Return");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Test Borrow");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         lblGoogle.setToolTipText("Searching by Google");
         lblGoogle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblGoogle.setMaximumSize(new java.awt.Dimension(50, 50));
@@ -822,11 +804,7 @@ public class FrmBooks extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 808, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jButton1)
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton2)
-                        .addGap(67, 67, 67)
+                        .addGap(425, 425, 425)
                         .addComponent(lblPrint))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
@@ -854,11 +832,7 @@ public class FrmBooks extends javax.swing.JFrame {
                         .addGap(28, 28, 28)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPrint)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2)))
+                .addComponent(lblPrint)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -1076,6 +1050,9 @@ public class FrmBooks extends javax.swing.JFrame {
         else if (RadShelf.isSelected()){
              Statement += " Shelf " + Statement2;
         }
+        else if (RadAuthor.isSelected()){
+             Statement += " Author " + Statement2;
+        }
         else if (RadGenre.isSelected()){
              Statement += " Genre " + Statement2;
         }
@@ -1092,7 +1069,7 @@ public class FrmBooks extends javax.swing.JFrame {
         book.GetSomeRows(Statement, BooksTable);
         int Row = BooksTable.getRowCount();
         if (Row == 0){
-            Tools.MsgBoxErrorX("No result!","Searsh not found");
+            Tools.MsgBoxErrorX("No result!","Searching not found");
             ClearInfo();
             txtSearch.requestFocus();
         }
@@ -1264,19 +1241,6 @@ public class FrmBooks extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblPrintMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        PutInfo();
-        book.UpdateReturned();
-        ClearInfo();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PutInfo();
-        book.UpdateBorrowing();
-        ClearInfo();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void lblGoogleMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGoogleMouseExited
         Tools.PutImageInLable("Google.png", lblGoogle, 30, 30);
     }//GEN-LAST:event_lblGoogleMouseExited
@@ -1351,8 +1315,6 @@ public class FrmBooks extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadStatus;
     private javax.swing.JRadioButton RadTitle;
     private javax.swing.ButtonGroup btnGroup;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

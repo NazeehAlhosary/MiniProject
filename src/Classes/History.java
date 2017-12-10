@@ -26,6 +26,7 @@ public class History {
     private String status;
     private String rentalDate;
     private String returnedDate;
+    Books book = new Books() ;
 
     public int getCardNumber() {
         return cardNumber;
@@ -133,4 +134,6 @@ public class History {
         this.author = rs.getString("Author");
         
     }
+     
+    
 }

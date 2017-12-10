@@ -42,7 +42,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         int Row = Borrowtable.getSelectedRow();
         try {
             txtISBN.setText(Borrowtable.getValueAt(Row, 0).toString());
-            txtTitle.setText(Borrowtable.getValueAt(Row, 6).toString());
+            txtTitle.setText(Borrowtable.getValueAt(Row, 1).toString());
         } catch (Exception ex) {
             Tools.MsgBox(ex.getMessage());
         }
@@ -143,19 +143,24 @@ public class FrmBorrow extends javax.swing.JFrame {
 
         txtCard.setEditable(false);
         getContentPane().add(txtCard);
-        txtCard.setBounds(10, 310, 160, 27);
+        txtCard.setBounds(10, 310, 160, 24);
 
         txtISBN.setEditable(false);
         getContentPane().add(txtISBN);
-        txtISBN.setBounds(10, 170, 160, 27);
+        txtISBN.setBounds(10, 170, 160, 24);
 
         txtTitle.setEditable(false);
+        txtTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTitleActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtTitle);
-        txtTitle.setBounds(10, 240, 160, 27);
+        txtTitle.setBounds(10, 240, 160, 24);
 
         txtUser.setEditable(false);
         getContentPane().add(txtUser);
-        txtUser.setBounds(10, 380, 160, 27);
+        txtUser.setBounds(10, 380, 160, 24);
 
         Borrowtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,6 +184,9 @@ public class FrmBorrow extends javax.swing.JFrame {
             }
         });
         Borrowtable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BorrowtableKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BorrowtableKeyReleased(evt);
             }
@@ -198,7 +206,7 @@ public class FrmBorrow extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(380, 0, 270, 70);
         getContentPane().add(txtSearch);
-        txtSearch.setBounds(210, 110, 600, 27);
+        txtSearch.setBounds(210, 110, 600, 24);
 
         searchbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/searchbtn.png"))); // NOI18N
         searchbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -447,6 +455,14 @@ public class FrmBorrow extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_borrowbtnMouseClicked
+
+    private void txtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTitleActionPerformed
+
+    private void BorrowtableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BorrowtableKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BorrowtableKeyPressed
 
     /**
      * @param args the command line arguments
