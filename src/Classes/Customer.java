@@ -19,12 +19,20 @@ public class Customer {
     private String Address;
     private String Phone;
     int CardNumberId;
+    private String Email;
 
 private void getUniqueId()
 {
     setCardNumber(CardNumberId);
     CardNumberId++;
 }
+ public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;}
+    
     public int getCardNumber() {
         return CardNumber;
     }
@@ -63,7 +71,8 @@ private void getUniqueId()
                 + CardNumber + ","
                 +"'"+ Name + "',"
                 +"'"+ Address + "',"
-                +"'"+ Phone + "');";
+                +"'"+ Phone + "',"
+                +"'"+ Email + "');";
         boolean check = Connections.RunNonQuery(insert);
         if (check) {
            Tools.MsgBoxInfo("Customer has been added", "Registration succesful");
@@ -76,6 +85,7 @@ private void getUniqueId()
                 +"Name='"+ Name + "',"
                 +"Address='"+ Address + "',"
                 +"Phone='"+ Phone + "'"
+                     +"Email='"+ Email + "'"
                 +"where CardNumber=" + CardNumber+";";
         boolean check = Connections.RunNonQuery(update);
         if(check) {
