@@ -25,6 +25,7 @@ import static javax.swing.JSplitPane.RIGHT;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.JTableHeader;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -295,6 +296,21 @@ public class Tools {
             Tools.MsgBox(ex.getMessage());
             return 0;
         }
+    }
+    
+    public static long CalculateDaysBetween(String first, String second) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        try {    
+            Date d1 = format.parse(first);
+            Date d2 = format.parse(second);
+            
+            long diff = d1.getTime() - d2.getTime();
+            
+            return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        } catch (ParseException ex) {
+            Logger.getLogger(Tools.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
 
     // Way 2 if we have any date chooser... NOTE THAT THE DATE FORMULA IS yyyy/MM/dd 

@@ -102,8 +102,8 @@ public class History {
     public void UpdateReturned(){
          String update = "Update History Set "
             +"Status = '"+"returned"+"',"
-            + "returnedDate = '" +returnedDate + "'"
-            + " where ISBN = " +ISBN +";";
+            + "Returned_Date = '" +returnedDate + "'"
+            + " where ISBN = " +this.ISBN +" AND CardNumber = " + this.cardNumber;
      boolean check = Connections.RunNonQuery(update);
      if (check){
          Tools.MsgBoxInfo("Book "+ISBN + " has been returned", "Update");
@@ -136,9 +136,10 @@ public class History {
     }
 
     public void UpdateDelayed() {
+        System.out.println("called");
         String query = "Update History set "
                 + "Status = 'delayed' "
-                + "Where 'CardNumber' = " + this.cardNumber + " AND 'ISBN' = " + this.ISBN;
+                + "Where CardNumber = " + this.cardNumber + " AND ISBN = " + this.ISBN;
         if(!Connections.RunNonQuery(query)) {
             Tools.MsgBox("Error Updating History");
         }

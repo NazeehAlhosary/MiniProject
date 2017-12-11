@@ -34,6 +34,7 @@ public class FrmHistory extends javax.swing.JFrame {
         setLabels();
         ClearInfo();
         CheckDelayedOrders();
+        
     }
     
     public FrmHistory(String CardNumber) {
@@ -953,6 +954,8 @@ public class FrmHistory extends javax.swing.JFrame {
         history.GetSomeRows(Statement, tableHistory);
     }
     
+    private final static long RETURN_IN_DAYS = 14;
+    
       private void CheckDelayedOrders() {
           int rows = tableHistory.getRowCount();
           DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -960,12 +963,17 @@ public class FrmHistory extends javax.swing.JFrame {
           String currentDate = dateFormat.format(date);
           
           String rentalDate = null;
+          
           for (int i = 0; i < rows; i++) {
             rentalDate = tableHistory.getValueAt(i, 5).toString();
-
-            if(Tools.CalculateDays(currentDate, rentalDate) > 14) {
-                Tools.MsgBox(String.valueOf(Tools.CalculateDays(currentDate, rentalDate)));
-                Tools.MsgBox("delayed");
+            System.out.println(rentalDate);
+            
+            long days = Tools.CalculateDaysBetween(currentDate, rentalDate);
+            System.out.println(days);
+            if(days > RETURN_IN_DAYS) {
+                
+                history.setISBN(Integer.parseInt(tableHistory.getValueAt(i, 1).toString()));
+                history.setCardNumber(Integer.parseInt(tableHistory.getValueAt(i, 0).toString()));
                 history.UpdateDelayed();
             }
           }
