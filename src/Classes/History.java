@@ -144,6 +144,19 @@ public class History {
             Tools.MsgBox("Error Updating History");
         }
     }
+
+    public String getCustomerEmail() throws SQLException {
+        String query = "Select Email From Customer "
+                + "Where CardNumber = '" + this.cardNumber +"'";
+        
+        Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/librarysystem","root","");
+        Connections.SetConnection();
+        Statement Stmt = Con.createStatement();
+        ResultSet rs = Stmt.executeQuery(query);
+        
+        rs.next();
+        return rs.getString("Email");
+    }
      
     
 }

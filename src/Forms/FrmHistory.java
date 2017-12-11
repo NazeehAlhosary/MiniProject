@@ -971,10 +971,10 @@ public class FrmHistory extends javax.swing.JFrame {
             long days = Tools.CalculateDaysBetween(currentDate, rentalDate);
             System.out.println(days);
             if(days > RETURN_IN_DAYS) {
-                
                 history.setISBN(Integer.parseInt(tableHistory.getValueAt(i, 1).toString()));
                 history.setCardNumber(Integer.parseInt(tableHistory.getValueAt(i, 0).toString()));
                 history.UpdateDelayed();
+                SendEmailDelayed();
             }
           }
           ClearInfo();
@@ -1049,7 +1049,16 @@ public class FrmHistory extends javax.swing.JFrame {
                 }
     }
     
-    
+    private void SendEmailDelayed() {
+        String recieverEmail;
+        try {
+            recieverEmail = history.getCustomerEmail();
+             Tools.SendEmail(recieverEmail, "Delayed book at the Library", "You have borrowed a book from our library and you have not returned it, despite passing the returned date." + 
+                    System.lineSeparator() + "You will be charged 2 SEK per day from the day you had to return the book.");
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -1144,6 +1153,8 @@ public class FrmHistory extends javax.swing.JFrame {
     private Controls.JTextBox txtReturnDate;
     private Controls.JTextBox txtSearch;
     // End of variables declaration//GEN-END:variables
+
+  
 
   
 }
