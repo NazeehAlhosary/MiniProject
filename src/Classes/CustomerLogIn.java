@@ -17,6 +17,7 @@ public class CustomerLogIn {
    private String PassWord;
    private String Question;
    private String Answer;
+   private String Email;
 
     public int getCardNumber() {
         return CardNumber;
@@ -45,10 +46,11 @@ public class CustomerLogIn {
     
     public boolean Add(){
     String insert = "Insert into customerlogin VALUES ("
-                + CardNumber + ","
-                +"'"+ PassWord + "',"
-                +"'"+ Question + "',"
-                +"'"+ Answer + "' );";
+                + CardNumber + ", "
+                +"'"+ Email +"', "
+                +"'"+ PassWord + "', "
+                +"'"+ Question + "', "
+                +"'"+ Answer + "' ) ;";
         boolean check = Connections.RunNonQuery(insert);
         if (check) {
            Tools.MsgBoxInfo("New Access for the cardholder with the number ("+CardNumber+") has been added", "Registration succesful");
@@ -63,5 +65,13 @@ public class CustomerLogIn {
 
     public void setAnswer(String Answer) {
         this.Answer = Answer;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 }

@@ -6,6 +6,7 @@
 package Forms;
 
 import Classes.*;
+import Connection.Connections;
 import Connection.Tools;
 
 /**
@@ -50,6 +51,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         lblAdmin = new javax.swing.JLabel();
         lblRegister = new javax.swing.JLabel();
         logbtn5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(460, 650));
@@ -124,13 +126,13 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtpass);
-        txtpass.setBounds(110, 340, 190, 30);
+        txtpass.setBounds(110, 340, 210, 30);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Library Card Number OR Your E-mail:");
+        jLabel5.setText("E-mail:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 220, 340, 24);
+        jLabel5.setBounds(30, 230, 190, 24);
 
         jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,6 +208,15 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jPanel1.add(logbtn5);
         logbtn5.setBounds(140, 490, 64, 64);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(150, 430, 77, 32);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 460, 650);
 
@@ -258,7 +269,8 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }
     private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
         if(!IsEmpty()){
-            if (logincustomer.LogIn(txtuser.getText(), txtpass.getText())){
+            String Pass = Tools.hashPassword(txtpass.getText());
+            if ( Connections.CheckLogInCustomer(txtuser.getText(), Pass) ){
                 this.dispose();
                 Tools.OpenForm(new Menu());
             }
@@ -277,6 +289,10 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         new FrmReturnPassword().setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Tools.MsgBox(Tools.hashPassword(txtuser.getText()));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,6 +337,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -144,11 +144,11 @@ public class Loading extends javax.swing.JFrame implements Runnable{
     public void run() {
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(20);
+                Thread.sleep(25);
                lblLoading.setText("Loading "+Integer.toString(i)+"%");
                ProgressBar.setValue(i);
                 if (i == 100){
-                    Tools.MsgBox("Back up Done");
+                    Tools.MsgBoxError1("An Emai had been sent", "Sending an Email");
                     setVisible(false);
                 }
             }

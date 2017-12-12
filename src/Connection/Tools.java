@@ -6,6 +6,8 @@
 package Connection; // Please change package name...
 
 //import com.sun.xml.internal.ws.util.ReadAllStream;
+import Forms.FrmLogin;
+import Forms.Loading;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -493,7 +495,7 @@ public class Tools {
             return arrayR;
         }
     }
-
+// gusalhmn@student.gu.se
     public static void SendEmail(String ReceiverEmail,String Email_Title,String YourMessage){
         try {
         mailServerProperties = System.getProperties();
@@ -506,11 +508,15 @@ public class Tools {
         generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(ReceiverEmail)); 
         generateMailMessage.setSubject(Email_Title);
         String emailBody = YourMessage ;
+        
         generateMailMessage.setContent(emailBody, "text/html");
         Transport transport = getMailSession.getTransport("smtp");
         transport.connect("smtp.gmail.com", "library0system@gmail.com", "Librarysystem0");
+        OpenForm(new Loading());
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
-        Tools.MsgBoxInfo("Email has been sent", "Sending an E-mail");
+        
+        
+        //Tools.MsgBoxInfo("Email has been sent", "Sending an E-mail");
         transport.close();
         } catch (Exception e) {
             Tools.MsgBox(e.getMessage());

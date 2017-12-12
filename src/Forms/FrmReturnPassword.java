@@ -19,6 +19,7 @@ public class FrmReturnPassword extends javax.swing.JFrame {
     public FrmReturnPassword() {
         initComponents();
     }
+    final String END_OF_LINE = System.lineSeparator();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +95,8 @@ public class FrmReturnPassword extends javax.swing.JFrame {
 
     private void lblEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseClicked
        String result = String.valueOf( Tools.InputBoxErrorI("Please enter your E-mail...", "Return password by E-mail") );
-       Tools.MsgBox(result);
+       String mes = "We are wrking on returning your PassWord...";
+       Tools.SendEmail(result, "Return Password", mes);
     }//GEN-LAST:event_lblEmailMouseClicked
 
     /**

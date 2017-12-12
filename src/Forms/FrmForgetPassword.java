@@ -197,7 +197,7 @@ public class FrmForgetPassword extends javax.swing.JFrame {
     private void txtCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCardActionPerformed
-
+        private static String test ;
     /**
      * @param args the command line arguments
      */
