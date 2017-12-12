@@ -276,13 +276,13 @@ public class Connections {
         return 1;
     }
 
-    {/* public static boolean CheckLogInCustomer (String UserName , String PassWord){
+    public static boolean CheckLogInCustomer (String CardNumberOREmail , String PassWord){
         try {
             SetConnection();
             Statement Stmt = Con.createStatement();
-            String Check = "Select * From CustomerLogin Where "
-                    + "UserN='" + UserName +"' and "
-                    + "Pass='" +PassWord + "'";
+            String Check = "Select * From customerlogin Where "
+                    + "CardNumber='" + CardNumberOREmail +"' or Email='" + CardNumberOREmail +"' and "
+                    + "PassWord='" +PassWord + "'";
             
             Stmt.executeQuery(Check);
             while (Stmt.getResultSet().next()){
@@ -295,7 +295,6 @@ public class Connections {
             Tools.MsgBox(ex.getMessage());
         }
         return false;
-    }*/
     }
 
 }

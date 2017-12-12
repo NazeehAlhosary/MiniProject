@@ -277,8 +277,10 @@ public class FrmBooks extends javax.swing.JFrame {
         jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1000, 600));
+        setMaximumSize(new java.awt.Dimension(1200, 600));
+        setMinimumSize(new java.awt.Dimension(1200, 600));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1200, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {

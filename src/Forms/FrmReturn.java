@@ -47,7 +47,7 @@ public class FrmReturn extends javax.swing.JFrame {
                Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
          txtCardNum.setText(card);
          txtName.setText(name);
-        String Statement = " Select * from History where CardNumber ="+card +" AND Status = 'Unavailable' ;";
+        String Statement = " Select * from History1 where CardNumber ="+card +" AND Status = 'Unavailable' ;";
         
        Connection.Connections.FillCustomRows(Statement, tableHistory);
      // history.GetSomeRows(Statement, tableHistory);

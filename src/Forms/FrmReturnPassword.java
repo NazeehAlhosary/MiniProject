@@ -5,6 +5,8 @@
  */
 package Forms;
 
+import Connection.Tools;
+
 /**
  *
  * @author mnaze
@@ -42,15 +44,25 @@ public class FrmReturnPassword extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(64, 1, 64));
         jPanel1.setLayout(null);
 
-        lblQuestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/books-stack-from-top-view (1).png"))); // NOI18N
+        lblQuestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/question (1).png"))); // NOI18N
         lblQuestion.setToolTipText("Using the reminding question");
         lblQuestion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblQuestion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblQuestionMouseClicked(evt);
+            }
+        });
         jPanel1.add(lblQuestion);
         lblQuestion.setBounds(210, 110, 70, 70);
 
-        lblEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Google.png"))); // NOI18N
+        lblEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/email.png"))); // NOI18N
         lblEmail.setToolTipText("Receive your password in your Email");
         lblEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEmailMouseClicked(evt);
+            }
+        });
         jPanel1.add(lblEmail);
         lblEmail.setBounds(380, 100, 70, 80);
 
@@ -75,6 +87,15 @@ public class FrmReturnPassword extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblQuestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuestionMouseClicked
+        new FrmForgetPassword().setVisible(true);
+    }//GEN-LAST:event_lblQuestionMouseClicked
+
+    private void lblEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseClicked
+       String result = String.valueOf( Tools.InputBoxErrorI("Please enter your E-mail...", "Return password by E-mail") );
+       Tools.MsgBox(result);
+    }//GEN-LAST:event_lblEmailMouseClicked
 
     /**
      * @param args the command line arguments

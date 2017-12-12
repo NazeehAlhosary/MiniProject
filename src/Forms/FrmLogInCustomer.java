@@ -63,12 +63,12 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/books.png"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(190, 80, 76, 100);
+        jLabel6.setBounds(190, 90, 76, 100);
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator2);
-        jSeparator2.setBounds(110, 270, 210, 2);
+        jSeparator2.setBounds(110, 300, 210, 2);
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +77,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/username.png"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(330, 240, 24, 24);
+        jLabel2.setBounds(330, 270, 24, 24);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/locked.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -111,7 +111,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtuser);
-        txtuser.setBounds(110, 240, 210, 30);
+        txtuser.setBounds(110, 270, 210, 30);
 
         txtpass.setBackground(new java.awt.Color(64, 1, 64));
         txtpass.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
@@ -128,9 +128,9 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Library Card Number:");
+        jLabel5.setText("Library Card Number OR Your E-mail:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 210, 210, 24);
+        jLabel5.setBounds(30, 220, 340, 24);
 
         jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,15 +248,34 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
        this.dispose();
-        Tools.OpenForm(new FrmRegistration());
+       Tools.OpenForm(new FrmRegistration());
     }//GEN-LAST:event_lblRegisterMouseClicked
-
+    private boolean IsEmpty(){
+        if(txtpass.getText().equals("") || txtuser.getText().equals("")){
+            return true;
+        }
+        return false;
+    }
     private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
-        // TODO add your handling code here:
+        if(!IsEmpty()){
+            if (logincustomer.LogIn(txtuser.getText(), txtpass.getText())){
+                this.dispose();
+                Tools.OpenForm(new Menu());
+            }
+            else{
+                Tools.MsgBoxInfo("Invaild Username or Password", "Log In failed");
+                txtuser.setText("");
+                txtpass.setText("");
+                txtuser.requestFocus();        
+            }
+        }
+        else{
+            Tools.MsgBoxErrorX("Please fill all text fields", "Empty field(s)");
+        }
     }//GEN-LAST:event_logbtn5MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        new FrmForgetPassword().setVisible(true);
+        new FrmReturnPassword().setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
