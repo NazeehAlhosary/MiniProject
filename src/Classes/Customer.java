@@ -84,8 +84,8 @@ private void getUniqueId()
              String update = "Update Customer set "
                 +"Name='"+ Name + "',"
                 +"Address='"+ Address + "',"
-                +"Phone='"+ Phone + "'"
-                     +"Email='"+ Email + "'"
+                +"Phone='"+ Phone + "',"
+                +"Email='"+ Email + "'"
                 +"where CardNumber=" + CardNumber+";";
         boolean check = Connections.RunNonQuery(update);
         if(check) {
