@@ -41,7 +41,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtuser = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtpass = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -97,23 +97,23 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(390, 600, 50, 30);
 
-        txtuser.setBackground(new java.awt.Color(64, 1, 64));
-        txtuser.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
-        txtuser.setForeground(new java.awt.Color(255, 255, 255));
-        txtuser.setToolTipText("Enter your UserName");
-        txtuser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtuser.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEmail.setBackground(new java.awt.Color(64, 1, 64));
+        txtEmail.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setToolTipText("Enter your UserName");
+        txtEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtuserMouseClicked(evt);
+                txtEmailMouseClicked(evt);
             }
         });
-        txtuser.addActionListener(new java.awt.event.ActionListener() {
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtuserActionPerformed(evt);
+                txtEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(txtuser);
-        txtuser.setBounds(110, 270, 210, 30);
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(110, 270, 210, 30);
 
         txtpass.setBackground(new java.awt.Color(64, 1, 64));
         txtpass.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
@@ -208,14 +208,14 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jPanel1.add(logbtn5);
         logbtn5.setBounds(140, 490, 64, 64);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("TEST");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(150, 430, 77, 32);
+        jButton1.setBounds(170, 430, 59, 32);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 460, 650);
@@ -244,13 +244,13 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         txtpass.setText("");
     }//GEN-LAST:event_txtpassMouseClicked
 
-    private void txtuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtuserMouseClicked
-        txtuser.setText("");
-    }//GEN-LAST:event_txtuserMouseClicked
+    private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
+        txtEmail.setText("");
+    }//GEN-LAST:event_txtEmailMouseClicked
 
-    private void txtuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtuserActionPerformed
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtuserActionPerformed
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     private void lblAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminMouseClicked
         this.dispose();
@@ -262,7 +262,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
        Tools.OpenForm(new FrmRegistration());
     }//GEN-LAST:event_lblRegisterMouseClicked
     private boolean IsEmpty(){
-        if(txtpass.getText().equals("") || txtuser.getText().equals("")){
+        if(txtpass.getText().equals("") || txtEmail.getText().equals("")){
             return true;
         }
         return false;
@@ -270,15 +270,15 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
         if(!IsEmpty()){
             String Pass = Tools.hashPassword(txtpass.getText());
-            if ( Connections.CheckLogInCustomer(txtuser.getText(), Pass) ){
+            if ( Connections.CheckLogInCustomer(txtEmail.getText(), Pass) ){
                 this.dispose();
                 Tools.OpenForm(new Menu());
             }
             else{
                 Tools.MsgBoxInfo("Invaild Username or Password", "Log In failed");
-                txtuser.setText("");
+                txtEmail.setText("");
                 txtpass.setText("");
-                txtuser.requestFocus();        
+                txtEmail.requestFocus();        
             }
         }
         else{
@@ -291,7 +291,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tools.MsgBox(Tools.hashPassword(txtuser.getText()));
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -354,7 +354,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JLabel logbtn5;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtpass;
-    private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }

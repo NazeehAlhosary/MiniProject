@@ -273,7 +273,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void logbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtnMouseClicked
         String hashedPass = Tools.hashPassword(txtpass.getText());
-        
+          
         if (Connection.Connections.CheckLogIn(txtuser.getText(), hashedPass)) {
             this.dispose();
             Tools.OpenForm(new Forms.Menu());

@@ -354,7 +354,8 @@ public class FrmRegistration extends javax.swing.JFrame {
         // Customer login
         customerlogin.setCardNumber( Integer.parseInt(txtICard.getText()));
         customerlogin.setEmail(txtEmail.getText());
-        customerlogin.setPassWord(txtPass.getText());
+        String hashedPass = Tools.hashPassword(txtPass.getText());
+        customerlogin.setPassWord(hashedPass);
         customerlogin.setQuestion(ComQuestion.getSelectedItem().toString());
         customerlogin.setAnswer(txtAnswer.getText());
     }

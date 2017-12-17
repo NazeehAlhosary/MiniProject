@@ -230,7 +230,6 @@ public class Connections {
             return 0;
         }
     }
-    //SELECT PassWord as 'TT' FROM customerlogin where CardNumber = 4 and Answer = 'sss' and Question = '3- Who is your favorite football player?';
     public static String ReturnPassWord(int CardNumber, String Question, String Answer) {
         try {
             SetConnection();
@@ -282,7 +281,7 @@ public class Connections {
             Statement Stmt = Con.createStatement();
             String Check = "Select * From customerlogin Where "
                     + " Email='" + CardNumberOREmail +"' and "
-                    + " PassWord='" +PassWord + "'";
+                    + " PassWord='" +PassWord + "' ;";
             Stmt.executeQuery(Check);
             while (Stmt.getResultSet().next()){
                 Con.close();
@@ -294,6 +293,27 @@ public class Connections {
             Tools.MsgBox(ex.getMessage());
         }
         return false;
+    }
+        public static boolean CheckEmail( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select CardNumber as 'Card' from customerlogin where Email='" +Email+"'; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("Card");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return false;
+        }
     }
 
 }

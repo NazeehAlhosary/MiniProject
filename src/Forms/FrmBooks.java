@@ -452,6 +452,7 @@ public class FrmBooks extends javax.swing.JFrame {
         jLabel9.setText("N.Borrowing");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ISBN");
 
