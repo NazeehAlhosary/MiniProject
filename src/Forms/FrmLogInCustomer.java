@@ -204,6 +204,9 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logbtn5MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logbtn5MouseEntered(evt);
+            }
         });
         jPanel1.add(logbtn5);
         logbtn5.setBounds(140, 490, 64, 64);
@@ -293,6 +296,10 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void logbtn5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logbtn5MouseEntered
 
     /**
      * @param args the command line arguments

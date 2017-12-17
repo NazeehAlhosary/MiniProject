@@ -148,7 +148,7 @@ public class Loading extends javax.swing.JFrame implements Runnable{
                lblLoading.setText("Loading "+Integer.toString(i)+"%");
                ProgressBar.setValue(i);
                 if (i == 100){
-                    Tools.MsgBoxError1("An Emai had been sent", "Sending an Email");
+                    Tools.MsgBoxInfo("An Emai had been sent", "Sending an Email");
                     setVisible(false);
                 }
             }

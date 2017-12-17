@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Connection.Connections;
 import Connection.Tools;
 
 /**
@@ -95,8 +96,14 @@ public class FrmReturnPassword extends javax.swing.JFrame {
 
     private void lblEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseClicked
        String result = String.valueOf( Tools.InputBoxErrorI("Please enter your E-mail...", "Return password by E-mail") );
-       String mes = "We are wrking on returning your PassWord...";
-       Tools.SendEmail(result, "Return Password", mes);
+       if(Connections.CheckEmail(result)){
+        String mes = "We are working on returning your PassWord...";
+        Tools.SendEmail(result, "Return Password", mes);
+       }
+       else{
+        Tools.MsgBoxInfo("Invaild Email", "Email wrong");
+       }
+       
     }//GEN-LAST:event_lblEmailMouseClicked
 
     /**
