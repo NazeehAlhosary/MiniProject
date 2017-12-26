@@ -28,13 +28,21 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.JTableHeader;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 public class Tools {
 
@@ -244,6 +252,18 @@ public class Tools {
             Tools.MsgBox(ex.getMessage());
         }
 
+    }
+     public static String currentTime() {
+        // Date
+        java.util.Date Today = new java.util.Date();
+        SimpleDateFormat SMF = new SimpleDateFormat("hh:mm:ss");
+        return String.valueOf(SMF.format(Today));
+    }
+    public static void currentTime(JLabel lable){
+    java.util.Date Today = new java.util.Date();
+        SimpleDateFormat SMF = new SimpleDateFormat("hh:mm:ss");
+       String T = String.valueOf(SMF.format(Today));
+        lable.setText(T);
     }
 
     public static void ToDay(JLabel lable) {
@@ -522,5 +542,58 @@ public class Tools {
             Tools.MsgBox(e.getMessage());
         }  
     }
+    
+    public static void SendEmailWithAttachment(String toAddress, String msg, String filename) throws AddressException, MessagingException{
+      String host = "smtp.gmail.com";
+        String Password = "Librarysystem0";
+        String user = "library0system@gmail.com";
+       
+        Properties props = System.getProperties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtps.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        Session session = Session.getInstance(props, null);
+
+        MimeMessage message = new MimeMessage(session);
+
+        message.setFrom(new InternetAddress(user));
+
+        message.setRecipients(Message.RecipientType.TO, toAddress);
+
+        message.setSubject("Greetings from Library System");
+
+        BodyPart messageBodyPart = new MimeBodyPart();
+
+        messageBodyPart.setText(msg);
+
+        Multipart multipart = new MimeMultipart();
+
+        multipart.addBodyPart(messageBodyPart);
+
+        messageBodyPart = new MimeBodyPart();
+
+        DataSource source = new FileDataSource(filename);
+
+        messageBodyPart.setDataHandler(new DataHandler(source));
+
+        messageBodyPart.setFileName(filename);
+
+        multipart.addBodyPart(messageBodyPart);
+
+        message.setContent(multipart);
+
+        try {
+            Transport tr = session.getTransport("smtps");
+            tr.connect(host, user, Password);
+            tr.sendMessage(message, message.getAllRecipients());
+            System.out.println("Mail Sent Successfully");
+            tr.close();
+
+        } catch (SendFailedException sfe) {
+
+            System.out.println(sfe);
+        }
+     
+     }
 
 }
