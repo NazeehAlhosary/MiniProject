@@ -51,7 +51,6 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         lblAdmin = new javax.swing.JLabel();
         lblRegister = new javax.swing.JLabel();
         logbtn5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(460, 650));
@@ -211,15 +210,6 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         jPanel1.add(logbtn5);
         logbtn5.setBounds(140, 490, 64, 64);
 
-        jButton1.setText("TEST");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(170, 430, 59, 32);
-
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 460, 650);
 
@@ -272,8 +262,8 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }
     private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
         if(!IsEmpty()){
-            String Pass = Tools.hashPassword(txtpass.getText());
-            if ( Connections.CheckLogInCustomer(txtEmail.getText(), Pass) ){
+           // String Pass = Tools.hashPassword(txtpass.getText());
+            if ( Connections.CheckLogInCustomer(txtEmail.getText(), txtpass.getText()) ){
                 this.dispose();
                 Tools.OpenForm(new Menu());
             }
@@ -292,10 +282,6 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         new FrmReturnPassword().setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void logbtn5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseEntered
         // TODO add your handling code here:
@@ -344,7 +330,6 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

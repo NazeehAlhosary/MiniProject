@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Library_System/src/Forms/FrmRegistration.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Library_System/src/librarysystem/LibrarySystem.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Library_System/src/Forms/FrmReturn.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Library_System/src/Forms/SerialNumber.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Classes/CustomerLogIn.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmRegistration.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmLogin.java</file>
+            <file>file:/C:/Users/mnaze/Documents/NetBeansProjects/MiniProject/src/Forms/FrmLogInCustomer.java</file>
         </group>
     </open-files>
 </project-private>

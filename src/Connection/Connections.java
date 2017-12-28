@@ -196,7 +196,7 @@ public class Connections {
             Statement Stmt = Con.createStatement();
             String Check = "Select * From loginl Where "
                     + "UserName='" + UserName + "' and "
-                    + "PassWord='" + PassWord + "'";
+                    + "PassWord='" + PassWord + "' ;";
             Stmt.executeQuery(Check);
             while (Stmt.getResultSet().next()) {
                 Con.close();
@@ -275,12 +275,12 @@ public class Connections {
         return 1;
     }
 
-    public static boolean CheckLogInCustomer (String CardNumberOREmail , String PassWord){
+    public static boolean CheckLogInCustomer (String Email , String PassWord){
         try {
             SetConnection();
             Statement Stmt = Con.createStatement();
             String Check = "Select * From customerlogin Where "
-                    + " Email='" + CardNumberOREmail +"' and "
+                    + " Email='" + Email +"' and "
                     + " PassWord='" +PassWord + "' ;";
             Stmt.executeQuery(Check);
             while (Stmt.getResultSet().next()){

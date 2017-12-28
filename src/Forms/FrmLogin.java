@@ -272,9 +272,8 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtnMouseClicked
-        String hashedPass = Tools.hashPassword(txtpass.getText());
-          
-        if (Connection.Connections.CheckLogIn(txtuser.getText(), hashedPass)) {
+//        String hashedPass = Tools.hashPassword(txtpass.getText());         
+        if (Connection.Connections.CheckLogIn(txtuser.getText(), txtpass.getText())) {
             this.dispose();
             Tools.OpenForm(new Forms.Menu());
         } else {
