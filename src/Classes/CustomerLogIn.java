@@ -58,6 +58,14 @@ public class CustomerLogIn {
         }
         return false;
     }
+    public void ChangePass(String newPassWord){
+        String Update = "Update customerlogin set PassWord='"+ newPassWord+"' where " 
+                + "Email= '"+ Email + "' ;";
+         boolean check=  Connections.RunNonQuery(Update);
+          if (check){
+             Tools.MsgBoxInfo("Done","Done");
+     }
+    }
 
     public String getAnswer() {
         return Answer;

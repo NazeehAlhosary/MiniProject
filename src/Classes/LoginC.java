@@ -77,7 +77,7 @@ public class LoginC {
     }
     
     public String ReturnPassWord() {
-       return Connections.ReturnPassWord(CardNumber,Question,Answer);
+       return Connections.ReturnPassWordByUsingQuestion(CardNumber,Question,Answer);
     }
     public boolean LogIn(String CardNumberOREmail , String PassWord){
         if(Connections.CheckLogInCustomer(CardNumberOREmail, PassWord)){

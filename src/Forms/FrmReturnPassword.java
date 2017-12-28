@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Classes.CustomerLogIn;
 import Connection.Connections;
 import Connection.Tools;
 
@@ -21,7 +22,7 @@ public class FrmReturnPassword extends javax.swing.JFrame {
         initComponents();
     }
     final String END_OF_LINE = System.lineSeparator();
-
+    CustomerLogIn customerlogin = new CustomerLogIn();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,15 +32,33 @@ public class FrmReturnPassword extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblExit = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblQuestion = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblExit1 = new javax.swing.JLabel();
+
+        lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
+        lblExit.setToolTipText("Exit the program");
+        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExitMouseExited(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(658, 300));
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(658, 300));
         getContentPane().setLayout(null);
 
@@ -84,6 +103,23 @@ public class FrmReturnPassword extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(161, 190, 150, 14);
 
+        lblExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
+        lblExit1.setToolTipText("Exit the program");
+        lblExit1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExit1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblExit1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblExit1MouseExited(evt);
+            }
+        });
+        jPanel1.add(lblExit1);
+        lblExit1.setBounds(10, 230, 60, 60);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 660, 300);
 
@@ -97,7 +133,14 @@ public class FrmReturnPassword extends javax.swing.JFrame {
     private void lblEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseClicked
        String result = String.valueOf( Tools.InputBoxErrorI("Please enter your E-mail...", "Return password by E-mail") );
        if(Connections.CheckEmail(result)){
-        String mes = "We are working on returning your PassWord...";
+           String userName = result;
+           //String hashPassword = Connection.Connections.ReturnPassWordByUsingEmail(result);
+           String newPass = "$"+result.substring(3, 5) + "#" + result.substring(1,4)+"%";
+           String hashPass= Tools.hashPassword(newPass);
+           customerlogin.setEmail(result);
+           customerlogin.ChangePass(hashPass);
+           String Pass = "";
+        String mes = "your user name is: "+ userName +" and your new PassWord is:  <"+ newPass + ">, Please change it as soon as possible ";
         Tools.SendEmail(result, "Return Password", mes);
        }
        else{
@@ -105,6 +148,33 @@ public class FrmReturnPassword extends javax.swing.JFrame {
        }
        
     }//GEN-LAST:event_lblEmailMouseClicked
+
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
+        boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
+        if(check){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_lblExitMouseClicked
+
+    private void lblExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseEntered
+        Tools.PutImageInLable("exit.png", lblExit, 45, 45);
+    }//GEN-LAST:event_lblExitMouseEntered
+
+    private void lblExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseExited
+        Tools.PutImageInLable("exit.png", lblExit, 35, 35);
+    }//GEN-LAST:event_lblExitMouseExited
+
+    private void lblExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExit1MouseClicked
+       this.dispose();
+    }//GEN-LAST:event_lblExit1MouseClicked
+
+    private void lblExit1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExit1MouseEntered
+        Tools.PutImageInLable("exit.png", lblExit, 45, 45);
+    }//GEN-LAST:event_lblExit1MouseEntered
+
+    private void lblExit1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExit1MouseExited
+        Tools.PutImageInLable("exit.png", lblExit, 35, 35);
+    }//GEN-LAST:event_lblExit1MouseExited
 
     /**
      * @param args the command line arguments
@@ -147,6 +217,8 @@ public class FrmReturnPassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblExit;
+    private javax.swing.JLabel lblExit1;
     private javax.swing.JLabel lblQuestion;
     // End of variables declaration//GEN-END:variables
 }

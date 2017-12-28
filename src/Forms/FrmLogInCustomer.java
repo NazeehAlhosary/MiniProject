@@ -262,8 +262,8 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }
     private void logbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseClicked
         if(!IsEmpty()){
-           // String Pass = Tools.hashPassword(txtpass.getText());
-            if ( Connections.CheckLogInCustomer(txtEmail.getText(), txtpass.getText()) ){
+           String Pass = Tools.hashPassword(txtpass.getText());
+            if ( Connections.CheckLogInCustomer(txtEmail.getText(), Pass) ){
                 this.dispose();
                 Tools.OpenForm(new Menu());
             }

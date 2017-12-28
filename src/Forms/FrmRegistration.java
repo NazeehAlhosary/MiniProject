@@ -173,13 +173,16 @@ public class FrmRegistration extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRegisterMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRegisterMouseEntered(evt);
+            }
         });
 
         jLabel10.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Question");
 
-        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", "1- What is your mother name?", "2- What is your best friend's name?", "3- Who is your favorite football player?", "4- Who is your idol?", "5- What is your favorite teacher name?", "6- What is your first school name?", "7- What is your favorite PC game?" }));
+        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", " 1 - What is your mother name?", " 2 - What is your best friend's name?", " 3 - Who is your favorite football player?", " 4 - Who is your idol?", " 5 - What is your favorite teacher name?", " 6 - What is your first school name?", " 7 - What is your favorite PC game?" }));
         ComQuestion.setToolTipText("Please choose one question that you can answer it if you forgot your password");
 
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
@@ -351,11 +354,12 @@ public class FrmRegistration extends javax.swing.JFrame {
         customer.setName(txtName.getText());
         customer.setAddress(txtAddress.getText());
         customer.setPhoneNumber(txtPhone.getText());
+        customer.setEmail(txtEmail.getText());
         // Customer login
         customerlogin.setCardNumber( Integer.parseInt(txtICard.getText()));
         customerlogin.setEmail(txtEmail.getText());
-        String hashedPass = Tools.hashPassword(txtPass.getText());
-        customerlogin.setPassWord(hashedPass);
+        //String hashedPass = Tools.hashPassword(txtPass.getText());
+        customerlogin.setPassWord(txtPass.getText());
         customerlogin.setQuestion(ComQuestion.getSelectedItem().toString());
         customerlogin.setAnswer(txtAnswer.getText());
     }
@@ -441,6 +445,10 @@ public class FrmRegistration extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_lblExitMouseClicked
+
+    private void lblRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblRegisterMouseEntered
 
     /**
      * @param args the command line arguments

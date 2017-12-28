@@ -230,30 +230,6 @@ public class Connections {
             return 0;
         }
     }
-    public static String ReturnPassWord(int CardNumber, String Question, String Answer) {
-        try {
-            SetConnection();
-            Statement Stmt = Con.createStatement();
-            String ReturnPass = "Select PassWord as 'ReturnPass' FROM customerlogin where "
-                    + " CardNumber= " + CardNumber
-                    + " AND Question= '" + Question + "' "
-                    + " AND Answer= '" + Answer + "' ;";
-            Stmt.executeQuery(ReturnPass);
-            String ResultOFPassWord = "";
-            while (Stmt.getResultSet().next()) {
-                ResultOFPassWord = Stmt.getResultSet().getString("ReturnPass");
-            }
-            Con.close();
-            if (ResultOFPassWord == null || ResultOFPassWord.equals("")) {
-                return "";
-            } else {
-                return (ResultOFPassWord);
-            }
-        } catch (SQLException ex) {
-            Tools.MsgBox(ex.getMessage());
-            return "";
-        }
-    }
 
     public static int CheckSerial() {
         try {
@@ -313,6 +289,52 @@ public class Connections {
         } catch (SQLException ex) {
             Tools.MsgBox(ex.getMessage());
             return false;
+        }
+    }
+          public static String ReturnPassWordByUsingQuestion(int CardNumber, String Question, String Answer) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String ReturnPass = "Select PassWord as 'ReturnPass' FROM customerlogin where "
+                    + " CardNumber= " + CardNumber
+                    + " AND Question= '" + Question + "' "
+                    + " AND Answer= '" + Answer + "' ;";
+            Stmt.executeQuery(ReturnPass);
+            String ResultOFPassWord = "";
+            while (Stmt.getResultSet().next()) {
+                ResultOFPassWord = Stmt.getResultSet().getString("ReturnPass");
+            }
+            Con.close();
+            if (ResultOFPassWord == null || ResultOFPassWord.equals("")) {
+                return "";
+            } else {
+                return (ResultOFPassWord);
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
+          
+    public static String ReturnPassWordByUsingEmail( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select PassWord as 'ReturnPass' FROM customerlogin where Email='" +Email+"'; ";
+            Stmt.executeQuery(Statement);
+           String ResultOFPassWord = "";
+            while (Stmt.getResultSet().next()) {
+                ResultOFPassWord = Stmt.getResultSet().getString("ReturnPass");
+            }
+            Con.close();
+            if (ResultOFPassWord == null || ResultOFPassWord.equals("")) {
+                return "";
+            } else {
+                return ResultOFPassWord;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
         }
     }
 
