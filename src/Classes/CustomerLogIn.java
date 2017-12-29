@@ -58,14 +58,24 @@ public class CustomerLogIn {
         }
         return false;
     }
-    public void ChangePass(String newPassWord){
+    public void ChangePassByEmail(String newPassWord){
         String Update = "Update customerlogin set PassWord='"+ newPassWord+"' where " 
                 + "Email= '"+ Email + "' ;";
-         boolean check=  Connections.RunNonQuery(Update);
-          if (check){
-             Tools.MsgBoxInfo("Done","Done");
+        Connections.RunNonQuery(Update);   
      }
+    
+     public void ChangePassByCardNumber(String newPassWord){
+        String Update = "Update customerlogin set PassWord='"+ newPassWord+"' where " 
+                + "CardNumber= "+ CardNumber + " ;";
+        Connections.RunNonQuery(Update);
+        
+     }
+     
+     public boolean ReturnPassWord() {
+       return Connections.ReturnPassWordByUsingQuestion(CardNumber,Question,Answer);
     }
+     
+    
 
     public String getAnswer() {
         return Answer;

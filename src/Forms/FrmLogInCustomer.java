@@ -18,7 +18,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     /**
      * Creates new form LogInCustomer
      */
-    LoginC logincustomer = new LoginC();
+   // LoginC logincustomer = new LoginC();
     public FrmLogInCustomer() {
         initComponents();
         //Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);

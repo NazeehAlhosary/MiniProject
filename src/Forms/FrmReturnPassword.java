@@ -94,11 +94,13 @@ public class FrmReturnPassword extends javax.swing.JFrame {
         jLabel9.setBounds(20, 10, 650, 41);
 
         jLabel1.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Your E-mail");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(380, 190, 80, 14);
 
         jLabel2.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("The reminding question");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(161, 190, 150, 14);
@@ -134,13 +136,14 @@ public class FrmReturnPassword extends javax.swing.JFrame {
        String result = String.valueOf( Tools.InputBoxErrorI("Please enter your E-mail...", "Return password by E-mail") );
        if(Connections.CheckEmail(result)){
            String userName = result;
-           //String hashPassword = Connection.Connections.ReturnPassWordByUsingEmail(result);
-           String newPass = "$"+result.substring(3, 5) + "#" + result.substring(1,4)+"%";
+           //String hashPassword = Connection.Connections.ReturnPassWordByUsingEmail(result);   
+           String newPass = "$"+result.toUpperCase().substring(3, 4) +"#" + result.toUpperCase().substring(1,3)+"%";
            String hashPass= Tools.hashPassword(newPass);
            customerlogin.setEmail(result);
-           customerlogin.ChangePass(hashPass);
+           customerlogin.ChangePassByEmail(hashPass);
            String Pass = "";
         String mes = "your user name is: "+ userName +" and your new PassWord is:  <"+ newPass + ">, Please change it as soon as possible ";
+ 
         Tools.SendEmail(result, "Return Password", mes);
        }
        else{

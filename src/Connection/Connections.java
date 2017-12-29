@@ -291,7 +291,7 @@ public class Connections {
             return false;
         }
     }
-          public static String ReturnPassWordByUsingQuestion(int CardNumber, String Question, String Answer) {
+    public static boolean ReturnPassWordByUsingQuestion(int CardNumber, String Question, String Answer) {
         try {
             SetConnection();
             Statement Stmt = Con.createStatement();
@@ -306,13 +306,13 @@ public class Connections {
             }
             Con.close();
             if (ResultOFPassWord == null || ResultOFPassWord.equals("")) {
-                return "";
+                return false;
             } else {
-                return (ResultOFPassWord);
+                return true;
             }
         } catch (SQLException ex) {
             Tools.MsgBox(ex.getMessage());
-            return "";
+            return false;
         }
     }
           
@@ -331,6 +331,28 @@ public class Connections {
                 return "";
             } else {
                 return ResultOFPassWord;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
+    
+    public static String GetEmail( int CardNumber) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select Email as 'Email' from customerlogin where CardNumber=" +CardNumber+" ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("Email");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return "";
+            } else {
+                return Result;
             }
         } catch (SQLException ex) {
             Tools.MsgBox(ex.getMessage());

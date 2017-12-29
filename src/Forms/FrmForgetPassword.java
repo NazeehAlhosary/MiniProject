@@ -6,6 +6,7 @@
 package Forms;
 
 import Classes.*;
+import Connection.Connections;
 import Connection.Tools;
 
 /**
@@ -17,7 +18,7 @@ public class FrmForgetPassword extends javax.swing.JFrame {
     /**
      * Creates new form FrmForgetPassword
      */
-    LoginC customerlogin = new LoginC();
+    CustomerLogIn customerlogin = new CustomerLogIn();
     
     public FrmForgetPassword() {
         initComponents();
@@ -169,12 +170,17 @@ public class FrmForgetPassword extends javax.swing.JFrame {
     private void lblReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReturnMouseClicked
         if(!IsEmpty()){
             PutInfo();
-            String Return = customerlogin.ReturnPassWord();
-            if (Return.equals("")){
+            if (!customerlogin.ReturnPassWord()){
                 Tools.MsgBoxErrorX("The library card number \nOR the question that you have chosen \nOR the answer that you have put \n             is wrong", "Failed to return your PassWord");
             }
             else{
-                Tools.MsgBox("Your PassWord is: "+Return);
+               PutInfo();
+               //customerlogin.setCardNumber(Integer.parseInt( txtCard.getText() ));
+               String email = Connections.GetEmail( Integer.parseInt( txtCard.getText() ) );
+               String newPass = "$"+email.toUpperCase().substring(3, 4) +"#" + email.toUpperCase().substring(1,3)+"%";
+               String hashPass = Tools.hashPassword(newPass);
+                customerlogin.ChangePassByCardNumber(hashPass);
+                Tools.MsgBox("Your new PassWord is: " + newPass);
             }
         }
         else{
