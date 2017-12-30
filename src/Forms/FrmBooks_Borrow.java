@@ -16,18 +16,18 @@ import javax.swing.JTable;
  *
  * @author mohammadzreik
  */
-public class FrmBorrow extends javax.swing.JFrame {
+public class FrmBooks_Borrow extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmBorrow
      */
-    public FrmBorrow() {
+    public FrmBooks_Borrow() {
         initComponents();
         Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
 
     }
 
-    public FrmBorrow(String CardNumber, String username) {
+    public FrmBooks_Borrow(String CardNumber, String username) {
         initComponents();
         txtCard.setText(CardNumber);
         txtUser.setText(username);
@@ -481,20 +481,21 @@ public class FrmBorrow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmBorrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Borrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmBorrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Borrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmBorrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Borrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmBorrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Borrow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmBorrow().setVisible(true);
+                new FrmBooks_Borrow().setVisible(true);
             }
         });
     }

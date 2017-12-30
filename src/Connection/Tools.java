@@ -6,7 +6,7 @@
 package Connection; // Please change package name...
 
 //import com.sun.xml.internal.ws.util.ReadAllStream;
-import Forms.FrmLogin;
+import Forms.FrmAdmin_Login;
 import Forms.Loading;
 import java.awt.*;
 import java.awt.image.BufferedImage;

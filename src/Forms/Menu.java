@@ -400,7 +400,7 @@ public class Menu extends javax.swing.JFrame {
        String result = String.valueOf( Tools.InputBox("Enter System password", "Chech system password") );
        if(result.equals("AdminN")){
           this.dispose();
-          Tools.OpenForm(new FrmReg());
+          Tools.OpenForm(new FrmAdmin_Registration());
        }
        else{
           Tools.MsgBoxErrorX("Password invalid!!!","Invalid password");
@@ -422,7 +422,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void exitbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtnMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmLogin());
+        Tools.OpenForm(new FrmAdmin_Login());
     }//GEN-LAST:event_exitbtnMouseClicked
 
     /**

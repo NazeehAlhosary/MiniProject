@@ -503,7 +503,7 @@ public class FrmManagement extends javax.swing.JFrame {
          this.dispose();
          String card = lblcardnum.getText();
          String name = lblname.getText();
-        Connection.Tools.OpenForm(new FrmReturn(card, name));
+        Connection.Tools.OpenForm(new FrmBooks_Return(card, name));
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void lblbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseEntered
@@ -562,7 +562,7 @@ public class FrmManagement extends javax.swing.JFrame {
      this.dispose();
       String CardNumber = lblcardnum.getText();
          String username = lblname.getText();
-        Connection.Tools.OpenForm(new FrmBorrow(CardNumber, username));
+        Connection.Tools.OpenForm(new FrmBooks_Borrow(CardNumber, username));
     }//GEN-LAST:event_btnBorrowActionPerformed
 
     private void tableCMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCMMouseClicked

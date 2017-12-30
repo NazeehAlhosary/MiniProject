@@ -13,12 +13,12 @@ import Connection.Tools;
  *
  * @author M Nazeeh Alhosary
  */
-public class FrmRegistration extends javax.swing.JFrame {
+public class FrmCustomer_Registration extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmRegistration
      */
-    public FrmRegistration() {
+    public FrmCustomer_Registration() {
         initComponents();
      Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
      Tools.PutImageInLable("exit3.png", lblExit, 30, 30);
@@ -155,6 +155,11 @@ public class FrmRegistration extends javax.swing.JFrame {
         jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
 
         txtPhone.setToolTipText("Enter Your Phone number...");
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneActionPerformed(evt);
+            }
+        });
 
         jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -402,7 +407,7 @@ public class FrmRegistration extends javax.swing.JFrame {
 
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmLogInCustomer());
+        Tools.OpenForm(new FrmCustomer_Login());
     }//GEN-LAST:event_lblBackMouseClicked
 
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
@@ -415,7 +420,7 @@ public class FrmRegistration extends javax.swing.JFrame {
                     customer.Add();
                     ClearInfo();
                     this.dispose();
-                    Tools.OpenForm(new FrmLogInCustomer());
+                    Tools.OpenForm(new FrmCustomer_Login());
                 }
             }
             else{
@@ -450,6 +455,10 @@ public class FrmRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRegisterMouseEntered
 
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -467,20 +476,21 @@ public class FrmRegistration extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmRegistration().setVisible(true);
+                new FrmCustomer_Registration().setVisible(true);
             }
         });
     }

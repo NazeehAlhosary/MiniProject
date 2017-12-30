@@ -13,12 +13,12 @@ import Connection.Tools;
  *
  * @author mnaze
  */
-public class FrmReturnPassword extends javax.swing.JFrame {
+public class FrmResetPassword extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmReturnPassword
      */
-    public FrmReturnPassword() {
+    public FrmResetPassword() {
         initComponents();
     }
     final String END_OF_LINE = System.lineSeparator();
@@ -89,7 +89,7 @@ public class FrmReturnPassword extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Georgia", 3, 25)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Please select one choice to return your password");
+        jLabel9.setText("Please select one choice to reset a new password");
         jPanel1.add(jLabel9);
         jLabel9.setBounds(20, 10, 650, 41);
 
@@ -129,7 +129,7 @@ public class FrmReturnPassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblQuestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuestionMouseClicked
-        new FrmForgetPassword().setVisible(true);
+        new FrmReset_Password_By_Question().setVisible(true);
     }//GEN-LAST:event_lblQuestionMouseClicked
 
     private void lblEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEmailMouseClicked
@@ -196,20 +196,23 @@ public class FrmReturnPassword extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmReturnPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmResetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmReturnPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmResetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmReturnPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmResetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmReturnPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmResetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmReturnPassword().setVisible(true);
+                new FrmResetPassword().setVisible(true);
             }
         });
     }

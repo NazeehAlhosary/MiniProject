@@ -21,12 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author Ranim
  */
-public class FrmReturn extends javax.swing.JFrame {
+public class FrmBooks_Return extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmReturn
      */
-    public FrmReturn() {
+    public FrmBooks_Return() {
         initComponents();
         Tools.ToDay(date);
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
@@ -37,7 +37,7 @@ public class FrmReturn extends javax.swing.JFrame {
              Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
               Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
     }
-    public FrmReturn(String card, String name){
+    public FrmBooks_Return(String card, String name){
         initComponents();
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         Tools.ToDay(date);
@@ -929,20 +929,23 @@ Books book = new Books();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmReturn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Return.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmReturn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Return.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmReturn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Return.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmReturn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBooks_Return.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmReturn().setVisible(true);
+                new FrmBooks_Return().setVisible(true);
             }
         });
     }

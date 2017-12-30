@@ -370,6 +370,9 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Enter Your Phone number..."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator9">
           <Properties>

@@ -177,7 +177,7 @@ public class SerialNumber extends javax.swing.JFrame {
                 || txtSerial.getText().equals(serialnum3) || txtSerial.getText().equals(serialnum4)
                 || txtSerial.getText().equals(serialnum5)) {
             this.dispose();
-            Tools.OpenForm(new FrmReg());
+            Tools.OpenForm(new FrmAdmin_Registration());
 
         } else {
             Tools.MsgBoxError1("Please Enter a Correct Serial Number", "Seria; Number ");

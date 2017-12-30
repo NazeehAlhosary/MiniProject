@@ -7,10 +7,10 @@ package librarysystem;
 
 import Connection.Tools;
 import Forms.FrmBooks;
-import Forms.FrmLogInCustomer;
-import Forms.FrmLogin;
+import Forms.FrmCustomer_Login;
+import Forms.FrmAdmin_Login;
 import Forms.FrmManagement;
-import Forms.FrmReturn;
+import Forms.FrmBooks_Return;
 import Forms.SerialNumber;
 
 /**
@@ -28,7 +28,7 @@ public class LibrarySystem {
             Tools.OpenForm(new SerialNumber());
 
         } else {
-            Tools.OpenForm(new FrmLogInCustomer());
+            Tools.OpenForm(new FrmCustomer_Login());
         }
 
     }

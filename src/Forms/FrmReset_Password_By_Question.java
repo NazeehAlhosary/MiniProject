@@ -13,14 +13,14 @@ import Connection.Tools;
  *
  * @author mnaze
  */
-public class FrmForgetPassword extends javax.swing.JFrame {
+public class FrmReset_Password_By_Question extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmForgetPassword
      */
     CustomerLogIn customerlogin = new CustomerLogIn();
     
-    public FrmForgetPassword() {
+    public FrmReset_Password_By_Question() {
         initComponents();
     }
 
@@ -125,9 +125,9 @@ public class FrmForgetPassword extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Return PassWord");
+        jLabel9.setText("Reset PassWord");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(60, 20, 336, 41);
+        jLabel9.setBounds(60, 20, 306, 41);
 
         lblReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/refresh-lock (1).png"))); // NOI18N
         lblReturn.setToolTipText("Return PassWord");
@@ -221,20 +221,21 @@ public class FrmForgetPassword extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReset_Password_By_Question.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReset_Password_By_Question.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReset_Password_By_Question.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReset_Password_By_Question.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmForgetPassword().setVisible(true);
+                new FrmReset_Password_By_Question().setVisible(true);
             }
         });
     }

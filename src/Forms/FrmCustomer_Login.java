@@ -13,13 +13,13 @@ import Connection.Tools;
  *
  * @author M Nazeeh Alhosary
  */
-public class FrmLogInCustomer extends javax.swing.JFrame {
+public class FrmCustomer_Login extends javax.swing.JFrame {
 
     /**
      * Creates new form LogInCustomer
      */
    // LoginC logincustomer = new LoginC();
-    public FrmLogInCustomer() {
+    public FrmCustomer_Login() {
         initComponents();
         //Tools.PutImageInLable("Exit_Red.png", lblExit, 35, 35);
     }
@@ -247,12 +247,12 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
 
     private void lblAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmLogin());
+        Tools.OpenForm(new FrmAdmin_Login());
     }//GEN-LAST:event_lblAdminMouseClicked
 
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
        this.dispose();
-       Tools.OpenForm(new FrmRegistration());
+       Tools.OpenForm(new FrmCustomer_Registration());
     }//GEN-LAST:event_lblRegisterMouseClicked
     private boolean IsEmpty(){
         if(txtpass.getText().equals("") || txtEmail.getText().equals("")){
@@ -280,7 +280,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_logbtn5MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        new FrmReturnPassword().setVisible(true);
+        new FrmResetPassword().setVisible(true);
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void logbtn5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logbtn5MouseEntered
@@ -304,14 +304,22 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLogInCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLogInCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLogInCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLogInCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCustomer_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -324,7 +332,7 @@ public class FrmLogInCustomer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmLogInCustomer().setVisible(true);
+                new FrmCustomer_Login().setVisible(true);
             }
         });
     }
