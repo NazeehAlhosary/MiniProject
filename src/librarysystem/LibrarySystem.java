@@ -28,7 +28,7 @@ public class LibrarySystem {
             Tools.OpenForm(new SerialNumber());
 
         } else {
-            Tools.OpenForm(new FrmCustomer_Login());
+            Tools.OpenForm(new FrmManagement());
         }
 
     }

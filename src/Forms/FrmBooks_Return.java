@@ -27,6 +27,8 @@ public class FrmBooks_Return extends javax.swing.JFrame {
      * Creates new form FrmReturn
      */
     static String email;
+    static String card;
+    
     public FrmBooks_Return() {
         initComponents();
         Tools.ToDay(date);
@@ -49,9 +51,11 @@ public class FrmBooks_Return extends javax.swing.JFrame {
             Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
                Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
          txtCardNum.setText(card);
+         this.card = card;
+                 
          txtName.setText(name);
          email = Email;
-        String Statement = " Select * from History where CardNumber ="+card +" AND Status = 'borrowed' OR Status = 'delayed' ;";
+        String Statement = " Select * from History where CardNumber ="+card +" AND (Status = 'borrowed' OR Status = 'delayed') ;";
         
        Connection.Connections.FillCustomRows(Statement, tableHistory);
      // history.GetSomeRows(Statement, tableHistory);
@@ -710,7 +714,7 @@ Books book = new Books();
           
         
         String card = txtCardNum.getText();
-        String Statement = " Select * from History where CardNumber ="+card +" AND Status = 'borrowed' OR Status = 'delayed' ;";
+        String Statement = " Select * from History where CardNumber =" +card +" ( AND Status = 'borrowed' OR Status = 'delayed') ;";
         String isbn = txtISBN.getText();
         String name = txtName.getText();
         String today = Tools.ToDay();
@@ -766,7 +770,8 @@ Books book = new Books();
 
     
     private void OrderItems(String OrderBy){
-     String Statement = "Select * from History order by ";
+        
+     String Statement = "Select * from History where CardNumber ="+card +" AND (Status = 'borrowed' OR Status = 'delayed') order by ";
         if (radISBN.isSelected()){
             Statement += " ISBN " + OrderBy;
         }
