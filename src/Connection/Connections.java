@@ -359,5 +359,48 @@ public class Connections {
             return "";
         }
     }
+    public static int GetCustomerCardNumber( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select CardNumber as 'Card' from Customer where Email='" +Email+"' ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("Card");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return 0;
+            } else {
+                return Integer.valueOf(Result);
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return 0;
+        }
+    }
+    
+    public static String GetCustomerName( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select Name as 'name' from Customer where Email='" +Email+"' ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("name");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return "";
+            } else {
+                return Result;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
 
 }

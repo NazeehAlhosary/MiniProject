@@ -265,7 +265,7 @@ public class FrmCustomer_Login extends javax.swing.JFrame {
            String Pass = Tools.hashPassword(txtpass.getText());
             if ( Connections.CheckLogInCustomer(txtEmail.getText(), Pass) ){
                 this.dispose();
-                Tools.OpenForm(new Menu());
+                Tools.OpenForm(new FrmCustomer_Menu(txtEmail.getText()));
             }
             else{
                 Tools.MsgBoxInfo("Invaild Username or Password", "Log In failed");

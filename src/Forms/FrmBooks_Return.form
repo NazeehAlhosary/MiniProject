@@ -731,7 +731,7 @@
                     <Column editable="true" title="Author" type="java.lang.Object"/>
                     <Column editable="true" title="Status" type="java.lang.Object"/>
                     <Column editable="true" title="Rental Date" type="java.lang.Object"/>
-                    <Column editable="true" title="Return Date" type="java.lang.Object"/>
+                    <Column editable="true" title="Due to" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

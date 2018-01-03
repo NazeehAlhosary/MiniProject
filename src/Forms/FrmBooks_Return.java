@@ -26,6 +26,7 @@ public class FrmBooks_Return extends javax.swing.JFrame {
     /**
      * Creates new form FrmReturn
      */
+    static String email;
     public FrmBooks_Return() {
         initComponents();
         Tools.ToDay(date);
@@ -37,7 +38,7 @@ public class FrmBooks_Return extends javax.swing.JFrame {
              Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
               Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
     }
-    public FrmBooks_Return(String card, String name){
+    public FrmBooks_Return(String card, String name,String Email){
         initComponents();
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         Tools.ToDay(date);
@@ -49,6 +50,7 @@ public class FrmBooks_Return extends javax.swing.JFrame {
                Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
          txtCardNum.setText(card);
          txtName.setText(name);
+         email = Email;
         String Statement = " Select * from History where CardNumber ="+card +" AND Status = 'borrowed' OR Status = 'delayed' ;";
         
        Connection.Connections.FillCustomRows(Statement, tableHistory);
@@ -348,7 +350,7 @@ Books book = new Books();
 
             },
             new String [] {
-                "CardNumber", "ISBN", "Title", "Author", "Status", "Rental Date", "Return Date"
+                "CardNumber", "ISBN", "Title", "Author", "Status", "Rental Date", "Due to"
             }
         ));
         tableHistory.setSelectionBackground(new java.awt.Color(102, 102, 102));
@@ -715,13 +717,18 @@ Books book = new Books();
         String time = Tools.currentTime();
         String delayed = txtdelay.getText();
         int row= tableHistory.getSelectedRow();
-        String Email= tableHistory.getValueAt(row, 6).toString();
+        String Email= email;
         int fee = Integer.parseInt(txtFee.getText());
-      int Row = tableHistory.getSelectedRow();
+        int Row = tableHistory.getSelectedRow();
         retur.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
         retur.setCardNumber(Integer.parseInt(txtCardNum.getText()));
         retur.UpdateStatusAvailable();
+        
+       
+        history.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+        history.setReturnedDate(Tools.ToDay());
         history.UpdateReturned();
+        
         book.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
         book.UpdateReturned();
         if(fee<=0){
@@ -739,7 +746,7 @@ Books book = new Books();
 
         }
         else{
-         Tools.SendEmail("raneem-k-99@hotmail.com","Greetings from Library System", "Dear "+name+", \n "
+         Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
                  + "book "+ isbn+" has been successfully returned on "+today+" at "+time+".\n"
                          + " Unfortunately you were "+delayed+" days delayed, so you will have to pay "+fee+" SEK."
                                  + " \n \n Thank you!");
@@ -844,7 +851,7 @@ Books book = new Books();
           String date1 = tableHistory.getValueAt(Row, 5).toString();
           String isbn = tableHistory.getValueAt(Row, 1).toString();
           String date2 = Tools.ToDay();
-          int days =  Tools.CalculateDays(date2, date1);
+          int days =  Tools.CalculateDays(date1, date2);
             txtdays.setText(String.valueOf(days) );
             int fee=0;
             int delay=0;

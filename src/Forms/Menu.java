@@ -54,7 +54,6 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(539, 429));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(539, 429));
         setResizable(false);
         setSize(new java.awt.Dimension(539, 429));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -84,11 +83,11 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerbtnMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                registerbtnMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 registerbtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registerbtnMouseExited(evt);
             }
         });
 
@@ -148,7 +147,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel10.setText("LIBRARY MENU");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/menu.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -184,11 +182,11 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 historybtnMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                historybtnMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 historybtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                historybtnMouseExited(evt);
             }
         });
 
@@ -223,11 +221,11 @@ public class Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mangbtnMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mangbtnMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mangbtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mangbtnMouseExited(evt);
             }
         });
 

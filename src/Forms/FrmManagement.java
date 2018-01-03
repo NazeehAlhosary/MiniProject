@@ -490,20 +490,36 @@ public class FrmManagement extends javax.swing.JFrame {
  private void SelectInfo(){
         int Row = tableCM.getSelectedRow();
                 try {
-    lblcardnum.setText(tableCM.getValueAt(Row,0).toString() );
-    lblname.setText(tableCM.getValueAt(Row, 1).toString() );
-    lbladdress.setText(tableCM.getValueAt(Row, 2).toString());
-    lblphone.setText(tableCM.getValueAt(Row, 3).toString());
+            lblcardnum.setText(tableCM.getValueAt(Row,0).toString() );
+            lblname.setText(tableCM.getValueAt(Row, 1).toString() );
+            lbladdress.setText(tableCM.getValueAt(Row, 2).toString());
+            lblphone.setText(tableCM.getValueAt(Row, 3).toString());
    
                  }catch(Exception ex){
                 Tools.MsgBox(ex.getMessage());
                 }
     }
+ private boolean isEmpty(){
+     if(lblcardnum.getText().equals("") || lblname.getText().equals("") ||
+             lbladdress.getText().equals("") ||lblphone.getText().equals("")){
+     return true;
+     }
+     return false;
+ }
+ 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-         this.dispose();
-         String card = lblcardnum.getText();
-         String name = lblname.getText();
-        Connection.Tools.OpenForm(new FrmBooks_Return(card, name));
+        if (!isEmpty()){ 
+             this.dispose();
+             String card = lblcardnum.getText();
+             String name = lblname.getText();
+             
+             int Row = tableCM.getSelectedRow();
+             String email = tableCM.getValueAt(Row, 4).toString();
+            Connection.Tools.OpenForm(new FrmBooks_Return(card, name,email));
+        }
+        else{
+            Tools.MsgBoxErrorX("Please select items","Items not selected");
+        }
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void lblbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseEntered
@@ -562,7 +578,9 @@ public class FrmManagement extends javax.swing.JFrame {
      this.dispose();
       String CardNumber = lblcardnum.getText();
          String username = lblname.getText();
-        Connection.Tools.OpenForm(new FrmBooks_Borrow(CardNumber, username));
+         int Row = tableCM.getSelectedRow();
+         String email = tableCM.getValueAt(Row, 4).toString();
+        Connection.Tools.OpenForm(new FrmBooks_Borrow(CardNumber, username,email));
     }//GEN-LAST:event_btnBorrowActionPerformed
 
     private void tableCMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCMMouseClicked
