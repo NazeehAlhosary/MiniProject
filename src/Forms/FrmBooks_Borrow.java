@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -26,8 +26,8 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
 
     }
-
-    public FrmBooks_Borrow(String CardNumber, String username) {
+    static String Email ;
+    public FrmBooks_Borrow(String CardNumber, String username , String Email ) {
         initComponents();
         txtCard.setText(CardNumber);
         txtUser.setText(username);
@@ -447,10 +447,10 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
 
             book.GetSomeRows(statement, Borrowtable);
 
-            txtCard.setText("");
+
             txtISBN.setText("");
             txtTitle.setText("");
-            txtUser.setText("");
+
             txtSearch.requestFocus();
 
         }
