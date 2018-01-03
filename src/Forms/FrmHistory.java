@@ -966,11 +966,10 @@ public class FrmHistory extends javax.swing.JFrame {
           
           for (int i = 0; i < rows; i++) {
             rentalDate = tableHistory.getValueAt(i, 5).toString();
-            System.out.println(rentalDate);
             
+            System.out.println(tableHistory.getValueAt(i, 4));
             long days = Tools.CalculateDaysBetween(currentDate, rentalDate);
-            System.out.println(days);
-            if(days > RETURN_IN_DAYS) {
+            if(days > RETURN_IN_DAYS && !tableHistory.getValueAt(i, 4).toString().equals("returned")) {
                 history.setISBN(Integer.parseInt(tableHistory.getValueAt(i, 1).toString()));
                 history.setCardNumber(Integer.parseInt(tableHistory.getValueAt(i, 0).toString()));
                 history.UpdateDelayed();
