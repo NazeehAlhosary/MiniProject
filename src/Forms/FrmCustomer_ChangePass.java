@@ -65,11 +65,11 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         btnres = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(654, 383));
+        setMinimumSize(new java.awt.Dimension(551, 356));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(654, 383));
+        setPreferredSize(new java.awt.Dimension(551, 356));
         setResizable(false);
-        setSize(new java.awt.Dimension(654, 383));
+        setSize(new java.awt.Dimension(551, 356));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Big Caslon", 3, 36)); // NOI18N
@@ -197,7 +197,7 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnresMouseClicked
-        if (txtpass.equals(txtrepass)) {
+        if (txtpass.getText().equals(txtrepass.getText())) {
             UpdatePass();
             this.dispose();
             Tools.OpenForm(new FrmCustomer_Menu());
