@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,6 +10,7 @@ import Classes.History;
 import Connection.Connections;
 import Connection.TableNewColors;
 import Connection.Tools;
+
 import javax.swing.JTable;
 
 /**
@@ -17,6 +18,8 @@ import javax.swing.JTable;
  * @author mohammadzreik
  */
 public class FrmBooks_Borrow extends javax.swing.JFrame {
+
+    static String email;
 
     /**
      * Creates new form FrmBorrow
@@ -26,8 +29,9 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
 
     }
-    static String Email ;
-    public FrmBooks_Borrow(String CardNumber, String username , String Email ) {
+
+    public FrmBooks_Borrow(String CardNumber, String username, String email) {
+        this.email = email;
         initComponents();
         txtCard.setText(CardNumber);
         txtUser.setText(username);
@@ -143,11 +147,11 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
 
         txtCard.setEditable(false);
         getContentPane().add(txtCard);
-        txtCard.setBounds(10, 310, 160, 24);
+        txtCard.setBounds(10, 310, 160, 27);
 
         txtISBN.setEditable(false);
         getContentPane().add(txtISBN);
-        txtISBN.setBounds(10, 170, 160, 24);
+        txtISBN.setBounds(10, 170, 160, 27);
 
         txtTitle.setEditable(false);
         txtTitle.addActionListener(new java.awt.event.ActionListener() {
@@ -156,11 +160,11 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtTitle);
-        txtTitle.setBounds(10, 240, 160, 24);
+        txtTitle.setBounds(10, 240, 160, 27);
 
         txtUser.setEditable(false);
         getContentPane().add(txtUser);
-        txtUser.setBounds(10, 380, 160, 24);
+        txtUser.setBounds(10, 380, 160, 27);
 
         Borrowtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -206,7 +210,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(380, 0, 270, 70);
         getContentPane().add(txtSearch);
-        txtSearch.setBounds(210, 110, 600, 24);
+        txtSearch.setBounds(210, 110, 600, 27);
 
         searchbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/searchbtn.png"))); // NOI18N
         searchbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -385,7 +389,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
 
     private void searchbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchbtnMouseClicked
         String statementStatus = "SELECT * FROM `books` WHERE `Status` = 'Available' ";
-        String Statement = "Select * from Books where ";
+        String Statement = "Select * from Books where `Status` = 'Available' AND  ";
         String Statement2 = " like '%" + txtSearch.getText() + "%' ";
         if (RadISBN.isSelected()) {
             Statement += " ISBN " + Statement2;
@@ -425,6 +429,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void borrowbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbtnMouseClicked
+        String msg = "Dear "  + txtUser.getText() + " you borrowed " + txtTitle.getText();
         if (EmptyText()) {
             Tools.MsgBoxError1(" Please Select a Book ", "Select Book");
         } else {
@@ -446,11 +451,10 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
             history.Add();
 
             book.GetSomeRows(statement, Borrowtable);
-
+            Tools.SendEmail(email, " Borrow ", msg);
 
             txtISBN.setText("");
             txtTitle.setText("");
-
             txtSearch.requestFocus();
 
         }
