@@ -180,7 +180,7 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
                String newPass = "$"+email.toUpperCase().substring(3, 4) +"#" + email.toUpperCase().substring(1,3)+"%";
                String hashPass = Tools.hashPassword(newPass);
                 customerlogin.ChangePassByCardNumber(hashPass);
-                Tools.MsgBox("Your new PassWord is: " + newPass);
+                Tools.MsgBox("Your new Password is: " + newPass);
             }
         }
         else{

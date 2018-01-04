@@ -752,7 +752,7 @@ Books book = new Books();
        if(!isEmpty()){
             if (ConstructorNumber == 0){
                     String card = txtCardNum.getText();
-                    String Statement = " Select * from History where CardNumber =" +card +" ( AND Status = 'borrowed' OR Status = 'delayed') ;";
+                    String Statement = " Select * from History where CardNumber =" +card +" AND (Status = 'borrowed' OR Status = 'delayed') ;";
                     String isbn = txtISBN.getText();
                     String name = txtName.getText();
                     String today = Tools.ToDay();
@@ -891,7 +891,7 @@ Books book = new Books();
           String date1 = tableHistory.getValueAt(Row, 5).toString();
           String isbn = tableHistory.getValueAt(Row, 1).toString();
           String date2 = Tools.ToDay();
-          int days =  Tools.CalculateDays(date2, date1);
+          int days =  Tools.CalculateDays(date1, date2);
             txtdays.setText(String.valueOf(days) );
             int fee=0;
             int delay=0;
