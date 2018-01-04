@@ -20,23 +20,36 @@ import javax.swing.JTable;
 public class FrmBooks_Borrow extends javax.swing.JFrame {
 
     static String email;
-
+    static int ConstructorNumber;
     /**
      * Creates new form FrmBorrow
      */
     public FrmBooks_Borrow() {
         initComponents();
         Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
+        ConstructorNumber = 0;
 
     }
 
-    public FrmBooks_Borrow(String CardNumber, String username, String email) {
+    public FrmBooks_Borrow(String CardNumber, String UserName, String email) {
         this.email = email;
         initComponents();
         txtCard.setText(CardNumber);
-        txtUser.setText(username);
+        txtUser.setText(UserName);
         Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
+        ConstructorNumber = 0;
 
+    }
+    
+
+    
+    public FrmBooks_Borrow(int CardNumber, String UserName,String email,int ConstructorNumber) {
+        this.email = email;
+        initComponents();
+        txtCard.setText(String.valueOf( CardNumber ) );
+        txtUser.setText(UserName);
+        Borrowtable.setDefaultRenderer(Object.class, new TableNewColors());
+        this.ConstructorNumber = ConstructorNumber;
     }
 
     Books book = new Books();
@@ -433,8 +446,14 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        this.dispose();
-        Tools.OpenForm(new FrmManagement());
+        if (ConstructorNumber == 0) {
+            this.dispose();
+            Tools.OpenForm(new FrmManagement());
+        }else {
+            this.dispose();
+            Tools.OpenForm(new FrmCustomer_Menu(email));
+        }   
+        
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void borrowbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbtnMouseClicked

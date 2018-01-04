@@ -23,17 +23,21 @@ import java.util.logging.Logger;
  *
  * @author Nazeeh
  */
+
 public class FrmHistory extends javax.swing.JFrame {
 
     /**
      * Creates new form History
      */
+    static int ConstructorNumber;
+    static String Email;
     public FrmHistory() {
         initComponents();
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         setLabels();
         ClearInfo();
         CheckDelayedOrders();
+        ConstructorNumber = 0;
         
     }
     
@@ -44,6 +48,17 @@ public class FrmHistory extends javax.swing.JFrame {
         setLabels();
         ClearInfo(CardNumber);
         CheckDelayedOrders();
+        ConstructorNumber = 0;
+    }
+    public FrmHistory(int CardNumber,String Email,int ConstructorNumber) {
+        super();
+        initComponents();
+        tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
+        setLabels();
+        ClearInfo(String.valueOf( CardNumber ) );
+        CheckDelayedOrders();
+        this.ConstructorNumber = ConstructorNumber;
+        this.Email = Email;
     }
 
     /**
@@ -788,8 +803,15 @@ public class FrmHistory extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBackMouseExited
 
     private void lblBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMousePressed
-        this.dispose();
-        Tools.OpenForm(new Menu());
+        if (ConstructorNumber == 0){
+            this.dispose();
+            Tools.OpenForm(new Menu());
+        }else {
+            this.dispose();
+            Tools.OpenForm(new FrmCustomer_Menu(Email));
+        }
+        
+        
     }//GEN-LAST:event_lblBackMousePressed
 
     private void lblRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRefreshMouseEntered
