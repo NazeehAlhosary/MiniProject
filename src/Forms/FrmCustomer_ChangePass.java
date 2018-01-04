@@ -13,7 +13,7 @@ import Connection.Tools;
  * @author mohammadzreik
  */
 public class FrmCustomer_ChangePass extends javax.swing.JFrame {
-    
+
     static String email;
 
     /**
@@ -22,12 +22,12 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
     public FrmCustomer_ChangePass() {
         initComponents();
     }
-    
+
     public FrmCustomer_ChangePass(String Email) {
         initComponents();
         this.email = Email;
     }
-    
+
     public void UpdatePass() {
         String hash = Tools.hashPassword(txtpass.getText());
         String update = "Update customerlogin set "
@@ -37,7 +37,7 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         if (updateQ) {
             Tools.MsgBoxInfo(" Password Has Been Successfully Reseted ", " Password Reseted ");
         }
-        
+
     }
 
     /**
@@ -192,6 +192,8 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
 
+        this.dispose();
+        Tools.OpenForm(new FrmCustomer_Menu());
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnresMouseClicked
