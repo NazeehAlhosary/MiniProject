@@ -441,6 +441,8 @@ Books book = new Books();
         radStatus.setForeground(new java.awt.Color(255, 255, 255));
         radStatus.setText("Status");
 
+        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -857,7 +859,7 @@ Books book = new Books();
           String date1 = tableHistory.getValueAt(Row, 5).toString();
           String isbn = tableHistory.getValueAt(Row, 1).toString();
           String date2 = Tools.ToDay();
-          int days =  Tools.CalculateDays(date1, date2);
+          int days =  Tools.CalculateDays(date2, date1);
             txtdays.setText(String.valueOf(days) );
             int fee=0;
             int delay=0;

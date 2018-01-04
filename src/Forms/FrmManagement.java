@@ -472,25 +472,22 @@ public class FrmManagement extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblemail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblcardnum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbladdress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblcardnum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblphone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)))
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(lbladdress, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblphone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(44, 44, 44)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(radPhone)
@@ -664,6 +661,7 @@ public class FrmManagement extends javax.swing.JFrame {
         int Row = tableCM.getSelectedRow();
                 try {
             lblcardnum.setText(tableCM.getValueAt(Row,0).toString() );
+            lblemail.setText(tableCM.getValueAt(Row, 4).toString());
             lblname.setText(tableCM.getValueAt(Row, 1).toString() );
             lbladdress.setText(tableCM.getValueAt(Row, 2).toString());
             lblphone.setText(tableCM.getValueAt(Row, 3).toString());
@@ -673,8 +671,8 @@ public class FrmManagement extends javax.swing.JFrame {
                 }
     }
  private boolean isEmpty(){
-     if(lblcardnum.getText().equals("") || lblname.getText().equals("") ||
-             lbladdress.getText().equals("") ||lblphone.getText().equals("")){
+     if(lblcardnum.getText().equals("") && lblname.getText().equals("") &&
+             lbladdress.getText().equals("") && lblphone.getText().equals("") && lblemail.getText().equals("")){
      return true;
      }
      return false;
@@ -691,7 +689,7 @@ public class FrmManagement extends javax.swing.JFrame {
             Connection.Tools.OpenForm(new FrmBooks_Return(card, name,email));
         }
         else{
-            Tools.MsgBoxErrorX("Please select a customer","Missing info");
+            Tools.MsgBoxErrorI("Please select a customer","Missing info");
         }
     }//GEN-LAST:event_btnReturnActionPerformed
 
@@ -734,16 +732,21 @@ public class FrmManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_lblbackMouseClicked
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
-        int row = tableCM.getSelectedRow();
-        FrmHistory historyForm = new FrmHistory((tableCM.getValueAt(row, 0).toString()));
-        if(historyForm.isTableEmpty(tableCM.getValueAt(row, 0).toString())) {
-            if(Tools.YesNoChooserBox("No history found for selected Customer. Do you want to open History anyway?", "No History found") == true) {
-                this.dispose();
-                Tools.OpenForm(historyForm);
-            }
+        if(!isEmpty()){
+            int row = tableCM.getSelectedRow();
+            FrmHistory historyForm = new FrmHistory((tableCM.getValueAt(row, 0).toString()));
+                if(historyForm.isTableEmpty(tableCM.getValueAt(row, 0).toString())) {
+                    if(Tools.YesNoChooserBox("No history found for selected Customer. Do you want to open History anyway?", "No History found") == true) {
+                    this.dispose();
+                    Tools.OpenForm(historyForm);
+                    }
         } else {
             this.dispose();
             Tools.OpenForm(historyForm);
+        }
+}
+ else{
+            Tools.MsgBoxErrorI("Please select a customer", "Missing info");
         }
     }//GEN-LAST:event_btnHistoryActionPerformed
 
