@@ -496,6 +496,7 @@ public class FrmBooks extends javax.swing.JFrame {
         jLabel6.setText("Shelf");
 
         ComGenre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "***Select Genre***", "Action and Adventure", "Anthology", "Art", "Autobiographies", "Biographies", "Children's", "Comics", "Cookbooks", "Diaries", "Dictionaries", "Drama", "Encyclopedias", "Fantasy", "Guide", "Health", "History", "Horror", "Journals", "Math", "Mystery", "Poetry", "Prayer books", "Religion", "Romance", "Satire", "Science", "Science fiction", "Self help", "Series", "Spirituality & New Age", "Travel", "Trilogy" }));
+        ComGenre.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
@@ -516,6 +517,7 @@ public class FrmBooks extends javax.swing.JFrame {
 
         ComStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "***Select Status***", "Available", "Unavailable" }));
         ComStatus.setToolTipText("Select Book status");
+        ComStatus.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
 

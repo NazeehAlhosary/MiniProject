@@ -205,7 +205,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(60, 0, 90, 100);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Library Books");
         getContentPane().add(jLabel1);
