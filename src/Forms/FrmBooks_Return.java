@@ -164,28 +164,28 @@ Books book = new Books();
         });
 
         btnReturn.setText("Return Book");
-        btnReturn.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        btnReturn.setFont(new java.awt.Font("Big Caslon", 0, 24)); // NOI18N
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("* Card Number:");
 
         txtCardNum.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtCardNum.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("* Name:");
 
         txtName.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText(" borrowed ");
 
@@ -193,11 +193,11 @@ Books book = new Books();
         txtdays.setForeground(new java.awt.Color(255, 255, 255));
         txtdays.setText("___");
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("days ago.");
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("* Fee:");
 
@@ -205,11 +205,11 @@ Books book = new Books();
         txtFee.setForeground(new java.awt.Color(255, 255, 255));
         txtFee.setText("_______");
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SEK");
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText(" book was ");
 
@@ -217,11 +217,11 @@ Books book = new Books();
         txtdelay.setForeground(new java.awt.Color(255, 255, 255));
         txtdelay.setText("___");
 
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("days delayed.");
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("* Book ");
 
@@ -229,11 +229,11 @@ Books book = new Books();
         txtISBN.setForeground(new java.awt.Color(255, 255, 255));
         txtISBN.setText("___________");
 
-        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("was");
 
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("since the");
 
@@ -338,16 +338,17 @@ Books book = new Books();
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblback, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(lblexit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         panel2.setBackground(new java.awt.Color(64, 1, 64));
         panel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Return");
 
+        tableHistory.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         tableHistory.setForeground(new java.awt.Color(255, 255, 255));
         tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -365,7 +366,7 @@ Books book = new Books();
         });
         jScrollPane1.setViewportView(tableHistory);
 
-        date.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        date.setFont(new java.awt.Font("Big Caslon", 2, 14)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
         date.setText("Date");
 
@@ -425,18 +426,18 @@ Books book = new Books();
         });
 
         radISBN.setBackground(new java.awt.Color(64, 1, 64));
-        radISBN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radISBN.setFont(new java.awt.Font("Big Caslon", 1, 18)); // NOI18N
         radISBN.setForeground(new java.awt.Color(255, 255, 255));
         radISBN.setSelected(true);
         radISBN.setText("ISBN");
 
         radTitle.setBackground(new java.awt.Color(64, 1, 64));
-        radTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radTitle.setFont(new java.awt.Font("Big Caslon", 1, 18)); // NOI18N
         radTitle.setForeground(new java.awt.Color(255, 255, 255));
         radTitle.setText("Title");
 
         radStatus.setBackground(new java.awt.Color(64, 1, 64));
-        radStatus.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radStatus.setFont(new java.awt.Font("Big Caslon", 1, 18)); // NOI18N
         radStatus.setForeground(new java.awt.Color(255, 255, 255));
         radStatus.setText("Status");
 

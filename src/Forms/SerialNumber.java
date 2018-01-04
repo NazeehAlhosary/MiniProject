@@ -48,7 +48,7 @@ public class SerialNumber extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 102));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 2, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome to Library System ");
 
@@ -82,7 +82,7 @@ public class SerialNumber extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(64, 1, 64));
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 3, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Big Caslon", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Please Enter Your Serial Number  :");
 
@@ -98,6 +98,7 @@ public class SerialNumber extends javax.swing.JFrame {
         txtSerial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         activatebtn.setText("Activate");
+        activatebtn.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         activatebtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 activatebtnMouseClicked(evt);
@@ -121,7 +122,7 @@ public class SerialNumber extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(exitbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +151,7 @@ public class SerialNumber extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(activatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);

@@ -121,25 +121,25 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jLabel11.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Big Caslon", 2, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("ISBN");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(10, 140, 40, 20);
 
-        jLabel12.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Big Caslon", 2, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Title");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(10, 210, 40, 20);
 
-        jLabel17.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Big Caslon", 2, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Username");
         getContentPane().add(jLabel17);
         jLabel17.setBounds(10, 350, 70, 20);
 
-        jLabel19.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Big Caslon", 2, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Card Number");
         getContentPane().add(jLabel19);
@@ -166,6 +166,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         getContentPane().add(txtUser);
         txtUser.setBounds(10, 380, 160, 27);
 
+        Borrowtable.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         Borrowtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -223,6 +224,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         searchbtn.setBounds(820, 100, 40, 40);
 
         RadTitle.setBackground(new java.awt.Color(102, 0, 102));
+        RadTitle.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadTitle.setForeground(new java.awt.Color(255, 255, 255));
         RadTitle.setText("Title");
         RadTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -230,6 +232,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadTitle.setBounds(280, 70, 70, 30);
 
         RadNumberOfBorrowing.setBackground(new java.awt.Color(102, 0, 102));
+        RadNumberOfBorrowing.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadNumberOfBorrowing.setForeground(new java.awt.Color(255, 255, 255));
         RadNumberOfBorrowing.setText("N.Borrowing");
         RadNumberOfBorrowing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -237,6 +240,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadNumberOfBorrowing.setBounds(770, 70, 110, 30);
 
         RadAuthor.setBackground(new java.awt.Color(102, 0, 102));
+        RadAuthor.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadAuthor.setForeground(new java.awt.Color(255, 255, 255));
         RadAuthor.setText("Author");
         RadAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,6 +248,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadAuthor.setBounds(350, 70, 70, 30);
 
         RadISBN.setBackground(new java.awt.Color(102, 0, 102));
+        RadISBN.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadISBN.setForeground(new java.awt.Color(255, 255, 255));
         RadISBN.setText("ISBN");
         RadISBN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -251,6 +256,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadISBN.setBounds(210, 70, 70, 30);
 
         RadShelf.setBackground(new java.awt.Color(102, 0, 102));
+        RadShelf.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadShelf.setForeground(new java.awt.Color(255, 255, 255));
         RadShelf.setText("Shelf");
         RadShelf.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -258,6 +264,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadShelf.setBounds(540, 70, 70, 30);
 
         RadPublisher.setBackground(new java.awt.Color(102, 0, 102));
+        RadPublisher.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadPublisher.setForeground(new java.awt.Color(255, 255, 255));
         RadPublisher.setText("Publisher");
         RadPublisher.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -265,6 +272,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadPublisher.setBounds(440, 70, 90, 30);
 
         RadGenre.setBackground(new java.awt.Color(102, 0, 102));
+        RadGenre.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadGenre.setForeground(new java.awt.Color(255, 255, 255));
         RadGenre.setText("Genre");
         RadGenre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -272,6 +280,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         RadGenre.setBounds(610, 70, 70, 30);
 
         RadStatus.setBackground(new java.awt.Color(102, 0, 102));
+        RadStatus.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadStatus.setForeground(new java.awt.Color(255, 255, 255));
         RadStatus.setText("Status");
         RadStatus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -282,9 +291,9 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(null);
 
-        borrowbtn.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        borrowbtn.setFont(new java.awt.Font("Big Caslon", 1, 24)); // NOI18N
         borrowbtn.setForeground(new java.awt.Color(255, 255, 255));
-        borrowbtn.setText("  Borrow");
+        borrowbtn.setText("    Borrow");
         borrowbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         borrowbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

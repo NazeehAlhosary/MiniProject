@@ -87,23 +87,23 @@ public class FrmResetPassword extends javax.swing.JFrame {
         jPanel1.add(lblEmail);
         lblEmail.setBounds(380, 100, 70, 80);
 
-        jLabel9.setFont(new java.awt.Font("Georgia", 3, 25)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Big Caslon", 3, 25)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Please select one choice to reset a new password");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(20, 10, 650, 41);
+        jLabel9.setBounds(70, 10, 650, 41);
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 3, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Your E-mail");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(380, 190, 80, 14);
+        jLabel1.setBounds(380, 190, 80, 16);
 
-        jLabel2.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Big Caslon", 3, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("The reminding question");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(161, 190, 150, 14);
+        jLabel2.setBounds(161, 190, 150, 16);
 
         lblExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
         lblExit1.setToolTipText("Exit the program");

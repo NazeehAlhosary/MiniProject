@@ -44,7 +44,7 @@ public class Loading extends javax.swing.JFrame implements Runnable{
 
         jPanel1.setBackground(new java.awt.Color(66, 0, 66));
 
-        jLabel1.setFont(new java.awt.Font("Consolas", 3, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Please Wait...");
 

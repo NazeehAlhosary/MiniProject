@@ -84,13 +84,13 @@ public class FrmCustomer_Login extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(330, 340, 24, 24);
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Big Caslon", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Password:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 310, 98, 24);
+        jLabel4.setBounds(30, 310, 98, 22);
 
-        jLabel3.setFont(new java.awt.Font("Georgia", 2, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Big Caslon", 2, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Admin");
         jPanel1.add(jLabel3);
@@ -127,17 +127,17 @@ public class FrmCustomer_Login extends javax.swing.JFrame {
         jPanel1.add(txtpass);
         txtpass.setBounds(110, 340, 210, 30);
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Big Caslon", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("E-mail:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(30, 230, 190, 24);
+        jLabel5.setBounds(30, 230, 190, 22);
 
-        jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Big Caslon", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Library System");
+        jLabel9.setText("    Library System");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(80, 10, 370, 41);
+        jLabel9.setBounds(80, 10, 370, 44);
 
         lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
         lblExit.setToolTipText("Exit the program");
@@ -161,7 +161,7 @@ public class FrmCustomer_Login extends javax.swing.JFrame {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(110, 360, 220, 30);
 
-        jLabel11.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Big Caslon", 3, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/refresh-lock.png"))); // NOI18N
         jLabel11.setText("Forget your password?");

@@ -277,10 +277,8 @@ public class FrmBooks extends javax.swing.JFrame {
         jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1200, 600));
         setMinimumSize(new java.awt.Dimension(1200, 600));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -294,60 +292,68 @@ public class FrmBooks extends javax.swing.JFrame {
         getContentPane().add(lblDate);
         lblDate.setBounds(45, 6, 97, 17);
 
-        jLabel10.setFont(new java.awt.Font("Garamond", 3, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Big Caslon", 3, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Date:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(6, 6, 33, 17);
+        jLabel10.setBounds(6, 6, 33, 18);
 
         RadISBN.setBackground(new java.awt.Color(44, 0, 44));
+        RadISBN.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadISBN.setForeground(new java.awt.Color(255, 255, 255));
         RadISBN.setSelected(true);
         RadISBN.setText("ISBN");
         getContentPane().add(RadISBN);
-        RadISBN.setBounds(391, 130, 55, 25);
+        RadISBN.setBounds(391, 130, 70, 18);
 
         RadTitle.setBackground(new java.awt.Color(44, 0, 44));
+        RadTitle.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadTitle.setForeground(new java.awt.Color(255, 255, 255));
         RadTitle.setText("Title");
         getContentPane().add(RadTitle);
-        RadTitle.setBounds(467, 130, 53, 25);
+        RadTitle.setBounds(467, 130, 46, 18);
 
         RadAuthor.setBackground(new java.awt.Color(44, 0, 44));
+        RadAuthor.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadAuthor.setForeground(new java.awt.Color(255, 255, 255));
         RadAuthor.setText("Author");
         getContentPane().add(RadAuthor);
-        RadAuthor.setBounds(541, 130, 67, 25);
+        RadAuthor.setBounds(541, 130, 56, 18);
 
         RadPublisher.setBackground(new java.awt.Color(44, 0, 44));
+        RadPublisher.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadPublisher.setForeground(new java.awt.Color(255, 255, 255));
         RadPublisher.setText("Publisher");
         getContentPane().add(RadPublisher);
-        RadPublisher.setBounds(617, 130, 81, 25);
+        RadPublisher.setBounds(617, 130, 68, 18);
 
         RadShelf.setBackground(new java.awt.Color(44, 0, 44));
+        RadShelf.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadShelf.setForeground(new java.awt.Color(255, 255, 255));
         RadShelf.setText("Shelf");
         getContentPane().add(RadShelf);
-        RadShelf.setBounds(721, 130, 57, 25);
+        RadShelf.setBounds(721, 130, 46, 18);
 
         RadGenre.setBackground(new java.awt.Color(44, 0, 44));
+        RadGenre.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadGenre.setForeground(new java.awt.Color(255, 255, 255));
         RadGenre.setText("Genre");
         getContentPane().add(RadGenre);
-        RadGenre.setBounds(794, 130, 63, 25);
+        RadGenre.setBounds(794, 130, 52, 18);
 
         RadNumberOF.setBackground(new java.awt.Color(44, 0, 44));
+        RadNumberOF.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadNumberOF.setForeground(new java.awt.Color(255, 255, 255));
         RadNumberOF.setText("Number of Borrowing");
         getContentPane().add(RadNumberOF);
-        RadNumberOF.setBounds(953, 130, 151, 25);
+        RadNumberOF.setBounds(953, 130, 132, 18);
 
         RadStatus.setBackground(new java.awt.Color(44, 0, 44));
+        RadStatus.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadStatus.setForeground(new java.awt.Color(255, 255, 255));
         RadStatus.setText("Status");
         getContentPane().add(RadStatus);
-        RadStatus.setBounds(872, 130, 65, 25);
+        RadStatus.setBounds(872, 130, 53, 18);
 
         jPanel1.setBackground(new java.awt.Color(64, 1, 64));
 
@@ -448,15 +454,17 @@ public class FrmBooks extends javax.swing.JFrame {
         });
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("N.Borrowing");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ISBN");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Title");
 
@@ -467,6 +475,7 @@ public class FrmBooks extends javax.swing.JFrame {
         });
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Author");
 
@@ -477,16 +486,19 @@ public class FrmBooks extends javax.swing.JFrame {
         });
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Publisher");
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Shelf");
 
         ComGenre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "***Select Genre***", "Action and Adventure", "Anthology", "Art", "Autobiographies", "Biographies", "Children's", "Comics", "Cookbooks", "Diaries", "Dictionaries", "Drama", "Encyclopedias", "Fantasy", "Guide", "Health", "History", "Horror", "Journals", "Math", "Mystery", "Poetry", "Prayer books", "Religion", "Romance", "Satire", "Science", "Science fiction", "Self help", "Series", "Spirituality & New Age", "Travel", "Trilogy" }));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Genre");
 
@@ -498,6 +510,7 @@ public class FrmBooks extends javax.swing.JFrame {
         });
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Status");
 
@@ -578,7 +591,7 @@ public class FrmBooks extends javax.swing.JFrame {
                                                 .addComponent(lblDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -695,6 +708,7 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
+        BooksTable.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         BooksTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -742,7 +756,7 @@ public class FrmBooks extends javax.swing.JFrame {
         }
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Footlight MT Light", 3, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Big Caslon", 3, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/books-stack-from-top-view (1).png"))); // NOI18N
         jLabel5.setText("BOOKS");
@@ -753,7 +767,7 @@ public class FrmBooks extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Georgia", 3, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Big Caslon", 3, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Search");
 
@@ -788,9 +802,9 @@ public class FrmBooks extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblSearsh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

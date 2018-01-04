@@ -28,6 +28,9 @@ public class Loginl {
         return Username;
     }
     
+     public void setUsername(String username) {
+        this.Username = username ;
+    }
     
     public void setPassword(String Password) {
         this.Password = Tools.hashPassword(Password);
@@ -35,9 +38,9 @@ public class Loginl {
     
     
     public void Add(){
-         String insert = "Insert into Loginl VALUES ("
+         String insert = "Insert into loginl VALUES ("
                  +"'"+ Username +"',"
-                 +"'"+Password+"';";
+                 +"'"+Password+"' ) ;";
           boolean check = Connections.RunNonQuery(insert); 
          if (check){
              Tools.MsgBoxInfo("User "+ Username+ " has been registered" ,"Registeration");

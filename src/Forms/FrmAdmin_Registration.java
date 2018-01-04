@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Classes.Loginl;
 import Connection.Connections;
 import Connection.Tools;
 
@@ -20,6 +21,7 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
     public FrmAdmin_Registration() {
         initComponents();
     }
+    Loginl login = new Loginl();
 
     public boolean checkpass() {
         if (txtpass.getText().equals(txtrepass.getText())) {
@@ -27,15 +29,6 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
         }
         return false;
 
-    }
-
-    public void Add() {
-        String add = "Insert into loginl VALUES ("
-                + "'" + txtuser.getText() + "' , '" + Tools.hashPassword(txtpass.getText()) + "','" + Integer.parseInt(txtnum.getText()) + "' );";
-        boolean check = Connections.RunNonQuery(add);
-        if (check) {
-            Tools.MsgBoxInfo(" Admin has been Registered ", "Register");
-        }
     }
 
     /**
@@ -79,7 +72,7 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 102));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 2, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Register Admin");
 
@@ -143,19 +136,19 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(64, 1, 64));
 
-        jLabel3.setFont(new java.awt.Font("Baghdad", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Phone Number :");
 
-        jLabel4.setFont(new java.awt.Font("Baghdad", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username :");
 
-        jLabel5.setFont(new java.awt.Font("Baghdad", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password :");
 
-        jLabel6.setFont(new java.awt.Font("Baghdad", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Re-Password :");
 
@@ -203,15 +196,15 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Big Caslon", 3, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Sign up");
 
         jPanel3.setBackground(new java.awt.Color(102, 0, 102));
 
-        regbtn.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        regbtn.setFont(new java.awt.Font("Big Caslon", 1, 18)); // NOI18N
         regbtn.setForeground(new java.awt.Color(255, 255, 255));
-        regbtn.setText("   Register");
+        regbtn.setText("      Register");
         regbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 regbtnMouseClicked(evt);
@@ -230,6 +223,7 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
         );
 
         checkBox.setBackground(new java.awt.Color(64, 1, 64));
+        checkBox.setFont(new java.awt.Font("Big Caslon", 0, 14)); // NOI18N
         checkBox.setForeground(new java.awt.Color(255, 255, 255));
         checkBox.setText("I agree all terms of service");
 
@@ -343,21 +337,21 @@ public class FrmAdmin_Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnumMouseClicked
 
     private void regbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regbtnMouseClicked
-       
-        
-        if(checkBox.isSelected()){
-        
-        if (checkpass()) {
-            Add();
-            this.dispose();
-            Tools.OpenForm(new FrmAdmin_Login());
+
+        if (checkBox.isSelected()) {
+
+            if (checkpass()) {
+                login.setUsername(txtuser.getText());
+                login.setPassword(txtpass.getText());
+                login.Add();
+                this.dispose();
+                Tools.OpenForm(new FrmAdmin_Login());
+            } else {
+                Tools.MsgBox("Please enter the same password");
+            }
         } else {
-            Tools.MsgBox("Please enter the same password");
-        }
-        }
-        else {
             Tools.MsgBoxError1("Please accept the terms of service", "Terms Of Service");
-        
+
         }
     }//GEN-LAST:event_regbtnMouseClicked
 

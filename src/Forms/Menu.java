@@ -91,11 +91,11 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        showlable.setFont(new java.awt.Font("sansserif", 2, 24)); // NOI18N
+        showlable.setFont(new java.awt.Font("Big Caslon", 2, 24)); // NOI18N
         showlable.setForeground(new java.awt.Color(255, 255, 255));
         showlable.setText("Information");
 
-        date.setFont(new java.awt.Font("sansserif", 2, 10)); // NOI18N
+        date.setFont(new java.awt.Font("Big Caslon", 2, 12)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
         date.setText("Date");
 
@@ -142,7 +142,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 0, 102));
 
-        jLabel10.setFont(new java.awt.Font("Arial Unicode MS", 3, 36)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Big Caslon", 3, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("LIBRARY MENU");
 
@@ -229,21 +229,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("HISTORY");
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("CUSTOMERS");
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("BOOKS");
 
-        jLabel8.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("MANAGEMENT");
+        jLabel8.setText("    MANAGE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

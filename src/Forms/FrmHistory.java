@@ -136,6 +136,7 @@ public class FrmHistory extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(44, 0, 44));
 
+        tableHistory.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         tableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -165,7 +166,7 @@ public class FrmHistory extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tableHistory);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Footlight MT Light", 3, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Big Caslon", 3, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/books-stack-from-top-view (1).png"))); // NOI18N
         jLabel5.setText("History");
@@ -176,27 +177,31 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Big Caslon", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Search");
 
         radCardNumber.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(radCardNumber);
+        radCardNumber.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radCardNumber.setForeground(new java.awt.Color(255, 255, 255));
         radCardNumber.setText("Card Number");
 
         RadISBN.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(RadISBN);
+        RadISBN.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadISBN.setForeground(new java.awt.Color(255, 255, 255));
         RadISBN.setText("ISBN");
 
         radTitle.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(radTitle);
+        radTitle.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radTitle.setForeground(new java.awt.Color(255, 255, 255));
         radTitle.setText("Title");
 
         radAuthor.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(radAuthor);
+        radAuthor.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radAuthor.setForeground(new java.awt.Color(255, 255, 255));
         radAuthor.setText("Author");
         radAuthor.addActionListener(new java.awt.event.ActionListener() {
@@ -207,11 +212,13 @@ public class FrmHistory extends javax.swing.JFrame {
 
         radStatus.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(radStatus);
+        radStatus.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radStatus.setForeground(new java.awt.Color(255, 255, 255));
         radStatus.setText("Status");
 
         radRentalDate.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(radRentalDate);
+        radRentalDate.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radRentalDate.setForeground(new java.awt.Color(255, 255, 255));
         radRentalDate.setText("Rental Date");
         radRentalDate.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +229,7 @@ public class FrmHistory extends javax.swing.JFrame {
 
         radReturnDate.setBackground(new java.awt.Color(44, 0, 44));
         buttonGroup1.add(radReturnDate);
+        radReturnDate.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radReturnDate.setForeground(new java.awt.Color(255, 255, 255));
         radReturnDate.setText("Return Date");
 
@@ -353,9 +361,11 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Card Number");
 
+        jLabel2.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ISBN");
 
@@ -365,9 +375,11 @@ public class FrmHistory extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Rental Date");
 
+        jLabel4.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Return Date");
 
@@ -517,7 +529,7 @@ public class FrmHistory extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))

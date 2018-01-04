@@ -64,17 +64,16 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(455, 480));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(455, 480));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(64, 1, 64));
         jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Card Number");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 110, 89, 14);
+        jLabel2.setBounds(20, 110, 70, 16);
 
         txtCard.setToolTipText("Enter Library Card Number");
         txtCard.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +82,7 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtCard);
-        txtCard.setBounds(130, 110, 250, 24);
+        txtCard.setBounds(130, 110, 250, 27);
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator5);
@@ -91,24 +90,25 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
 
         ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", "1- What is your mother name?", "2- What is your best friend's name?", "3- Who is your favorite football player?", "4- Who is your idol?", "5- What is your favorite teacher name?", "6- What is your first school name?", "7- What is your favorite PC game?" }));
         ComQuestion.setToolTipText("Choose one question that you have chosen before");
+        ComQuestion.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jPanel1.add(ComQuestion);
-        ComQuestion.setBounds(130, 160, 250, 26);
+        ComQuestion.setBounds(130, 160, 213, 26);
 
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator12);
         jSeparator12.setBounds(130, 140, 240, 10);
 
-        jLabel10.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Question");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(50, 160, 59, 14);
+        jLabel10.setBounds(50, 160, 45, 16);
 
-        jLabel11.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Answer");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(60, 220, 49, 14);
+        jLabel11.setBounds(60, 220, 37, 16);
 
         txtAnswer.setToolTipText("Enter Your Answer");
         txtAnswer.addActionListener(new java.awt.event.ActionListener() {
@@ -117,17 +117,17 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtAnswer);
-        txtAnswer.setBounds(130, 210, 250, 24);
+        txtAnswer.setBounds(130, 210, 250, 27);
 
         jSeparator13.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator13);
         jSeparator13.setBounds(130, 190, 240, 10);
 
-        jLabel9.setFont(new java.awt.Font("Georgia", 3, 36)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Big Caslon", 3, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Reset PassWord");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(60, 20, 306, 41);
+        jLabel9.setBounds(90, 20, 306, 41);
 
         lblReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/refresh-lock (1).png"))); // NOI18N
         lblReturn.setToolTipText("Return PassWord");
