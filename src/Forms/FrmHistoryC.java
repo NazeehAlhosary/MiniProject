@@ -35,7 +35,7 @@ public class FrmHistoryC extends javax.swing.JFrame {
 static String email;
 static String card;
 
-    public FrmHistoryC(String card, String name,String Email){
+    public FrmHistoryC(String card, String Email){
         initComponents();
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
           Tools.PutImageInLable("back32.png", lblBack, 32, 32);
