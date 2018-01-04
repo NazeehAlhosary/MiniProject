@@ -31,6 +31,9 @@ public class FrmManagement extends javax.swing.JFrame {
        Tools.PutImageInLable("back32.png", lblback, 32, 32);
           Tools.PutImageInLable("exitW.png", lblexit, 32, 32);
            Tools.PutImageInLable("borrowWh.png", lblpic, 230, 230);
+           Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
+           Tools.PutImageInLable("Ascending_White.png", asc, 30, 30);
+            Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
         
     }
 
@@ -43,6 +46,7 @@ public class FrmManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
         panel1 = new java.awt.Panel();
         lblpic = new javax.swing.JLabel();
         btnReturn = new Controls.JMyButtonPurp();
@@ -67,6 +71,16 @@ public class FrmManagement extends javax.swing.JFrame {
         lblphone = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblemail = new javax.swing.JLabel();
+        txtSearch = new Controls.JTextBox();
+        jSeparator7 = new javax.swing.JSeparator();
+        lblSearch = new javax.swing.JLabel();
+        radName = new javax.swing.JRadioButton();
+        radCard = new javax.swing.JRadioButton();
+        radPhone = new javax.swing.JRadioButton();
+        desc = new javax.swing.JLabel();
+        asc = new javax.swing.JLabel();
+        radEmail = new javax.swing.JRadioButton();
+        radAddress = new javax.swing.JRadioButton();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -150,22 +164,19 @@ public class FrmManagement extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnBorrow, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                                    .addComponent(btnReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(lblexit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(lblexit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 119, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addGap(0, 21, Short.MAX_VALUE)
-                        .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBorrow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -173,7 +184,7 @@ public class FrmManagement extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnBorrow, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,6 +267,10 @@ public class FrmManagement extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Phone:");
 
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
+
         date.setFont(new java.awt.Font("sansserif", 2, 14)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
         date.setText("Date");
@@ -279,14 +294,117 @@ public class FrmManagement extends javax.swing.JFrame {
         lblemail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblemail.setForeground(new java.awt.Color(255, 255, 255));
 
+        txtSearch.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+
+        jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblSearch.setToolTipText("Search");
+        lblSearch.setMaximumSize(new java.awt.Dimension(50, 50));
+        lblSearch.setMinimumSize(new java.awt.Dimension(50, 50));
+        lblSearch.setPreferredSize(new java.awt.Dimension(50, 50));
+        lblSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSearchMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSearchMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSearchMouseExited(evt);
+            }
+        });
+
+        radName.setBackground(new java.awt.Color(64, 1, 64));
+        radName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radName.setForeground(new java.awt.Color(255, 255, 255));
+        radName.setText("Name");
+        radName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radNameActionPerformed(evt);
+            }
+        });
+
+        radCard.setBackground(new java.awt.Color(64, 1, 64));
+        radCard.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radCard.setForeground(new java.awt.Color(255, 255, 255));
+        radCard.setSelected(true);
+        radCard.setText("Card number");
+
+        radPhone.setBackground(new java.awt.Color(64, 1, 64));
+        radPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radPhone.setForeground(new java.awt.Color(255, 255, 255));
+        radPhone.setText("Phone");
+
+        desc.setToolTipText("Order items Descending");
+        desc.setMaximumSize(new java.awt.Dimension(50, 50));
+        desc.setMinimumSize(new java.awt.Dimension(50, 50));
+        desc.setPreferredSize(new java.awt.Dimension(50, 50));
+        desc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                descMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                descMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                descMouseExited(evt);
+            }
+        });
+
+        asc.setToolTipText("Order items Ascending ");
+        asc.setMaximumSize(new java.awt.Dimension(50, 50));
+        asc.setMinimumSize(new java.awt.Dimension(50, 50));
+        asc.setPreferredSize(new java.awt.Dimension(50, 50));
+        asc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ascMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ascMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ascMouseExited(evt);
+            }
+        });
+
+        radEmail.setBackground(new java.awt.Color(64, 1, 64));
+        radEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radEmail.setForeground(new java.awt.Color(255, 255, 255));
+        radEmail.setText("Email");
+
+        radAddress.setBackground(new java.awt.Color(64, 1, 64));
+        radAddress.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        radAddress.setForeground(new java.awt.Color(255, 255, 255));
+        radAddress.setText("Address");
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,9 +413,6 @@ public class FrmManagement extends javax.swing.JFrame {
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGap(92, 92, 92)
                                 .addComponent(lblcardnum, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,37 +425,49 @@ public class FrmManagement extends javax.swing.JFrame {
                                     .addGroup(panel2Layout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbladdress, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(184, Short.MAX_VALUE))
+                                        .addComponent(lbladdress, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(lblemail, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radCard)
+                        .addGap(26, 26, 26)
+                        .addComponent(radName)
+                        .addGap(26, 26, 26)
+                        .addComponent(radPhone)
+                        .addGap(18, 18, 18)
+                        .addComponent(radAddress)
+                        .addGap(29, 29, 29)
+                        .addComponent(radEmail))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+                            .addComponent(jSeparator7))
+                        .addGap(53, 53, 53)
+                        .addComponent(asc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(11, 11, 11)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblemail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -361,11 +488,31 @@ public class FrmManagement extends javax.swing.JFrame {
                                     .addComponent(jLabel5)))
                             .addGroup(panel2Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(lbladdress, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(radPhone)
+                        .addComponent(radAddress)
+                        .addComponent(radEmail))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(radCard)
+                        .addComponent(radName)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addGap(7, 7, 7)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(asc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         MenuBar.setBackground(new java.awt.Color(44, 0, 44));
@@ -506,6 +653,11 @@ public class FrmManagement extends javax.swing.JFrame {
         Connections.FillTable("Customer", tableCM);
           lblexit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
           lblback.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+          buttonGroup.add(radName);
+            buttonGroup.add(radAddress);
+              buttonGroup.add(radCard);
+                buttonGroup.add(radEmail);
+                  buttonGroup.add(radPhone);
         
     }//GEN-LAST:event_formWindowOpened
  private void SelectInfo(){
@@ -661,6 +813,100 @@ public class FrmManagement extends javax.swing.JFrame {
         setCursor(new Cursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_MenuBarMouseReleased
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void lblSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseClicked
+        String Statement = "Select * from customer where ";
+        String Statement2 = " like '%"+ txtSearch.getText()+ "%' ";
+        if (radName.isSelected()){
+            Statement += " Name " + Statement2;
+        }
+        else if (radCard.isSelected()){
+            Statement += " CardNumber " + Statement2;
+        }
+        else if (radPhone.isSelected()){
+            Statement += " Phone " + Statement2;
+        }
+        else if (radEmail.isSelected()){
+            Statement += " Email " + Statement2;
+        }
+        else if (radAddress.isSelected()){
+            Statement += " Address " + Statement2;
+        }
+        else {
+            Statement += " CardNumber " + Statement2;
+        }
+
+        customer.GetSomeRows(Statement, tableCM);
+        int Row = tableCM.getRowCount();
+        if (Row == 0){
+            Tools.MsgBoxErrorX("No result","no results were found");
+            txtSearch.setText("");
+            txtSearch.requestFocus();
+        }
+    }//GEN-LAST:event_lblSearchMouseClicked
+
+    private void lblSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseEntered
+        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 30, 30);
+    }//GEN-LAST:event_lblSearchMouseEntered
+
+    private void lblSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseExited
+        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
+    }//GEN-LAST:event_lblSearchMouseExited
+
+    private void radNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radNameActionPerformed
+    private void OrderItems(String OrderBy){
+        
+     String Statement = "Select * from customer order by ";
+        if (radCard.isSelected()){
+            Statement += " CardNumber " + OrderBy;
+        }
+        else if (radName.isSelected()){
+            Statement += " Name " + OrderBy;
+        }
+        
+        else if (radAddress.isSelected()){
+             Statement += " Address " + OrderBy;
+        }
+         else if (radPhone.isSelected()){
+             Statement += " Phone " + OrderBy;
+        }
+          else if (radEmail.isSelected()){
+             Statement += " Email " + OrderBy;
+        }
+        else {
+             Statement += " CardNumber " + OrderBy;
+        }
+        customer.GetSomeRows(Statement, tableCM);
+    }
+    private void descMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descMouseClicked
+        OrderItems("desc");
+    }//GEN-LAST:event_descMouseClicked
+
+    private void descMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descMouseEntered
+        Tools.PutImageInLable("Descending_White.png", desc, 40, 40);
+    }//GEN-LAST:event_descMouseEntered
+
+    private void descMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descMouseExited
+        Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
+    }//GEN-LAST:event_descMouseExited
+
+    private void ascMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ascMouseClicked
+        OrderItems("asc");
+    }//GEN-LAST:event_ascMouseClicked
+
+    private void ascMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ascMouseEntered
+        Tools.PutImageInLable("Ascending_White.png", asc, 40, 40);
+    }//GEN-LAST:event_ascMouseEntered
+
+    private void ascMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ascMouseExited
+        Tools.PutImageInLable("Ascending_White.png", asc, 30, 30);
+    }//GEN-LAST:event_ascMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -710,10 +956,13 @@ public class FrmManagement extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuMoveHistory;
     private javax.swing.JMenu MenuMoveMenu;
     private javax.swing.JMenuItem MenuMoveToHome;
+    private javax.swing.JLabel asc;
     private Controls.JMyButtonPurp btnBorrow;
     private Controls.JMyButtonPurp btnHistory;
     private Controls.JMyButtonPurp btnReturn;
+    private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JLabel date;
+    private javax.swing.JLabel desc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -729,6 +978,8 @@ public class FrmManagement extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lbladdress;
     private javax.swing.JLabel lblback;
     private javax.swing.JLabel lblcardnum;
@@ -739,6 +990,12 @@ public class FrmManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblpic;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
+    private javax.swing.JRadioButton radAddress;
+    private javax.swing.JRadioButton radCard;
+    private javax.swing.JRadioButton radEmail;
+    private javax.swing.JRadioButton radName;
+    private javax.swing.JRadioButton radPhone;
     private javax.swing.JTable tableCM;
+    private Controls.JTextBox txtSearch;
     // End of variables declaration//GEN-END:variables
 }
