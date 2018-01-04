@@ -12,6 +12,7 @@ import Connection.TableNewColors;
 import Connection.Tools;
 import Controls.JMyButton;
 import java.awt.Cursor;
+import java.awt.MenuBar;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,7 +36,7 @@ public class FrmHistory extends javax.swing.JFrame {
         initComponents();
         tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
         setLabels();
-        ClearInfo();
+        //ClearInfo();
         CheckDelayedOrders();
         ConstructorNumber = 0;
         
@@ -49,6 +50,7 @@ public class FrmHistory extends javax.swing.JFrame {
         ClearInfo(CardNumber);
         CheckDelayedOrders();
         ConstructorNumber = 0;
+        MenuBar.setVisible(true);
     }
     public FrmHistory(int CardNumber,String Email,int ConstructorNumber) {
         super();
@@ -58,6 +60,7 @@ public class FrmHistory extends javax.swing.JFrame {
         ClearInfo(String.valueOf( CardNumber ) );
         CheckDelayedOrders();
         this.ConstructorNumber = ConstructorNumber;
+        MenuBar.setVisible(false);
         this.Email = Email;
     }
 
@@ -107,7 +110,7 @@ public class FrmHistory extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        MenuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuFileAdd = new javax.swing.JMenuItem();
         menuFileUpdate = new javax.swing.JMenuItem();
@@ -445,11 +448,11 @@ public class FrmHistory extends javax.swing.JFrame {
 
         lblBack.setToolTipText("Return back to menu");
         lblBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblBackMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblBackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblBackMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblBackMousePressed(evt);
@@ -544,7 +547,7 @@ public class FrmHistory extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -556,8 +559,8 @@ public class FrmHistory extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(44, 0, 44));
-        jMenuBar1.setForeground(new java.awt.Color(66, 0, 66));
+        MenuBar.setBackground(new java.awt.Color(44, 0, 44));
+        MenuBar.setForeground(new java.awt.Color(66, 0, 66));
 
         menuFile.setForeground(new java.awt.Color(255, 255, 255));
         menuFile.setText("File");
@@ -631,7 +634,7 @@ public class FrmHistory extends javax.swing.JFrame {
         });
         menuFile.add(menuFileQuit);
 
-        jMenuBar1.add(menuFile);
+        MenuBar.add(menuFile);
 
         jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Move");
@@ -676,9 +679,9 @@ public class FrmHistory extends javax.swing.JFrame {
         });
         jMenu2.add(moveMenuManagement);
 
-        jMenuBar1.add(jMenu2);
+        MenuBar.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -692,7 +695,9 @@ public class FrmHistory extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -730,7 +735,7 @@ public class FrmHistory extends javax.swing.JFrame {
     }
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.setTitle("Library System By Mini Project Team 6");
+       // this.setTitle("Library System By Mini Project Team 6");
         Tools.SetTableHeader(tableHistory);
     }//GEN-LAST:event_formWindowOpened
 
@@ -1130,6 +1135,7 @@ public class FrmHistory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar MenuBar;
     private javax.swing.JRadioButton RadISBN;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
@@ -1139,7 +1145,6 @@ public class FrmHistory extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

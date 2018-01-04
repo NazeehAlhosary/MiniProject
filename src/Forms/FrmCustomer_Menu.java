@@ -338,7 +338,8 @@ public class FrmCustomer_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_historybtn1MouseExited
 
     private void historybtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtn2MouseClicked
-        // TODO add your handling code here:
+        this.dispose();
+        Tools.OpenForm(new FrmBooks_Return(String.valueOf(Card), Name, Email, 1));
     }//GEN-LAST:event_historybtn2MouseClicked
 
     private void historybtn2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybtn2MouseEntered

@@ -28,6 +28,7 @@ public class FrmBooks_Return extends javax.swing.JFrame {
      */
     static String email;
     static String card;
+    static int ConstructorNumber;
     
     public FrmBooks_Return() {
         initComponents();
@@ -39,6 +40,7 @@ public class FrmBooks_Return extends javax.swing.JFrame {
             Tools.PutImageInLable("Ascending_White.png", asc, 30, 30);
              Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
               Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
+              ConstructorNumber = 0;
     }
     public FrmBooks_Return(String card, String name,String Email){
         initComponents();
@@ -58,8 +60,39 @@ public class FrmBooks_Return extends javax.swing.JFrame {
         String Statement = " Select * from History where CardNumber ="+card +" AND (Status = 'borrowed' OR Status = 'delayed') ;";
         
        Connection.Connections.FillCustomRows(Statement, tableHistory);
+       MenuBar.setVisible(true);
+       ConstructorNumber = 0;
      // history.GetSomeRows(Statement, tableHistory);
         
+    }
+    public FrmBooks_Return(String card, String name,String Email,int ConstructorNumber){
+        initComponents();
+        tableHistory.setDefaultRenderer(Object.class, new TableNewColors());
+        Tools.ToDay(date);
+        Tools.PutImageInLable("ReturnWh.png", lblpic, 130, 130);
+          Tools.PutImageInLable("back32.png", lblback, 32, 32);
+           Tools.PutImageInLable("exitW.png", lblexit, 32, 32);
+            Tools.PutImageInLable("Ascending_White.png", asc, 30, 30);
+            Tools.PutImageInLable("Descending_White.png", desc, 30, 30);
+               Tools.PutImageInLable("Search-icon-White.png", lblSearch, 25, 25);
+         txtCardNum.setText(card);
+         this.card = card;
+                 
+         txtName.setText(name);
+         email = Email;
+        String Statement = " Select * from History where CardNumber ="+card +" AND (Status = 'borrowed' OR Status = 'delayed') ;";
+        
+       Connection.Connections.FillCustomRows(Statement, tableHistory);
+       MenuBar.setVisible(false);
+       this.ConstructorNumber = ConstructorNumber ;
+        
+    }
+    private boolean isEmpty(){
+        //txtCardNum.getText().equals("") ||  || txtName.getText().equals("")
+        if(txtISBN.getText().equals("") ){
+            return true;
+        }
+        return false;
     }
 History history =new History();
 Return retur = new Return();
@@ -292,7 +325,7 @@ Books book = new Books();
                 .addComponent(lblpic, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(14, 14, 14)
                 .addComponent(lblexit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,11 +367,11 @@ Books book = new Books();
                     .addComponent(jLabel10))
                 .addGap(46, 46, 46)
                 .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblback, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(lblexit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(lblback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblexit, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81))
         );
 
         panel2.setBackground(new java.awt.Color(44, 0, 44));
@@ -448,40 +481,38 @@ Books book = new Books();
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                                        .addComponent(radISBN)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(radTitle)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(radStatus)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                                        .addGap(282, 282, 282)
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(asc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                                .addComponent(radISBN)
+                                .addGap(29, 29, 29)
+                                .addComponent(radTitle)
+                                .addGap(29, 29, 29)
+                                .addComponent(radStatus)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                                .addGap(282, 282, 282)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(18, Short.MAX_VALUE))))
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(asc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(54, Short.MAX_VALUE))))
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,7 +528,7 @@ Books book = new Books();
                             .addComponent(asc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(desc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(0, 92, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(radISBN)
                             .addComponent(radTitle)
@@ -509,9 +540,9 @@ Books book = new Books();
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(56, 56, 56)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addGap(100, 100, 100))
         );
 
         MenuBar.setBackground(new java.awt.Color(44, 0, 44));
@@ -647,11 +678,8 @@ Books book = new Books();
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(panel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -677,8 +705,14 @@ Books book = new Books();
     }//GEN-LAST:event_formWindowOpened
 
     private void lblbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblbackMouseClicked
-        this.dispose();
-        Connection.Tools.OpenForm(new FrmManagement());
+        if(ConstructorNumber == 0 ){
+            this.dispose();
+            Connection.Tools.OpenForm(new FrmManagement());
+        }else{
+            this.dispose();
+            Connection.Tools.OpenForm(new FrmCustomer_Menu(email));
+        }
+        
 
     }//GEN-LAST:event_lblbackMouseClicked
 
@@ -715,57 +749,54 @@ Books book = new Books();
     }//GEN-LAST:event_lblexitMouseExited
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-          
-        
-        String card = txtCardNum.getText();
-        String Statement = " Select * from History where CardNumber =" +card +" ( AND Status = 'borrowed' OR Status = 'delayed') ;";
-        String isbn = txtISBN.getText();
-        String name = txtName.getText();
-        String today = Tools.ToDay();
-        String time = Tools.currentTime();
-        String delayed = txtdelay.getText();
-        int row= tableHistory.getSelectedRow();
-        String Email= email;
-        int fee = Integer.parseInt(txtFee.getText());
-        int Row = tableHistory.getSelectedRow();
-        retur.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
-        retur.setCardNumber(Integer.parseInt(txtCardNum.getText()));
-        retur.UpdateStatusAvailable();
-        
-       
-        history.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
-        history.setReturnedDate(Tools.ToDay());
-        history.UpdateReturned();
-        
-        book.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
-        book.UpdateReturned();
-        if(fee<=0){
-        Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
-                + "book "+ isbn+" has been successfully returned on "+today+" at "+time+"."
-                        + "\n \n Thank you!");
-        
-        
-       // try {
-       //  Tools.SendEmailWithAttachment("raneem-k-99@hotmail.com","Dear "+name+", \n "
-       //      + "book "+ isbn+" has been successfully returned on "+today+"."
-       //            + "\n \n Thank you!","C:\\Users\\User\\Pictures\\003.png");
-       // } catch (Exception e) {
-       // }
+       if(!isEmpty()){
+            if (ConstructorNumber == 0){
+                    String card = txtCardNum.getText();
+                    String Statement = " Select * from History where CardNumber =" +card +" ( AND Status = 'borrowed' OR Status = 'delayed') ;";
+                    String isbn = txtISBN.getText();
+                    String name = txtName.getText();
+                    String today = Tools.ToDay();
+                    String time = Tools.currentTime();
+                    String delayed = txtdelay.getText();
+                    int row= tableHistory.getSelectedRow();
+                    String Email= email;
+                    int fee = Integer.parseInt(txtFee.getText());
+                    int Row = tableHistory.getSelectedRow();
+                    retur.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+                    retur.setCardNumber(Integer.parseInt(txtCardNum.getText()));
+                    retur.UpdateStatusAvailable();
 
-        }
-        else{
-         Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
-                 + "book "+ isbn+" has been successfully returned on "+today+" at "+time+".\n"
-                         + " Unfortunately you were "+delayed+" days delayed, so you will have to pay "+fee+" SEK."
-                                 + " \n \n Thank you!");
-        }
-        Connection.Connections.FillCustomRows(Statement, tableHistory);
-        txtISBN.setText("");
-        txtFee.setText("");
-        txtdays.setText("");
-        txtdelay.setText("");
-               
-     
+
+                    history.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+                    history.setReturnedDate(Tools.ToDay());
+                    history.UpdateReturned();
+
+                    book.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+                    book.UpdateReturned();
+                    if(fee<=0){
+                    Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
+                            + "book "+ isbn+" has been successfully returned on "+today+" at "+time+"."
+                                    + "\n \n Thank you!");
+                    }
+                    else{
+                     Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
+                             + "book "+ isbn+" has been successfully returned on "+today+" at "+time+".\n"
+                                     + " Unfortunately you were "+delayed+" days delayed, so you will have to pay "+fee+" SEK."
+                                             + " \n \n Thank you!");
+                    }
+                    Connection.Connections.FillCustomRows(Statement, tableHistory);
+                    txtISBN.setText("");
+                    txtFee.setText("");
+                    txtdays.setText("");
+                    txtdelay.setText("");
+            }else if (ConstructorNumber == 1){
+                String isbn = txtISBN.getText();
+                String name = txtName.getText();
+                Tools.MsgBoxInfo("Please go to the library and put the book in the return box \noutside the library building\nwithin two hours :) ", "Successfully returned book");
+            }    
+       }else{
+           Tools.MsgBoxErrorI("Please select a customer","Missing info");
+       }
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -856,7 +887,7 @@ Books book = new Books();
 
     private void tableHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHistoryMouseClicked
         try {
-             int Row = tableHistory.getSelectedRow();
+          int Row = tableHistory.getSelectedRow();
           String date1 = tableHistory.getValueAt(Row, 5).toString();
           String isbn = tableHistory.getValueAt(Row, 1).toString();
           String date2 = Tools.ToDay();
