@@ -19,15 +19,23 @@ import javax.swing.*;
  */
 public class FrmCustomerMenu extends javax.swing.JFrame {
 
+    static String email;
+    static String card;
     /**
      * Creates new form FrmCustomerMenu
      */
     public FrmCustomerMenu() {
         initComponents();
         
+        
     
     }
-
+public FrmCustomerMenu(String card, String name,String Email){
+         this.card = card;
+                 
+         email = Email;
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,6 +70,7 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel3.setLayout(null);
 
         exitbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/logout.png"))); // NOI18N
         exitbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,44 +84,20 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
                 exitbtnMouseEntered(evt);
             }
         });
+        jPanel3.add(exitbtn);
+        exitbtn.setBounds(11, 60, 37, 47);
 
         showlable.setFont(new java.awt.Font("sansserif", 2, 24)); // NOI18N
         showlable.setForeground(new java.awt.Color(255, 255, 255));
         showlable.setText("Information");
+        jPanel3.add(showlable);
+        showlable.setBounds(119, 38, 311, 32);
 
         date.setFont(new java.awt.Font("sansserif", 2, 10)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
         date.setText("Date");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(exitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 405, Short.MAX_VALUE)
-                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(showlable, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(110, Short.MAX_VALUE))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exitbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(showlable)
-                        .addGap(12, 12, 12)
-                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel3.add(date);
+        date.setBounds(453, 82, 72, 25);
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 350, 540, 120);
@@ -201,8 +186,9 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
             }
         });
 
-        infobutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/histor.png"))); // NOI18N
+        infobutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/key.png"))); // NOI18N
         infobutton.setToolTipText("");
+        infobutton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         infobutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 infobuttonMouseClicked(evt);
@@ -239,16 +225,17 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(historybutton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infobutton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(infobutton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(passwordbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,9 +285,9 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
     private void borrowbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbuttonMouseClicked
 
         this.dispose();
-        Tools.OpenForm(new FrmBooks_Borrow());
+        Tools.OpenForm(new FrmBooks_Borrow(card, Connection.Connections.GetCustomerName(email), email));
     }//GEN-LAST:event_borrowbuttonMouseClicked
-
+// email but not name? need name
     private void borrowbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbuttonMouseExited
         showlable.setVisible(false);
     }//GEN-LAST:event_borrowbuttonMouseExited
@@ -313,7 +300,7 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
 
     private void historybuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybuttonMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmHistoryC());
+        Tools.OpenForm(new FrmHistoryC(card, email));
     }//GEN-LAST:event_historybuttonMouseClicked
 
     private void historybuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historybuttonMouseExited
@@ -335,6 +322,11 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
 
     private void passwordbuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordbuttonMouseEntered
         // TODO add your handling code here:
+        historybutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        showlable.setText("        Change your password");
+        showlable.setVisible(true);
+
+        
     }//GEN-LAST:event_passwordbuttonMouseEntered
 
     private void passwordbuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordbuttonMouseExited
@@ -344,11 +336,15 @@ public class FrmCustomerMenu extends javax.swing.JFrame {
     private void infobuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infobuttonMouseClicked
         // TODO add your handling code here:
               this.dispose();
-        Tools.OpenForm(new FrmCustomer_ChangeInfo());
+        Tools.OpenForm(new FrmCustomer_ChangeInfo(card, email));
     }//GEN-LAST:event_infobuttonMouseClicked
 
     private void infobuttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infobuttonMouseEntered
         // TODO add your handling code here:
+        historybutton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        showlable.setText("        Change your information");
+        showlable.setVisible(true);
+
     }//GEN-LAST:event_infobuttonMouseEntered
 
     private void infobuttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infobuttonMouseExited

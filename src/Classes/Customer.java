@@ -94,6 +94,21 @@ private void getUniqueId()
   
   
     }
+    
+    
+     public void UpdateInf(int cn) {
+             String update = "Update Customer set "
+                +"Name='"+ Name + "',"
+                +"Address='"+ Address + "',"
+                +"Phone='"+ Phone + "',"
+                //+"Email='"+ Email + "'"
+                +"where CardNumber=" + cn+";";
+        boolean check = Connections.RunNonQuery(update);
+        if(check) {
+            Tools.MsgBoxInfo("Customer information has been updated", "Update succesful");
+        }
+     }
+        
   
       public void Delete() {
         String delete = "Delete from Customer where cardNumber=" + CardNumber;

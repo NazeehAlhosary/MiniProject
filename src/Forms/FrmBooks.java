@@ -305,49 +305,49 @@ public class FrmBooks extends javax.swing.JFrame {
         RadISBN.setSelected(true);
         RadISBN.setText("ISBN");
         getContentPane().add(RadISBN);
-        RadISBN.setBounds(391, 130, 59, 28);
+        RadISBN.setBounds(391, 130, 55, 25);
 
         RadTitle.setBackground(new java.awt.Color(44, 0, 44));
         RadTitle.setForeground(new java.awt.Color(255, 255, 255));
         RadTitle.setText("Title");
         getContentPane().add(RadTitle);
-        RadTitle.setBounds(467, 130, 56, 28);
+        RadTitle.setBounds(467, 130, 53, 25);
 
         RadAuthor.setBackground(new java.awt.Color(44, 0, 44));
         RadAuthor.setForeground(new java.awt.Color(255, 255, 255));
         RadAuthor.setText("Author");
         getContentPane().add(RadAuthor);
-        RadAuthor.setBounds(541, 130, 70, 28);
+        RadAuthor.setBounds(541, 130, 67, 25);
 
         RadPublisher.setBackground(new java.awt.Color(44, 0, 44));
         RadPublisher.setForeground(new java.awt.Color(255, 255, 255));
         RadPublisher.setText("Publisher");
         getContentPane().add(RadPublisher);
-        RadPublisher.setBounds(617, 130, 86, 28);
+        RadPublisher.setBounds(617, 130, 81, 25);
 
         RadShelf.setBackground(new java.awt.Color(44, 0, 44));
         RadShelf.setForeground(new java.awt.Color(255, 255, 255));
         RadShelf.setText("Shelf");
         getContentPane().add(RadShelf);
-        RadShelf.setBounds(721, 130, 61, 28);
+        RadShelf.setBounds(721, 130, 57, 25);
 
         RadGenre.setBackground(new java.awt.Color(44, 0, 44));
         RadGenre.setForeground(new java.awt.Color(255, 255, 255));
         RadGenre.setText("Genre");
         getContentPane().add(RadGenre);
-        RadGenre.setBounds(794, 130, 66, 28);
+        RadGenre.setBounds(794, 130, 63, 25);
 
         RadNumberOF.setBackground(new java.awt.Color(44, 0, 44));
         RadNumberOF.setForeground(new java.awt.Color(255, 255, 255));
         RadNumberOF.setText("Number of Borrowing");
         getContentPane().add(RadNumberOF);
-        RadNumberOF.setBounds(953, 130, 153, 28);
+        RadNumberOF.setBounds(953, 130, 151, 25);
 
         RadStatus.setBackground(new java.awt.Color(44, 0, 44));
         RadStatus.setForeground(new java.awt.Color(255, 255, 255));
         RadStatus.setText("Status");
         getContentPane().add(RadStatus);
-        RadStatus.setBounds(872, 130, 69, 28);
+        RadStatus.setBounds(872, 130, 65, 25);
 
         jPanel1.setBackground(new java.awt.Color(64, 1, 64));
 
@@ -836,7 +836,7 @@ public class FrmBooks extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPrint)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
