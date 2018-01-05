@@ -30,9 +30,9 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
 
     public void UpdatePass() {
         String hash = Tools.hashPassword(txtpass.getText());
-        String update = "Update customerlogin set "
-                + "PassWord='" + hash + "'"
-                + "where Email = " + email + ";";
+  
+        String update = "Update customerlogin set PassWord='" + hash + "' where " 
+                + "Email= '"+ email + "' ;";
         boolean updateQ = Connections.RunNonQuery(update);
         if (updateQ) {
             Tools.MsgBoxInfo(" Password Has Been Successfully Reseted ", " Password Reseted ");
@@ -67,7 +67,6 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(551, 356));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(551, 356));
         setResizable(false);
         setSize(new java.awt.Dimension(551, 356));
         getContentPane().setLayout(null);
@@ -92,6 +91,11 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         txtpass.setForeground(new java.awt.Color(255, 255, 255));
         txtpass.setText("jPasswordField1");
         txtpass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtpassMouseClicked(evt);
+            }
+        });
         getContentPane().add(txtpass);
         txtpass.setBounds(180, 150, 250, 27);
 
@@ -121,6 +125,11 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         txtrepass.setForeground(new java.awt.Color(255, 255, 255));
         txtrepass.setText("jPasswordField1");
         txtrepass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtrepass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtrepassMouseClicked(evt);
+            }
+        });
         getContentPane().add(txtrepass);
         txtrepass.setBounds(180, 240, 250, 27);
 
@@ -208,6 +217,14 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnresMouseClicked
+
+    private void txtpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtpassMouseClicked
+       txtpass.setText("");
+    }//GEN-LAST:event_txtpassMouseClicked
+
+    private void txtrepassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtrepassMouseClicked
+        txtrepass.setText("");
+    }//GEN-LAST:event_txtrepassMouseClicked
 
     /**
      * @param args the command line arguments
