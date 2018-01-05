@@ -70,7 +70,17 @@ public class CustomerLogIn {
         Connections.RunNonQuery(Update);
         
      }
-     
+     public void Update(){
+         String update = "Update customerlogin set "
+                +"Question='"+ Question + "',"
+                +"Answer='"+ Answer + "',"
+                +"Email='"+ Email + "'"
+                +"where CardNumber=" + CardNumber+";";
+        boolean check = Connections.RunNonQuery(update);
+        if(check) {
+            Tools.MsgBoxInfo("Customer information has been updated", "Update succesful");
+        }
+     }
      public boolean ReturnPassWord() {
        return Connections.ReturnPassWordByUsingQuestion(CardNumber,Question,Answer);
     }

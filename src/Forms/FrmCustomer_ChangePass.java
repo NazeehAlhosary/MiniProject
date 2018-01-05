@@ -51,17 +51,16 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         txtpass = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnback = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        txtrepass = new javax.swing.JPasswordField();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        txtrepass = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
         btnres = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,19 +74,17 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reset  Your  Password");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(140, 30, 360, 60);
+        jLabel1.setBounds(140, 30, 400, 60);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/password.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 10, 90, 90);
 
-        jLabel3.setFont(new java.awt.Font("Big Caslon", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("New Password :");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 150, 140, 20);
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(180, 180, 250, 20);
 
-        txtpass.setBackground(new java.awt.Color(102, 0, 102));
+        txtpass.setBackground(new java.awt.Color(64, 1, 64));
         txtpass.setForeground(new java.awt.Color(255, 255, 255));
         txtpass.setText("jPasswordField1");
         txtpass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -99,9 +96,11 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         getContentPane().add(txtpass);
         txtpass.setBounds(180, 150, 250, 27);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/locked.png"))); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(440, 230, 40, 50);
+        jLabel3.setFont(new java.awt.Font("Big Caslon", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("New Password :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(50, 150, 140, 20);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/locked.png"))); // NOI18N
         getContentPane().add(jLabel6);
@@ -117,11 +116,15 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
         getContentPane().add(btnback);
         btnback.setBounds(10, 310, 40, 40);
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(180, 180, 250, 20);
+        jPanel2.setBackground(new java.awt.Color(44, 0, 44));
 
-        txtrepass.setBackground(new java.awt.Color(102, 0, 102));
+        jLabel4.setFont(new java.awt.Font("Big Caslon", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Re-Password :");
+
+        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtrepass.setBackground(new java.awt.Color(64, 1, 64));
         txtrepass.setForeground(new java.awt.Color(255, 255, 255));
         txtrepass.setText("jPasswordField1");
         txtrepass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -130,25 +133,14 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
                 txtrepassMouseClicked(evt);
             }
         });
-        getContentPane().add(txtrepass);
-        txtrepass.setBounds(180, 240, 250, 27);
 
-        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSeparator3);
-        jSeparator3.setBounds(180, 270, 250, 20);
-
-        jPanel2.setBackground(new java.awt.Color(102, 0, 102));
-
-        jLabel4.setFont(new java.awt.Font("Big Caslon", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Re-Password :");
-
-        jPanel1.setBackground(new java.awt.Color(102, 0, 102));
-        jPanel1.setToolTipText("");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/locked.png"))); // NOI18N
 
         btnres.setFont(new java.awt.Font("Big Caslon", 3, 18)); // NOI18N
         btnres.setForeground(new java.awt.Color(255, 255, 255));
-        btnres.setText(" Reset");
+        btnres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/ResetPass.png"))); // NOI18N
+        btnres.setText(" ");
+        btnres.setToolTipText("  Reset Pass");
         btnres.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnres.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -156,40 +148,45 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(btnres, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(356, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addComponent(btnres, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(195, 195, 195))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtrepass, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(234, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(198, 198, 198)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4)
+                            .addGap(153, 153, 153))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtrepass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnres, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
 
         getContentPane().add(jPanel2);
@@ -202,7 +199,7 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
 
         this.dispose();
-        Tools.OpenForm(new FrmCustomer_Menu());
+        Tools.OpenForm(new FrmCustomer_Menu(email));
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnresMouseClicked
@@ -270,7 +267,6 @@ public class FrmCustomer_ChangePass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;

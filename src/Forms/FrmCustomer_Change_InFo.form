@@ -71,6 +71,7 @@
         </Component>
         <Component class="Controls.JTextBox" name="txtICard">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="toolTipText" type="java.lang.String" value="Library Card number, automatically number"/>
           </Properties>
           <Events>
@@ -154,7 +155,7 @@
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -232,7 +233,7 @@
               <StringArray count="8">
                 <StringItem index="0" value="*** Select one reminder question ***"/>
                 <StringItem index="1" value=" 1 - What is your mother name?"/>
-                <StringItem index="2" value=" 2 - What is your best friend&apos;s name?"/>
+                <StringItem index="2" value=" 2 - What is your best friend name?"/>
                 <StringItem index="3" value=" 3 - Who is your favorite football player?"/>
                 <StringItem index="4" value=" 4 - Who is your idol?"/>
                 <StringItem index="5" value=" 5 - What is your favorite teacher name?"/>
@@ -263,7 +264,7 @@
         <Component class="javax.swing.JLabel" name="lblRegister">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Connection/Icons/printer-_1.png"/>
+              <Image iconType="3" name="/Connection/Icons/Edit_pen.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Edit Information"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -283,7 +284,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -299,7 +300,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -327,7 +328,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -366,7 +367,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="530" width="60" height="60"/>
+              <AbsoluteConstraints x="60" y="530" width="60" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -394,7 +395,7 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -410,7 +411,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -426,7 +427,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Georgia" size="12" style="1"/>
+              <Font name="Garamond" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

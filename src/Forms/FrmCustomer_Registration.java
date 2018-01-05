@@ -187,7 +187,7 @@ public class FrmCustomer_Registration extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Question");
 
-        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", " 1 - What is your mother name?", " 2 - What is your best friend's name?", " 3 - Who is your favorite football player?", " 4 - Who is your idol?", " 5 - What is your favorite teacher name?", " 6 - What is your first school name?", " 7 - What is your favorite PC game?" }));
+        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", " 1 - What is your mother name?", " 2 - What is your best friend name?", " 3 - Who is your favorite football player?", " 4 - Who is your idol?", " 5 - What is your favorite teacher name?", " 6 - What is your first school name?", " 7 - What is your favorite PC game?" }));
         ComQuestion.setToolTipText("Please choose one question that you can answer it if you forgot your password");
         ComQuestion.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
 

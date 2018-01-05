@@ -5,6 +5,8 @@
  */
 package Forms;
 
+import Classes.*;
+import Connection.Connections;
 import Connection.Tools;
 
 /**
@@ -19,7 +21,56 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
     public FrmCustomer_Change_InFo() {
         initComponents();
     }
-
+    Customer customer = new Customer();
+    CustomerLogIn customerlogin = new CustomerLogIn();
+    static String name ;
+      static  String phone ;
+        static String address ;
+       static  String question ;
+       static  String answer;
+       static String email;
+       static int card;
+    public FrmCustomer_Change_InFo(String Email, int CardNubmer) {
+        initComponents();
+         name = Connections.GetCustomerName(Email);
+         phone = Connections.GetCustomerPhone(Email);
+         address =Connections.GetCustomerAddress(Email);
+         question =Connections.GetCustomerQuestion(Email);
+         answer = Connections.GetCustomerAnswer(Email);
+         card = CardNubmer;
+         email = Email;
+         PutItems();
+        
+    }
+    private void PutItems(){
+        txtICard.setText(String.valueOf(card));
+        txtEmail.setText(email);
+        txtName.setText(name);
+        txtAddress.setText(address);
+        txtPhone.setText(phone);
+        txtAnswer.setText(answer);
+        ComQuestion.setSelectedItem(question);
+    }
+    private void PutInfo(){
+        customer.setCardNumber(Integer.parseInt(txtICard.getText()));
+        customer.setEmail(txtEmail.getText());
+        customer.setAddress(txtAddress.getText());
+        customer.setPhoneNumber(txtPhone.getText());
+        customer.setName(txtName.getText());
+        customerlogin.setCardNumber(Integer.parseInt(txtICard.getText()));
+        customerlogin.setAnswer(txtAnswer.getText());
+        customerlogin.setEmail(txtEmail.getText());
+        customerlogin.setQuestion(ComQuestion.getSelectedItem().toString());
+    }
+    private boolean IsEmpty(){
+        if (txtName.getText().equals("") || txtEmail.getText().equals("") || 
+                txtAddress.getText().equals("") || txtAnswer.getText().equals("") || 
+                txtPhone.getText().equals("") || ComQuestion.getSelectedItem().equals("*** Select one reminder question ***")){
+        return true;
+        }
+        return false;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,6 +127,7 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(340, 10, 40, 50);
 
+        txtICard.setEditable(false);
         txtICard.setToolTipText("Library Card number, automatically number");
         txtICard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,11 +166,11 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
         jPanel1.add(txtAnswer);
         txtAnswer.setBounds(120, 360, 250, 40);
 
-        jLabel11.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Answer");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(60, 370, 49, 14);
+        jLabel11.setBounds(60, 370, 45, 17);
 
         BarPhone.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(BarPhone);
@@ -145,7 +197,7 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
         jPanel1.add(txtAddress);
         txtAddress.setBounds(120, 270, 250, 40);
 
-        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", " 1 - What is your mother name?", " 2 - What is your best friend's name?", " 3 - Who is your favorite football player?", " 4 - Who is your idol?", " 5 - What is your favorite teacher name?", " 6 - What is your first school name?", " 7 - What is your favorite PC game?" }));
+        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", " 1 - What is your mother name?", " 2 - What is your best friend name?", " 3 - Who is your favorite football player?", " 4 - Who is your idol?", " 5 - What is your favorite teacher name?", " 6 - What is your first school name?", " 7 - What is your favorite PC game?" }));
         ComQuestion.setToolTipText("Please choose one question that you can answer it if you forgot your password");
         jPanel1.add(ComQuestion);
         ComQuestion.setBounds(120, 320, 256, 26);
@@ -154,7 +206,7 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
         jPanel1.add(BarQuestion);
         BarQuestion.setBounds(120, 350, 260, 10);
 
-        lblRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/printer-_1.png"))); // NOI18N
+        lblRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/Icons/Edit_pen.png"))); // NOI18N
         lblRegister.setToolTipText("Edit Information");
         lblRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,23 +220,23 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
         jPanel1.add(lblRegister);
         lblRegister.setBounds(180, 410, 90, 70);
 
-        jLabel6.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(60, 280, 52, 14);
+        jLabel6.setBounds(60, 280, 49, 17);
 
-        jLabel2.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Card Number");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 70, 89, 30);
+        jLabel2.setBounds(20, 70, 85, 30);
 
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator12);
         jSeparator12.setBounds(130, 240, 0, 2);
 
-        jLabel3.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Email");
         jPanel1.add(jLabel3);
@@ -208,7 +260,7 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblBack);
-        lblBack.setBounds(50, 530, 60, 60);
+        lblBack.setBounds(60, 530, 60, 60);
 
         lblExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/exit.png"))); // NOI18N
         lblExit.setToolTipText("Exit the program");
@@ -227,23 +279,23 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
         jPanel1.add(lblExit);
         lblExit.setBounds(10, 530, 60, 60);
 
-        jLabel10.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Question");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(50, 320, 59, 14);
+        jLabel10.setBounds(50, 320, 55, 17);
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(70, 130, 38, 14);
+        jLabel1.setBounds(70, 130, 38, 17);
 
-        jLabel5.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Phone");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(70, 240, 40, 14);
+        jLabel5.setBounds(70, 240, 38, 17);
 
         jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator10);
@@ -267,27 +319,14 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
 
     private void lblRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseClicked
 
-//        if (!IsEmpty()){
-//
-//            if (txtPass.getText().equals(txtRePass.getText())){
-//                PutInfo();
-//                if( customerlogin.Add() ){
-//                    customer.Add();
-//                    ClearInfo();
-//                    this.dispose();
-//                    Tools.OpenForm(new FrmCustomer_Login());
-//                }
-//            }
-//            else{
-//                Tools.MsgBoxErrorX("Please enter same password!", "Password invalid!");
-//                txtPass.setText("");
-//                txtRePass.setText("");
-//                txtPass.requestFocus();
-//            }
-//        }
-//        else{
-//            Tools.MsgBoxErrorI("Please fill all text fields and choose one question.", "Empty Error!");
-//        }
+        if (!IsEmpty()){
+            PutInfo();
+            customer.Update();
+            customerlogin.Update();
+        }
+        else{
+            Tools.MsgBoxErrorI("Please fill all text fields and choose one question.", "Empty Error!");
+        }
     }//GEN-LAST:event_lblRegisterMouseClicked
 
     private void lblRegisterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMouseEntered
@@ -300,7 +339,7 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
 
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
         this.dispose();
-        Tools.OpenForm(new FrmCustomer_Login());
+        Tools.OpenForm(new FrmCustomer_Menu(email));
     }//GEN-LAST:event_lblBackMouseClicked
 
     private void lblBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseEntered

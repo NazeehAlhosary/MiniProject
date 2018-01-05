@@ -73,7 +73,7 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Card Number");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 110, 70, 16);
+        jLabel2.setBounds(20, 110, 90, 30);
 
         txtCard.setToolTipText("Enter Library Card Number");
         txtCard.addActionListener(new java.awt.event.ActionListener() {
@@ -82,17 +82,17 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtCard);
-        txtCard.setBounds(130, 110, 250, 27);
+        txtCard.setBounds(130, 110, 250, 24);
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator5);
         jSeparator5.setBounds(130, 240, 240, 10);
 
-        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", "1- What is your mother name?", "2- What is your best friend's name?", "3- Who is your favorite football player?", "4- Who is your idol?", "5- What is your favorite teacher name?", "6- What is your first school name?", "7- What is your favorite PC game?" }));
+        ComQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "*** Select one reminder question ***", " 1 - What is your mother name?", " 2 - What is your best friend name?", " 3 - Who is your favorite football player?", " 4 - Who is your idol?", " 5 - What is your favorite teacher name?", " 6 - What is your first school name?", " 7 - What is your favorite PC game?" }));
         ComQuestion.setToolTipText("Choose one question that you have chosen before");
         ComQuestion.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         jPanel1.add(ComQuestion);
-        ComQuestion.setBounds(130, 160, 213, 26);
+        ComQuestion.setBounds(130, 160, 245, 26);
 
         jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator12);
@@ -102,13 +102,13 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Question");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(50, 160, 45, 16);
+        jLabel10.setBounds(50, 160, 60, 20);
 
         jLabel11.setFont(new java.awt.Font("Big Caslon", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Answer");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(60, 220, 37, 16);
+        jLabel11.setBounds(60, 220, 60, 20);
 
         txtAnswer.setToolTipText("Enter Your Answer");
         txtAnswer.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class FrmReset_Password_By_Question extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtAnswer);
-        txtAnswer.setBounds(130, 210, 250, 27);
+        txtAnswer.setBounds(130, 210, 250, 24);
 
         jSeparator13.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator13);

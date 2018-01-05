@@ -297,8 +297,8 @@ public class Connections {
             Statement Stmt = Con.createStatement();
             String ReturnPass = "Select PassWord as 'ReturnPass' FROM customerlogin where "
                     + " CardNumber= " + CardNumber
-                    + " AND Question= '" + Question + "' "
-                    + " AND Answer= '" + Answer + "' ;";
+                    + " AND (Question= '" + Question + "' "
+                    + " AND Answer= '" + Answer + "') ;";
             Stmt.executeQuery(ReturnPass);
             String ResultOFPassWord = "";
             while (Stmt.getResultSet().next()) {
@@ -390,6 +390,94 @@ public class Connections {
             String Result=  "";
             while (Stmt.getResultSet().next()) {
                 Result = Stmt.getResultSet().getString("name");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return "";
+            } else {
+                return Result;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
+    
+    public static String GetCustomerPhone( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select Phone as 'phone' from Customer where Email='" +Email+"' ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("phone");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return "";
+            } else {
+                return Result;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
+    
+    public static String GetCustomerAddress( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select Address as 'address' from Customer where Email='" +Email+"' ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("address");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return "";
+            } else {
+                return Result;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
+    
+    public static String GetCustomerQuestion( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select Question as 'question' from customerlogin where Email='" +Email+"' ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("question");
+            }
+            Con.close();
+            if (Result == null || Result.equals("")) {
+                return "";
+            } else {
+                return Result;
+            }
+        } catch (SQLException ex) {
+            Tools.MsgBox(ex.getMessage());
+            return "";
+        }
+    }
+    
+    public static String GetCustomerAnswer( String Email) {
+        try {
+            SetConnection();
+            Statement Stmt = Con.createStatement();
+            String Statement = "Select Answer as 'answer' from customerlogin where Email='" +Email+"' ; ";
+            Stmt.executeQuery(Statement);
+            String Result=  "";
+            while (Stmt.getResultSet().next()) {
+                Result = Stmt.getResultSet().getString("answer");
             }
             Con.close();
             if (Result == null || Result.equals("")) {
