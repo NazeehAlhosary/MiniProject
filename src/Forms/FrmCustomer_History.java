@@ -26,6 +26,7 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         SetIcons();
     }
     static int Card;
+    static String email;
     History history = new History();
     public FrmCustomer_History(int Card , String name,String Email) {
         initComponents();
@@ -37,10 +38,10 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         Connections.FillCustomRows(statement, tableHistory);
         SetIcons();
         this.Card = Card;
+        email = Email;
     }
     
     private void SetIcons(){
-        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 30, 30);
         Tools.PutImageInLable("Descending_White.png", lblDescending, 30, 30);
         Tools.PutImageInLable("Ascending_White.png", lblAscending, 30, 30);
         Tools.PutImageInLable("Back_White.png", lblBack, 30, 30);
@@ -86,8 +87,6 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         btnGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtSearch = new Controls.JTextBox();
-        jLabel6 = new javax.swing.JLabel();
         radCardNumber = new javax.swing.JRadioButton();
         RadISBN = new javax.swing.JRadioButton();
         radTitle = new javax.swing.JRadioButton();
@@ -95,7 +94,6 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         radStatus = new javax.swing.JRadioButton();
         radRentalDate = new javax.swing.JRadioButton();
         radReturnDate = new javax.swing.JRadioButton();
-        lblSearch = new javax.swing.JLabel();
         lblDescending = new javax.swing.JLabel();
         lblAscending = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
@@ -103,7 +101,6 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         lblExit = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableHistory = new javax.swing.JTable();
-        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(814, 488));
@@ -132,41 +129,27 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(29, 25, 340, 84);
 
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtSearch);
-        txtSearch.setBounds(110, 190, 420, 24);
-
-        jLabel6.setFont(new java.awt.Font("Big Caslon", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Search");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(50, 190, 49, 19);
-
         radCardNumber.setBackground(new java.awt.Color(44, 0, 44));
         radCardNumber.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radCardNumber.setForeground(new java.awt.Color(255, 255, 255));
         radCardNumber.setSelected(true);
         radCardNumber.setText("Card Number");
         jPanel1.add(radCardNumber);
-        radCardNumber.setBounds(6, 138, 107, 28);
+        radCardNumber.setBounds(20, 150, 107, 28);
 
         RadISBN.setBackground(new java.awt.Color(44, 0, 44));
         RadISBN.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         RadISBN.setForeground(new java.awt.Color(255, 255, 255));
         RadISBN.setText("ISBN");
         jPanel1.add(RadISBN);
-        RadISBN.setBounds(131, 138, 60, 28);
+        RadISBN.setBounds(150, 150, 60, 28);
 
         radTitle.setBackground(new java.awt.Color(44, 0, 44));
         radTitle.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radTitle.setForeground(new java.awt.Color(255, 255, 255));
         radTitle.setText("Title");
         jPanel1.add(radTitle);
-        radTitle.setBounds(209, 138, 55, 28);
+        radTitle.setBounds(220, 150, 55, 28);
 
         radAuthor.setBackground(new java.awt.Color(44, 0, 44));
         radAuthor.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
@@ -178,14 +161,14 @@ public class FrmCustomer_History extends javax.swing.JFrame {
             }
         });
         jPanel1.add(radAuthor);
-        radAuthor.setBounds(276, 138, 67, 28);
+        radAuthor.setBounds(290, 150, 67, 28);
 
         radStatus.setBackground(new java.awt.Color(44, 0, 44));
         radStatus.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radStatus.setForeground(new java.awt.Color(255, 255, 255));
         radStatus.setText("Status");
         jPanel1.add(radStatus);
-        radStatus.setBounds(355, 138, 67, 28);
+        radStatus.setBounds(370, 150, 67, 28);
 
         radRentalDate.setBackground(new java.awt.Color(44, 0, 44));
         radRentalDate.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
@@ -197,33 +180,14 @@ public class FrmCustomer_History extends javax.swing.JFrame {
             }
         });
         jPanel1.add(radRentalDate);
-        radRentalDate.setBounds(434, 138, 97, 28);
+        radRentalDate.setBounds(450, 150, 97, 28);
 
         radReturnDate.setBackground(new java.awt.Color(44, 0, 44));
         radReturnDate.setFont(new java.awt.Font("Big Caslon", 0, 12)); // NOI18N
         radReturnDate.setForeground(new java.awt.Color(255, 255, 255));
         radReturnDate.setText("Return Date");
         jPanel1.add(radReturnDate);
-        radReturnDate.setBounds(535, 138, 98, 28);
-
-        lblSearch.setToolTipText("Search");
-        lblSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblSearch.setMaximumSize(new java.awt.Dimension(50, 50));
-        lblSearch.setMinimumSize(new java.awt.Dimension(50, 50));
-        lblSearch.setPreferredSize(new java.awt.Dimension(50, 50));
-        lblSearch.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSearchMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblSearchMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblSearchMouseExited(evt);
-            }
-        });
-        jPanel1.add(lblSearch);
-        lblSearch.setBounds(540, 170, 50, 50);
+        radReturnDate.setBounds(550, 150, 98, 28);
 
         lblDescending.setToolTipText("Order items Descending");
         lblDescending.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -242,7 +206,7 @@ public class FrmCustomer_History extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblDescending);
-        lblDescending.setBounds(600, 170, 50, 50);
+        lblDescending.setBounds(660, 140, 50, 50);
 
         lblAscending.setToolTipText("Order items Ascending ");
         lblAscending.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -261,7 +225,7 @@ public class FrmCustomer_History extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblAscending);
-        lblAscending.setBounds(660, 170, 50, 50);
+        lblAscending.setBounds(720, 140, 50, 50);
 
         lblName.setBackground(new java.awt.Color(255, 255, 255));
         lblName.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
@@ -328,21 +292,13 @@ public class FrmCustomer_History extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableHistory);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 240, 660, 180);
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(110, 220, 420, 10);
+        jScrollPane1.setBounds(50, 200, 700, 200);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 813, 490);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
 
     private void radAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radAuthorActionPerformed
         // TODO add your handling code here:
@@ -351,48 +307,7 @@ public class FrmCustomer_History extends javax.swing.JFrame {
     private void radRentalDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radRentalDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radRentalDateActionPerformed
-
-    private void lblSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseClicked
-        String Statement = "Select * from History where CardNumber =" +Card +";";
-        String Statement2 = " like '%"+ txtSearch.getText()+ "%' where CardNumber =" +Card +";";
-        if (RadISBN.isSelected()){
-            Statement += " ISBN " + Statement2;
-        }
-        else if (radCardNumber.isSelected()){
-            Statement += " CardNumber " + Statement2;
-        }
-        else if (radTitle.isSelected()){
-            Statement += " Title " + Statement2;
-        }
-        else if (radAuthor.isSelected()){
-            Statement += " Author " + Statement2;
-        }
-        else if (radStatus.isSelected()){
-            Statement += " Status " + Statement2;
-        }
-        else if (radRentalDate.isSelected()){
-            Statement += " Rental_Date " + Statement2;
-        }
-        else if (radReturnDate.isSelected()){
-            Statement += " Return_Date " + Statement2;
-        }
-
-       history.GetSomeRows(Statement, tableHistory);
-        int Row = tableHistory.getRowCount();
-        if (Row == 0){
-            Tools.MsgBoxErrorX("No result!","Searching not found");
-            txtSearch.requestFocus();
-        }
-    }//GEN-LAST:event_lblSearchMouseClicked
     
-    private void lblSearchMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseExited
-        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 30, 30);
-    }//GEN-LAST:event_lblSearchMouseExited
-
-    private void lblSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseEntered
-        Tools.PutImageInLable("Search-icon-White.png", lblSearch, 45, 45);
-    }//GEN-LAST:event_lblSearchMouseEntered
-
     private void lblDescendingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDescendingMouseClicked
         OrderItems("desc");
     }//GEN-LAST:event_lblDescendingMouseClicked
@@ -419,7 +334,7 @@ public class FrmCustomer_History extends javax.swing.JFrame {
 
     private void lblBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseClicked
         this.dispose();
-        Tools.OpenForm(new Menu());
+        Tools.OpenForm(new FrmCustomer_Menu(email));
     }//GEN-LAST:event_lblBackMouseClicked
 
     private void lblBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBackMouseEntered
@@ -500,16 +415,13 @@ public class FrmCustomer_History extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadISBN;
     private javax.swing.ButtonGroup btnGroup;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblAscending;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblDescending;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblSearch;
     private javax.swing.JRadioButton radAuthor;
     private javax.swing.JRadioButton radCardNumber;
     private javax.swing.JRadioButton radRentalDate;
@@ -517,6 +429,5 @@ public class FrmCustomer_History extends javax.swing.JFrame {
     private javax.swing.JRadioButton radStatus;
     private javax.swing.JRadioButton radTitle;
     private javax.swing.JTable tableHistory;
-    private Controls.JTextBox txtSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -73,7 +73,7 @@ public class FrmCustomer_Menu extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(901, 448));
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(64, 1, 64));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Connection/menu.png"))); // NOI18N
 
@@ -120,6 +120,11 @@ public class FrmCustomer_Menu extends javax.swing.JFrame {
                 historybtnMouseExited(evt);
             }
         });
+        historybtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                historybtnKeyPressed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,11 +141,11 @@ public class FrmCustomer_Menu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 historybtn1MouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                historybtn1MouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 historybtn1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                historybtn1MouseExited(evt);
             }
         });
 
@@ -440,6 +445,10 @@ public class FrmCustomer_Menu extends javax.swing.JFrame {
     private void exitbtn4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitbtn4MouseEntered
         
     }//GEN-LAST:event_exitbtn4MouseEntered
+
+    private void historybtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_historybtnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_historybtnKeyPressed
 
     /**
      * @param args the command line arguments

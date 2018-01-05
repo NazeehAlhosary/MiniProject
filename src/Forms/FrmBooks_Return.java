@@ -790,9 +790,46 @@ Books book = new Books();
                     txtdays.setText("");
                     txtdelay.setText("");
             }else if (ConstructorNumber == 1){
-                String isbn = txtISBN.getText();
-                String name = txtName.getText();
-                Tools.MsgBoxInfo("Please go to the library and put the book in the return box \noutside the library building\nwithin two hours :) ", "Successfully returned book");
+                String card = txtCardNum.getText();
+                    String Statement = " Select * from History where CardNumber =" +card +" AND (Status = 'borrowed' OR Status = 'delayed') ;";
+                    String isbn = txtISBN.getText();
+                    String name = txtName.getText();
+                    String today = Tools.ToDay();
+                    String time = Tools.currentTime();
+                    String delayed = txtdelay.getText();
+                    int row= tableHistory.getSelectedRow();
+                    String Email= email;
+                    int fee = Integer.parseInt(txtFee.getText());
+                    int Row = tableHistory.getSelectedRow();
+                    retur.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+                    retur.setCardNumber(Integer.parseInt(txtCardNum.getText()));
+                    retur.UpdateStatusAvailable();
+
+
+                    history.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+                    history.setReturnedDate(Tools.ToDay());
+                    history.UpdateReturned();
+
+                    book.setISBN(Integer.parseInt(tableHistory.getValueAt(Row, 1).toString()));
+                    book.UpdateReturned();
+                    Tools.MsgBoxInfo("Please go to the library and put the book in the return box \noutside the library building\nwithin two hours :) ", "Successfully returned book");
+
+                    if(fee<=0){
+                    Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
+                            + "book "+ isbn+" has been successfully returned on "+today+" at "+time+"."
+                                    + "\n \n Thank you!");
+                    }
+                    else{
+                     Tools.SendEmail(Email,"Greetings from Library System", "Dear "+name+", \n "
+                             + "book "+ isbn+" has been successfully returned on "+today+" at "+time+".\n"
+                                     + " Unfortunately you were "+delayed+" days delayed, so you will have to pay "+fee+" SEK."
+                                             + " \n \n Thank you!");
+                    }
+                    Connection.Connections.FillCustomRows(Statement, tableHistory);
+                    txtISBN.setText("");
+                    txtFee.setText("");
+                    txtdays.setText("");
+                    txtdelay.setText("");
             }    
        }else{
            Tools.MsgBoxErrorI("Please select a customer","Missing info");

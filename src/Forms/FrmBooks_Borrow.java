@@ -457,6 +457,7 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void borrowbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowbtnMouseClicked
+       if (ConstructorNumber ==0 ){ 
         String msg = "Dear "  + txtUser.getText() + " you borrowed " + txtTitle.getText();
         if (EmptyText()) {
             Tools.MsgBoxError1(" Please Select a Book ", "Select Book");
@@ -486,6 +487,36 @@ public class FrmBooks_Borrow extends javax.swing.JFrame {
             txtSearch.requestFocus();
 
         }
+    }else{
+           String msg = "Dear "  + txtUser.getText() + " you borrowed " + txtTitle.getText();
+        if (EmptyText()) {
+            Tools.MsgBoxError1(" Please Select a Book ", "Select Book");
+        } else {
+
+            int Row = Borrowtable.getSelectedRow();
+            String statement = "SELECT * FROM `books` WHERE `Status` = 'Available' ";
+
+            book.setNumberOfBorrowing(Integer.parseInt(Borrowtable.getValueAt(Row, 7).toString()));
+            book.setISBN(Integer.parseInt(txtISBN.getText()));
+            book.UpdateBorrowing();
+
+            history.setISBN(Integer.parseInt(txtISBN.getText()));
+            history.setCardNumber(Integer.parseInt(txtCard.getText()));
+            history.setTitle(txtTitle.getText());
+            history.setAuthor(Borrowtable.getValueAt(Row, 2).toString());
+            history.setRentalDate(Tools.ToDay());
+            history.setReturnedDate(Tools.DateAfterFourteenDays());
+
+            history.Add();
+
+            book.GetSomeRows(statement, Borrowtable);
+            Tools.SendEmail(email, " Borrow ", msg);
+            Tools.MsgBoxInfo("Please go to the library and take the book", "Borrowing successfully ");
+            txtISBN.setText("");
+            txtTitle.setText("");
+            txtSearch.requestFocus();
+        }
+       }
     }//GEN-LAST:event_borrowbtnMouseClicked
 
     private void txtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleActionPerformed

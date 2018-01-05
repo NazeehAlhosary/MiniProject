@@ -351,9 +351,10 @@ public class FrmCustomer_Change_InFo extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBackMouseExited
 
     private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
-        boolean check = Tools.YesNoChooserBox("Do you want to quit?", "Exit!");
+        boolean check = Tools.YesNoChooserBox("Do you want to Log out?", "Exit!");
         if(check){
-            System.exit(0);
+            this.dispose();
+            Tools.OpenForm(new FrmCustomer_Login());
         }
     }//GEN-LAST:event_lblExitMouseClicked
 
